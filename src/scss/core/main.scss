@@ -137,7 +137,7 @@ hr {
   overflow: visible; /* 2 */
   @extend ._block;
   @extend ._reset_padding;
-  border:1px solid #8884;
+  border:0;border-top:1px solid #8886;
   margin: .5rem 0;
 }
 
@@ -298,10 +298,6 @@ $select_tc    : #000;
 
 footer ._container,
 html,body { @extend ._color; }
-hr {
-  & { border-top-color:#AAA;border-bottom-color:#FFF }
-  &._dark,._dark & { border-top-color:#000;border-bottom-color:#444 }
-}
 
 a,._a {
   &._visited,&:visited { color: $linkBc_visited }
