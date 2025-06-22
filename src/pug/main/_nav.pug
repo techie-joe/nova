@@ -1,0 +1,66 @@
+mixin menu_style_1(links)
+  each v in links
+    - classes = ['_no_u'];
+    - if(pageid === v[0]) classes = ['_no_color']
+    a(href=homeUri+v[1] class=classes.join(' ')) #{v[2]}
+    +_
+
+mixin menu_style_a1(links)
+  ._color_2: nav._container
+    each v in links
+      - classes = ['_a11'];
+      - if(pageid === v[0]) classes = ['_a11 _active']
+      a(href=homeUri+v[1] class=classes.join(' ')) #{v[2]}
+
+mixin menu_style_a2(links)
+  nav._container
+    each v in links
+      - classes = ['_a2'];
+      - if(pageid === v[0]) classes = ['_a2 _active']
+      a(href=homeUri+v[1] class=classes.join(' ')) #{v[2]}
+
+mixin main_nav
+  //- pageid, uri, title
+  hr._m0
+  #main_nav
+    +menu_style_a1([
+      ['core','core','Core'],
+      ['basics','basics','Basics'],
+      ['lab','lab','Lab'],
+    ])
+  hr._m0
+
+mixin core_nav
+  //- pageid, uri, title
+  //- ['core/form','core/form.html','Form'],
+  //- ['core/fieldset','core/fieldset.html','Fieldset'],
+  //- ['core/legend','core/legend.html','Legend'], 
+  //- ['core/label','core/label.html','Label'],
+  //- ['core/input','core/input.html','Input'],
+  //- ['core/select','core/select.html','Select'],
+  //- ['core/textarea','core/textarea.html','Textarea'],
+  //- ['core/checkbox','core/checkbox.html','Checkbox'],
+  //- ['core/radio','core/radio.html','Radio'],
+  //- ['core/image','core/image.html','Image'],
+  //- ['core/table','core/table.html','Table'],
+  //- ['core/button','core/button.html','Button'],
+  +menu_style_a2([
+    ['core/basic','core/basic.html','Basic'],
+    ['core/text','core/text.html','Text'],
+    ['core/table','core/table.html','Table'],
+    ['core/link','core/link.html','Link'],
+    ['core/details','core/details.html','Details'],
+    ['core/flex','core/flex.html','Flex'],
+  ])
+
+mixin basic_nav
+  //- pageid, uri, title
+  +menu_style_a2([
+  ])
+
+mixin lab_nav
+  //- pageid, uri, title
+  +menu_style_a2([
+    ['lab/test','lab/test.html','Test'],
+    ['lab/temp','lab/temp.html','Temp'],
+  ])

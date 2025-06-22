@@ -1,0 +1,19 @@
+extends ../../main/_html
+
+block append vars
+  - pageid = 'basics'
+  - title = `Basics | ${name}`
+  - description = 'Basic blocks.'
+
+block header
+  header._container
+    +logo
+    span#maindesc= description
+  +main_nav
+
+block article
+  +basic_nav
+  article(style="padding-bottom:1.8rem")
+    section._container: pre._scrollable.pre.
+      // Coming soon ..
+    //- pre.

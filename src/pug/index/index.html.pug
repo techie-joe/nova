@@ -1,0 +1,60 @@
+extends _html
+
+block append vars
+  - pageid   = 'index'
+  - pageUrl = siteUrl + '/index.html'
+  -
+    title       = 'NovaCSS'
+    description = 'Simple framework for websites and web applications.'
+
+//- block article
+  article: pre: +pageData
+
+block append style
+  style.
+    #logo {
+      display: block;
+      text-align: center;
+      font-size: 3em;
+      margin: 1em auto;
+    }
+    #maindesc {
+      text-align: center;
+      position: relative;
+      top: -3em;
+      margin:1em auto;
+    }
+  //- style.
+
+block header
+  header._center_m._table
+    +logo
+    #maindesc|!{description}
+  +main_nav
+
+block article
+  article._container: pre._scrollable.pre.
+    Name         : !{name}
+    Title        : !{title}
+    Description  : !{description}
+    Version      : !{version}
+
+    Author       : !{author}
+    Year         : !{year}
+    LICENSE      : !{license}
+
+    URL          : !{siteUrl}
+    URI          : !{homeUri} 
+
+    Last updated : !{today}
+  |
+
+//- block append script
+  script.
+    (()=>{
+      const
+        w = window,
+        storage = localStorage,
+        { log } = console;
+    })();
+  //- 

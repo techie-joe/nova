@@ -1,0 +1,50 @@
+-
+  //- project
+  name        = 'NovaCSS'
+  version     = '0.1.0'
+
+  //- credit
+  author      = 'Techie Joe'
+  license     = 'MIT'
+
+  //- urls
+  localUrl       = 'http://localhost/nova/site/'
+  siteUrl        = 'https://techiejoe.github.io/nova'
+  authorUrl      = 'https://techiejoe.github.io'
+  sourceUrl      = 'https://github.com/techie-joe/nova'
+
+  //- layout
+  //- layout      = '[layout]'
+
+  //- uris
+  //- homeUri     = '/nova/site/'
+
+  //- page
+  //- pageUrl     = '[page_url]'
+  //- title       = '[untitled]'
+  //- description = '[undescribed]'
+  //- pageid      = '[page_id]'
+
+  //- open graph metadata for social media sharing
+  og_url         = pageUrl? pageUrl + '?utm_source=homescreen' : undefined;
+  og_type        = 'website'
+  og_title       = title
+  og_description = description
+  og_image       = undefined
+  og_imageAlt    = undefined
+
+  //- styling
+  colorScheme = 'light dark'
+  themeColor  = '#222222'
+  htmlClass   = []
+
+  //- en or en-US following the BCP 47 language tag standard
+  lang        = 'en'
+  charset     = 'utf-8'
+
+  //- theme
+  INCLUDE_THEMEJS = true
+
+  //- progressive web app metadata
+  INCLUDE_MANIFEST        = false
+  INCLUDE_SERVICE_WORKERS = false
