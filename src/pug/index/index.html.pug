@@ -1,9 +1,9 @@
 extends _html
 
 block append vars
-  - pageid   = 'index'
-  - pageUrl = siteUrl + '/index.html'
   -
+    pageid      = 'index'
+    pageUrl     = siteUrl + '/index.html'
     title       = 'NovaCSS'
     description = 'Simple framework for websites and web applications.'
 
@@ -43,7 +43,7 @@ block article
     Year         : !{year}
     LICENSE      : !{license}
 
-    URL          : !{siteUrl}
+    URL          : !{pageUrl}
     URI          : !{homeUri} 
 
     Last updated : !{today}

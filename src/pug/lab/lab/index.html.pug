@@ -1,9 +1,11 @@
 extends ../../main/_html
 
 block append vars
-  - pageid = 'lab'
-  - title = `Lab | ${name}`
-  - description = 'Laboratory for upcoming features and upgrades.'
+  -
+    pageid      = 'lab'
+    pageUrl     = siteUrl + '/lab/index.html'
+    title       = `Lab | ${name}`
+    description = 'Laboratory for upcoming features and upgrades.'
 
 block append style
   style.

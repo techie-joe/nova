@@ -1,9 +1,11 @@
 extends ../../main/_html
 
 block append vars
-  - pageid = 'basics'
-  - title = `Basics | ${name}`
-  - description = 'Basic blocks.'
+  -
+    pageid      = 'basics'
+    pageUrl     = siteUrl + '/basics/index.html'
+    title       = `Basics | ${name}`
+    description = 'Basic blocks.'
 
 block header
   header._container
