@@ -10,6 +10,7 @@
 // ---------------------------------------------------------------
 
 // fonts
+$system: system-ui,sans-serif;
 $sans: "Arial",sans-serif;
 $serif: "Georgia",serif;
 
@@ -399,6 +400,7 @@ a._a31,._a31 {
 ._borderbox { &, &::before, &::after { box-sizing: border-box }}
 
 // fonts & texts
+._system { font-family: $system }
 ._sans { font-family: $sans }
 ._serif { font-family: $serif }
 ._mono { font-family: $monospace }
