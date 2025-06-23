@@ -417,8 +417,8 @@ u,._u {
 ._u_dashed { @extend ._u; text-decoration-style: dashed !important }
 ._u_double { @extend ._u; text-decoration-style: double !important }
 ._u_wavy { @extend ._u; text-decoration-style: wavy !important }
-._no_u, ._no_deco { text-decoration: none !important }
-._hover_u:hover { text-decoration: underline !important }
+._no_u, ._no_deco, a[href]._hover_u { text-decoration: none !important }
+._hover_u, a[href]._hover_u { &:hover { text-decoration: underline !important } }
 
 ._i { font-style: italic !important }
 
