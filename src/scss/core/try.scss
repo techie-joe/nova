@@ -1,0 +1,7 @@
+@use "sass:math";
+
+@for $i from 3 through 6 {
+  @for $j from 2 through $i - 1 {
+    ._f#{$i}-#{$j} { flex: 1 0 calc(96% / $i * $j); }
+  }
+}

@@ -1,0 +1,42 @@
+extends ../../main/_html
+
+block append vars
+  -
+    pageid      = 'core/container'
+    pageUrl     = siteUrl + '/core/container.html'
+    title       = `Container | ${name}`
+    description = 'Group contents together using containers.'
+
+block append style
+  style.
+  //- style.
+
+block header
+  header._container
+    +logo
+    span#maindesc= description
+  +main_nav
+
+block article
+  +core_nav
+  hr
+  article(style="padding-bottom:1.8rem")
+
+    style.
+      .o {
+        height:12rem;height:15vw;
+        padding:.25em .5em;
+        font-size:.8em;
+      }
+    //- style.
+
+    section._container
+      ._flex._gap_5
+        ._f3: .o._border border
+        ._f3: .o._outline outline
+        ._f3: .o._boxline boxline
+        ._f3: .o._radius_x25r._color_1 color_1
+        ._f3: .o._radius_x25r._color color
+        ._f3: .o._radius_x25r._color_2 color_2
+      //- flex
+    //- section

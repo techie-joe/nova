@@ -1,4 +1,6 @@
 
+@use "sass:math";
+
 @use "mixins" as *;
 @use "colors" as *;
 
@@ -495,11 +497,28 @@ u,._u {
 ._flex { display:flex; flex-wrap:wrap; }
 ._f_row { flex-direction:row }
 ._f_column { flex-direction:column }
-._f { flex:1 }
-._f1 { flex:1 0 100% }
-._f2 { flex:1 0 40% }
-._f3 { flex:1 0 30% }
-._f4 { flex:1 0 20% }
+
+.__f { box-sizing: border-box }
+
+._f  { @extend .__f; flex:1 1 0 } // fill
+._f1 { @extend .__f; flex:1 0 100% } // full
+@for $i from 2 through 6 { ._f#{$i} { @extend .__f; flex: 1 0 calc(96% / $i); } }
+@for $i from 3 through 6 {
+  @for $j from 2 through $i - 1 {
+    ._f#{$i}-#{$j} { @extend .__f; flex: 1 0 calc(96% / $i * $j); }
+  }
+}
+// @for $i from 4 through 6 { ._f#{$i * 2} { @extend .__f; flex: 1 0 calc(96% / ($i * 2)); } }
+
+// ._radius
+$gaps: (
+  "_25" : .25em,
+  "_5"  : .5em,
+  ""    : 1em,
+  "1_5" : 1.5em,
+  "2"   : 2em
+);
+@each $x, $value in $gaps { ._gap#{$x}  { gap: $value; } }
 
 // ._radius
 $radiuses: (

@@ -7,7 +7,7 @@ block append vars
     title       = `Flex | ${name}`
     description = 'Flex components.'
 
-block append style
+//- block append style
   style.
   //- style.
 
@@ -21,36 +21,99 @@ block article
   +core_nav
   hr
   article(style="padding-bottom:4em")
-    section
+    section._container
       style.
-        ._flex {
-          gap:.5rem;
+        ._outline {
+          background-color:rgba(255, 0, 183, .15);
+        }
+        ._outline2 {
+          outline: 1px solid rgba(0, 158, 36, .83);
+          background-color:rgba(0, 158, 36, .15);
         }
         .i {
           padding:.25em .5em;
           text-align: center;
           font-size:.8em;
+          user-select:none;
         }
-        ._f {
+        .f {
           padding:.25em .5em;
           text-align: center;
           font-size:.8em;
+          user-select:none;
+        }
+        .i:hover, .f:hover {
+          background-color:#8884;
         }
       //- style.
-      div._flex
-        div.i._outline Normal Item 1
-        div._f._outline Flex Item 2
-        div.i._outline Normal Item 2
-        div._f._outline Flex Item 3
-        div.i._outline Normal Item 3
+      ._flex._gap_5
+        .i._outline2(style="min-width:50px") 50px
+        .f._f._outline Flex
+        .i._outline2(style="min-width:100px") 100px
+        .f._f._outline Flex
+        .i._outline2(style="min-width:200px") 200px
       hr
-      div._flex
-        div._f._outline Flex Item 1
-        div._f._outline Flex Item 2
-        div._f._outline Flex Item 3
+      ._flex._gap_5
+        .i._outline2(style="min-width:300px") 300px
+        .f._f._outline Flex
+        .f._f._outline Flex
+        .f._f._outline Flex
       hr
-      div._flex
-        div.i._outline Normal Item 1
-        div.i._outline Normal Item 2
-        div.i._outline Normal Item 3
+      ._flex._gap_5
+        .i._outline2(style="min-width:50px") 50px
+        .i._outline2(style="min-width:100px") 100px
+        .i._outline2(style="min-width:200px") 200px
+        .i._outline2(style="min-width:300px") 300px
+        .f._f._outline Flex
+      hr
+      //- ------------------------------
+      mixin flex(n)
+        - for (let i = 0; i < n ; i++)
+          .f._outline(class="_f"+n) Flex #{n}
+      
+      ._flex._gap_5
+        +flex(6)
+        .f._outline2._f6-5 Flex 6-5
+        .f._outline2._f6 Flex 6
+        .f._outline2._f6-4 Flex 6-4
+        .f._outline2._f6-2 Flex 6-2
+        .f._outline2._f6-3 Flex 6-3
+        .f._outline2._f6-3 Flex 6-3
+        .f._outline2._f6-2 Flex 6-2
+        .f._outline2._f6-4 Flex 6-4
+        .f._outline2._f6 Flex 6
+        .f._outline2._f6-5 Flex 6-5
+      hr
+      ._flex._gap_5
+        +flex(5)
+        .f._outline2._f5-4 Flex 5-4
+        .f._outline2._f5 Flex 5
+        .f._outline2._f5-3 Flex 5-3
+        .f._outline2._f5-2 Flex 5-2
+        .f._outline2._f5-2 Flex 5-2
+        .f._outline2._f5-3 Flex 5-3
+        .f._outline2._f5 Flex 5
+        .f._outline2._f5-4 Flex 5-4
+      hr
+      ._flex._gap_5
+        +flex(4)
+        .f._outline2._f4-3 Flex 4-3
+        .f._outline2._f4 Flex 4
+        .f._outline2._f4-2 Flex 4-2
+        .f._outline2._f4-2 Flex 4-2
+        .f._outline2._f4 Flex 4
+        .f._outline2._f4-3 Flex 4-3
+      hr
+      ._flex._gap_5
+        +flex(3)
+        .f._outline2._f3-2 Flex 3-2
+        .f._outline2._f3 Flex 3
+        .f._outline2._f3 Flex 3
+        .f._outline2._f3-2 Flex 3-2
+      hr
+      ._flex._gap_5
+        .f._outline._f2 Flex 2
+        .f._outline2._f2 Flex 2
+      hr
+      ._flex._gap_5: +flex(1)
       hr

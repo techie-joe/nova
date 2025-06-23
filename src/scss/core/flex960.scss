@@ -1,0 +1,7 @@
+@use "sass:math";
+
+.__f { box-sizing: border-box }
+
+@for $i from 1 through 6 { ._f_#{$i} { @extend .__f; flex: 1 1 calc(960px / $i); } }
+@for $i from 4 through 6 { ._f_#{$i * 2} { @extend .__f; flex: 1 1 calc(960px / ($i * 2)); } }
+@for $i from 4 through 6 { ._f_#{$i * 2 - 1} { @extend .__f; flex: 1 1 math.floor(calc(960 / ($i * 2 - 1))) * 1px; } }
