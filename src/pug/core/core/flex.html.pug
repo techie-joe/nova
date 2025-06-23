@@ -1,9 +1,11 @@
 extends ../../main/_html
 
 block append vars
-  - pageid = 'core/flex'
-  - title = `Flex | ${name}`
-  - description = 'Flex components.'
+  -
+    pageid      = 'core/flex'
+    pageUrl     = siteUrl + '/core/flex.html'
+    title       = `Flex | ${name}`
+    description = 'Flex components.'
 
 block append style
   style.

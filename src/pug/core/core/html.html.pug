@@ -1,8 +1,11 @@
 extends ../../core/_html
 
 block append vars
-  - pageid = 'core/html'
-  - siteUrl += '/core/html.html'
+  -
+    pageid      = 'core/html'
+    pageUrl     = siteUrl + '/core/html.html'
+    title       = '[untitled]'
+    description = '[undescribed]'
 
 block header
   header._container
@@ -17,3 +20,9 @@ block header
 block article
   article._container
     pre: +pageData()
+
+block footer
+  footer
+    hr
+    - author = 'Techie Joe'
+    ._container: small| &copy; !{year} !{author}

@@ -1,9 +1,11 @@
 extends ../../main/_html
 
 block append vars
-  - pageid = 'core/table'
-  - title = `Table | ${name}`
-  - description = 'Table styles.'
+  -
+    pageid      = 'core/table'
+    pageUrl     = siteUrl + '/core/table.html'
+    title       = `Table | ${name}`
+    description = 'Table styles.'
 
 block append style
   style.

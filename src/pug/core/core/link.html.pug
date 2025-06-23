@@ -1,9 +1,11 @@
 extends ../../main/_html
 
 block append vars
-  - pageid = 'core/link'
-  - title = `Link | ${name}`
-  - description = 'Intuitive hyperlink styles.'
+  -
+    pageid      = 'core/link'
+    pageUrl     = siteUrl + '/core/link.html'
+    title       = `Link | ${name}`
+    description = 'Intuitive hyperlink styles.'
 
 block append style
   style.
@@ -72,14 +74,15 @@ block article
       |#[a(href='#')._active Active] 
       |#[a(href='#')._no_color No-Color] 
       br
+      |#[a(href='#')._link._hover_u Link-Hover-Underline] 
+      |#[a(href='#')._hover_link._hover_u Hover-Link-Hover-Underline] 
+      br
       |#[a(href='#')._hover_link Hover-Link] 
       |#[a(href='#')._hover_link._u_dotted Dotted] 
       |#[a(href='#')._hover_link._u_dashed Dashed] 
       |#[a(href='#')._hover_link._u_double Double] 
       |#[a(href='#')._hover_link._u_wavy Wavy] 
-      br
       |#[a(href='#')._hover_link._no_u No-Underline] 
-      |#[a(href='#')._hover_link._no_u._hover_u Hover-Underline] 
       br
       script.
         document.getElementById('hyperlink').href+='?t='+(new Date().getTime());

@@ -1,9 +1,11 @@
 extends ../../main/_html
 
 block append vars
-  - pageid = 'core/details'
-  - title = `Details | ${name}`
-  - description = 'Styling details and summary elements.'
+  -
+    pageid      = 'core/details'
+    pageUrl     = siteUrl + '/core/details.html'
+    title       = `Details | ${name}`
+    description = 'Styling details and summary elements.'
 
 block append style
   style.
