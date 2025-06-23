@@ -180,6 +180,14 @@ small,
 ._smaller  { font-size: 73% }
 ._smallest { font-size: 60% }
 
+button {
+  @extend ._cursor_pointer;
+  @extend ._system;
+  padding:.2em .5em;
+  border:1px solid #8884;
+  border-radius:.25em;
+}
+
 // remove border on images inside <a> links in IE 10.
 img { border-style: none }
 
@@ -233,13 +241,30 @@ dd._no_bullet { display: block }
 
 ol,ul { padding-left: 2em; padding-inline-start: 2em }
 
-details { margin:-.5rem;box-sizing:border-box; }
-summary { padding:.25em .5em }
-summary:hover {
-  @include color( $baseHc, $baseHg );
-  ._dark & { @include color( $dark_baseHc, $dark_baseHg ); }
+details { box-sizing:border-box; }
+._container > details { margin:-.5rem }
+summary {
+  & { padding:.25em .5em }
+  &._no_marker { list-style: none }
+  &._no_marker::-webkit-details-marker { display:none }
+  ._arrow {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-right: .25rem;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 10px solid $baseBc;
+    transition: transform 0.3s ease;
+    ._dark & { border-left-color: $dark_baseBc; }
+  }
+  &:hover {
+    @include color( $baseHc, $baseHg );
+    ._dark & { @include color( $dark_baseHc, $dark_baseHg ); }
+  }
+  &:active { opacity:.3 }
 }
-summary:active { opacity:.3 }
+details[open] ._arrow { transform: rotate(90deg) }
 
 // ---------------------------------------------------------------
 // theme basics

@@ -9,7 +9,6 @@ block append vars
 
 block append style
   style.
-    #btns button { margin:.25rem }
   //- style.
 
 block header
@@ -24,38 +23,6 @@ block article
   article(style="padding-bottom:1.8rem")
     section._container: pre._scrollable.pre.
       // New features to be implemented soon ..
-      
-      #[span#localStorage]
     //- pre.
-    hr
-    section._container#btns
-      button(onclick="localStorage.clear();updateLog();") Clear Storage
-      br
-      button(onclick="theme.change();updateLog();") Change Theme
 
-
-block prepend script
-  script.
-    (()=>{
-      const
-        w = window,
-        d = document,
-        eid = (id) => d.getElementById(id),
-        hid = (id,html) => eid(id).innerHTML=html,
-        storage = localStorage,
-        { log } = console;
-      const
-        updateLog = w.updateLog = () => {
-          hid('localStorage', [
-            `storage.length: ${storage.length}`
-          ].join('\n'));
-        };
-      //
-      w.addEventListener("storage", (event) => {
-        updateLog();
-      });
-      d.addEventListener('DOMContentLoaded', () => {
-        updateLog();
-      });
-    })();
-  //- 
+//- block prepend script

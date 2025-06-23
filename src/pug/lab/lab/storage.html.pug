@@ -1,0 +1,61 @@
+extends ../../main/_html
+
+block append vars
+  -
+    pageid      = 'lab/storage'
+    pageUrl     = siteUrl + '/lab/storage.html'
+    title       = `Storage | ${name}`
+    description = 'Testing storage.'
+
+block append style
+  style.
+    #btns button { margin:.25rem 0; font-size:.8em }
+  //- style.
+
+block header
+  header._container
+    +logo
+    span#maindesc= description
+  +main_nav
+
+block article
+  +lab_nav
+  hr
+  article(style="padding-bottom:1.8rem")
+    section._container#btns
+      button(onclick="(x=>{localStorage.setItem(x.substring(2,7),x.substring(2))})(Math.random().toString(36));updateLog();") Add to Storage
+      button(onclick="localStorage.clear();updateLog();") Clear Storage
+      button(onclick="theme.change();updateLog();") Change Theme
+    hr
+    section._container: pre._scrollable.pre.
+      #[span#localStorage]
+    //- pre.
+    hr
+
+block prepend script
+  script.
+    (()=>{
+      const
+        w = window,
+        d = document,
+        eid = (id) => d.getElementById(id),
+        hid = (id,html) => eid(id).innerHTML=html,
+        storage = localStorage,
+        { log } = console;
+      const
+        updateLog = w.updateLog = () => {
+          hid('localStorage', [
+            `storage.length: ${storage.length}`,
+            `theme: ${storage['theme']}`,
+            JSON.stringify(storage, null, 2)
+          ].join('\n'));
+        };
+      //
+      w.addEventListener("storage", (event) => {
+        updateLog();
+      });
+      d.addEventListener('DOMContentLoaded', () => {
+        updateLog();
+      });
+    })();
+  //- 

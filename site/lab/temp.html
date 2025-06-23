@@ -44,7 +44,7 @@
       }
     </style>
     <style>/* your style goes here */</style>
-    <style>#btns button { margin:.25rem }</style>
+    <style></style>
   </head>
   <body>
     <header class="_container"><a href="/nova/site/">
@@ -59,19 +59,12 @@
     </div>
     <hr class="_m0"/>
     <main>
-      <nav class="_container"><a class="_a2" href="/nova/site/lab/test.html">Test</a><a class="_a2 _active" href="/nova/site/lab/temp.html">Temp</a>
+      <nav class="_container"><a class="_a2 _active" href="/nova/site/lab/temp.html">Temp</a><a class="_a2" href="/nova/site/lab/test.html">Test</a><a class="_a2" href="/nova/site/lab/storage.html">Storage</a><a class="_a2" href="/nova/site/lab/text.html">Text</a>
       </nav>
       <hr>
       <article style="padding-bottom:1.8rem">
         <section class="_container">
-          <pre class="_scrollable pre">// New features to be implemented soon ..
-
-<span id="localStorage"></span></pre>
-        </section>
-        <hr>
-        <section class="_container" id="btns">
-          <button onclick="localStorage.clear();updateLog();">Clear Storage</button><br>
-          <button onclick="theme.change();updateLog();">Change Theme</button>
+          <pre class="_scrollable pre">// New features to be implemented soon ..</pre>
         </section>
       </article>
       <aside id="_side_article"></aside>
@@ -82,30 +75,6 @@
       <div class="_container"><small>&copy; 2025 Techie Joe</small></div>
     </footer>
     <aside id="_widgets"></aside>
-    <script>
-      (()=>{
-        const
-          w = window,
-          d = document,
-          eid = (id) => d.getElementById(id),
-          hid = (id,html) => eid(id).innerHTML=html,
-          storage = localStorage,
-          { log } = console;
-        const
-          updateLog = w.updateLog = () => {
-            hid('localStorage', [
-              `storage.length: ${storage.length}`
-            ].join('\n'));
-          };
-        //
-        w.addEventListener("storage", (event) => {
-          updateLog();
-        });
-        d.addEventListener('DOMContentLoaded', () => {
-          updateLog();
-        });
-      })();
-    </script>
     <script type="text/javascript" src="/nova/site/js/theme_v1.0.js?v=0.1.0"></script>
     <script>// your script goes here</script>
     
