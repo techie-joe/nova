@@ -6,3 +6,15 @@
   function onclick( _script='' ){
     return 'event.preventDefault();' + _script;
   }
+
+-
+  let js   = {}; // javascripts
+  let cssi = {}; // CSS images
+  let svgi = {}; // SVG images
+
+-
+  js = {
+    themeChange : "theme.change();",
+    goBack      : "(function(w){var h=w.history;w.opener?w.close():h.length>1?h.back():w.location.href='/';})(window)",
+    print       : "window.print();",
+  };

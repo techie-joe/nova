@@ -2,24 +2,11 @@
 @use "sass:math";
 
 @use "mixins" as *;
+@use "vars" as *;
 @use "colors" as *;
 
 @use "copyright";
 @use "normalize";
-
-// ---------------------------------------------------------------
-// variables
-// ---------------------------------------------------------------
-
-// fonts
-$system: system-ui,sans-serif;
-$sans: "Arial",sans-serif;
-$serif: "Georgia",serif;
-
-$monospace: "Consolas",monospace,monospace;
-// the double monospace is to Fix font size inheritance and scaling in all browsers.
-
-$baseFont: $sans;
 
 // ---------------------------------------------------------------
 // standardizations

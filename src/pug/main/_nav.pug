@@ -1,28 +1,29 @@
 mixin menu_style_1(links)
-  each v in links
-    - classes = ['_no_u'];
-    - if(pageid === v[0]) classes = ['_no_color']
-    a(href=homeUri+v[1] class=classes.join(' ')) #{v[2]}
-    +_
+  nav._container
+    each v in links
+      - classes = ['_no_u'];
+      - if(pageid === v[0]) classes = ['_no_color']
+      +l
+      a(href=homeUri+v[1] class=classes.join(' ') title=v[3]) #{v[2]}
 
 mixin menu_style_a1(links)
-  ._color_2: nav._container
+  nav._color_2: ._container
     each v in links
       - classes = ['_a11'];
       - if(pageid === v[0]) classes = ['_a11 _active']
-      a(href=homeUri+v[1] class=classes.join(' ')) #{v[2]}
+      a(href=homeUri+v[1] class=classes.join(' ') title=v[3]) #{v[2]}
 
 mixin menu_style_a2(links)
   nav._container
     each v in links
       - classes = ['_a2'];
       - if(pageid === v[0]) classes = ['_a2 _active']
-      a(href=homeUri+v[1] class=classes.join(' ')) #{v[2]}
+      a(href=homeUri+v[1] class=classes.join(' ') title=v[3]) #{v[2]}
 
 mixin main_nav
-  //- pageid, uri, title
   hr._m0
   #main_nav
+    //- pageid, uri, title
     +menu_style_a1([
       ['core','core','Core'],
       ['basics','basics','Basics'],
@@ -57,6 +58,7 @@ mixin core_nav
 
 mixin basic_nav
   //- pageid, uri, title
+  //- ['basics/temp','basics/index.html','Home'],
   +menu_style_a2([
   ])
 

@@ -1,0 +1,26 @@
+extends ../main/_error
+
+//- ==============================================================
+//- variables for every error page
+//- ==============================================================
+block append vars
+  - layout = 'core/_error'
+
+block append updatePageData
+  - htmlClass.push('_errorpage')
+
+block meta
+  include _meta
+  meta(name="description" content!=description||'[undescribed]')/
+
+block article
+  article#_main: ._container
+    h1#_h1 !{heading}
+    p#_p !{about}
+    nav#_nav: +backlink._link._a31 Back
+
+block side_article
+  if SHOW_PAGEDATA
+    aside#_side_article._container
+      hr
+      pre._scrollable.pre: +pageData()

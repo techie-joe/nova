@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html class="_hidden" lang="en">
+<html class="_hidden _errorpage" lang="en">
   
   <!-- NovaCSS v0.1.0 |  -->
-  <!-- layout:main/_html -->
+  <!-- layout:core/_error -->
   
   <head>
     <meta charset="utf-8"/>
-    <title>[untitled] | NovaCSS</title>
+    <title>Oops!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
     <meta id="_color_scheme" name="color-scheme" content="light dark"/>
@@ -16,17 +16,10 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/nova/site/icons/favicon-16x16.png?v=0.1.0"/>
     <link rel="icon" type="image/x-icon" sizes="any" href="/nova/site/icons/favicon.ico?v=0.1.0"/>
     <!--[if lt IE 9]><script src="//unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
-    <meta name="description" content="[undescribed]"/>
-    <meta name="author" content="Techie Joe"/>
-    <meta name="publisher" content="[unknown]"/>
-    <meta property="og:title" content="[untitled] | NovaCSS"/>
-    <meta property="og:description" content="[undescribed]"/>
-    <meta property="og:type" content="website"/>
-    <meta property="og:url" content="https://techiejoe.github.io/nova/core/blank.html?utm_source=homescreen"/>
-    <meta property="og:image"/>
-    <meta property="og:image:alt"/>
+    <meta name="description" content="Error while processing your request."/>
     <link rel="stylesheet" media="all" href="/nova/site/css/main.css?v=0.1.0" id="_style"/>
     <link rel="stylesheet" media="all" href="/nova/site/css/custom.css?v=0.1.0" id="_custom_style"/>
+    <link rel="stylesheet" media="all" href="/nova/site/css/errorpage.css?v=0.1.0"/>
     <style>
       #logo {
         font-weight: 600;
@@ -53,50 +46,19 @@
       }
     </style>
     <style>/* your style goes here */</style>
+    <style>body::before { content:'core/_error' }</style>
   </head>
   <body>
-    <header class="_container">
-      <pre class="_scrollable pre">Hello, there.
-This is a placeholder to get you started.
-Copy the code from 'core/blank' to create your own page.
-
-<a class="_link _a31" href="./">Back</a></pre>
-      <hr>
-    </header>
+    <header></header>
     <main>
-      <article class="_container">
-        <pre class="_scrollable pre">
-name             = NovaCSS
-version          = 0.1.0
-
-author           = Techie Joe
-license          = MIT
-
-today            = Tue Jun 24 2025
-year             = 2025
-
-layout           = main/_html
-homeUri          = /nova/site/
-
-pageUrl          = https://techiejoe.github.io/nova/core/blank.html
-title            = [untitled] | NovaCSS
-description      = [undescribed]
-pageid           = core/blank
-
-og_url           = https://techiejoe.github.io/nova/core/blank.html?utm_source=homescreen
-og_title         = [untitled] | NovaCSS
-og_description   = [undescribed]
-og_type          = website
-og_image         = undefined
-og_imageAlt      = undefined
-
-authorUrl        = https://techiejoe.github.io
-sourceUrl        = https://github.com/techie-joe/nova
-localUrl         = http://localhost/nova/site/
-siteUrl          = https://techiejoe.github.io/nova
-</pre>
+      <article id="_main">
+        <div class="_container">
+          <h1 id="_h1">Oops!</h1>
+          <p id="_p">Sorry, an error occured while processing your request.</p>
+          <nav id="_nav"><a class="_needjs _link _a31" href="#" onclick="event.preventDefault();(function(w){var h=w.history;w.opener?w.close():h.length>1?h.back():w.location.href='/';})(window)" title="Back to previous page">Back</a>
+          </nav>
+        </div>
       </article>
-      <aside id="_side_article"></aside>
     </main>
     <aside id="_side_bar"></aside>
     <footer>

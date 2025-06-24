@@ -55,6 +55,19 @@ mixin js(src)
 mixin jsv(src)
   script(type="text/javascript" src!=appendVersion(src))&attributes(attributes)
 
+mixin backlink(title='Back to previous page')
+  a(href='#' onclick!=onclick(js.goBack) title=title)._needjs&attributes(attributes): block
+
+mixin changeThemeLink(title='Change Theme (Ctrl+Alt+T)')
+  a(href='#' onclick!=onclick(js.themeChange) title=title)._needjs&attributes(attributes): block
+
+//- use ._needjs on elements that need js enabled
+mixin needjs
+  style#_needjs.
+    ._needjs { display: none !important; }
+  script.
+    document.getElementById('_needjs').remove();
+
 //- ==============================================================
 //- navigations
 //- ==============================================================

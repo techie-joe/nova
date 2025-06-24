@@ -15,7 +15,7 @@ block header
 
 mixin menu(links)
   each v in links
-    a(href=homeUri+v[1])._a2 !{v[2]}
+    a(href=homeUri+v[1] title=v[3])._a2 !{v[2]}
 
 block article
   +core_nav
@@ -25,7 +25,9 @@ block article
       +menu([
         ['core/html','core/html.html','Html'],
         ['core/blank','core/blank.html','Blank'],
-        ['core/404','core/404','&middot;&middot;'],
-        ['core/404','core/404.html','404'],
+        ['core/error','core/error.html','Error'],
+        ['core/500','core/e500.html','500'],
+        ['core/404','core/e404.html','404'],
+        ['core/404','core/404','&middot;&middot;','Simulate real 404'],
       ])
     hr
