@@ -4,6 +4,12 @@ const
     css: 'site/css',
     scripts: 'site/js',
   },
+  copyList = {
+    _file: 'src/files',
+    file: [
+      'index'
+    ]
+  },
   buildList = {
     _pug: 'src/pug',
     pug: [
@@ -26,5 +32,8 @@ const
   });
   list['css'] = list.scss.map(item => `${list._scss}/${item}/**/*.scss`);
 });
+[copyList].forEach(list => {
+  list['files'] = list.file.map(item => `${list._file}/${item}/**/*`);
+});
 
-module.exports = { buildList, watchList, _dest };
+module.exports = { buildList, watchList, copyList, _dest };

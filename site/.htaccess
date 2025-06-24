@@ -1,0 +1,2 @@
+ErrorDocument 404 /nova/site/404.html
+ErrorDocument 500 /nova/site/500.html

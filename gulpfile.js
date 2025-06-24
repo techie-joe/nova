@@ -23,26 +23,28 @@ const
   isEmpty = (...oo) => oo.every(o => typeof o === 'object' && s.length > 0);
 // isString = (...ss) => ss.every(s => typeof s === 'string' && s.length > 0);
 
+// const gulp_file   = require('gulp-file'); // to generate files
+
 const main = (() => {
-  const { buildList, watchList, _dest } = require('./gulplist');
-  if (!buildList || !watchList || !_dest) {
-    throw new Error('Please define gulplist.js');
+  const { buildList, watchList, copyList, _dest } = require('./gulplist');
+  if (!buildList || !watchList || !copyList || !_dest) {
+    throw new Error('Error reading gulplist.js');
   }
   const
-    redMessage = (message) =>'\x1B[31m'+message+'\x1B[0m',
-    onPugError = function onPugError(error) {
+    redMessage = (message) => '\x1B[31m' + message + '\x1B[0m',
+    onError = function onError(error) {
       const
         { message, msg, code, fileName, line, column } = error,
-        logs = [ redMessage('Error: ') + (message || (code + ' : ' + msg)) ];
+        logs = [redMessage('Error: ') + (message || (code + ' : ' + msg))];
       if (fileName) logs.push(fileName + ((line && column) ? ` [${line}${column ? '|' + column : ''}]` : ''));
       log(logs.join('\n'));
       this.emit('end');
     },
-    slog = (what,source) => log(`Transpiling ${what} from: \n${source.join('\n')}`),
+    slog = (what, source) => log(`Transpiling ${what} from: \n${source.join('\n')}`),
     html = (source, destination) => async function html_transpiler() {
       slog('HTML', source);
       return src(source)
-        .on('error', onPugError)
+        .on('error', onError)
         .pipe(pug({ pretty: true }))
         .pipe(ext('.html'))
         .pipe(dest(destination));
@@ -50,7 +52,7 @@ const main = (() => {
     php = (source, destination) => async function php_transpiler() {
       slog('PHP', source);
       return src(source)
-        .on('error', onPugError)
+        .on('error', onError)
         .pipe(pug({ pretty: true }))
         .pipe(ext('.php'))
         .pipe(dest(destination));
@@ -58,7 +60,7 @@ const main = (() => {
     txt = (source, destination) => async function txt_transpiler() {
       slog('TXT', source);
       return src(source)
-        .on('error', onPugError)
+        .on('error', onError)
         .pipe(pug())
         .pipe(ext('.txt'))
         .pipe(dest(destination));
@@ -66,7 +68,7 @@ const main = (() => {
     md = (source, destination) => async function md_transpiler() {
       slog('MD', source);
       return src(source)
-        .on('error', onPugError)
+        .on('error', onError)
         .pipe(pug())
         .pipe(ext('.md'))
         .pipe(dest(destination));
@@ -74,18 +76,10 @@ const main = (() => {
     sassOpt = {
       outputStyle: 'compressed' // compressed | expanded
     },
-    onSassError = function onSassError(error) {
-      const
-        { messageOriginal, message, msg, code, fileName, line, column } = error,
-        logs = [ redMessage('Error: ') + (message || (code + ' : ' + msg)) ];
-      if (fileName) logs.push(fileName + ((line && column) ? ` [${line}${column ? '|' + column : ''}]` : ''));
-      log(logs.join('\n'));
-      this.emit('end');
-    },
     scss = (source, destination, opt = sassOpt) => async function scss_transpiler() {
       slog('SCSS', source);
       return src(source)
-        .on('error', onSassError)
+        .on('error', onError)
         .pipe(sass(opt))
         .pipe(cleanCSS())
         .pipe(dest(destination));
@@ -115,7 +109,16 @@ const main = (() => {
       _watch(txt, watchList.txt, _dest.pages),
       _watch(md, watchList.md, _dest.pages),
     ),
-    stylesw = _watch(scss, watchList.css, _dest.css);
+    stylesw = _watch(scss, watchList.css, _dest.css),
+    // copier
+    copy_files = (source, destination) => async function file_copier() {
+      return src(source, { dot: true })
+      .on('error', onError)
+      .pipe(dest(destination));
+    },
+    files = parallel(
+      copy_files(copyList.files, _dest.pages),
+    );
 
   return {
     test: async () => {
@@ -129,6 +132,7 @@ const main = (() => {
     txt,
     md,
     scss,
+    files,
     pages,
     styles,
     pagesw,
