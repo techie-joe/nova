@@ -1,2 +1,5 @@
+# ErrorDocument 400 /nova/site/400.html
+# ErrorDocument 401 /nova/site/401.html
+# ErrorDocument 403 /nova/site/403.html
 ErrorDocument 404 /nova/site/404.html
 ErrorDocument 500 /nova/site/500.html

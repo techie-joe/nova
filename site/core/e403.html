@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html class="_hidden" lang="en">
+<html class="_hidden _errorpage" lang="en">
   
   <!-- NovaCSS v0.1.0 |  -->
-  <!-- layout:main/_html -->
+  <!-- layout:core/_error -->
   
   <head>
     <meta charset="utf-8"/>
-    <title>Core | NovaCSS</title>
+    <title>Forbidden</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
     <meta id="_color_scheme" name="color-scheme" content="light dark"/>
@@ -16,17 +16,10 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/nova/site/icons/favicon-16x16.png?v=0.1.0"/>
     <link rel="icon" type="image/x-icon" sizes="any" href="/nova/site/icons/favicon.ico?v=0.1.0"/>
     <!--[if lt IE 9]><script src="//unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
-    <meta name="description" content="Core components."/>
-    <meta name="author" content="Techie Joe"/>
-    <meta name="publisher" content="[unknown]"/>
-    <meta property="og:title" content="Core | NovaCSS"/>
-    <meta property="og:description" content="Core components."/>
-    <meta property="og:type" content="website"/>
-    <meta property="og:url" content="https://techiejoe.github.io/nova/core/index.html?utm_source=homescreen"/>
-    <meta property="og:image"/>
-    <meta property="og:image:alt"/>
+    <meta name="description" content="Access denied."/>
     <link rel="stylesheet" media="all" href="/nova/site/css/main.css?v=0.1.0" id="_style"/>
     <link rel="stylesheet" media="all" href="/nova/site/css/custom.css?v=0.1.0" id="_custom_style"/>
+    <link rel="stylesheet" media="all" href="/nova/site/css/errorpage.css?v=0.1.0"/>
     <style>
       #logo {
         font-weight: 600;
@@ -53,29 +46,19 @@
       }
     </style>
     <style>/* your style goes here */</style>
+    <style>body::before { content:'core/_error' }</style>
   </head>
   <body>
-    <header class="_container"><a href="/nova/site/">
-        <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">CSS</span></div></a><span id="maindesc">Core components.</span>
-    </header>
-    <hr class="_m0"/>
-    <div id="main_nav">
-      <nav class="_color_2">
-        <div class="_container"><a class="_a11 _active" href="/nova/site/core">Core</a><a class="_a11" href="/nova/site/basics">Basics</a><a class="_a11" href="/nova/site/lab">Lab</a>
-        </div>
-      </nav>
-    </div>
-    <hr class="_m0"/>
+    <header></header>
     <main>
-      <nav class="_container"><a class="_a2" href="/nova/site/core/basic.html">Basic</a><a class="_a2" href="/nova/site/core/text.html">Text</a><a class="_a2" href="/nova/site/core/table.html">Table</a><a class="_a2" href="/nova/site/core/link.html">Link</a><a class="_a2" href="/nova/site/core/details.html">Details</a><a class="_a2" href="/nova/site/core/flex.html">Flex</a><a class="_a2" href="/nova/site/core/container.html">Container</a><a class="_a2" href="/nova/site/core/alignment.html">Alignment</a>
-      </nav>
-      <hr>
-      <article>
-        <nav class="_container"><a class="_a2" href="/nova/site/core/html.html">Html</a><a class="_a2" href="/nova/site/core/blank.html">Blank</a><a class="_a2" href="/nova/site/core/error.html">Error</a><a class="_a2" href="/nova/site/core/e500.html">500</a><a class="_a2" href="/nova/site/core/e400.html">400</a><a class="_a2" href="/nova/site/core/e401.html">401</a><a class="_a2" href="/nova/site/core/e403.html">403</a><a class="_a2" href="/nova/site/core/e404.html">404</a><a class="_a2" href="/nova/site/404" title="Simulate real 404">&middot;&middot;</a>
-        </nav>
-        <hr>
+      <article id="_main">
+        <div class="_container">
+          <h1 id="_h1">Forbidden</h1>
+          <p id="_p">Sorry, you are not allowed to access this page.</p>
+          <nav id="_nav"><a class="_needjs _link _a31" href="#" onclick="event.preventDefault();(function(w){var h=w.history;w.opener?w.close():h.length>1?h.back():w.location.href='/';})(window)" title="Back to previous page">Back</a>
+          </nav>
+        </div>
       </article>
-      <aside id="_side_article"></aside>
     </main>
     <aside id="_side_bar"></aside>
     <footer>

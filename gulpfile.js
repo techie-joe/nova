@@ -23,8 +23,6 @@ const
   isEmpty = (...oo) => oo.every(o => typeof o === 'object' && s.length > 0);
 // isString = (...ss) => ss.every(s => typeof s === 'string' && s.length > 0);
 
-// const gulp_file   = require('gulp-file'); // to generate files
-
 const main = (() => {
   const { buildList, watchList, copyList, _dest } = require('./gulplist');
   if (!buildList || !watchList || !copyList || !_dest) {
@@ -40,6 +38,13 @@ const main = (() => {
       log(logs.join('\n'));
       this.emit('end');
     },
+    // copier
+    files = ((source, destination) => async function file_copier() {
+      log(`Copying files from: \n${source.join('\n')}`)
+      return src(source, { dot: true })
+      .on('error', onError)
+      .pipe(dest(destination));
+    })(copyList.files,_dest.pages),
     slog = (what, source) => log(`Transpiling ${what} from: \n${source.join('\n')}`),
     html = (source, destination) => async function html_transpiler() {
       slog('HTML', source);
@@ -109,16 +114,7 @@ const main = (() => {
       _watch(txt, watchList.txt, _dest.pages),
       _watch(md, watchList.md, _dest.pages),
     ),
-    stylesw = _watch(scss, watchList.css, _dest.css),
-    // copier
-    copy_files = (source, destination) => async function file_copier() {
-      return src(source, { dot: true })
-      .on('error', onError)
-      .pipe(dest(destination));
-    },
-    files = parallel(
-      copy_files(copyList.files, _dest.pages),
-    );
+    stylesw = _watch(scss, watchList.css, _dest.css);
 
   return {
     test: async () => {

@@ -5,8 +5,8 @@ const
     scripts: 'site/js',
   },
   copyList = {
-    _file: 'src/files',
-    file: [
+    _files: 'src/files',
+    files: [
       'index'
     ]
   },
@@ -33,7 +33,7 @@ const
   list['css'] = list.scss.map(item => `${list._scss}/${item}/**/*.scss`);
 });
 [copyList].forEach(list => {
-  list['files'] = list.file.map(item => `${list._file}/${item}/**/*`);
+  list['files'] = list.files.map(item => `${list._files}/${item}/**/*`);
 });
 
 module.exports = { buildList, watchList, copyList, _dest };
