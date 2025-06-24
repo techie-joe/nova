@@ -4,10 +4,12 @@ include _vars
 
 block vars
   - layout = 'core/_html'
+  -
+    htmlClass = []
+    mainClass = []
 
 block updatePageData
   -
-    if(typeof htmlClass !== 'object') { htmlClass=[] }
     if(INCLUDE_THEMEJS) { htmlClass.push('_hidden') }
     og_title = title
     og_description = description
@@ -41,7 +43,7 @@ block document
           header
 
         block main
-          main
+          main(class=mainClass.join(' '))
 
             block article
               article._container: pre.

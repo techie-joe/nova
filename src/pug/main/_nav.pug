@@ -7,7 +7,7 @@ mixin menu_style_1(links)
       a(href=homeUri+v[1] class=classes.join(' ') title=v[3]) #{v[2]}
 
 mixin menu_style_a1(links)
-  nav._color_2: ._container
+  nav
     each v in links
       - classes = ['_a11'];
       - if(pageid === v[0]) classes = ['_a11 _active']
@@ -22,7 +22,7 @@ mixin menu_style_a2(links)
 
 mixin main_nav
   hr._m0
-  #main_nav
+  #_main_nav._color_2
     //- pageid, uri, title
     +menu_style_a1([
       ['core','core','Core'],

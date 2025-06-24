@@ -8,7 +8,7 @@
 
 ._errorpage {
 
-  & { font-family: "Arial",sans-serif; }
+  & { font-family: $baseFont; }
 
   body::before { font-size:10px;position:absolute;top:0;left:0;opacity:.3;margin:.3rem .5rem; }
 
@@ -20,13 +20,10 @@
     transform: translateX(-50%) translateY(-50%);
   }
   
-  #_h1 {
-    font-size: 2rem;
-  }
+  #_h1 { font-size: 2em; }
   
-  #_p {
-    margin: 1rem auto 2.3rem auto;
-    width: 255px;
-  }
+  #_p { margin: 1em auto; width: 255px; }
+
+  #_nav { margin:2.5rem auto; }
 
 } // _errorpage

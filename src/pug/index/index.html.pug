@@ -7,9 +7,6 @@ block append vars
     title       = 'NovaCSS'
     description = 'Simple framework for websites and web applications.'
 
-//- block article
-  article: pre: +pageData
-
 block append style
   style.
     #logo {
@@ -27,10 +24,11 @@ block append style
   //- style.
 
 block header
-  header._center_m._table
-    +logo
-    #maindesc|!{description}
-  +main_nav
+  header
+    ._color_1: ._center_m._table
+      +logo
+      #maindesc|!{description}
+    +main_nav
 
 block article
   article._container: pre._scrollable.pre.
