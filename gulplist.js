@@ -13,7 +13,7 @@ const
   buildList = {
     _pug: 'src/pug',
     pug: [
-      'core',
+      '_core',
       'index',
       'basics',
       'lab',
