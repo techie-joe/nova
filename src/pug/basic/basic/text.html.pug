@@ -9,6 +9,7 @@ block append vars
 
 block append style
   style.
+    #info ._f3 { flex-basis:30% }
   //- style.
 
 block header
@@ -20,7 +21,7 @@ block header
 block article
   +basic_nav
   hr
-  article(style="padding-bottom:4rem")
+  article(style="padding-bottom:4rem")._960
     section._container
       div
         | normal
@@ -79,7 +80,7 @@ block article
     hr
     section._container
 
-      p Use helper class to customize the visual appearance of headings and texts. They helps separate visual appearance from semantics, giving you better control over both. Use #[code._code _h1] to #[code._code _h7] for headings, and #[code._code _t1] to #[code._code _t12] for other texts.
+      p(style="max-width: 36rem;") Use helper class to customize the visual appearance of headings and texts. They helps separate visual appearance from semantics, giving you better control over both. Use #[code._code _h1] to #[code._code _h7] for headings, and #[code._code _t1] to #[code._code _t12] for other texts.
 
       - var heros     = 'Text Sample';
       - var headings  = 'Text Sample';
@@ -98,8 +99,8 @@ block article
         p Normal Text
 
     hr
-    section._container._flex(style="gap:1rem 2rem")
-      ._f1
+    section._container._flex(style="gap:2rem 2.5rem")#info
+      ._f1(style="max-width: 36rem;")
         h2._sans._h4 System Font
         p._system._text_justify.
           System font is the default set of fonts used by an operating system for displaying text across the user interface. The primary goal is to provide a seamless experience for users as they interact with different applications and system elements. Common examples includes "Segoe UI" on Windows, "San Francisco" on macOS, and "Roboto" on Android. They are an integral part of the overall design language and contribute to the visual identity of the operating system.

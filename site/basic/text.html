@@ -53,7 +53,7 @@
       }
     </style>
     <style>/* your style goes here */</style>
-    <style></style>
+    <style>#info ._f3 { flex-basis:30% }</style>
   </head>
   <body>
     <header class="_container"><a href="/nova/site/">
@@ -69,7 +69,7 @@
       <nav class="_container"><a class="_a2" href="/nova/site/basic/basic.html">Basic</a><a class="_a2 _active" href="/nova/site/basic/text.html">Text</a><a class="_a2" href="/nova/site/basic/table.html">Table</a><a class="_a2" href="/nova/site/basic/link.html">Link</a><a class="_a2" href="/nova/site/basic/details.html">Details</a><a class="_a2" href="/nova/site/basic/flex.html">Flex</a><a class="_a2" href="/nova/site/basic/container.html">Container</a><a class="_a2" href="/nova/site/basic/alignment.html">Alignment</a>
       </nav>
       <hr>
-      <article style="padding-bottom:4rem">
+      <article class="_960" style="padding-bottom:4rem">
         <section class="_container">
           <div>
             normal
@@ -134,7 +134,7 @@
         </section>
         <hr>
         <section class="_container">
-          <p>Use helper class to customize the visual appearance of headings and texts. They helps separate visual appearance from semantics, giving you better control over both. Use <code class="_code">_h1</code> to <code class="_code">_h7</code> for headings, and <code class="_code">_t1</code> to <code class="_code">_t12</code> for other texts.</p>
+          <p style="max-width: 36rem;">Use helper class to customize the visual appearance of headings and texts. They helps separate visual appearance from semantics, giving you better control over both. Use <code class="_code">_h1</code> to <code class="_code">_h7</code> for headings, and <code class="_code">_t1</code> to <code class="_code">_t12</code> for other texts.</p>
           <div class="_text_centerx">
             <p class="_t10">Text Sample 3</p>
             <p class="_t9">Text Sample 2</p>
@@ -150,8 +150,8 @@
           </div>
         </section>
         <hr>
-        <section class="_container _flex" style="gap:1rem 2rem">
-          <div class="_f1">
+        <section class="_container _flex" style="gap:2rem 2.5rem" id="info">
+          <div class="_f1" style="max-width: 36rem;">
             <h2 class="_sans _h4">System Font</h2>
             <p class="_system _text_justify">
               System font is the default set of fonts used by an operating system for displaying text across the user interface. The primary goal is to provide a seamless experience for users as they interact with different applications and system elements. Common examples includes "Segoe UI" on Windows, "San Francisco" on macOS, and "Roboto" on Android. They are an integral part of the overall design language and contribute to the visual identity of the operating system.
