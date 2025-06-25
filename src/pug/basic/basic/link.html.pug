@@ -1,0 +1,88 @@
+extends ../../_basic/_html
+
+block append vars
+  -
+    pageid      = 'basic/link'
+    pageUrl     = siteUrl + '/basic/link.html'
+    title       = `Link | ${name}`
+    description = 'Intuitive hyperlink styles.'
+
+block append style
+  style.
+  //- style.
+
+block header
+  header._container
+    +logo
+    span#maindesc= description
+  +main_nav
+
+block article
+  +basic_nav
+  hr
+  article(style="padding-bottom:4rem")
+    nav._container
+      a(href='#')._a31#hyperlink31 Hyperlink
+      a(href='#')._a31._link Link
+      a(href='#')._a31._visited Visited
+      a(href='#')._a31._hover Hover
+      a(href='#')._a31._active Active
+      script.
+        document.getElementById('hyperlink31').href+='?t='+(new Date().getTime());
+    hr._m0
+    nav._container
+      a(href='#')._a3#hyperlink3 Hyperlink
+      a(href='#')._a3._link Link
+      a(href='#')._a3._visited Visited
+      a(href='#')._a3._hover Hover
+      a(href='#')._a3._active Active
+      script.
+        document.getElementById('hyperlink3').href+='?t='+(new Date().getTime());
+    hr._m0
+    nav._container
+      a(href='#')._a2#hyperlink2 Hyperlink
+      a(href='#')._a2._link Link
+      a(href='#')._a2._visited Visited
+      a(href='#')._a2._hover Hover
+      a(href='#')._a2._active Active
+      script.
+        document.getElementById('hyperlink2').href+='?t='+(new Date().getTime());
+    hr._m0
+    nav._color_2
+      a(href='#')._a11#hyperlink11 Hyperlink
+      a(href='#')._a11._link Link
+      a(href='#')._a11._visited Visited
+      a(href='#')._a11._hover Hover
+      a(href='#')._a11._active Active
+      script.
+        document.getElementById('hyperlink11').href+='?t='+(new Date().getTime());
+    hr._m0
+    nav._color_2
+      a(href='#')._a1#hyperlink1 Hyperlink
+      a(href='#')._a1._link Link
+      a(href='#')._a1._visited Visited
+      a(href='#')._a1._hover Hover
+      a(href='#')._a1._active Active
+      script.
+        document.getElementById('hyperlink1').href+='?t='+(new Date().getTime());
+    hr._m0
+    section._container
+      |#[a(href='#')#hyperlink Hyperlink] 
+      |#[a(href='#')._link Link] 
+      |#[a(href='#')._visited Visited] 
+      |#[a(href='#')._hover Hover] 
+      |#[a(href='#')._active Active] 
+      |#[a(href='#')._no_color No-Color] 
+      br
+      |#[a(href='#')._link._hover_u Link-Hover-Underline] 
+      |#[a(href='#')._hover_link._hover_u Hover-Link-Hover-Underline] 
+      br
+      |#[a(href='#')._hover_link Hover-Link] 
+      |#[a(href='#')._hover_link._u_dotted Dotted] 
+      |#[a(href='#')._hover_link._u_dashed Dashed] 
+      |#[a(href='#')._hover_link._u_double Double] 
+      |#[a(href='#')._hover_link._u_wavy Wavy] 
+      |#[a(href='#')._hover_link._no_u No-Underline] 
+      br
+      script.
+        document.getElementById('hyperlink').href+='?t='+(new Date().getTime());

@@ -2,14 +2,10 @@ extends ../../_basic/_html
 
 block append vars
   -
-    pageid      = 'lab/test'
-    pageUrl     = siteUrl + '/lab/test.html'
-    title       = `Test | ${name}`
-    description = 'Testing new stuff.'
-
-block append style
-  style.
-  //- style.
+    pageid      = 'starter'
+    pageUrl     = siteUrl + '/starter/index.html'
+    title       = `Starter | ${name}`
+    description = 'Starter templates.'
 
 block header
   header._container
@@ -18,9 +14,8 @@ block header
   +main_nav
 
 block article
-  +lab_nav
-  hr
+  +starter_nav
   article(style="padding-bottom:1.8rem")
     section._container: pre._scrollable.pre.
-      // Tests goes here ..
+      // Coming soon ..
     //- pre.

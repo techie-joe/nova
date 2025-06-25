@@ -1,0 +1,35 @@
+extends ../_core/_html
+
+block append vars
+  include _functions
+  include _vars
+  include _logo
+  include _nav
+  - layout = 'main/_html'
+  - INCLUDE_THEMEJS = true
+
+block stylesheet
+  +cssv(homeUri+'css/main.css')#_style
+  +cssv(homeUri+'css/custom.css')#_custom_style
+
+block prepend style
+  +logo_style
+
+block article
+  article._container(style="padding-bottom:2rem")
+    pre._scrollable.pre.
+      &nbsp;
+      Hello, there.
+      This is a template to get you started.
+      Copy the code from '#[code !{pageid}]' to create your own page.
+
+      #[a(href='./')._link._a31 Back]
+    hr
+    pre._scrollable.pre: +pageData()
+
+block footer
+  footer
+    hr._m0
+    ._relative: ._absolute(style="top:.1rem;left:auto;right:0"): ._container
+      ._small: +a(homeUri)._hover_u._hover_link Home
+    ._container: small| &copy; !{year} !{author}

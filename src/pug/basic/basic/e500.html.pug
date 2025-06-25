@@ -1,0 +1,14 @@
+extends ../../_basic/_error
+
+block append vars
+  -
+    pageid      = 'basic/e500'
+    pageUrl     = siteUrl + '/basic/e500.html'
+    title       = `Oops!`
+    description = 'Error while processing your request.'
+
+  - heading = 'Oops!'
+  - about   = 'Sorry, an error occured while processing your request.'
+
+  //- Sorry, we have encountered an error while processing your request.
+  //- Sorry, an error occured while processing your request.

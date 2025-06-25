@@ -1,4 +1,4 @@
-extends ../../_main/_html
+extends ../../_basic/_html
 
 block append vars
   -
@@ -36,7 +36,7 @@ block article
 
       .g{display:flex;flex-flow:row wrap;align-content:flex-start}
       .u{display:inline-block;vertical-align:top}
-      .demo .u { margin: 0 2px; padding-bottom: 20px; }
+      .demo .u { margin: 0 2px; padding-bottom: 18px; }
 
       .io1  { background: #66668844; box-shadow:0 1px orange; }
       .io2  { background: #66886644; box-shadow:0 1px orange; }
@@ -52,9 +52,9 @@ block article
         - n++
     //- mixin
 
-    ._flex
+    ._flex._960
 
-      section._f.g.demo.gridlines
+      section._f.g.demo.gridlines(style="flex: 1 0 340px;")
         .u._t1: +rag(13)
         .u._t2: +rag(12)
         .u._t3: +rag(11)
@@ -63,7 +63,7 @@ block article
         .u._t6: +rag(8)
         .u._t7: +rag(7)
 
-      section._f.g.demo.gridlines
+      section._f.g.demo.gridlines(style="flex: 1 0 340px;")
         .u._t8: +rag(5)
         .u._t9: +rag(5)
         .u._t10: +rag(5)

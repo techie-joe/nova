@@ -46,8 +46,17 @@ block document
           main(class=mainClass.join(' '))
 
             block article
-              article._container: pre.
-                // Your content goes here.
+              article._container
+                pre.
+
+                  Hello, there.
+                  This is a template to get you started.
+                  Copy the code from '#[code !{pageid}]' to create your own page.
+
+                  #[a(href=homeUri+'/basic') Back]
+                //- pre.
+                hr
+                pre: +pageData()
 
             block side_article
               aside#_side_article
@@ -57,6 +66,8 @@ block document
 
         block footer
           footer
+            hr
+            ._container: small| &copy; !{year} !{author}
 
         block widget
           aside#_widgets

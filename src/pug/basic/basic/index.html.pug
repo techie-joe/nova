@@ -1,0 +1,36 @@
+extends ../../_basic/_html
+
+block append vars
+  -
+    pageid      = 'basic'
+    pageUrl     = siteUrl + '/basic/index.html'
+    title       = `Basic | ${name}`
+    description = 'Basic components.'
+
+block header
+  header._container
+    +logo
+    span#maindesc= description
+  +main_nav
+
+mixin menu(links)
+  each v in links
+    a(href=homeUri+v[1] title=v[3])._a2 !{v[2]}
+
+block article
+  +basic_nav
+  hr
+  article
+    nav._container
+      +menu([
+        ['core/html','core/html.html','Html'],
+        ['basic/blank','basic/blank.html','Blank'],
+        ['basic/error','basic/error.html','Error'],
+        ['basic/500','basic/e500.html','500'],
+        ['basic/400','basic/e400.html','400'],
+        ['basic/401','basic/e401.html','401'],
+        ['basic/403','basic/e403.html','403'],
+        ['basic/404','basic/e404.html','404'],
+        ['404','404','&middot;&middot;','Simulate real 404'],
+      ])
+    hr

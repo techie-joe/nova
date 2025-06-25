@@ -1,0 +1,32 @@
+extends _html
+
+block append vars
+  - layout = 'main/_error'
+  - SHOW_PAGEDATA = false
+
+block append updatePageData
+  - htmlClass.push('_errorpage')
+
+block meta
+  include ../_core/_meta
+  meta(name="description" content!=description||'[undescribed]')/
+
+block append stylesheet
+  +cssv(homeUri+'css/errorpage.css')
+
+block append style
+  style.
+    body::before { content:'#{layout}' }
+  //- style
+
+block article
+  article#_main: ._container
+    h1#_h1 !{heading}
+    p#_p !{about}
+    nav#_nav: +backlink._link._a31 Back
+
+block side_article
+  if SHOW_PAGEDATA
+    aside#_side_article._container
+      hr
+      pre._scrollable.pre: +pageData()

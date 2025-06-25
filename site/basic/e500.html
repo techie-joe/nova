@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html class="_hidden" lang="en">
+<html class="_hidden _errorpage" lang="en">
   
   <!-- NovaCSS v0.1.0 |  -->
-  <!-- layout:main/_html -->
+  <!-- layout:main/_error -->
   
   <head>
     <meta charset="utf-8"/>
-    <title>Lab | NovaCSS</title>
+    <title>Oops!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
     <meta id="_color_scheme" name="color-scheme" content="light dark"/>
@@ -16,17 +16,10 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/nova/site/icons/favicon-16x16.png?v=0.1.0"/>
     <link rel="icon" type="image/x-icon" sizes="any" href="/nova/site/icons/favicon.ico?v=0.1.0"/>
     <!--[if lt IE 9]><script src="//unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
-    <meta name="description" content="Laboratory for upcoming features and upgrades."/>
-    <meta name="author" content="Techie Joe"/>
-    <meta name="publisher" content="[unknown]"/>
-    <meta property="og:title" content="Lab | NovaCSS"/>
-    <meta property="og:description" content="Laboratory for upcoming features and upgrades."/>
-    <meta property="og:type" content="website"/>
-    <meta property="og:url" content="https://techiejoe.github.io/nova/lab/index.html?utm_source=homescreen"/>
-    <meta property="og:image"/>
-    <meta property="og:image:alt"/>
+    <meta name="description" content="Error while processing your request."/>
     <link rel="stylesheet" media="all" href="/nova/site/css/main.css?v=0.1.0" id="_style"/>
     <link rel="stylesheet" media="all" href="/nova/site/css/custom.css?v=0.1.0" id="_custom_style"/>
+    <link rel="stylesheet" media="all" href="/nova/site/css/errorpage.css?v=0.1.0"/>
     <style>
       #logo {
         font-weight: 600;
@@ -53,24 +46,19 @@
       }
     </style>
     <style>/* your style goes here */</style>
-    <style></style>
+    <style>body::before { content:'main/_error' }</style>
   </head>
   <body>
-    <header class="_container"><a href="/nova/site/">
-        <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">CSS</span></div></a><span id="maindesc">Laboratory for upcoming features and upgrades.</span>
-    </header>
-    <hr class="_m0"/>
-    <div class="_color_2" id="_main_nav">
-      <nav><a class="_a11" href="/nova/site/basic">Basic</a><a class="_a11" href="/nova/site/starter">Starter</a><a class="_a11 _active" href="/nova/site/lab">Lab</a>
-      </nav>
-    </div>
-    <hr class="_m0"/>
+    <header></header>
     <main>
-      <nav class="_container"><a class="_a2" href="/nova/site/lab/temp.html">Temp</a><a class="_a2" href="/nova/site/lab/test.html">Test</a><a class="_a2" href="/nova/site/lab/storage.html">Storage</a><a class="_a2" href="/nova/site/lab/text.html">Text</a><a class="_a2" href="/nova/site/lab/flex960.html">Flex-960</a>
-      </nav>
-      <hr>
-      <article></article>
-      <aside id="_side_article"></aside>
+      <article id="_main">
+        <div class="_container">
+          <h1 id="_h1">Oops!</h1>
+          <p id="_p">Sorry, an error occured while processing your request.</p>
+          <nav id="_nav"><a class="_needjs _link _a31" href="#" onclick="event.preventDefault();(function(w){var h=w.history;w.opener?w.close():h.length>1?h.back():w.location.href='/';})(window)" title="Back to previous page">Back</a>
+          </nav>
+        </div>
+      </article>
     </main>
     <aside id="_side_bar"></aside>
     <footer>
