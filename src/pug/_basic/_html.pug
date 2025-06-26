@@ -9,14 +9,14 @@ block append vars
   - INCLUDE_THEMEJS = true
 
 block stylesheet
-  +cssv(homeUri+'css/main.css')#_style
-  +cssv(homeUri+'css/custom.css')#_custom_style
+  +cssv(homeUri+'css/nova.css')#_style
+  +cssv(homeUri+'css/basic.css')#_custom_style
 
 block prepend style
   +logo_style
 
 block article
-  article._container(style="padding-bottom:2rem")
+  article._article: section._container
     pre._scrollable.pre.
       &nbsp;
       Hello, there.
@@ -31,5 +31,6 @@ block footer
   footer
     hr._m0
     ._relative: ._absolute(style="top:.1rem;left:auto;right:0"): ._container
-      ._small: +a(homeUri)._hover_u._hover_link Home
+      block bottomRightLinks
+        ._small: +a(homeUri)._hover_u._hover_link Home
     ._container: small| &copy; !{year} !{author}

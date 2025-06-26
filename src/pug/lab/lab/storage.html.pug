@@ -1,4 +1,4 @@
-extends ../../_basic/_html
+extends _html
 
 block append vars
   -
@@ -12,21 +12,15 @@ block append style
     #btns button { margin:.25rem 0; font-size:.8em }
   //- style.
 
-block header
-  header._container
-    +logo
-    span#maindesc= description
-  +main_nav
-
 block article
-  +lab_nav
-  hr
-  article(style="padding-bottom:1.8rem")
+  article._article
+
     section._container#btns
       button(onclick="(x=>{localStorage.setItem(x.substring(2,7),x.substring(2))})(Math.random().toString(36));updateLog();") Add to Storage
       button(onclick="localStorage.clear();updateLog();") Clear Storage
       button(onclick="theme.change();updateLog();") Change Theme
     hr
+
     section._container: pre._scrollable.pre.
       #[span#localStorage]
     //- pre.
@@ -58,4 +52,4 @@ block prepend script
         updateLog();
       });
     })();
-  //- 
+  //- script.

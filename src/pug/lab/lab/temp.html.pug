@@ -1,4 +1,4 @@
-extends ../../_basic/_html
+extends _html
 
 block append vars
   -
@@ -11,18 +11,15 @@ block append style
   style.
   //- style.
 
-block header
-  header._container
-    +logo
-    span#maindesc= description
-  +main_nav
-
 block article
-  +lab_nav
-  hr
-  article(style="padding-bottom:1.8rem")
+  article._article
+
     section._container: pre._scrollable.pre.
       // New features to be implemented soon ..
     //- pre.
 
 //- block prepend script
+  script.
+    (()=>{
+    })();
+  //- script.

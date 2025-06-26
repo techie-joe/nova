@@ -25,8 +25,8 @@
     <meta property="og:url" content="https://techiejoe.github.io/nova/basic/blank.html?utm_source=homescreen"/>
     <meta property="og:image"/>
     <meta property="og:image:alt"/>
-    <link rel="stylesheet" media="all" href="/nova/site/css/main.css?v=0.1.0" id="_style"/>
-    <link rel="stylesheet" media="all" href="/nova/site/css/custom.css?v=0.1.0" id="_custom_style"/>
+    <link rel="stylesheet" media="all" href="/nova/site/css/nova.css?v=0.1.0" id="_style"/>
+    <link rel="stylesheet" media="all" href="/nova/site/css/basic.css?v=0.1.0" id="_custom_style"/>
     <style>
       #logo {
         font-weight: 600;
@@ -55,24 +55,36 @@
     <style>/* your style goes here */</style>
   </head>
   <body>
-    <header></header>
+    <header class="_container"><a href="/nova/site/">
+        <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">CSS</span></div></a><span id="maindesc">[undescribed]</span>
+    </header>
+    <hr class="_m0"/>
+    <div class="_color_2" id="_main_nav">
+      <nav><a class="_a11" href="/nova/site/basic">Basic</a><a class="_a11" href="/nova/site/starter">Starter</a><a class="_a11" href="/nova/site/lab">Lab</a>
+      </nav>
+    </div>
+    <hr class="_m0"/>
+    <nav class="_container"><a class="_a2" href="/nova/site/basic/basic.html">Basic</a><a class="_a2" href="/nova/site/basic/text.html">Text</a><a class="_a2" href="/nova/site/basic/table.html">Table</a><a class="_a2" href="/nova/site/basic/link.html">Link</a><a class="_a2" href="/nova/site/basic/details.html">Details</a><a class="_a2" href="/nova/site/basic/flex.html">Flex</a><a class="_a2" href="/nova/site/basic/container.html">Container</a><a class="_a2" href="/nova/site/basic/alignment.html">Alignment</a>
+    </nav>
+    <hr>
     <main>
-      <article class="_container" style="padding-bottom:2rem">
-        <pre class="_scrollable pre">&nbsp;
+      <article class="_article">
+        <section class="_container">
+          <pre class="_scrollable pre">&nbsp;
 Hello, there.
 This is a template to get you started.
 Copy the code from '<code>basic/blank</code>' to create your own page.
 
 <a class="_link _a31" href="./">Back</a></pre>
-        <hr>
-        <pre class="_scrollable pre">
+          <hr>
+          <pre class="_scrollable pre">
 name             = NovaCSS
 version          = 0.1.0
 
 author           = Techie Joe
 license          = MIT
 
-today            = Wed Jun 25 2025
+today            = Thu Jun 26 2025
 year             = 2025
 
 layout           = main/_html
@@ -95,6 +107,7 @@ sourceUrl        = https://github.com/techie-joe/nova
 localUrl         = http://localhost/nova/site/
 siteUrl          = https://techiejoe.github.io/nova
 </pre>
+        </section>
       </article>
       <aside id="_side_article"></aside>
     </main>
@@ -114,8 +127,5 @@ siteUrl          = https://techiejoe.github.io/nova
     <aside id="_widgets"></aside>
     <script type="text/javascript" src="/nova/site/js/theme_v1.0.js?v=0.1.0"></script>
     <script>// your script goes here</script>
-    
-    <!-- IE needs 512+ bytes: https://techie-joe.github.io/library/html5/ie#ie-needs-512-bytes -->
-    
   </body>
 </html>

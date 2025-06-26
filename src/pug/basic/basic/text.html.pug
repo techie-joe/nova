@@ -1,4 +1,4 @@
-extends ../../_basic/_html
+extends _html
 
 block append vars
   -
@@ -12,16 +12,9 @@ block append style
     #info ._f3 { flex-basis:30% }
   //- style.
 
-block header
-  header._container
-    +logo
-    span#maindesc= description
-  +main_nav
-
 block article
-  +basic_nav
-  hr
-  article(style="padding-bottom:4rem")._960
+  article._article._960
+
     section._container
       div
         | normal

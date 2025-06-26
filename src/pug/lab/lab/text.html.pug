@@ -1,4 +1,4 @@
-extends ../../_basic/_html
+extends _html
 
 block append vars
   -
@@ -9,20 +9,8 @@ block append vars
   -
     cssi.gridlines = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1px" height="10px"><rect width="1" height="1" fill="%23A9790688" /></svg>';
 
-block append style
-  style.
-  //- style.
-
-block header
-  header._container
-    +logo
-    span#maindesc= description
-  +main_nav
-
 block article
-  +lab_nav
-  hr
-  article(style="padding-bottom:1.8rem")
+  article._article
     section._container: pre._scrollable.pre.
       // Testing text ..
     //- pre.
@@ -52,9 +40,9 @@ block article
         - n++
     //- mixin
 
-    ._flex._960
+    section._flex._960
 
-      section._f.g.demo.gridlines(style="flex: 1 0 340px;")
+      ._f.g.demo.gridlines(style="flex: 1 0 340px;")
         .u._t1: +rag(13)
         .u._t2: +rag(12)
         .u._t3: +rag(11)
@@ -63,7 +51,7 @@ block article
         .u._t6: +rag(8)
         .u._t7: +rag(7)
 
-      section._f.g.demo.gridlines(style="flex: 1 0 340px;")
+      ._f.g.demo.gridlines(style="flex: 1 0 340px;")
         .u._t8: +rag(5)
         .u._t9: +rag(5)
         .u._t10: +rag(5)

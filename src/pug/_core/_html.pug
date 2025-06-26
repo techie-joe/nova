@@ -15,77 +15,74 @@ block updatePageData
     og_description = description
     og_url  = pageUrl? pageUrl + '?utm_source=homescreen' : undefined;
 
-block document
-  doctype html
-  html(lang=lang class=htmlClass.join(' '))
-    |
-    | <!-- #{name} v#{version} | #{copyright} -->
-    | <!-- layout:#{layout} -->
-    |
-    block head
-      head
+doctype html
+html(lang=lang class=htmlClass.join(' '))
+  |
+  | <!-- #{name} v#{version} | #{copyright} -->
+  | <!-- layout:#{layout} -->
+  |
+  block head
+    head
 
-        block meta
-          include _meta
-          include _seo
+      block meta
+        include _meta
+        include _seo
 
-        block stylesheet
-        
-        block style
-          style.
-            /* your style goes here */
-          //- style.
+      block stylesheet
+      
+      block style
+        style| /* your style goes here */
+        //- style.
 
-    block body
-      body
+  block body
+    body
 
-        block header
-          header
+      block header
+        header
 
-        block main
-          main(class=mainClass.join(' '))
+      block main
+        main(class=mainClass.join(' '))
 
-            block article
-              article._container
-                pre.
+          block article
+            article
+              pre.
 
-                  Hello, there.
-                  This is a template to get you started.
-                  Copy the code from '#[code !{pageid}]' to create your own page.
+                Hello, there.
+                This is a template to get you started.
+                Copy the code from '#[code !{pageid}]' to create your own page.
 
-                  #[a(href=homeUri+'/basic') Back]
-                //- pre.
-                hr
-                pre: +pageData()
+                #[a(href=homeUri+'/basic') Back]
+              //- pre.
+              hr
+              pre: +pageData()
 
-            block side_article
-              aside#_side_article
-        
-        block side_bar
-          aside#_side_bar
+          block side_article
+            aside#_side_article
+      
+      block side_bar
+        aside#_side_bar
 
-        block footer
-          footer
-            hr
-            ._container: small| &copy; !{year} !{author}
+      block footer
+        footer
+          hr
+          ._container: small| &copy; !{year} !{author}
 
-        block widget
-          aside#_widgets
-        
-        block script
-          //- +jsv(src)
+      block widget
+        aside#_widgets
+      
+      block script
+        //- +jsv(src)
 
-          if INCLUDE_THEMEJS
-            +jsv(homeUri+'js/theme_v1.0.js')
-
-          if INCLUDE_SERVICE_WORKERS
-            +jsv(homeUri+'sw/sw.j')(defer)
-
-          script.
-            // your script goes here
+        if INCLUDE_THEMEJS
           //- script.
+            (d=>d.body.classList.add('_hidden');)(document);
+          //- script
+          +jsv(homeUri+'js/theme_v1.0.js')
 
-        block final
-          |
-          | <!-- IE needs 512+ bytes: https://techie-joe.github.io/library/html5/ie#ie-needs-512-bytes -->
-          |
+        if INCLUDE_SERVICE_WORKERS
+          +jsv(homeUri+'sw/sw.j')(defer)
+
+        script| // your script goes here
+        //- script.
+
+      block final

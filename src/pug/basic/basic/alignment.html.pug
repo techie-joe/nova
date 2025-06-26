@@ -1,4 +1,4 @@
-extends ../../_basic/_html
+extends _html
 
 block append vars
   -
@@ -31,41 +31,33 @@ mixin o
 mixin oo
   ._outline&attributes(attributes) &bull;
 
-block header
-  header._container
-    +logo
-    span#maindesc= description
-  +main_nav
-
 block article
-  +basic_nav
-  hr
-  article(style="padding-bottom:1.8rem")
+  article._article
 
-    section(style="max-width: 60em; margin: auto;")
+    section._960: ._container
     
-      ._flex._gap_5._container
+      ._flex._gap_5
 
         ._f4: .a._outline: +o
         ._f4: .a._outline._text_left: +o
         ._f4: .a._outline._text_center: +o
         ._f4: .a._outline._text_right: +o
 
-      ._flex._gap_5._container
+      ._flex._gap_5
 
         ._f4: .a._outline: +o._text_center
         ._f4: .a._outline: +o._text_center(style="position:absolute;top:0")
         ._f4: .a._outline: +o._text_center(style="position:absolute;top:50%;left:50%;transform: translateX(-50%) translateY(-50%);")
         ._f4: .a._outline: +o._text_center(style="position:absolute;bottom:0;right:0")
 
-      ._flex._gap_5._container
+      ._flex._gap_5
 
         ._f4: .a.table: +oo._cell
         ._f4: .a.table: +oo._cell._text_left._valign_top
         ._f4: .a.table: +oo._cell._text_center._valign_middle
         ._f4: .a.table: +oo._cell._text_right._valign_bottom
 
-      ._flex._gap_5._container
+      ._flex._gap_5
 
         ._f4: .a._outline: +o.FLOAT_layout
         ._f4: .a._outline: +o.FLOAT_layout._text_left(style="align-content:start")

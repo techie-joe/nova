@@ -1,4 +1,4 @@
-extends ../../_basic/_html
+extends _html
 
 block append vars
   -
@@ -7,20 +7,9 @@ block append vars
     title       = `Link | ${name}`
     description = 'Intuitive hyperlink styles.'
 
-block append style
-  style.
-  //- style.
-
-block header
-  header._container
-    +logo
-    span#maindesc= description
-  +main_nav
-
 block article
-  +basic_nav
-  hr
-  article(style="padding-bottom:4rem")
+  article._article
+
     nav._container
       a(href='#')._a31#hyperlink31 Hyperlink
       a(href='#')._a31._link Link

@@ -1,4 +1,4 @@
-extends ../../_basic/_html
+extends _html
 
 block append vars
   -
@@ -7,14 +7,7 @@ block append vars
     title       = `Starter | ${name}`
     description = 'Starter templates.'
 
-block header
-  header._container
-    +logo
-    span#maindesc= description
-  +main_nav
-
 block article
-  +starter_nav
   article(style="padding-bottom:1.8rem")
     section._container: pre._scrollable.pre.
       // Coming soon ..

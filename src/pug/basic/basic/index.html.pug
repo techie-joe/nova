@@ -1,4 +1,4 @@
-extends ../../_basic/_html
+extends _html
 
 block append vars
   -
@@ -7,20 +7,13 @@ block append vars
     title       = `Basic | ${name}`
     description = 'Basic components.'
 
-block header
-  header._container
-    +logo
-    span#maindesc= description
-  +main_nav
-
 mixin menu(links)
   each v in links
     a(href=homeUri+v[1] title=v[3])._a2 !{v[2]}
 
 block article
-  +basic_nav
-  hr
-  article
+  article._article
+
     nav._container
       +menu([
         ['core/html','core/html.html','Html'],

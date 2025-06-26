@@ -1,4 +1,4 @@
-extends ../../_basic/_html
+extends _html
 
 block append vars
   -
@@ -7,23 +7,17 @@ block append vars
     title       = `Basic | ${name}`
     description = 'Basic elements.'
 
-block header
-  header._container
-    +logo
-    span#maindesc= description
-  +main_nav
-
 mixin menu(links)
   each v in links
     a(href=homeUri+v[1])._a2 !{v[2]}
 
 block article
-  +basic_nav
-  hr
-  article(style="padding-bottom:4rem")
+  article._article
+
     style.
       #indiv > * { padding:.25em .5em }
     //- style
+
     section#indiv._indiv._container: +repeat(2)
       ._inblock._border border
       ._inblock._outline outline
@@ -31,6 +25,7 @@ block article
       ._inblock._select select
       br
     hr
+
     section._container
       p paragraph
       ._p div._p paragraph
