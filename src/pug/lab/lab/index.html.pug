@@ -8,7 +8,22 @@ block append vars
     description = 'Laboratory for upcoming features and upgrades.'
 
 block article
-  article
-    section._container: pre._scrollable.pre.
+  article._article
+
+    section._container: pre._scrollable_x.pre.
       // Tests were conducted here ..
     //- pre.
+
+    hr
+
+    mixin menu(links)
+      each v in links
+        a(href=homeUri+v[1] title=v[3])._a2 !{v[2]}
+    
+    nav._container
+      +menu([
+        ['lab/font-awesome','lab/font-awesome.html','Font Awesome Icons'],
+      ])
+    //- nav
+
+    hr
