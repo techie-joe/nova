@@ -1,0 +1,148 @@
+extends _html_i
+
+block append vars
+  -
+    pageid      = 'basic/i-font-awesome'
+    pageUrl     = siteUrl + '/basic/i-font-awesome.html'
+    title       = `Font Awesome Icons | ${name}`
+    description = 'Implementing awesomeness.'
+
+block append stylesheet
+  +css('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css')
+
+block article
+  article._article._960: ._container
+
+    style.
+      .icons ._fa {
+        margin-right:.5em;
+        font-size: 1.5em; /* 1.5em = 36px | 1em = 24px */
+      }
+    section._p.icons
+      +fas.fa-bars
+      +fas.fa-list
+      +fas.fa-house
+      +fas.fa-adjust
+      +far.fa-circle-user
+      +fas.fa-angle-left
+      +fas.fa-angles-left
+      +fas.fa-arrow-left
+      +fas.fa-caret-left
+      +fas.fa-rotate-left
+      +fas.fa-share.fa-flip-horizontal
+      +fas.fa-hand-point-left
+      +fas.fa-magnifying-glass
+      +far.fa-comment
+      +far.fa-message
+      +fas.fa-inbox
+      +fas.fa-question
+      +fas.fa-circle-info
+      +fas.fa-location-dot
+      +fas.fa-phone
+      +far.fa-envelope
+      +far.fa-credit-card
+      +far.fa-image
+      +far.fa-address-card
+      +fas.fa-border-all
+      +far.fa-square
+      +far.fa-square-minus
+      +far.fa-square-check._tc_contra
+      +far.fa-star
+      +fas.fa-star._tc_orange
+      +far.fa-heart
+      +fas.fa-heart._tc_red
+      +far.fa-thumbs-up
+      +fas.fa-thumbs-up._tc_blue
+      +fas.fa-pen
+      +fas.fa-arrow-right-to-bracket.fa-rotate-90
+      +fas.fa-download
+      +fas.fa-print
+      +far.fa-floppy-disk
+      +fas.fa-code
+      +fas.fa-plus
+      +fas.fa-minus
+      +fas.fa-minus.fa-rotate-90
+      +fas.fa-check._tc_green
+      +fas.fa-xmark._tc_red
+      +fas.fa-asterisk
+      +fas.fa-gear
+      +fas.fa-ellipsis
+      +fas.fa-ellipsis-vertical
+      +fat|a
+      +fat|txt
+    //- section
+
+    mixin textIcons
+      .
+        ▲ ► ▼ ◄ ☚ ☛ ← → ↑ ↓ « » ≡ = – + ÷ × * ⁞ ‖ ! ∿ ∞ #[br]
+        @ # % ? № $ £ ¥ € ₩ $ #[br]
+        · • ◦ ○ ● ∴ ¤ ☼ ☀ ❊ ⁂ ※ ◊ ♦ ♥ ♀ ♂ ☄ #[br]
+        ☁ ✈ ☎ ✂ ✎ ✉ ☑ ☒ ◍ ✆ ⊝ ⊕ ⊗ ⊘ ☯ ☢ © &copy;
+        A TXT
+    style.
+      .textIcons ._fa { font-size:1.5em;letter-spacing: 0.2em; }
+      .textIcons .fas { line-height:1.25 } 
+    //- 1.5em : based on the size of + sign
+    hr
+    section.textIcons._p.selectable: i._fa: i.fas: +textIcons
+    hr
+    section.textIcons._p.selectable: i._fa: i.fas._no_b: +textIcons
+
+    section
+
+      ._p.gridlines24| Icons should match the height of the surrounding text.
+
+      ._p.gridlines24
+        span._outline: +fas.fa-bars
+        span._outline| H
+        span._outline| O
+        span._outline| M
+        span._outline| E
+        span._outline: +fas.fa-house
+        span._outline: +fas.fa-adjust
+        span._outline: +fat|☯
+        span._outline: +fat|X
+
+      ._p.gridlines24
+        span._outline
+          +fas.fa-bars
+          |HOME
+          +fas.fa-house
+          +fas.fa-adjust
+          +fat|☯
+          +fat|X
+      //- ._p
+
+    //- section
+
+    mixin rag(x)
+      - var n = 0
+      while n < x
+        if(n%2==0)
+          .io2 #[+fas.fa-bars] H_
+        else
+          .io1 &nbsp;
+        - n++
+    //- mixin
+
+    section._flex
+
+      ._f.g.demo.gridlines(style="flex: 1 0 340px;")
+        .u._t1: +rag(13)
+        .u._t2: +rag(12)
+        .u._t3: +rag(11)
+        .u._t4: +rag(10)
+        .u._t5: +rag(9)
+        .u._t6: +rag(8)
+        .u._t7: +rag(7)
+
+      ._f.g.demo.gridlines(style="flex: 1 0 340px;")
+        .u._t8: +rag(5)
+        .u._t9: +rag(5)
+        .u._t10: +rag(5)
+
+    //- flex
+
+    aside._text_right
+      //- | https://fontawesome.com/v6/search?q=
+      p._small: +a('https://fontawesome.com/v6/search?q=')(target="fontawesome")._hover_u More icons at Font Awesome ...

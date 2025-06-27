@@ -2,10 +2,10 @@
   @return #{if($important,' !important','')};
 }
 
-@mixin position($top: null, $left: null, $bottom: null, $right: null, $important: false) {
+@mixin position($top: null, $left: null, $right: null, $bottom: null, $important: false) {
   @if $top { top: $top is($important) }
-  @if $bottom { bottom: $bottom is($important) }
   @if $right { right: $right is($important) }
+  @if $bottom { bottom: $bottom is($important) }
   @if $left { left: $left is($important) }
 }
 

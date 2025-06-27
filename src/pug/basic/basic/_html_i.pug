@@ -1,0 +1,36 @@
+extends _html
+
+block append vars
+  -
+    cssi.gridlines = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1px" height="10px"><rect width="1" height="1" fill="%23A9790688" /></svg>';
+    cssi.gridlines24 = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1px" height="23px"><rect width="1" height="1" fill="%23A9790688" /></svg>';
+
+block header
+  +simpleHeader
+  +icons_nav
+  hr
+
+block append style
+  style.
+
+    .gridlines {
+      min-height: 100px;
+      background-image: url('!{cssi.gridlines}');
+      background-repeat: repeat;
+    }
+    .gridlines24 {
+      background-image: url('!{cssi.gridlines24}');
+      background-repeat: repeat;
+    }
+
+    .g{display:flex;flex-flow:row wrap;align-content:flex-start}
+    .u{display:inline-block;vertical-align:top}
+    .demo .u { margin: 0 2px; padding-bottom: 18px; }
+
+    .io1  { background: #66668844; box-shadow:0 1px orange; }
+    .io2  { background: #66886644; box-shadow:0 1px orange; }
+
+    .selectable { user-select:auto }
+
+  //- style.
+

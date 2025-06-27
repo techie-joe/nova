@@ -1,0 +1,102 @@
+extends _html_i
+
+block append vars
+  -
+    pageid      = 'basic/i-text'
+    pageUrl     = siteUrl + '/basic/i-text.html'
+    title       = `Text Icons | ${name}`
+    description = 'Implementing icons using text.'
+
+block article
+  article._article._960: ._container
+
+    style.
+      .icons ._itext {
+        margin-right:.5em;
+        font-size: 1.5em; /* 1.5em = 36px | 1em = 24px */
+      }
+    section._p.icons
+      +itext|≡
+      +itext|☚
+      +itext|☛
+      +itext|&times;
+      +itext|←
+      +itext|→
+      +itext|↑
+      +itext|↓
+      +itext|&raquo;
+      +itext|&laquo;
+      +itext|&minus;
+      +itext|&plus;
+    //- section
+
+    mixin textIcons
+      .
+        ▲ ► ▼ ◄ ☚ ☛ ← → ↑ ↓ « » ≡ = – + ÷ × * ⁞ ‖ ! ∿ ∞ #[br]
+        @ # % ? № $ £ ¥ € ₩ $ #[br]
+        · • ◦ ○ ● ∴ ¤ ☼ ☀ ❊ ⁂ ※ ◊ ♦ ♥ ♀ ♂ ☄ #[br]
+        ☁ ✈ ☎ ✂ ✎ ✉ ☑ ☒ ◍ ✆ ⊝ ⊕ ⊗ ⊘ ☯ ☢ © &copy;
+        A TXT
+    style.
+      .textIcons ._itext { font-size:1.5em;letter-spacing: 0.2em; }
+      .textIcons .itext  { line-height:1.25 } 
+    //- 1.5em : based on the size of + sign
+    hr
+    section.textIcons._p.selectable: i._itext: i.itext._b: +textIcons
+    hr
+    section.textIcons._p.selectable: i._itext: i.itext(style="font-weight:normal"): +textIcons
+
+    section
+
+      ._p.gridlines24| Icons should match the height of the surrounding text.
+
+      ._p.gridlines24
+        span._outline: +itext|≡
+        span._outline| H
+        span._outline| O
+        span._outline| M
+        span._outline| E
+        span._outline: +itext|☯
+        span._outline: +itext|X
+
+      ._p.gridlines24
+        span._outline
+          +itext|≡
+          |HOME
+          +itext|☯
+          +itext|X
+      //- ._p
+
+    //- section
+
+    mixin rag(x)
+      - var n = 0
+      while n < x
+        if(n%2==0)
+          .io2 #[+itext|≡] H_
+        else
+          .io1 &nbsp;
+        - n++
+    //- mixin
+
+    section._flex
+
+      ._f.g.demo.gridlines(style="flex: 1 0 340px;")
+        .u._t1: +rag(13)
+        .u._t2: +rag(12)
+        .u._t3: +rag(11)
+        .u._t4: +rag(10)
+        .u._t5: +rag(9)
+        .u._t6: +rag(8)
+        .u._t7: +rag(7)
+
+      ._f.g.demo.gridlines(style="flex: 1 0 340px;")
+        .u._t8: +rag(5)
+        .u._t9: +rag(5)
+        .u._t10: +rag(5)
+
+    //- flex
+
+    aside._text_right
+      //- https://www.freeformatter.com/html-entities.html
+      p._text_right._small: +a('https://www.freeformatter.com/html-entities.html')(target="freeformatter")._hover_u More icons at Freeformatter ...

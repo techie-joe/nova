@@ -177,6 +177,11 @@ button {
   border-radius:.25em;
 }
 
+// icons
+._itext, .itext { @extend ._no_i; }
+._isvg { @extend ._inblock; }
+.isvg { @extend ._inblock; height:1em;min-width:1em; }
+
 // remove border on images inside <a> links in IE 10.
 img { border-style: none }
 
@@ -435,12 +440,16 @@ u,._u {
 ._hover_u, a[href]._hover_u { &:hover { text-decoration: underline !important } }
 
 ._i { font-style: italic !important }
+._no_i { font-style: normal !important }
 
 ._striked { text-decoration: line-through }
 
 ._uppercase { text-transform: uppercase }
 ._lowercase { text-transform: lowercase }
 ._capitalize { text-transform: capitalize }
+
+._float_start { float:left;float:inline-start }
+._float_end   { float:right;float:inline-end  }
 
 ._no_color { color: inherit !important }
 
@@ -450,7 +459,7 @@ u,._u {
   -moz-user-select:none;
   -ms-user-select:none;
   user-select:none;
-} 
+}
 
 ._indiv { font-size:0; > * { @extend ._reset_fontsize; } }
 
@@ -465,6 +474,8 @@ u,._u {
 ._fixed    { position:fixed; @include position(0,0) }
 ._sticky   { position:sticky; @include position(0,0) }
 ._fullview { position:absolute; @include position(0,0,0,0) }
+
+._absolute_right { position:absolute;right:0;left:auto; }
 
 ._scrollable { overflow:auto }
 
