@@ -24,30 +24,22 @@ block append vars
 block article
   article._article._960: ._container
 
-    //- 
-      style.
-        ._boxed_icons ._icon,
-        ._icons ._icon {
-          min-width:1.5em;
-          min-height:1.5em;
-        }
-        ._boxed_icons ._icon {
-          margin: .5rem;
-          box-shadow: 0 0 0 1px #f808;
-        }
-      //- style.
+    style.
+      .blok { font-size:5em;line-height:1;margin:2rem 0 }
+    section.blok._boxline
+      span._outline: +isvg(svgi.bars)
+      span._outline| H
+      span._outline: +isvg(svgi.compare)
+      span._outline: +isvg(svgi.cross)
+      span._outline| &plus;
+      span._outline| ≡
+      span._outline: i._icon|H
+      span._outline: i._icon|☯
+      span._outline: i._icon|&times;
+      span._outline: i._icon|&plus;
+    //- section
 
-      ._p._boxed_icons
-        - i = 0;
-        while 3 > i++
-          +isvg(svgds[i-1])
-      //- ._p
-
-      ._p: ._outline._inblock
-        +isvg(svgi.bars)
-        +isvg(svgi.compare)
-        |H
-      //- ._p
+    hr
 
     style.
       .icons .isvg {
@@ -64,46 +56,28 @@ block article
       - i = 0;
       while 8 >= i++
         +isvg(svgi.angle)(class="_rotate_"+(-45+i*45))
-      +isvg(svgi.cross).__spinx
-      +isvg(svgi.spin).__spinx
+      +isvg(svgi.cross).__spin
+      +isvg(svgi.spin).__spin
     //- section
-
-    //- mixin textIcons
-    //-   .
-    //-     ▲ ► ▼ ◄ ☚ ☛ ← → ↑ ↓ « » ≡ = – + ÷ × * ⁞ ‖ ! ∿ ∞ #[br]
-    //-     @ # % ? № $ £ ¥ € ₩ $ #[br]
-    //-     · • ◦ ○ ● ∴ ¤ ☼ ☀ ❊ ⁂ ※ ◊ ♦ ♥ ♀ ♂ ☄ #[br]
-    //-     ☁ ✈ ☎ ✂ ✎ ✉ ☑ ☒ ◍ ✆ ⊝ ⊕ ⊗ ⊘ ☯ ☢ © &copy;
-    //-     A TXT
-    //- style.
-    //-   .textIcons ._itext { font-size:1.5em;letter-spacing: 0.2em; }
-    //-   .textIcons .itext  { line-height:1.25 } 
-    //- //- 1.5em : based on the size of + sign
-    //- hr
-    //- section.textIcons._p.selectable: i._itext: i.itext._b: +textIcons
-    //- hr
-    //- section.textIcons._p.selectable: i._itext: i.itext(style="font-weight:normal"): +textIcons
 
     section
 
       ._p.gridlines24| Icons should match the height of the surrounding text.
 
       ._p.gridlines24
-        span._outline: +itext|≡
+        +isvg(svgi.bars)._outline
         span._outline| H
-        span._outline| O
-        span._outline| M
-        span._outline| E
-        span._outline: +itext|☯
-        span._outline: +itext|X
+        +isvg(svgi.home)._outline
+        +isvg(svgi.compare)._outline
+        +isvg(svgi.cross)._outline
 
       ._p.gridlines24
         span._outline
           +isvg(svgi.bars)
-          |HOME
+          |H
           +isvg(svgi.home)
           +isvg(svgi.compare)
-          +itext|X
+          +isvg(svgi.cross)
       //- ._p
 
     //- section

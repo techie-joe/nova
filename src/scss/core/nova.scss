@@ -178,9 +178,12 @@ button {
 }
 
 // icons
-._icon { &,i { @extend ._no_i; } i { @extend ._inblock; } }
-// ._icon { line-height:1 }
-.isvg { @extend ._inblock; height:1em;min-width:1em; }
+._icon { &,i { @extend ._no_i; } }
+.itext { @extend ._inblock; line-height:1em; }
+.isvg {
+  & { @extend ._inblock; height:1.1em;min-width:1.1em;line-height:1.1em; }
+  svg { vertical-align:top }
+}
 
 // remove border on images inside <a> links in IE 10.
 img { border-style: none }
