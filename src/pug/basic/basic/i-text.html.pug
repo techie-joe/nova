@@ -11,9 +11,24 @@ block article
   article._article._960: ._container
 
     style.
-      .icons ._itext {
+      .blok { font-size:5em;line-height:1;margin:2rem 0 }
+      .blok ._icon { margin-right:0; }
+    section._boxline.blok
+      span._outline| ≡
+      span._outline| H
+      span._outline: i._icon| X
+      span._outline: +itext|&plus;
+      span._outline: +itext|&times;
+      span._outline: +itext|☯
+    //- section
+
+    hr
+
+    style.
+      .icons ._icon {
         margin-right:.5em;
-        font-size: 1.5em; /* 1.5em = 36px | 1em = 24px */
+        font-size: 2em; /* 1.5em = 36px | 1em = 24px */
+        line-height:1;
       }
     section._p.icons
       +itext|≡
@@ -28,6 +43,9 @@ block article
       +itext|&laquo;
       +itext|&minus;
       +itext|&plus;
+      +itext.__spin|☯
+      +itext.__spin|☢
+      +itext.__spin|&times;
     //- section
 
     mixin textIcons
@@ -38,13 +56,13 @@ block article
         ☁ ✈ ☎ ✂ ✎ ✉ ☑ ☒ ◍ ✆ ⊝ ⊕ ⊗ ⊘ ☯ ☢ © &copy;
         A TXT
     style.
-      .textIcons ._itext { font-size:1.5em;letter-spacing: 0.2em; }
+      .textIcons ._icon { font-size:1.5em;letter-spacing: 0.2em; }
       .textIcons .itext  { line-height:1.25 } 
     //- 1.5em : based on the size of + sign
     hr
-    section.textIcons._p.selectable: i._itext: i.itext._b: +textIcons
+    section.textIcons._p.selectable: i._icon: i.itext._b: +textIcons
     hr
-    section.textIcons._p.selectable: i._itext: i.itext(style="font-weight:normal"): +textIcons
+    section.textIcons._p.selectable: i._icon: i.itext(style="font-weight:normal"): +textIcons
 
     section
 

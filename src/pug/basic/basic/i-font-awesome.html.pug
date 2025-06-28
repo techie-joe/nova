@@ -14,7 +14,21 @@ block article
   article._article._960: ._container
 
     style.
-      .icons ._fa {
+      .blok { font-size:5em;line-height:1;margin:2rem 0 }
+      .blok ._icon { margin-right:0; }
+    section._boxline.blok
+      span._outline: +fas.fa-bars
+      span._outline| ≡
+      span._outline| H
+      span._outline: i._icon| X
+      span._outline: +fat|*
+      span._outline: +fas.fa-star
+    //- section
+
+    hr
+
+    style.
+      .icons ._icon {
         margin-right:.5em;
         font-size: 1.5em; /* 1.5em = 36px | 1em = 24px */
       }
@@ -70,6 +84,14 @@ block article
       +fas.fa-ellipsis-vertical
       +fat|a
       +fat|txt
+    hr
+    section._p.icons
+      +fas.fa-compass.__spin
+      +fas.fa-circle-notch.__spin
+      +fas.fa-spinner.__spin
+      +fas.fa-gear.__spin
+      +fas.fa-rotate-left.__spin
+      +far.fa-star.__spin
     //- section
 
     mixin textIcons
@@ -80,13 +102,13 @@ block article
         ☁ ✈ ☎ ✂ ✎ ✉ ☑ ☒ ◍ ✆ ⊝ ⊕ ⊗ ⊘ ☯ ☢ © &copy;
         A TXT
     style.
-      .textIcons ._fa { font-size:1.5em;letter-spacing: 0.2em; }
+      .textIcons ._icon { font-size:1.5em;letter-spacing: 0.2em; }
       .textIcons .fas { line-height:1.25 } 
     //- 1.5em : based on the size of + sign
     hr
-    section.textIcons._p.selectable: i._fa: i.fas: +textIcons
+    section.textIcons._p.selectable: i._icon: i.fas: +textIcons
     hr
-    section.textIcons._p.selectable: i._fa: i.fas._no_b: +textIcons
+    section.textIcons._p.selectable: i._icon: i.fas._no_b: +textIcons
 
     section
 
