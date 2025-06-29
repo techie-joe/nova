@@ -21,106 +21,116 @@ block append vars
       image:'M21,3H3C2,3 1,4 1,5V19A2,2 0 0,0 3,21H21C22,21 23,20 23,19V5C23,4 22,3 21,3M5,17L8.5,12.5L11,15.5L14.5,11L19,17H5Z',
     });
 
-block article
-  article._article._960: ._container
+mixin section_icons
+  style.
+    .icons .isvg {
+      margin-right:.5em;
+      min-width:1.5em;
+      min-height:1.5em;
+      /* font-size: 1.5em; /* 1.5em = 36px | 1em = 24px */
+    }
+  section._p.icons
+    - let svgds = []; for (let key in svgi) { svgds.push(svgi[key]); }
+    each d in svgds
+      +isvg(d)
+  section._p.icons
+    - i = 0;
+    while 8 >= i++
+      +isvg(svgi.angle)(class="_rotate_"+(-45+i*45))
+    +isvg(svgi.cross).__spin
+    +isvg(svgi.spin).__spin
+  //- section
+
+mixin section_sizing
+  mixin rag(x)
+    - var n = 0
+    while n < x
+      if(n%2==0)
+        .io2 #[+isvg(svgi.bars)] H_
+      else
+        .io1 &nbsp;
+      - n++
+  //- mixin
+  section._flex
+
+    ._f.g.demo.gridlines(style="flex: 1 0 340px;")
+      .u._t1: +rag(13)
+      .u._t2: +rag(12)
+      .u._t3: +rag(11)
+      .u._t4: +rag(10)
+      .u._t5: +rag(9)
+      .u._t6: +rag(8)
+      .u._t7: +rag(7)
+
+    ._f.g.demo.gridlines(style="flex: 1 0 340px;")
+      .u._t8: +rag(5)
+      .u._t9: +rag(5)
+      .u._t10: +rag(5)
+
+  //- flex
+
+mixin section_heights
+  section.section_heights
 
     style.
-      .blok { font-size:4em;line-height:1;margin:2rem 0 }
-    section.blok._boxline
-      span._outline: +isvg(svgi.bars)
-      span._outline| H
-      span._outline: +isvg(svgi.compare)
-      span._outline: +isvg(svgi.cross)
-      span._outline| &plus;
-      span._outline| ≡
-      span._outline: i._icon|H
-      span._outline: i._icon|☯
-      span._outline: i._icon|&times;
-      span._outline: i._icon|&plus;
-    //- section
-
-    hr
-
-    style.
-      .icons .isvg {
-        margin-right:.5em;
-        min-width:1.5em;
-        min-height:1.5em;
-        /* font-size: 1.5em; /* 1.5em = 36px | 1em = 24px */
-      }
-    section._p.icons
-      - let svgds = []; for (let key in svgi) { svgds.push(svgi[key]); }
-      each d in svgds
-        +isvg(d)
-    section._p.icons
-      - i = 0;
-      while 8 >= i++
-        +isvg(svgi.angle)(class="_rotate_"+(-45+i*45))
-      +isvg(svgi.cross).__spin
-      +isvg(svgi.spin).__spin
-    //- section
-
-    section
-
-      ._p.gridlines24| Icons should match the height of the surrounding text.
-
-      ._p.gridlines24
-        +isvg(svgi.bars)._outline
+      .blok { font-size:4em;line-height:1.17; }
+    ._flex._p.blok
+      ._f2: ._boxline| Normal
+      ._f2: ._boxline: span._outline| Normal
+      ._f2: ._boxline
+        span._outline: +isvg(svgi.bars)
         span._outline| H
-        +isvg(svgi.home)._outline
-        +isvg(svgi.compare)._outline
-        +isvg(svgi.cross)._outline
+        span._outline: +isvg(svgi.compare)
+        span._outline: +isvg(svgi.cross)
+        span._outline: +itext|&plus;
+      ._f2: ._boxline
         span._outline: i._icon|≡
         span._outline| H
         span._outline: i._icon|☯
         span._outline: i._icon|&times;
         span._outline: i._icon|&plus;
-
-      ._p.gridlines24
-        span._outline
-          +isvg(svgi.bars)
-          |H
-          +isvg(svgi.home)
-          +isvg(svgi.compare)
-          +isvg(svgi.cross)
-        span._outline
-          i._icon|≡
-          | H
-          i._icon|☯
-          i._icon|&times;
-          i._icon|&plus;
-      //- ._p
-
-    //- section
-
-    mixin rag(x)
-      - var n = 0
-      while n < x
-        if(n%2==0)
-          .io2 #[+isvg(svgi.bars)] H_
-        else
-          .io1 &nbsp;
-        - n++
-    //- mixin
-
-    section._flex
-
-      ._f.g.demo.gridlines(style="flex: 1 0 340px;")
-        .u._t1: +rag(13)
-        .u._t2: +rag(12)
-        .u._t3: +rag(11)
-        .u._t4: +rag(10)
-        .u._t5: +rag(9)
-        .u._t6: +rag(8)
-        .u._t7: +rag(7)
-
-      ._f.g.demo.gridlines(style="flex: 1 0 340px;")
-        .u._t8: +rag(5)
-        .u._t9: +rag(5)
-        .u._t10: +rag(5)
-
     //- flex
 
+    ._flex._p.gridlines24
+      ._f2| Normal texts.
+      ._f2: span._outline| Normal texts.
+      ._f2
+        span._outline: +isvg(svgi.bars)
+        span._outline| H
+        span._outline: +isvg(svgi.compare)
+        span._outline: +isvg(svgi.cross)
+        span._outline: +itext|&plus;
+      ._f2
+        span._outline: i._icon|≡
+        span._outline| H
+        span._outline: i._icon|☯
+        span._outline: i._icon|&times;
+        span._outline: i._icon|&plus;
+      ._f2: span._outline
+        +isvg(svgi.bars)
+        | H
+        +isvg(svgi.compare)
+        +isvg(svgi.cross)
+        +itext|&plus;
+      ._f2: span._outline
+        i._icon|≡
+        | H
+        i._icon|☯
+        i._icon|&times;
+        i._icon|&plus;
+    //- flex._p
+
+  //- section
+
+block article
+  article._article._960: ._container
+
+    +section_icons
+    hr
+    +section_heights
+    hr
+    +section_sizing
+    hr
     aside._text_right
       //- https://pictogrammers.com/library/mdi/
       p._text_right._small: +a('https://pictogrammers.com/library/mdi/')(target="pictogrammers")._no_u More icons at Pictogrammers ...

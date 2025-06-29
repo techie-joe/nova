@@ -338,16 +338,22 @@ a,._a {
   }
 }
 
+a._a31i,
 a._a31,
+a._a3i,
 a._a3,
+a._a2i,
 a._a2,
 a._a11,
 a._a1 {
   &[href] { @extend ._no_u; }
 }
 
+a._a31i,._a31i,
 a._a31,._a31,
+a._a3i,._a3i,
 a._a3,._a3,
+a._a2i,._a2i,
 a._a2,._a2,
 a._a11,._a11,
 a._a1,._a1 {
@@ -367,9 +373,7 @@ a._a1,._a1 {
   }
 }
 
-a._a11,._a11 {
-  padding:.25em .5em;
-}
+a._a11,._a11 { padding:.25em .5em; }
 
 a._a2,._a2 {
   margin:.1em;
@@ -377,7 +381,8 @@ a._a2,._a2 {
   padding:0 .5em;
 }
 
-a._a31,._a31,
+a._a2i,._a2i { @extend ._a2; padding:0 .2em; }
+
 a._a3,._a3 {
   margin:.1em;
   border:1px solid #888;
@@ -385,9 +390,9 @@ a._a3,._a3 {
   padding:0 .5em;
 }
 
-a._a31,._a31 {
-  padding:.25em .75em;
-}
+a._a3i,._a3i   { @extend ._a3; padding:0 .2em; }
+a._a31,._a31   { @extend ._a3; padding:.25em .75em; }
+a._a31i,._a31i { @extend ._a3; padding:.25em .45em; }
 
 ._tc_blue   { color: $blue   }
 ._tc_purple { color: $purple }
@@ -547,6 +552,19 @@ ul,ol {
 ._mb0 { margin-bottom: 0 !important }
 ._ml0 { margin-left: 0 !important }
 ._mr0 { margin-right: 0 !important }
+
+// ._radius
+$margins: (
+  "_125" : .125em,
+  "_25" : .25em,
+  "_5"  : .5em,
+  ""    : 1em
+);
+@each $x, $value in $margins {
+  ._ml#{$x} { margin-left: $value; }
+  ._mr#{$x} { margin-right: $value; }
+  ._mv#{$x} { @extend ._ml#{$x}; @extend ._mr#{$x}; }
+}
 
 // for blockquote and q
 ._no_quote { quotes: none; &:before, &:after { content: ''; content: none; }}

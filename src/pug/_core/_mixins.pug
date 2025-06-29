@@ -97,23 +97,20 @@ mixin svgi(d,viewBox,opacity,fill)
 //- icons
 //- ==============================================================
 
-mixin isvg(d)
-  i._icon: i.isvg&attributes(attributes): +svgi(d)
+mixin isvg(d,cls)
+  i._icon(class=cls): i.isvg&attributes(attributes): +svgi(d)
 
-mixin fas
-  i._icon: i.fas&attributes(attributes)
+mixin fas(cls)
+  i._icon(class=cls): i.fas&attributes(attributes): block
 
-mixin far
-  i._icon: i.far&attributes(attributes)
+mixin far(cls)
+  i._icon(class=cls): i.far&attributes(attributes): block
 
-mixin fab
-  i._icon: i.fab&attributes(attributes)
+mixin fab(cls)
+  i._icon(class=cls): i.fab&attributes(attributes): block
 
-mixin fat
-  i._icon: i.fas&attributes(attributes): block
-
-mixin itext
-  i._icon: i.itext&attributes(attributes): block
+mixin itext(cls)
+  i._icon(class=cls): i.itext&attributes(attributes): block
 
 //- ==============================================================
 //- php

@@ -7,127 +7,140 @@ block append vars
     title       = `Text Icons | ${name}`
     description = 'Implementing icons using text.'
 
-block article
-  article._article._960: ._container
+mixin section_icons
+
+  style.
+    .icons ._icon {
+      margin-right:.5em;
+      font-size: 2em; /* 1.5em = 36px | 1em = 24px */
+      line-height:1;
+    }
+  section._p.icons
+    +itext|≡
+    +itext|☚
+    +itext|☛
+    +itext|&times;
+    +itext|←
+    +itext|→
+    +itext|↑
+    +itext|↓
+    +itext|&raquo;
+    +itext|&laquo;
+    +itext|&minus;
+    +itext|&plus;
+    +itext.__spin|☯
+    +itext.__spin|☢
+    +itext.__spin|&times;
+  //- section
+
+mixin section_textIcons
+  mixin textIcons
+    .
+      ▲ ► ▼ ◄ ☚ ☛ ← → ↑ ↓ « » ≡ = – + ÷ × * ⁞ ‖ ! ∿ ∞ #[br]
+      @ # % ? № $ £ ¥ € ₩ $ #[br]
+      · • ◦ ○ ● ∴ ¤ ☼ ☀ ❊ ⁂ ※ ◊ ♦ ♥ ♀ ♂ ☄ #[br]
+      ☁ ✈ ☎ ✂ ✎ ✉ ☑ ☒ ◍ ✆ ⊝ ⊕ ⊗ ⊘ ☯ ☢ © &copy;
+      A TXT
+  style.
+    .textIcons ._icon { font-size:1.5em;letter-spacing: 0.2em; }
+    .textIcons .itext  { line-height:1.25 } 
+  //- 1.5em : based on the size of + sign
+  section.textIcons._p.selectable: i._icon: i.itext._b: +textIcons
+  hr
+  section.textIcons._p.selectable: i._icon: i.itext(style="font-weight:normal"): +textIcons
+
+mixin section_sizing
+  mixin rag(x)
+    - var n = 0
+    while n < x
+      if(n%2==0)
+        .io2 #[+itext|≡] H_
+      else
+        .io1 &nbsp;
+      - n++
+  //- mixin
+  section._flex
+
+    ._f.g.demo.gridlines(style="flex: 1 0 340px;")
+      .u._t1: +rag(13)
+      .u._t2: +rag(12)
+      .u._t3: +rag(11)
+      .u._t4: +rag(10)
+      .u._t5: +rag(9)
+      .u._t6: +rag(8)
+      .u._t7: +rag(7)
+
+    ._f.g.demo.gridlines(style="flex: 1 0 340px;")
+      .u._t8: +rag(5)
+      .u._t9: +rag(5)
+      .u._t10: +rag(5)
+
+  //- flex
+
+mixin section_heights
+  section.section_heights
 
     style.
-      .blok { font-size:4em;line-height:1;margin:2rem 0 }
-    section.blok._boxline
-      span._outline: +itext|≡
-      span._outline| H
-      span._outline: +itext|☯
-      span._outline: +itext|&times;
-      span._outline: +itext|&plus;
-      span._outline: i._icon|≡
-      span._outline| H
-      span._outline: i._icon|☯
-      span._outline: i._icon|&times;
-      span._outline: i._icon|&plus;
-    //- section
-
-    hr
-
-    style.
-      .icons ._icon {
-        margin-right:.5em;
-        font-size: 2em; /* 1.5em = 36px | 1em = 24px */
-        line-height:1;
-      }
-    section._p.icons
-      +itext|≡
-      +itext|☚
-      +itext|☛
-      +itext|&times;
-      +itext|←
-      +itext|→
-      +itext|↑
-      +itext|↓
-      +itext|&raquo;
-      +itext|&laquo;
-      +itext|&minus;
-      +itext|&plus;
-      +itext.__spin|☯
-      +itext.__spin|☢
-      +itext.__spin|&times;
-    //- section
-
-    mixin textIcons
-      .
-        ▲ ► ▼ ◄ ☚ ☛ ← → ↑ ↓ « » ≡ = – + ÷ × * ⁞ ‖ ! ∿ ∞ #[br]
-        @ # % ? № $ £ ¥ € ₩ $ #[br]
-        · • ◦ ○ ● ∴ ¤ ☼ ☀ ❊ ⁂ ※ ◊ ♦ ♥ ♀ ♂ ☄ #[br]
-        ☁ ✈ ☎ ✂ ✎ ✉ ☑ ☒ ◍ ✆ ⊝ ⊕ ⊗ ⊘ ☯ ☢ © &copy;
-        A TXT
-    style.
-      .textIcons ._icon { font-size:1.5em;letter-spacing: 0.2em; }
-      .textIcons .itext  { line-height:1.25 } 
-    //- 1.5em : based on the size of + sign
-    hr
-    section.textIcons._p.selectable: i._icon: i.itext._b: +textIcons
-    hr
-    section.textIcons._p.selectable: i._icon: i.itext(style="font-weight:normal"): +textIcons
-
-    section
-
-      ._p.gridlines24| Icons should match the height of the surrounding text.
-
-      ._p.gridlines24
+      .blok { font-size:4em;line-height:1.17; }
+    ._flex._p.blok
+      ._f2: ._boxline| Normal
+      ._f2: ._boxline: span._outline| Normal
+      ._f2: ._boxline
         span._outline: +itext|≡
         span._outline| H
         span._outline: +itext|☯
         span._outline: +itext|&times;
         span._outline: +itext|&plus;
+      ._f2: ._boxline
         span._outline: i._icon|≡
         span._outline| H
         span._outline: i._icon|☯
         span._outline: i._icon|&times;
         span._outline: i._icon|&plus;
-
-      ._p.gridlines24
-        span._outline
-          +itext|≡
-          | H
-          +itext|☯
-          +itext|&times;
-          +itext|&plus;
-        span._outline
-          i._icon|≡
-          | H
-          i._icon|☯
-          i._icon|&times;
-          i._icon|&plus;
-      //- ._p
-
-    //- section
-
-    mixin rag(x)
-      - var n = 0
-      while n < x
-        if(n%2==0)
-          .io2 #[+itext|≡] H_
-        else
-          .io1 &nbsp;
-        - n++
-    //- mixin
-
-    section._flex
-
-      ._f.g.demo.gridlines(style="flex: 1 0 340px;")
-        .u._t1: +rag(13)
-        .u._t2: +rag(12)
-        .u._t3: +rag(11)
-        .u._t4: +rag(10)
-        .u._t5: +rag(9)
-        .u._t6: +rag(8)
-        .u._t7: +rag(7)
-
-      ._f.g.demo.gridlines(style="flex: 1 0 340px;")
-        .u._t8: +rag(5)
-        .u._t9: +rag(5)
-        .u._t10: +rag(5)
-
     //- flex
 
+    ._flex._p.gridlines24
+      ._f2| Normal texts.
+      ._f2: span._outline| Normal texts.
+      ._f2
+        span._outline: +itext|≡
+        span._outline| H
+        span._outline: +itext|☯
+        span._outline: +itext|&times;
+        span._outline: +itext|&plus;
+      ._f2
+        span._outline: i._icon|≡
+        span._outline| H
+        span._outline: i._icon|☯
+        span._outline: i._icon|&times;
+        span._outline: i._icon|&plus;
+      ._f2: span._outline
+        +itext|≡
+        | H
+        +itext|☯
+        +itext|&times;
+        +itext|&plus;
+      ._f2: span._outline
+        i._icon|≡
+        | H
+        i._icon|☯
+        i._icon|&times;
+        i._icon|&plus;
+    //- flex._p
+
+  //- section
+
+block article
+  article._article._960: ._container
+
+    +section_icons
+    hr
+    +section_textIcons
+    hr
+    +section_heights
+    hr
+    +section_sizing
+    hr
     aside._text_right
       //- https://www.freeformatter.com/html-entities.html
       p._text_right._small: +a('https://www.freeformatter.com/html-entities.html')(target="freeformatter")._hover_u More icons at Freeformatter ...

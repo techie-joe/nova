@@ -1,30 +1,30 @@
-mixin menu_style_1(links)
+mixin menu_m1(links)
   nav._container
     each v in links
       - classes = ['_no_u'];
       - if(pageid === v[0]) classes = ['_no_color']
       +l
-      a(href=homeUri+v[1] class=classes.join(' ') title=v[3]) #{v[2]}
+      a(href=homeUri+v[1] class=classes.join(' ') title=v[3]) !{v[2]}
 
-mixin menu_style_a1(links)
+mixin menu_a1(links)
   nav
     each v in links
       - classes = ['_a11'];
       - if(pageid === v[0]) classes = ['_a11 _active']
-      a(href=homeUri+v[1] class=classes.join(' ') title=v[3]) #{v[2]}
+      a(href=homeUri+v[1] class=classes.join(' ') title=v[3]) !{v[2]}
 
-mixin menu_style_a2(links)
+mixin menu_a2(links)
   nav._container
     each v in links
       - classes = ['_a2'];
       - if(pageid === v[0]) classes = ['_a2 _active']
-      a(href=homeUri+v[1] class=classes.join(' ') title=v[3]) #{v[2]}
+      a(href=homeUri+v[1] class=classes.join(' ') title=v[3]) !{v[2]}
 
 mixin main_nav
   hr._m0
   #_main_nav._color_2
     //- pageid, uri, title
-    +menu_style_a1([
+    +menu_a1([
       ['basic','basic','Basic'],
       ['starter','starter','Starter'],
       ['lab','lab','Lab'],
@@ -35,7 +35,7 @@ mixin main_nav
 mixin core_nav
   //- pageid, uri, title
   //- ['basic/temp','basic/index.html','Home'],
-  +menu_style_a2([
+  +menu_a2([
   ])
 
 mixin basic_nav
@@ -52,7 +52,7 @@ mixin basic_nav
   //- ['basic/image','basic/image.html','Image'],
   //- ['basic/table','basic/table.html','Table'],
   //- ['basic/button','basic/button.html','Button'],
-  +menu_style_a2([
+  +menu_a2([
     ['basic/basic','basic/basic.html','Basic'],
     ['basic/text','basic/text.html','Text'],
     ['basic/table','basic/table.html','Table'],
@@ -66,12 +66,12 @@ mixin basic_nav
 mixin starter_nav
   //- pageid, uri, title
   //- ['basic/temp','basic/index.html','Home'],
-  +menu_style_a2([
+  +menu_a2([
   ])
 
 mixin lab_nav
   //- pageid, uri, title
-  +menu_style_a2([
+  +menu_a2([
     ['lab/temp','lab/temp.html','Temp'],
     ['lab/test','lab/test.html','Test'],
     ['lab/storage','lab/storage.html','Storage'],
@@ -81,7 +81,7 @@ mixin lab_nav
 
 mixin icons_nav
   //- pageid, uri, title
-  +menu_style_a2([
+  +menu_a2([
     ['basic/i-font-awesome','basic/i-font-awesome.html','Font Awesome Icons'],
     ['basic/i-text','basic/i-text.html','Text Icons'],
     ['basic/i-svg','basic/i-svg.html','SVG Icons'],

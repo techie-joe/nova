@@ -11,6 +11,24 @@ block article
   article._article
 
     nav._container
+      a(href='#')._a31i: +itext|☯
+      a(href='#')._a31i: +isvg(svgi.compare)
+      a(href='#')._a31i| #[+itext('_mr_25')|☯]Link
+      a(href='#')._a31i| #[+isvg(svgi.compare,'_mr_25')]Link
+    hr._m0
+    nav._container
+      a(href='#')._a3i: +itext|☯
+      a(href='#')._a3i: +isvg(svgi.compare)
+      a(href='#')._a3i| #[+itext('_mr_125')|☯]Link
+      a(href='#')._a3i| #[+isvg(svgi.compare,'_mr_125')]Link
+    hr._m0
+    nav._container
+      a(href='#')._a2i: +itext|☯
+      a(href='#')._a2i: +isvg(svgi.compare)
+      a(href='#')._a2i| #[+itext('_mr_125')|☯]Link
+      a(href='#')._a2i| #[+isvg(svgi.compare,'_mr_125')]Link
+    hr._m0
+    nav._container
       a(href='#')._a31#hyperlink31 Hyperlink
       a(href='#')._a31._link Link
       a(href='#')._a31._visited Visited
@@ -56,6 +74,16 @@ block article
         document.getElementById('hyperlink1').href+='?t='+(new Date().getTime());
     hr._m0
     section._container
+      |#[a(href='#')._hover_link._hover_u| #[+isvg(svgi.compare,'_mr_125')]Link] 
+      |#[a(href='#')._hover_link._hover_u| #[+itext('_mr_125')|☯]Link] 
+      br
+      |#[a(href='#')#hyperlink: +isvg(svgi.compare)] 
+      |#[a(href='#')._link: +isvg(svgi.compare)] 
+      |#[a(href='#')._visited: +isvg(svgi.compare)] 
+      |#[a(href='#')._hover: +isvg(svgi.compare)] 
+      |#[a(href='#')._active: +isvg(svgi.compare)] 
+      |#[a(href='#')._no_color: +isvg(svgi.compare)] 
+      br
       |#[a(href='#')#hyperlink Hyperlink] 
       |#[a(href='#')._link Link] 
       |#[a(href='#')._visited Visited] 

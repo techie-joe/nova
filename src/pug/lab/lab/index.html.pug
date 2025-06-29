@@ -16,13 +16,7 @@ block article
 
     hr
 
-    mixin menu(links)
-      each v in links
-        a(href=homeUri+v[1] title=v[3])._a2 !{v[2]}
-    
-    nav._container
-      +menu([
-      ])
-    //- nav
+    +menu_a2([
+    ])
 
     hr
