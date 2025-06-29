@@ -10,78 +10,49 @@ block append vars
 block article
   article._article
 
-    nav._container
-      a(href='#')._a31i: +itext|☯
-      a(href='#')._a31i: +isvg(svgi.compare)
-      a(href='#')._a31i| #[+itext('_mr_25')|☯]Link
-      a(href='#')._a31i| #[+isvg(svgi.compare,'_mr_25')]Link
+    mixin ilinks(cls)
+      a(href='#' class=cls): +itext('_cicon')|☯
+      a(href='#' class=cls): +isvg(svgi.compare,'_cicon')
+      a(href='#' class=cls)| #[+itext('_licon')|☯]Link
+      a(href='#' class=cls)| #[+isvg(svgi.compare,'_licon')]Link
+      a(href='#' class=cls)._hover: +itext('_cicon')|☯
+      a(href='#' class=cls)._hover: +isvg(svgi.compare,'_cicon')
+      a(href='#' class=cls)._hover| #[+itext('_licon')|☯]Link
+      a(href='#' class=cls)._hover| #[+isvg(svgi.compare,'_licon')]Link
+    nav._container: +ilinks('_a31i')
     hr._m0
-    nav._container
-      a(href='#')._a3i: +itext|☯
-      a(href='#')._a3i: +isvg(svgi.compare)
-      a(href='#')._a3i| #[+itext('_mr_125')|☯]Link
-      a(href='#')._a3i| #[+isvg(svgi.compare,'_mr_125')]Link
+    nav._container: +ilinks('_a3i')
     hr._m0
-    nav._container
-      a(href='#')._a2i: +itext|☯
-      a(href='#')._a2i: +isvg(svgi.compare)
-      a(href='#')._a2i| #[+itext('_mr_125')|☯]Link
-      a(href='#')._a2i| #[+isvg(svgi.compare,'_mr_125')]Link
+    nav._container: +ilinks('_a2i')
     hr._m0
-    nav._container
-      a(href='#')._a31#hyperlink31 Hyperlink
-      a(href='#')._a31._link Link
-      a(href='#')._a31._visited Visited
-      a(href='#')._a31._hover Hover
-      a(href='#')._a31._active Active
+    mixin nlinks(cls,id)
+      a(href='#' class=cls id=id) Hyperlink
+      a(href='#' class=cls)._link Link
+      a(href='#' class=cls)._visited Visited
+      a(href='#' class=cls)._hover Hover
+      a(href='#' class=cls)._active Active
       script.
-        document.getElementById('hyperlink31').href+='?t='+(new Date().getTime());
+        document.getElementById('#{id}').href+='?t='+(new Date().getTime());
+    nav._container: +nlinks('_a31','hyperlink31')
     hr._m0
-    nav._container
-      a(href='#')._a3#hyperlink3 Hyperlink
-      a(href='#')._a3._link Link
-      a(href='#')._a3._visited Visited
-      a(href='#')._a3._hover Hover
-      a(href='#')._a3._active Active
-      script.
-        document.getElementById('hyperlink3').href+='?t='+(new Date().getTime());
+    nav._container: +nlinks('_a3','hyperlink3')
     hr._m0
-    nav._container
-      a(href='#')._a2#hyperlink2 Hyperlink
-      a(href='#')._a2._link Link
-      a(href='#')._a2._visited Visited
-      a(href='#')._a2._hover Hover
-      a(href='#')._a2._active Active
-      script.
-        document.getElementById('hyperlink2').href+='?t='+(new Date().getTime());
+    nav._container: +nlinks('_a2','hyperlink2')
     hr._m0
-    nav._color_2
-      a(href='#')._a11#hyperlink11 Hyperlink
-      a(href='#')._a11._link Link
-      a(href='#')._a11._visited Visited
-      a(href='#')._a11._hover Hover
-      a(href='#')._a11._active Active
-      script.
-        document.getElementById('hyperlink11').href+='?t='+(new Date().getTime());
+    nav._color_2: +nlinks('_a11','hyperlink11')
     hr._m0
-    nav._color_2
-      a(href='#')._a1#hyperlink1 Hyperlink
-      a(href='#')._a1._link Link
-      a(href='#')._a1._visited Visited
-      a(href='#')._a1._hover Hover
-      a(href='#')._a1._active Active
-      script.
-        document.getElementById('hyperlink1').href+='?t='+(new Date().getTime());
+    nav._color_2: +nlinks('_a1','hyperlink1')
     hr._m0
     section._container
       |#[a(href='#')._hover_link._hover_u| #[+isvg(svgi.compare,'_mr_125')]Link] 
       |#[a(href='#')._hover_link._hover_u| #[+itext('_mr_125')|☯]Link] 
       br
-      |#[a(href='#')#hyperlink: +isvg(svgi.compare)] 
+      |#[a(href='#')#hyperlink_i: +isvg(svgi.compare)] 
       |#[a(href='#')._link: +isvg(svgi.compare)] 
       |#[a(href='#')._visited: +isvg(svgi.compare)] 
       |#[a(href='#')._hover: +isvg(svgi.compare)] 
       |#[a(href='#')._active: +isvg(svgi.compare)] 
+      |#[a(href='#')._hover_link: +isvg(svgi.compare)] 
       |#[a(href='#')._no_color: +isvg(svgi.compare)] 
       br
       |#[a(href='#')#hyperlink Hyperlink] 
@@ -89,12 +60,11 @@ block article
       |#[a(href='#')._visited Visited] 
       |#[a(href='#')._hover Hover] 
       |#[a(href='#')._active Active] 
+      |#[a(href='#')._hover_link Hover-Link] 
       |#[a(href='#')._no_color No-Color] 
       br
-      |#[a(href='#')._link._hover_u Link-Hover-Underline] 
-      |#[a(href='#')._hover_link._hover_u Hover-Link-Hover-Underline] 
-      br
-      |#[a(href='#')._hover_link Hover-Link] 
+      |#[a(href='#')._hover_link._hover_u Hover-Underline] 
+      |#[a(href='#')._hover_link Underline] 
       |#[a(href='#')._hover_link._u_dotted Dotted] 
       |#[a(href='#')._hover_link._u_dashed Dashed] 
       |#[a(href='#')._hover_link._u_double Double] 
@@ -102,4 +72,8 @@ block article
       |#[a(href='#')._hover_link._no_u No-Underline] 
       br
       script.
-        document.getElementById('hyperlink').href+='?t='+(new Date().getTime());
+        (()=>{
+          var t='?t='+(new Date().getTime());
+          document.getElementById('hyperlink').href+=t;
+          document.getElementById('hyperlink_i').href+=t;
+        })();

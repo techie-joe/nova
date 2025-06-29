@@ -27,10 +27,12 @@ block article
     hr
     pre._scrollable.pre: +pageData()
 
+mixin bottomRightLinks(href,text)
+  ._small: +a(href||homeUri)._a2._hover_link!=text||'Home'
 block footer
   footer
     hr._m0
     ._relative: ._absolute(style="top:.1rem;left:auto;right:0"): ._container
       block bottomRightLinks
-        ._small: +a(homeUri)._hover_u._hover_link Home
+        +bottomRightLinks
     ._container: small| &copy; !{year} !{author}

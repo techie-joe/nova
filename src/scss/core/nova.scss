@@ -322,31 +322,60 @@ $select_tc    : #000;
 footer ._container,
 html,body { @extend ._color; }
 
-a,._a {
-  &._visited,&:visited { color: $linkBc_visited }
-  &,&._link            { color: $linkBc }
-  &._hover_link        { color: inherit }
-  &._hover,&:hover     { color: $linkBc_hover }
-  &._active,&:active   { color: $linkBc_active }
-  
-  ._dark & {
-    &._visited,&:visited { color: $dark_linkBc_visited }
-    &,&._link            { color: $dark_linkBc }
-    &._hover_link        { color: inherit }
-    &._hover,&:hover     { color: $dark_linkBc_hover }
-    &._active,&:active   { color: $dark_linkBc_active }
-  }
+// ---------------------------------------------------------------
+// links
+// ---------------------------------------------------------------
+
+._a31i,
+._a31,
+._a3i,
+._a3,
+._a2i,
+._a2,
+._a11,
+._a1 {
+  @extend ._no_u;
+  display: inline-block;
+  padding: 0 .5em;
+  &:active { opacity:.3 }
 }
 
-a._a31i,
-a._a31,
-a._a3i,
-a._a3,
-a._a2i,
-a._a2,
-a._a11,
-a._a1 {
-  &[href] { @extend ._no_u; }
+._cicon { margin:0 -.3em }
+._licon { margin:0 .25em 0 -.15em }
+
+._a11 { padding:.25em .5em; }
+
+._a2 {
+  border-radius:.25em;
+  margin:.1em;
+  padding:0 .5em;
+}
+._a2i { @extend ._a2; }
+
+._a3 {
+  border:1px solid #888;
+  border-radius:.25em;
+  margin:.1em;
+  padding:0 .5em;
+}
+._a3i  { @extend ._a3; }
+._a31  { @extend ._a3; padding:.25em .75em; }
+._a31i { @extend ._a3; padding:.25em .75em; }
+
+a,._a {
+  &:visited,&._visited { color: $linkBc_visited }
+  &,&._link            { color: $linkBc }
+  &._hover_link        { color: inherit }
+  &:hover,&._hover     { color: $linkBc_hover }
+  &:active,&._active   { color: $linkBc_active }
+
+  ._dark & {
+    &:visited,&._visited { color: $dark_linkBc_visited }
+    &,&._link            { color: $dark_linkBc }
+    &._hover_link        { color: inherit }
+    &:hover,&._hover     { color: $dark_linkBc_hover }
+    &:active,&._active   { color: $dark_linkBc_active }
+  }
 }
 
 a._a31i,._a31i,
@@ -357,42 +386,20 @@ a._a2i,._a2i,
 a._a2,._a2,
 a._a11,._a11,
 a._a1,._a1 {
-  & {
-    color: inherit;
-    display: inline-block;
-    padding: 0 .5em;
-  }
-  &._hover,&:hover { @include color( $baseHc, $baseHg ); }
+  & { color: inherit }
+  &:hover,&._hover { @include color( $baseHc, $baseHg ); }
   &._active { @include color( $baseAc, $baseAg ); }
-  &:active { opacity:.3 }
 
   ._dark & {
     & { color: inherit }
-    &._hover,&:hover { @include color( $dark_baseHc, $dark_baseHg ); }
+    &:hover,&._hover { @include color( $dark_baseHc, $dark_baseHg ); }
     &._active { @include color( $dark_baseAc, $dark_baseAg ); }
   }
 }
 
-a._a11,._a11 { padding:.25em .5em; }
-
-a._a2,._a2 {
-  margin:.1em;
-  border-radius:.25em;
-  padding:0 .5em;
-}
-
-a._a2i,._a2i { @extend ._a2; padding:0 .2em; }
-
-a._a3,._a3 {
-  margin:.1em;
-  border:1px solid #888;
-  border-radius:.25em;
-  padding:0 .5em;
-}
-
-a._a3i,._a3i   { @extend ._a3; padding:0 .2em; }
-a._a31,._a31   { @extend ._a3; padding:.25em .75em; }
-a._a31i,._a31i { @extend ._a3; padding:.25em .45em; }
+// ---------------------------------------------------------------
+// helpers
+// ---------------------------------------------------------------
 
 ._tc_blue   { color: $blue   }
 ._tc_purple { color: $purple }
@@ -409,10 +416,6 @@ a._a31i,._a31i { @extend ._a3; padding:.25em .45em; }
   ._tc_green  { color: $dark_green  }
   ._tc_contra { color: $dark_contra }
 }
-
-// ---------------------------------------------------------------
-// helpers
-// ---------------------------------------------------------------
 
 // cursors
 ._cursor_reset { cursor: initial }
