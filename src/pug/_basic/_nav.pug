@@ -1,24 +1,27 @@
+mixin menu_a(v,classes)
+  a(href=homeUri+v[1] class=classes.join(' ') title=v[3]) !{v[2]}
+
 mixin menu_m1(links)
   nav._container
     each v in links
       - classes = ['_no_u'];
       - if(pageid === v[0]) classes = ['_no_color']
       +l
-      a(href=homeUri+v[1] class=classes.join(' ') title=v[3]) !{v[2]}
+      +menu_a(v,classes)
 
 mixin menu_a1(links)
   nav
     each v in links
       - classes = ['_a11'];
       - if(pageid === v[0]) classes = ['_a11 _active']
-      a(href=homeUri+v[1] class=classes.join(' ') title=v[3]) !{v[2]}
+      +menu_a(v,classes)
 
 mixin menu_a2(links)
   nav._container
     each v in links
       - classes = ['_a2'];
       - if(pageid === v[0]) classes = ['_a2 _active']
-      a(href=homeUri+v[1] class=classes.join(' ') title=v[3]) !{v[2]}
+      +menu_a(v,classes)
 
 mixin main_nav
   hr._m0
@@ -73,6 +76,7 @@ mixin icons_nav
 
 mixin lab_nav
   //- pageid, uri, title
+  //- +menu_a(['lab','lab','Lab'],['_a3'])
   +menu_a2([
     ['lab/temp','lab/temp.html','Temp'],
     ['lab/test','lab/test.html','Test'],
