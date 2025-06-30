@@ -68,13 +68,11 @@ mixin section_icons
     +fas.fa-ellipsis-vertical
     +fas|a
     +fas|txt
-  hr
-  section._p.icons
     +fas.fa-compass.__spin
-    +fas.fa-circle-notch.__spin
+    +fas.fa-circle-notch.__spinr
     +fas.fa-spinner.__spin
     +fas.fa-gear.__spin
-    +fas.fa-rotate-left.__spin
+    +fas.fa-rotate-left.__spinr
     +far.fa-star.__spin
   //- section
 
@@ -99,7 +97,7 @@ mixin section_sizing
     - var n = 0
     while n < x
       if(n%2==0)
-        .io2 #[+fas.fa-bars] H_
+        .io2 #[+fas.fa-bars]H_
       else
         .io1 &nbsp;
       - n++

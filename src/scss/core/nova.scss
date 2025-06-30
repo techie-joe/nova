@@ -179,11 +179,23 @@ button {
 
 // icons
 ._icon { &,i { @extend ._no_i; } }
-.itext { @extend ._inblock; line-height:1em; }
-.isvg {
-  & { @extend ._inblock; height:1.1em;min-width:1.1em;line-height:1.1em; }
-  svg { vertical-align:top }
+.fa, .fab, .far, .fas, .fa-brands, .fa-regular, .fa-solid {
+  @extend ._inblock;
+  @extend ._text_center;
+  line-height:1em;
+  min-width:1em;
+  min-height:1em;
 }
+.isvg,
+.itext {
+  @extend ._inblock;
+  @extend ._text_center;
+  line-height:1.1em;
+  min-width:1.1em;
+  min-height:1.1em;
+}
+.itext { @extend ._sans; }
+.isvg svg { vertical-align:top }
 
 // remove border on images inside <a> links in IE 10.
 img { border-style: none }
@@ -326,11 +338,8 @@ html,body { @extend ._color; }
 // links
 // ---------------------------------------------------------------
 
-._a31i,
 ._a31,
-._a3i,
 ._a3,
-._a2i,
 ._a2,
 ._a11,
 ._a1 {
@@ -341,26 +350,21 @@ html,body { @extend ._color; }
 }
 
 ._cicon { margin:0 -.3em }
-._licon { margin:0 .25em 0 -.15em }
+._licon { margin:0 .25em 0 -.1em }
 
 ._a11 { padding:.25em .5em; }
 
 ._a2 {
   border-radius:.25em;
   margin:.1em;
-  padding:0 .5em;
 }
-._a2i { @extend ._a2; }
 
 ._a3 {
   border:1px solid #888;
   border-radius:.25em;
   margin:.1em;
-  padding:0 .5em;
 }
-._a3i  { @extend ._a3; }
 ._a31  { @extend ._a3; padding:.25em .75em; }
-._a31i { @extend ._a3; padding:.25em .75em; }
 
 a,._a {
   &:visited,&._visited { color: $linkBc_visited }
@@ -378,11 +382,8 @@ a,._a {
   }
 }
 
-a._a31i,._a31i,
 a._a31,._a31,
-a._a3i,._a3i,
 a._a3,._a3,
-a._a2i,._a2i,
 a._a2,._a2,
 a._a11,._a11,
 a._a1,._a1 {
@@ -604,12 +605,14 @@ a,._a {
   100% { opacity: 1 }
 }
 .__fadeIn { animation: .2s linear __fadeIn }
+.__fadeOut { @extend .__fadeIn; animation-direction:reverse }
 
 @keyframes __spin {
   0%   { transform: rotate(0deg) }
   100% { transform: rotate(360deg) }
 }
 .__spin { animation: 2s linear infinite __spin }
+.__spinr { @extend .__spin; animation-direction:reverse }
 
 
 // ===============================================================

@@ -11,19 +11,23 @@ block article
   article._article
 
     mixin ilinks(cls)
-      a(href='#' class=cls): +itext('_cicon')|☯
+      a(href='#' class=cls): +itext('_cicon')|☀
       a(href='#' class=cls): +isvg(svgi.compare,'_cicon')
-      a(href='#' class=cls)| #[+itext('_licon')|☯]Link
+      a(href='#' class=cls)| #[+itext('_licon')|☀]Link
       a(href='#' class=cls)| #[+isvg(svgi.compare,'_licon')]Link
-      a(href='#' class=cls)._hover: +itext('_cicon')|☯
+      a(href='#' class=cls)._hover: +itext('_cicon')|☀
       a(href='#' class=cls)._hover: +isvg(svgi.compare,'_cicon')
-      a(href='#' class=cls)._hover| #[+itext('_licon')|☯]Link
+      a(href='#' class=cls)._hover| #[+itext('_licon')|☀]Link
       a(href='#' class=cls)._hover| #[+isvg(svgi.compare,'_licon')]Link
-    nav._container: +ilinks('_a31i')
+    nav._container: +ilinks('_a31')
     hr._m0
-    nav._container: +ilinks('_a3i')
+    nav._container: +ilinks('_a3')
     hr._m0
-    nav._container: +ilinks('_a2i')
+    nav._container: +ilinks('_a2')
+    hr._m0
+    nav: +ilinks('_a11')
+    hr._m0
+    nav: +ilinks('_a1')
     hr._m0
     mixin nlinks(cls,id)
       a(href='#' class=cls id=id) Hyperlink
@@ -39,13 +43,13 @@ block article
     hr._m0
     nav._container: +nlinks('_a2','hyperlink2')
     hr._m0
-    nav._color_2: +nlinks('_a11','hyperlink11')
+    nav: +nlinks('_a11','hyperlink11')
     hr._m0
-    nav._color_2: +nlinks('_a1','hyperlink1')
+    nav: +nlinks('_a1','hyperlink1')
     hr._m0
     section._container
       |#[a(href='#')._hover_link._hover_u| #[+isvg(svgi.compare,'_mr_125')]Link] 
-      |#[a(href='#')._hover_link._hover_u| #[+itext('_mr_125')|☯]Link] 
+      |#[a(href='#')._hover_link._hover_u| #[+itext('_mr_125')|☀]Link] 
       br
       |#[a(href='#')#hyperlink_i: +isvg(svgi.compare)] 
       |#[a(href='#')._link: +isvg(svgi.compare)] 
