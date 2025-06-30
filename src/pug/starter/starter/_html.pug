@@ -1,9 +1,14 @@
 extends ../../_basic/_html
 
+mixin starter_nav
+  //- pageid, uri, title
+  //- ['basic/temp','basic/index.html','Home'],
+  +menu_a2([
+  ])
+
 block header
   header._container
     +logo
     span#maindesc= description
   +main_nav
   +starter_nav
-  hr
