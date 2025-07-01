@@ -1,4 +1,4 @@
-extends _html
+extends _html_test
 
 block append vars
   -
@@ -12,13 +12,16 @@ block append vars
   //- style.
 
 block article
+
+  +topRightNav
+
   article._article
 
     section._container: pre._scrollable.pre.
       // Tests goes here ..
     //- pre.
 
-//- block prepend script
+//- block append script
   script.
     (()=>{
     })();

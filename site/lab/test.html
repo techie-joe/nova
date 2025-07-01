@@ -53,6 +53,30 @@
       }
     </style>
     <style>/* your style goes here */</style>
+    <style>
+      #_topRightNav { position:fixed; top:0;right:0; padding:.5rem }
+      #_topRightNav ._a3 {
+        font-family:"Arial",sans-serif;
+        font-size:1.2rem;
+        text-decoration:none;
+        text-align:center;
+        vertical-align: middle;
+        display:inline-block;
+        box-sizing:border-box;
+        line-height:1em;
+        width:1.5rem;
+        height:1.5rem;
+        margin:.1rem;
+        padding:0;
+        border:1px solid #888;
+        font-weight:normal;
+        border-radius:.3rem;
+        color:inherit !important;
+      }
+      #_topRightNav ._a3 i { font-style:normal }
+      #_topRightNav .sun { font-size: 1.3rem; line-height: 1.4rem; }
+      
+    </style>
   </head>
   <body>
     <header class="_container"><a href="/nova/site/">
@@ -70,6 +94,8 @@
     </div>
     <hr class="_mt0">
     <main>
+      <aside id="_topRightNav"><a class="_a3 _color" href="#" title="Toggle Style" onclick="event.preventDefault();window.test.disableStyle();"><i class="_icon">s</i></a><a class="_needjs _a3 _color" href="#" onclick="event.preventDefault();theme.change();" title="Change Theme (Ctrl+Alt+T)"><i class="_icon sun">☀</i></a>
+      </aside>
       <article class="_article">
         <section class="_container">
           <pre class="_scrollable pre">// Tests goes here ..</pre>
@@ -93,5 +119,14 @@
     <aside id="_widgets"></aside>
     <script type="text/javascript" src="/nova/site/js/theme_v2.0.js?v=0.1.0"></script>
     <script>// your script goes here</script>
+    <script>
+      (()=>{
+        var
+        e = document.getElementById("_style"),
+        m = e.getAttribute("media"),
+        disableStyle = ()=>{ e.setAttribute("media",e.getAttribute("media")==='x'?m:'x') };
+        window.test = { disableStyle };
+      })();
+    </script>
   </body>
 </html>
