@@ -38,31 +38,39 @@ block article
       mixin flex(n)
         - for (let i = 0; i < n ; i++)
           .f._outline(class="_f"+n) Flex #{n}
+      mixin fit_
+        .f._fit._outline2&attributes(attributes): block
       mixin flex_
-        .f._f._outline Flex
+        .f._f._outline| Flex
       //- --------------------------------------------------------      
+      ._flex._gap_5
+        ._f1._flex._gap_5
+          +fit_| Fit
+          +fit_(style="flex-basis:100px")| 100px
+          .f._f6._outline| Flex 6
+          +flex_
+        ._f1._flex._gap_5
+          +fit_(style="flex-basis:50px")| 50px
+          +flex_
+          +fit_(style="flex-basis:100px")| 100px
+          +flex_
+          +fit_(style="flex-basis:200px")| 200px
+        ._f1._flex._gap_5
+          +fit_(style="flex-basis:300px")| 300px
+          +repeat(3): +flex_
+        ._f1._flex._gap_5
+          +fit_(style="flex-basis:300px")| 300px
+          +fit_(style="flex-basis:200px")| 200px
+          +fit_(style="flex-basis:100px")| 100px
+          +fit_(style="flex-basis:50px")| 50px
+          +flex_
+      hr
       ._flex._gap_5
         ._f1._flex._gap_5: +flex_
         ._f1._flex._gap_5: +repeat(2): +flex_
         ._f1._flex._gap_5: +repeat(3): +flex_
         ._f1._flex._gap_5: +repeat(5): +flex_
-      hr
-      ._flex._gap_5
-        ._f1._flex._gap_5
-          .i._outline2(style="min-width:50px") 50px
-          +flex_
-          .i._outline2(style="min-width:100px") 100px
-          +flex_
-          .i._outline2(style="min-width:200px") 200px
-        ._f1._flex._gap_5
-          .i._outline2(style="min-width:300px") 300px
-          +repeat(3): +flex_
-        ._f1._flex._gap_5
-          .i._outline2(style="min-width:300px") 300px
-          .i._outline2(style="min-width:200px") 200px
-          .i._outline2(style="min-width:100px") 100px
-          .i._outline2(style="min-width:50px") 50px
-          +flex_
+        ._f1._flex._gap_5: +repeat(6): +flex_
       hr
       //- --------------------------------------------------------      
       ._flex._gap_5
