@@ -2,10 +2,11 @@ extends _html
 
 block append vars
   - layout = 'main/_error'
-  - SHOW_PAGEDATA = false
+  //- - SHOW_PAGEDATA = true
 
 block append updatePageData
   - htmlClass.push('_errorpage')
+  - mainClass.push('_fullview')
 
 block meta
   include ../_core/_meta

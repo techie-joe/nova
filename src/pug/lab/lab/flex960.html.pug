@@ -1,4 +1,4 @@
-extends _html
+extends _html_2
 
 block append vars
   -
@@ -38,14 +38,13 @@ block article
       }
     //- style.
 
-    section
-      div(style="max-width:960px;margin:auto")
-        - for (let f = 1; f <= 6 ; f++)
-          ._flex
-            - for (let i = 0; i < f ; i++)
-              .f._outline(class="_f_"+f) #{960/f}
-        - for (let f = 4; f <= 6 ; f++)
-          ._flex
-            - for (let i = 0; i < f*2 ; i++)
-              .f._outline(class="_f_"+f*2) #{960/4/f*2}
-      //- ------------------------------
+    section._p: div(style="max-width:960px;margin:auto")
+      - for (let f = 1; f <= 6 ; f++)
+        ._flex
+          - for (let i = 0; i < f ; i++)
+            .f._outline(class="_f_"+f) #{960/f}
+      - for (let f = 4; f <= 6 ; f++)
+        ._flex
+          - for (let i = 0; i < f*2 ; i++)
+            .f._outline(class="_f_"+f*2) #{960/4/f*2}
+    //- section

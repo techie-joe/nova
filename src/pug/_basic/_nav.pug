@@ -13,20 +13,23 @@ mixin menu_a1(links)
   nav
     each v in links
       - classes = ['_a11'];
-      - if(pageid === v[0]) classes = ['_a11 _active']
+      - if(pageid === v[0]) classes.push('_active')
       +menu_a(v,classes)
 
 mixin menu_a2(links)
   nav._container
     each v in links
       - classes = ['_a2'];
-      - if(pageid === v[0]) classes = ['_a2 _active']
+      - if(pageid === v[0]) classes.push('_active')
       +menu_a(v,classes)
+
+//- --------------------------------------------------------------
+
+//- pageid, uri, title
 
 mixin main_nav
   hr._m0
   #_main_nav._color_2
-    //- pageid, uri, title
     +menu_a1([
       ['basic','basic','Basic'],
       ['starter','starter','Starter'],
@@ -34,15 +37,12 @@ mixin main_nav
     ])
   hr._m0
 
-
 mixin core_nav
-  //- pageid, uri, title
   //- ['basic/temp','basic/index.html','Home'],
   +menu_a2([
   ])
 
 mixin basic_nav
-  //- pageid, uri, title
   //- ['basic/form','basic/form.html','Form'],
   //- ['basic/fieldset','basic/fieldset.html','Fieldset'],
   //- ['basic/legend','basic/legend.html','Legend'], 
@@ -55,7 +55,7 @@ mixin basic_nav
   //- ['basic/image','basic/image.html','Image'],
   //- ['basic/table','basic/table.html','Table'],
   //- ['basic/button','basic/button.html','Button'],
-  +menu_a2([
+  ._color_1._pa_125: +menu_a2([
     ['basic/basic','basic/basic.html','Basic'],
     ['basic/text','basic/text.html','Text'],
     ['basic/table','basic/table.html','Table'],
@@ -67,20 +67,17 @@ mixin basic_nav
   ])
 
 mixin icons_nav
-  //- pageid, uri, title
-  +menu_a2([
+  ._color_1._pa_125: +menu_a2([
     ['basic/i-font-awesome','basic/i-font-awesome.html','Font Awesome Icons'],
     ['basic/i-text','basic/i-text.html','Text Icons'],
     ['basic/i-svg','basic/i-svg.html','SVG Icons'],
   ])
 
 mixin lab_nav
-  //- pageid, uri, title
-  //- +menu_a(['lab','lab','Lab'],['_a3'])
-  +menu_a2([
+  ._color_1._pa_125: +menu_a2([
     ['lab/temp','lab/temp.html','Temp'],
     ['lab/test','lab/test.html','Test'],
-    ['lab/storage','lab/storage.html','Storage'],
     ['lab/text','lab/text.html','Text'],
-    ['lab/flex960','lab/flex960.html','Flex-960'],
+    ['lab/flex','lab/flex.html','Flex'],
+    ['lab/storage','lab/storage.html','Storage'],
   ])

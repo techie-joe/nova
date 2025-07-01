@@ -7,5 +7,16 @@ block append vars
     title       = `Lab | ${name}`
     description = 'Laboratory for upcoming features and upgrades.'
 
+block header
+  +simpleHeader
+
 block article
-  article._article
+  article._article._container
+
+    ._p._color_1._radius_5._pa_125: +lab_nav
+    ._p._color_1._radius_5._pa_125
+      +menu_a2([
+        ['lab/flex960','lab/flex960.html','Flex-960'],
+        ['basic/button','basic/button.html','Button'],
+        ['basic/i-emoji','basic/i-emoji.html','Emoji Icons'],
+      ])

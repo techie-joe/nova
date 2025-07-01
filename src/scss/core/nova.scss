@@ -178,7 +178,11 @@ button {
 }
 
 // icons
-._icon { &,i { @extend ._no_i; } }
+._icon {
+  &,i { @extend ._no_i; }
+  @extend ._inblock;
+  line-height:1;
+}
 .fa, .fab, .far, .fas, .fa-brands, .fa-regular, .fa-solid {
   @extend ._inblock;
   @extend ._text_center;
@@ -346,13 +350,14 @@ html,body { @extend ._color; }
   @extend ._no_u;
   display: inline-block;
   padding: 0 .5em;
+  white-space: nowrap;
   &:active { opacity:.3 }
 }
 
 ._cicon { margin:0 -.3em }
 ._licon { margin:0 .25em 0 -.1em }
 
-._a11 { padding:.25em .5em; }
+._a11 { padding:.25em .75em; }
 
 ._a2 {
   border-radius:.25em;
@@ -550,14 +555,7 @@ ul,ol {
   &._no_pad { padding-left: 1em !important; padding-inline-start: 1em !important }
 }
 
-// for margin and padding
-._m0 { margin:0 !important }
-._mt0 { margin-top: 0 !important }
-._mb0 { margin-bottom: 0 !important }
-._ml0 { margin-left: 0 !important }
-._mr0 { margin-right: 0 !important }
-
-// ._radius
+// margins
 $margins: (
   "_125" : .125em,
   "_25" : .25em,
@@ -565,14 +563,35 @@ $margins: (
   ""    : 1em
 );
 @each $x, $value in $margins {
-  ._ml#{$x} { margin-left: $value; }
-  ._mr#{$x} { margin-right: $value; }
-  ._mv#{$x} { @extend ._ml#{$x}; @extend ._mr#{$x}; }
+  ._ma#{$x} { margin: $value }
+  ._ml#{$x} { margin-left: $value }
+  ._mr#{$x} { margin-right: $value }
+  ._mh#{$x} { @extend ._ml#{$x}; @extend ._mr#{$x}; }
+}
+
+// for margin
+._m0 { margin:0 !important }
+._mt0 { margin-top: 0 !important }
+._mb0 { margin-bottom: 0 !important }
+._ml0 { margin-left: 0 !important }
+._mr0 { margin-right: 0 !important }
+
+// paddings
+$paddings: (
+  "_125" : .125em,
+  "_25" : .25em,
+  "_5"  : .5em,
+  ""    : 1em
+);
+@each $x, $value in $paddings {
+  ._pa#{$x} { padding: $value }
+  ._pl#{$x} { padding-left: $value }
+  ._pr#{$x} { padding-right: $value }
+  ._ph#{$x} { @extend ._pl#{$x}; @extend ._pr#{$x}; }
 }
 
 // for blockquote and q
 ._no_quote { quotes: none; &:before, &:after { content: ''; content: none; }}
-
 
 // control overflow
 ._no_overflow,

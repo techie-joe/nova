@@ -23,22 +23,21 @@ block append vars
 
 mixin section_icons
   style.
-    .icons .isvg {
-      margin-right:.5em;
-      min-width:1.5em;
-      min-height:1.5em;
-      /* font-size: 1.5em; /* 1.5em = 36px | 1em = 24px */
+    .icons ._icon {
+      margin-right:.5rem;
+      font-size: 1.5em; /* 1.5em = 36px | 1em = 24px */
+      line-height:1.5;
     }
   section._p.icons
     - let svgds = []; for (let key in svgi) { svgds.push(svgi[key]); }
     each d in svgds
       +isvg(d)
-  section._p.icons
+    br
     - i = 0;
     while 8 >= i++
       +isvg(svgi.angle)(class="_rotate_"+(-45+i*45))
-    +isvg(svgi.cross).__spin
-    +isvg(svgi.spin).__spin
+    +isvg(svgi.cross).__spin._tc_red
+    +isvg(svgi.spin).__spin._tc_blue
   //- section
 
 mixin section_sizing

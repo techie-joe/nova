@@ -35,74 +35,83 @@ block article
           background-color:#8884;
         }
       //- style.
-      ._flex._gap_5
-        .i._outline2(style="min-width:50px") 50px
-        .f._f._outline Flex
-        .i._outline2(style="min-width:100px") 100px
-        .f._f._outline Flex
-        .i._outline2(style="min-width:200px") 200px
-      hr
-      ._flex._gap_5
-        .i._outline2(style="min-width:300px") 300px
-        .f._f._outline Flex
-        .f._f._outline Flex
-        .f._f._outline Flex
-      hr
-      ._flex._gap_5
-        .i._outline2(style="min-width:50px") 50px
-        .i._outline2(style="min-width:100px") 100px
-        .i._outline2(style="min-width:200px") 200px
-        .i._outline2(style="min-width:300px") 300px
-        .f._f._outline Flex
-      hr
-      //- ------------------------------
       mixin flex(n)
         - for (let i = 0; i < n ; i++)
           .f._outline(class="_f"+n) Flex #{n}
-      
+      mixin flex_
+        .f._f._outline Flex
+      //- --------------------------------------------------------      
       ._flex._gap_5
-        +flex(6)
-        .f._outline2._f6-5 Flex 6-5
-        .f._outline2._f6 Flex 6
-        .f._outline2._f6-4 Flex 6-4
-        .f._outline2._f6-2 Flex 6-2
-        .f._outline2._f6-3 Flex 6-3
-        .f._outline2._f6-3 Flex 6-3
-        .f._outline2._f6-2 Flex 6-2
-        .f._outline2._f6-4 Flex 6-4
-        .f._outline2._f6 Flex 6
-        .f._outline2._f6-5 Flex 6-5
+        ._f1._flex._gap_5: +flex_
+        ._f1._flex._gap_5: +repeat(2): +flex_
+        ._f1._flex._gap_5: +repeat(3): +flex_
+        ._f1._flex._gap_5: +repeat(5): +flex_
       hr
       ._flex._gap_5
-        +flex(5)
-        .f._outline2._f5-4 Flex 5-4
-        .f._outline2._f5 Flex 5
-        .f._outline2._f5-3 Flex 5-3
-        .f._outline2._f5-2 Flex 5-2
-        .f._outline2._f5-2 Flex 5-2
-        .f._outline2._f5-3 Flex 5-3
-        .f._outline2._f5 Flex 5
-        .f._outline2._f5-4 Flex 5-4
+        ._f1._flex._gap_5
+          .i._outline2(style="min-width:50px") 50px
+          +flex_
+          .i._outline2(style="min-width:100px") 100px
+          +flex_
+          .i._outline2(style="min-width:200px") 200px
+        ._f1._flex._gap_5
+          .i._outline2(style="min-width:300px") 300px
+          +repeat(3): +flex_
+        ._f1._flex._gap_5
+          .i._outline2(style="min-width:300px") 300px
+          .i._outline2(style="min-width:200px") 200px
+          .i._outline2(style="min-width:100px") 100px
+          .i._outline2(style="min-width:50px") 50px
+          +flex_
+      hr
+      //- --------------------------------------------------------      
+      ._flex._gap_5
+        ._f1._flex._gap_5: +flex(6)
+        ._f1._flex._gap_5
+          .f._outline2._f6-5 Flex 6-5
+          .f._outline2._f6 Flex 6
+          .f._outline2._f6-4 Flex 6-4
+          .f._outline2._f6-2 Flex 6-2
+          .f._outline2._f6-3 Flex 6-3
+          .f._outline2._f6-3 Flex 6-3
+          .f._outline2._f6-2 Flex 6-2
+          .f._outline2._f6-4 Flex 6-4
+          .f._outline2._f6 Flex 6
+          .f._outline2._f6-5 Flex 6-5
       hr
       ._flex._gap_5
-        +flex(4)
-        .f._outline2._f4-3 Flex 4-3
-        .f._outline2._f4 Flex 4
-        .f._outline2._f4-2 Flex 4-2
-        .f._outline2._f4-2 Flex 4-2
-        .f._outline2._f4 Flex 4
-        .f._outline2._f4-3 Flex 4-3
+        ._f1._flex._gap_5: +flex(5)
+        ._f1._flex._gap_5
+          .f._outline2._f5-4 Flex 5-4
+          .f._outline2._f5 Flex 5
+          .f._outline2._f5-3 Flex 5-3
+          .f._outline2._f5-2 Flex 5-2
+          .f._outline2._f5-2 Flex 5-2
+          .f._outline2._f5-3 Flex 5-3
+          .f._outline2._f5 Flex 5
+          .f._outline2._f5-4 Flex 5-4
       hr
       ._flex._gap_5
-        +flex(3)
-        .f._outline2._f3-2 Flex 3-2
-        .f._outline2._f3 Flex 3
-        .f._outline2._f3 Flex 3
-        .f._outline2._f3-2 Flex 3-2
+        ._f1._flex._gap_5: +flex(4)
+        ._f1._flex._gap_5
+          .f._outline2._f4-3 Flex 4-3
+          .f._outline2._f4 Flex 4
+          .f._outline2._f4-2 Flex 4-2
+          .f._outline2._f4-2 Flex 4-2
+          .f._outline2._f4 Flex 4
+          .f._outline2._f4-3 Flex 4-3
+      hr
+      ._flex._gap_5
+        ._f1._flex._gap_5: +flex(3)
+        ._f1._flex._gap_5
+          .f._outline2._f3-2 Flex 3-2
+          .f._outline2._f3 Flex 3
+          .f._outline2._f3 Flex 3
+          .f._outline2._f3-2 Flex 3-2
       hr
       ._flex._gap_5
         .f._outline._f2 Flex 2
         .f._outline2._f2 Flex 2
       hr
-      ._flex._gap_5: +flex(1)
-      hr
+      ._flex._gap_5: +flex(1)      
+      //- hr

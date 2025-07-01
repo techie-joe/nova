@@ -10,43 +10,47 @@ block append vars
 block article
   article._article
 
-    mixin ilinks(cls)
-      a(href='#' class=cls): +itext('_cicon')|☀
-      a(href='#' class=cls): +isvg(svgi.compare,'_cicon')
-      a(href='#' class=cls)| #[+itext('_licon')|☀]Link
-      a(href='#' class=cls)| #[+isvg(svgi.compare,'_licon')]Link
-      a(href='#' class=cls)._hover: +itext('_cicon')|☀
-      a(href='#' class=cls)._hover: +isvg(svgi.compare,'_cicon')
-      a(href='#' class=cls)._hover| #[+itext('_licon')|☀]Link
-      a(href='#' class=cls)._hover| #[+isvg(svgi.compare,'_licon')]Link
-    nav._container: +ilinks('_a31')
-    hr._m0
-    nav._container: +ilinks('_a3')
-    hr._m0
-    nav._container: +ilinks('_a2')
-    hr._m0
-    nav: +ilinks('_a11')
-    hr._m0
-    nav: +ilinks('_a1')
-    hr._m0
-    mixin nlinks(cls,id)
-      a(href='#' class=cls id=id) Hyperlink
-      a(href='#' class=cls)._link Link
-      a(href='#' class=cls)._visited Visited
-      a(href='#' class=cls)._hover Hover
-      a(href='#' class=cls)._active Active
-      script.
-        document.getElementById('#{id}').href+='?t='+(new Date().getTime());
-    nav._container: +nlinks('_a31','hyperlink31')
-    hr._m0
-    nav._container: +nlinks('_a3','hyperlink3')
-    hr._m0
-    nav._container: +nlinks('_a2','hyperlink2')
-    hr._m0
-    nav: +nlinks('_a11','hyperlink11')
-    hr._m0
-    nav: +nlinks('_a1','hyperlink1')
-    hr._m0
+    ._flex
+      ._f
+        mixin ilinks(cls)
+          a(href='#' class=cls): +itext('_cicon')|☀
+          a(href='#' class=cls): +isvg(svgi.compare,'_cicon')
+          a(href='#' class=cls)| #[+itext('_licon')|☀]Link
+          a(href='#' class=cls)| #[+isvg(svgi.compare,'_licon')]Link
+          a(href='#' class=cls)._hover: +itext('_cicon')|☀
+          a(href='#' class=cls)._hover: +isvg(svgi.compare,'_cicon')
+          a(href='#' class=cls)._hover| #[+itext('_licon')|☀]Link
+          a(href='#' class=cls)._hover| #[+isvg(svgi.compare,'_licon')]Link
+        nav._container: +ilinks('_a31')
+        hr._m0
+        nav._container: +ilinks('_a3')
+        hr._m0
+        nav._container: +ilinks('_a2')
+        hr._m0
+        nav: +ilinks('_a11')
+        hr._m0
+        nav: +ilinks('_a1')
+        hr._m0
+      ._f
+        mixin nlinks(cls,id)
+          a(href='#' class=cls id=id) Hyperlink
+          a(href='#' class=cls)._link Link
+          a(href='#' class=cls)._visited Visited
+          a(href='#' class=cls)._hover Hover
+          a(href='#' class=cls)._active Active
+          script.
+            document.getElementById('#{id}').href+='?t='+(new Date().getTime());
+        nav._container: +nlinks('_a31','hyperlink31')
+        hr._m0
+        nav._container: +nlinks('_a3','hyperlink3')
+        hr._m0
+        nav._container: +nlinks('_a2','hyperlink2')
+        hr._m0
+        nav: +nlinks('_a11','hyperlink11')
+        hr._m0
+        nav: +nlinks('_a1','hyperlink1')
+        hr._m0
+    //- flex
     section._container
       |#[a(href='#')._hover_link._hover_u| #[+isvg(svgi.compare,'_mr_125')]Link] 
       |#[a(href='#')._hover_link._hover_u| #[+itext('_mr_125')|☀]Link] 
