@@ -7,27 +7,70 @@ block append vars
     title       = `View | ${name}`
     description = 'Testing view.'
 
-//- block append style
+  //- - bodyClass.push('views');
+
+block append style
   style.
+    body { box-shadow: 0 0 0 1px #3355CC inset }
+    body.oy-scroll { overflow-y:scroll;bottom:40px }
+    .fullview {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+    #bottom { margin-top:100vh }
   //- style.
 
 block header
   +simpleHeader
 
-//- block header
-  +btns
-    +menu_a(['lab','lab','Lab','Return to Lab'],['_a2'])
-  hr
-
 block article
   article._article
 
+    +btns
+      button(onclick="a();") A
+      button(onclick="b();") B
+      button(onclick="c();") C
+      +I
+      button(onclick="bottom();") Bottom
+    hr
     section._container: pre._scrollable.pre.
       // #{description}
+      // bodyClass: #[span#bodyClass|#{bodyClass.join(' ')}]
     //- pre.
+    section._container#bottom._mono._text_center(style="display:none")| === Bottom ====
 
 block append script
   script.
     (()=>{
+      const
+        w = window,
+        d = document,
+        eid = (id) => d.getElementById(id),
+        hid = (id,html) => eid(id).innerHTML=html,
+        storage = localStorage,
+        { log } = console;
+      w.a = ()=>{
+        d.body.className = '#{bodyClass.join('')}';
+        hid('bodyClass',d.body.className);
+      };
+      w.b = ()=>{
+        d.body.className = 'fullview';
+        hid('bodyClass',d.body.className);
+      };
+      w.c = ()=>{
+        d.body.className = 'fullview oy-scroll';
+        hid('bodyClass',d.body.className);
+      };
+      var bottom = false;
+      w.bottom = ()=>{
+        const
+          e = eid('bottom'),
+          s = 'display:'+(bottom?'none':'block');
+         e.setAttribute('style',s);
+         bottom=!bottom;
+      };
     })();
   //- script.

@@ -77,6 +77,18 @@
       #topRightNav .sun { font-size: 1.3rem; line-height: 1.4rem; }
       
     </style>
+    <style>
+      body { box-shadow: 0 0 0 1px #3355CC inset }
+      body.oy-scroll { overflow-y:scroll;bottom:40px }
+      .fullview {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+      #bottom { margin-top:100vh }
+    </style>
   </head>
   <body>
     <header class="_container"><a href="/nova/site/">
@@ -90,9 +102,28 @@
     <hr class="_m0"/>
     <main>
       <article class="_article">
+        <style>
+          #btns button {
+            margin: .1em;
+            font-size: 0.8rem;
+            vertical-align: top;
+            line-height: 1rem;
+            height: 1.5rem;
+            min-width: 1.5rem;
+          }
+        </style>
+        <header class="_container" id="btns">
+          <button onclick="a();">A</button>
+          <button onclick="b();">B</button>
+          <button onclick="c();">C</button> | 
+          <button onclick="bottom();">Bottom</button>
+        </header>
+        <hr>
         <section class="_container">
-          <pre class="_scrollable pre">// Testing view.</pre>
+          <pre class="_scrollable pre">// Testing view.
+// bodyClass: <span id="bodyClass"></span></pre>
         </section>
+        <section class="_container _mono _text_center" id="bottom" style="display:none">=== Bottom ====</section>
       </article>
       <aside id="_side_article"></aside>
     </main>
@@ -127,6 +158,33 @@
     </script>
     <script>
       (()=>{
+        const
+          w = window,
+          d = document,
+          eid = (id) => d.getElementById(id),
+          hid = (id,html) => eid(id).innerHTML=html,
+          storage = localStorage,
+          { log } = console;
+        w.a = ()=>{
+          d.body.className = '';
+          hid('bodyClass',d.body.className);
+        };
+        w.b = ()=>{
+          d.body.className = 'fullview';
+          hid('bodyClass',d.body.className);
+        };
+        w.c = ()=>{
+          d.body.className = 'fullview oy-scroll';
+          hid('bodyClass',d.body.className);
+        };
+        var bottom = false;
+        w.bottom = ()=>{
+          const
+            e = eid('bottom'),
+            s = 'display:'+(bottom?'none':'block');
+           e.setAttribute('style',s);
+           bottom=!bottom;
+        };
       })();
     </script>
   </body>
