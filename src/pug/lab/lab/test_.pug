@@ -2,9 +2,8 @@ extends _html
 
 block append style
   style.
-
-      #_topRightNav { position:fixed; top:0;right:0; padding:.5rem }
-      #_topRightNav ._a3 {
+      #topRightNav { position:fixed; top:0;right:15px; padding:.625rem }
+      #topRightNav ._a3 {
         font-family:"Arial",sans-serif;
         font-size:1.2rem;
         text-decoration:none;
@@ -15,30 +14,33 @@ block append style
         line-height:1em;
         width:1.5rem;
         height:1.5rem;
-        margin:.1rem;
+        margin:0 0 0 .25rem;
         padding:0;
         border:1px solid #888;
         font-weight:normal;
         border-radius:.3rem;
         color:inherit !important;
       }
-      #_topRightNav ._a3 i { font-style:normal }
-      #_topRightNav .sun { font-size: 1.3rem; line-height: 1.4rem; }
+      #topRightNav ._a3 i { font-style:normal }
+      #topRightNav .sun { font-size: 1.3rem; line-height: 1.4rem; }
 
   //- style.
 
-mixin topRightNav
-  aside#_topRightNav
-    +a._a3._color(onclick=onclick('window.test.disableStyle();') title="Toggle Style"): i._icon|s
+block append side_bar
+
+  aside#topRightNav
+    +a._needjs._a3._color(onclick=onclick('window.test.disableStyle();') title="Toggle Style"): i._icon|s
     +changeThemeLink._a3._color: i._icon.sun|☀
 
 block append script
   script.
     (()=>{
-      var
-      e = document.getElementById("_style"),
+      const
+      w = window,
+      d = document,
+      e = d.getElementById("_style"),
       m = e.getAttribute("media"),
       disableStyle = ()=>{ e.setAttribute("media",e.getAttribute("media")==='x'?m:'x') };
-      window.test = { disableStyle };
+      w.test = { disableStyle };
     })();
   //- script.

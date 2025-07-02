@@ -179,9 +179,10 @@ button {
 
 // icons
 ._icon {
-  &,i { @extend ._no_i; }
+  @extend ._no_i;
   @extend ._inblock;
   line-height:1;
+  i { @extend ._no_i; }
 }
 .fa, .fab, .far, .fas, .fa-brands, .fa-regular, .fa-solid {
   @extend ._inblock;
@@ -521,7 +522,7 @@ u,._u {
 @for $i from 2 through 6 { ._f#{$i} { @extend .__f; flex: calc(96 / $i) 0 calc(96% / $i); } }
 @for $i from 3 through 6 {
   @for $j from 2 through $i - 1 {
-    ._f#{$i}-#{$j} { @extend .__f; flex: (96 / $i * $j) 0 calc(96% / $i * $j); }
+    ._f#{$i}-#{$j} { @extend .__f; flex: calc(96 / $i * $j) 0 calc(96% / $i * $j); }
   }
 }
 // @for $i from 4 through 6 { ._f#{$i * 2} { @extend .__f; flex: 1 0 calc(96% / ($i * 2)); } }

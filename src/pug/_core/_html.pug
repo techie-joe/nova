@@ -6,6 +6,7 @@ block vars
   - layout = 'core/_html'
   -
     htmlClass = []
+    bodyClass = []
     mainClass = []
 
 block updatePageData
@@ -35,7 +36,7 @@ html(lang=lang class=htmlClass.join(' '))
         //- style.
 
   block body
-    body
+    body(class=bodyClass.join(' '))
 
       block header
         header
