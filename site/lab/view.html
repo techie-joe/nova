@@ -6,7 +6,7 @@
   
   <head>
     <meta charset="utf-8"/>
-    <title>Text | NovaCSS</title>
+    <title>View | NovaCSS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
     <meta id="_color_scheme" name="color-scheme" content="light dark"/>
@@ -16,13 +16,13 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/nova/site/icons/favicon-16x16.png?v=0.1.0"/>
     <link rel="icon" type="image/x-icon" sizes="any" href="/nova/site/icons/favicon.ico?v=0.1.0"/>
     <!--[if lt IE 9]><script src="//unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
-    <meta name="description" content="Testing text."/>
+    <meta name="description" content="Testing view."/>
     <meta name="author" content="Techie Joe"/>
     <meta name="publisher" content="[unknown]"/>
-    <meta property="og:title" content="Text | NovaCSS"/>
-    <meta property="og:description" content="Testing text."/>
+    <meta property="og:title" content="View | NovaCSS"/>
+    <meta property="og:description" content="Testing view."/>
     <meta property="og:type" content="website"/>
-    <meta property="og:url" content="https://techiejoe.github.io/nova/lab/text.html?utm_source=homescreen"/>
+    <meta property="og:url" content="https://techiejoe.github.io/nova/test/view.html?utm_source=homescreen"/>
     <meta property="og:image"/>
     <meta property="og:image:alt"/>
     <link rel="stylesheet" media="all" href="/nova/site/css/nova.css?v=0.1.0" id="_style"/>
@@ -53,10 +53,34 @@
       }
     </style>
     <style>/* your style goes here */</style>
+    <style>
+      #topRightNav { position:fixed; top:0;right:0; padding:.6rem }
+      #topRightNav ._a3 {
+        font-family:"Arial",sans-serif;
+        font-size:1.2rem;
+        text-decoration:none;
+        text-align:center;
+        vertical-align:top;
+        display:inline-block;
+        box-sizing:border-box;
+        line-height:1em;
+        width:1.5rem;
+        height:1.5rem;
+        margin:0 0 0 .25rem;
+        padding:0;
+        border:1px solid #888;
+        font-weight:normal;
+        border-radius:.3rem;
+        color:inherit !important;
+      }
+      #topRightNav ._a3 i { font-style:normal }
+      #topRightNav .sun { font-size: 1.3rem; line-height: 1.4rem; }
+      
+    </style>
   </head>
   <body>
     <header class="_container"><a href="/nova/site/">
-        <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">CSS</span></div></a><span id="maindesc">Testing text.</span>
+        <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">CSS</span></div></a><span id="maindesc">Testing view.</span>
     </header>
     <hr class="_m0"/>
     <div class="_color_2" id="_main_nav">
@@ -64,20 +88,17 @@
       </nav>
     </div>
     <hr class="_m0"/>
-    <div class="_color_1 _pa_125">
-      <nav class="_container"><a class="_a2" href="/nova/site/lab/test.html">Test</a><a class="_a2" href="/nova/site/lab/temp.html">Temp</a><a class="_a2 _active" href="/nova/site/lab/text.html">Text</a><a class="_a2" href="/nova/site/lab/flex.html">Flex</a><a class="_a2" href="/nova/site/lab/storage.html">Storage</a>
-      </nav>
-    </div>
-    <hr class="_mt0">
     <main>
       <article class="_article">
         <section class="_container">
-          <pre class="_scrollable pre">// Testing text ..</pre>
+          <pre class="_scrollable pre">// Testing view.</pre>
         </section>
       </article>
       <aside id="_side_article"></aside>
     </main>
     <aside id="_side_bar"></aside>
+    <aside id="topRightNav"><a class="_needjs _a3 _color" href="#" title="Toggle Style" onclick="event.preventDefault();window.test.disableStyle();"><i class="_icon">s</i></a><a class="_needjs _a3 _color" href="#" onclick="event.preventDefault();theme.change();" title="Change Theme (Ctrl+Alt+T)"><i class="_icon sun">☀</i></a>
+    </aside>
     <footer>
       <hr class="_m0">
       <div class="_relative">
@@ -93,5 +114,20 @@
     <aside id="_widgets"></aside>
     <script type="text/javascript" src="/nova/site/js/theme_v2.0.js?v=0.1.0"></script>
     <script>// your script goes here</script>
+    <script>
+      (()=>{
+        const
+        w = window,
+        d = document,
+        e = d.getElementById("_style"),
+        m = e.getAttribute("media"),
+        disableStyle = ()=>{ e.setAttribute("media",e.getAttribute("media")==='x'?m:'x') };
+        w.test = { disableStyle };
+      })();
+    </script>
+    <script>
+      (()=>{
+      })();
+    </script>
   </body>
 </html>

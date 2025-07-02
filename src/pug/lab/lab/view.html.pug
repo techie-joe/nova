@@ -1,0 +1,33 @@
+extends test_
+
+block append vars
+  -
+    pageid      = 'test/view'
+    pageUrl     = siteUrl + '/test/view.html'
+    title       = `View | ${name}`
+    description = 'Testing view.'
+
+//- block append style
+  style.
+  //- style.
+
+block header
+  +simpleHeader
+
+//- block header
+  +btns
+    +menu_a(['lab','lab','Lab','Return to Lab'],['_a2'])
+  hr
+
+block article
+  article._article
+
+    section._container: pre._scrollable.pre.
+      // #{description}
+    //- pre.
+
+block append script
+  script.
+    (()=>{
+    })();
+  //- script.

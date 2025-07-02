@@ -1,4 +1,4 @@
-extends _html_2
+extends _html
 
 block append vars
   -
@@ -9,6 +9,14 @@ block append vars
 
 block append stylesheet
   +cssv(homeUri+"css/flex960.css")
+
+block header
+  +simpleHeader
+
+//- block header
+  +btns
+    +menu_a(['lab','lab','Lab','Return to Lab'],['_a2'])
+  hr
 
 block article
   article._article

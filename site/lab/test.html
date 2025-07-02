@@ -54,13 +54,13 @@
     </style>
     <style>/* your style goes here */</style>
     <style>
-      #topRightNav { position:fixed; top:0;right:15px; padding:.625rem }
+      #topRightNav { position:fixed; top:0;right:0; padding:.6rem }
       #topRightNav ._a3 {
         font-family:"Arial",sans-serif;
         font-size:1.2rem;
         text-decoration:none;
         text-align:center;
-        vertical-align: middle;
+        vertical-align:top;
         display:inline-block;
         box-sizing:border-box;
         line-height:1em;
@@ -89,14 +89,27 @@
     </div>
     <hr class="_m0"/>
     <div class="_color_1 _pa_125">
-      <nav class="_container"><a class="_a2" href="/nova/site/lab/temp.html">Temp</a><a class="_a2 _active" href="/nova/site/lab/test.html">Test</a><a class="_a2" href="/nova/site/lab/text.html">Text</a><a class="_a2" href="/nova/site/lab/flex.html">Flex</a><a class="_a2" href="/nova/site/lab/storage.html">Storage</a>
+      <nav class="_container"><a class="_a2 _active" href="/nova/site/lab/test.html">Test</a><a class="_a2" href="/nova/site/lab/temp.html">Temp</a><a class="_a2" href="/nova/site/lab/text.html">Text</a><a class="_a2" href="/nova/site/lab/flex.html">Flex</a><a class="_a2" href="/nova/site/lab/storage.html">Storage</a>
       </nav>
     </div>
     <hr class="_mt0">
     <main>
       <article class="_article">
+        <style>
+          #btns button {
+            margin: .1em;
+            font-size: 0.8rem;
+            vertical-align: top;
+            line-height: 1rem;
+            height: 1.5rem;
+          }
+        </style>
+        <header class="_container" id="btns">
+          <button onclick="alert('Test run ..')">Test Run</button>
+        </header>
+        <hr>
         <section class="_container">
-          <pre class="_scrollable pre">// Tests goes here ..</pre>
+          <pre class="_scrollable pre">// Testing new stuff.</pre>
         </section>
       </article>
       <aside id="_side_article"></aside>

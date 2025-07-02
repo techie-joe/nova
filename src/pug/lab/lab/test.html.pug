@@ -7,6 +7,8 @@ block append vars
     title       = `Test | ${name}`
     description = 'Testing new stuff.'
 
+//- block header
+
 //- block append style
   style.
   //- style.
@@ -14,8 +16,11 @@ block append vars
 block article
   article._article
 
+    +btns
+      button(onclick="alert('Test run ..')") Test Run
+    hr
     section._container: pre._scrollable.pre.
-      // Tests goes here ..
+      // #{description}
     //- pre.
 
 //- block append script
