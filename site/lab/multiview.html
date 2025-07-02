@@ -55,12 +55,14 @@
     <style>/* your style goes here */</style>
     <style>
       body { box-shadow: 0 0 0 3px #3355CC inset }
+      .view { box-shadow: 0 0 0 3px #cc7333 inset }
       ._article { box-shadow: 0 0 0 3px #2a8e39 inset }
       
-      .view { box-shadow: 0 0 0 3px #cc7333 inset }
+      body { padding-bottom:3rem }
+      
       .view {  }
       
-      #view-2 {  }
+      #view-1 {  }
       
     </style>
   </head>
@@ -75,16 +77,14 @@
     </div>
     <hr class="_m0"/>
     <main>
-      <div class="_absolute" id="view-0" aria-hidden="true"></div>
-      <div class="view" id="view-1">
-        <article class="_article _container">
-          <div class="_pa_125">
-            <section class="_container">
-              <pre class="_scrollable pre">// Testing multi view.</pre>
-            </section>
-          </div>
-        </article>
-      </div>
+      <div class="_absolute" id="view-1" aria-hidden="true"></div>
+      <article class="_article _container" style="min-height:100vh">
+        <div class="_pa_125">
+          <section class="_container">
+            <pre class="_scrollable pre">// Testing multi view.</pre>
+          </section>
+        </div>
+      </article>
       <aside id="_side_article"></aside>
     </main>
     <div class="view" id="view-2">
@@ -129,46 +129,38 @@
     </footer>
     <div class="_widgets">
       <style>
-        #nav-box {
-          position:absolute;
-          top:50%;
-          left:50%;
-        }
-        
-        #nav {
+        #navbox {
+          position:fixed;top:50%;left:50%;transform: translateX(-50%) translateY(-50%);
           border: 1px solid #888;
-          position:absolute;top:50%;left:50%;transform: translateX(-50%) translateY(-50%);
           z-index: 1000;
           padding: .5rem;
         }
         
-        #nav a {
+        #navbox a {
           min-width: 2em;
           margin: 0.4rem;
           padding: 0.4em 0.8em;
         }
         
       </style>
-      <div class="_widget _no_print" id="nav-box">
-        <nav class="_color _radius_25" id="nav">
-          <table>
-            <tbody>
-              <tr>
-                <td><a class="_a3" href="#view-0">1</a>
-                </td>
-                <td><a class="_a3" href="#view-2">2</a>
-                </td>
-              </tr>
-              <tr>
-                <td><a class="_a3" href="#view-3">3</a>
-                </td>
-                <td><a class="_a3" href="#view-4">4</a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </nav>
-      </div>
+      <nav class="_widget _no_print _color _radius_25" id="navbox">
+        <table>
+          <tbody>
+            <tr>
+              <td><a class="_a3" href="#view-1">1</a>
+              </td>
+              <td><a class="_a3" href="#view-2">2</a>
+              </td>
+            </tr>
+            <tr>
+              <td><a class="_a3" href="#view-3">3</a>
+              </td>
+              <td><a class="_a3" href="#view-4">4</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </nav>
     </div>
     <script type="text/javascript" src="/nova/site/js/theme_v2.0.js?v=0.1.0"></script>
     <script>// your script goes here</script>

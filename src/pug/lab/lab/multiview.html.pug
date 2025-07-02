@@ -12,12 +12,14 @@ block append vars
 block append style
   style.
     body { box-shadow: 0 0 0 3px #3355CC inset }
+    .view { box-shadow: 0 0 0 3px #cc7333 inset }
     ._article { box-shadow: 0 0 0 3px #2a8e39 inset }
 
-    .view { box-shadow: 0 0 0 3px #cc7333 inset }
+    body { padding-bottom:3rem }
+
     .view {  }
 
-    #view-2 {  }
+    #view-1 {  }
 
   //- 
     body #topRightNav { box-shadow: 0 0 0 3px #cc33cc inset }
@@ -37,8 +39,8 @@ block header
   +simpleHeader
 
 block article
-  #view-0._absolute(aria-hidden="true")
-  #view-1.view: article._article._container: ._pa_125
+  #view-1._absolute(aria-hidden="true")
+  article._article._container(style="min-height:100vh"): ._pa_125
     section._container: pre._scrollable.pre.
       // #{description}
     //- pre.
@@ -56,20 +58,14 @@ block widget
 
     style.
 
-      #nav-box {
-        position:absolute;
-        top:50%;
-        left:50%;
-      }
-
-      #nav {
+      #navbox {
+        position:fixed;top:50%;left:50%;transform: translateX(-50%) translateY(-50%);
         border: 1px solid #888;
-        position:absolute;top:50%;left:50%;transform: translateX(-50%) translateY(-50%);
         z-index: 1000;
         padding: .5rem;
       }
 
-      #nav a {
+      #navbox a {
         min-width: 2em;
         margin: 0.4rem;
         padding: 0.4em 0.8em;
@@ -77,13 +73,12 @@ block widget
 
     //- style.
 
-    #nav-box._widget._no_print
-      nav#nav._color._radius_25
-        table: tbody
-          tr
-            td: +a('#view-0')._a3|1
-            td: +a('#view-2')._a3|2
-          tr
-            td: +a('#view-3')._a3|3
-            td: +a('#view-4')._a3|4
-    //- #nav-box
+    nav#navbox._widget._no_print._color._radius_25
+      table: tbody
+        tr
+          td: +a('#view-1')._a3|1
+          td: +a('#view-2')._a3|2
+        tr
+          td: +a('#view-3')._a3|3
+          td: +a('#view-4')._a3|4
+    //- #navbox
