@@ -1,0 +1,89 @@
+extends _html
+
+block append vars
+  -
+    pageid      = 'lab/multiview'
+    pageUrl     = siteUrl + '/lab/multiview.html'
+    title       = `Multi View | ${name}`
+    description = 'Testing multi view.'
+  
+  //- - bodyClass.push('_fullview')
+
+block append style
+  style.
+    body { box-shadow: 0 0 0 3px #3355CC inset }
+    ._article { box-shadow: 0 0 0 3px #2a8e39 inset }
+
+    .view { box-shadow: 0 0 0 3px #cc7333 inset }
+    .view {  }
+
+    #view-2 {  }
+
+  //- 
+    body #topRightNav { box-shadow: 0 0 0 3px #cc33cc inset }
+    body #topRightNav { top:.5rem; right:.5rem; }
+    ._article { box-shadow: 0 0 0 3px #2a8e39 inset }
+    #overflow { color: #2a8e39 }
+    
+    body.fullview #topRightNav { margin-right:15px }
+    body.fullview   { overflow:auto; position: absolute; top: 0; right: 0; bottom: 40px; left: 0; }
+    
+    html.fullscreen { overflow:auto scroll }
+    body.fullscreen { overflow:auto; position: absolute; top: 0; right: 0; bottom: auto; left: 0; height:auto; min-height:100%; }
+  
+  //- style.
+
+block header
+  +simpleHeader
+
+block article
+  #view-0._absolute(aria-hidden="true")
+  #view-1.view: article._article._container: ._pa_125
+    section._container: pre._scrollable.pre.
+      // #{description}
+    //- pre.
+
+block append main
+  #view-2.view: article._article._container: ._pa_125
+    section._container: pre.pre| // View 2
+  #view-3.view: article._article._container: ._pa_125
+    section._container: pre.pre| // View 3
+  #view-4.view: article._article._container: ._pa_125
+    section._container: pre.pre| // View 4
+
+block widget
+  ._widgets
+
+    style.
+
+      #nav-box {
+        position:absolute;
+        top:50%;
+        left:50%;
+      }
+
+      #nav {
+        border: 1px solid #888;
+        position:absolute;top:50%;left:50%;transform: translateX(-50%) translateY(-50%);
+        z-index: 1000;
+        padding: .5rem;
+      }
+
+      #nav a {
+        min-width: 2em;
+        margin: 0.4rem;
+        padding: 0.4em 0.8em;
+      }
+
+    //- style.
+
+    #nav-box._widget._no_print
+      nav#nav._color._radius_25
+        table: tbody
+          tr
+            td: +a('#view-0')._a3|1
+            td: +a('#view-2')._a3|2
+          tr
+            td: +a('#view-3')._a3|3
+            td: +a('#view-4')._a3|4
+    //- #nav-box

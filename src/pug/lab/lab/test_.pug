@@ -1,6 +1,6 @@
 extends _html
 
-block append style
+mixin topRightNav
   style.
       #topRightNav { position:fixed; top:0;right:0; padding:.6rem }
       #topRightNav ._a3 {
@@ -25,14 +25,11 @@ block append style
       #topRightNav .sun { font-size: 1.3rem; line-height: 1.4rem; }
 
   //- style.
-
-block append side_bar
-
   aside#topRightNav
-    +a._needjs._a3._color(onclick=onclick('window.test.disableStyle();') title="Toggle Style"): i._icon|s
+    +a._needjs._a3._color(onclick=onclick('test.disableStyle();') title="Toggle Style"): i._icon|s
     +changeThemeLink._a3._color: i._icon.sun|☀
 
-block append script
+  //- aside
   script.
     (()=>{
       const
@@ -44,3 +41,6 @@ block append script
       w.test = { disableStyle };
     })();
   //- script.
+
+block append widget
+  +topRightNav

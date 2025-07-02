@@ -54,6 +54,75 @@
     </style>
     <style>/* your style goes here */</style>
     <style>
+      body { box-shadow: 0 0 0 3px #3355CC inset }
+      body #topRightNav { box-shadow: 0 0 0 3px #cc33cc inset }
+      body #topRightNav { top:.5rem; right:.5rem; }
+      ._article { box-shadow: 0 0 0 3px #2a8e39 inset }
+      #overflow { color: #2a8e39 }
+      
+      body.fullview #topRightNav { margin-right:15px }
+      body.fullview   { overflow:auto; position: absolute; top: 0; right: 0; bottom: 40px; left: 0; }
+      
+      html.fullscreen { overflow:auto scroll }
+      body.fullscreen { overflow:auto; position: absolute; top: 0; right: 0; bottom: auto; left: 0; height:auto; min-height:100%; }
+      
+    </style>
+  </head>
+  <body>
+    <header class="_container"><a href="/nova/site/">
+        <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">CSS</span></div></a><span id="maindesc">Testing view.</span>
+    </header>
+    <hr class="_m0"/>
+    <div class="_color_2" id="_main_nav">
+      <nav><a class="_a11" href="/nova/site/basic">Basic</a><a class="_a11" href="/nova/site/starter">Starter</a><a class="_a11" href="/nova/site/lab">Lab</a>
+      </nav>
+    </div>
+    <hr class="_m0"/>
+    <main>
+      <article class="_article _container">
+        <div class="_pa_125">
+          <style>
+            #btns button {
+              margin: .1em;
+              font-size: 0.8rem;
+              vertical-align: top;
+              line-height: 1rem;
+              height: 1.5rem;
+              min-width: 1.5rem;
+            }
+          </style>
+          <header class="_container" id="btns">
+            <button onclick="view.reset();" title="Reset">R</button>
+            <button onclick="view.overflow();" title="Overflow Content">O</button> | 
+            <button onclick="view.fullview();" title="Fullview">FV</button>
+            <button onclick="view.fullscreen();" title="Fullscreen">FS</button>
+          </header>
+          <hr>
+          <section class="_container">
+            <pre class="_scrollable pre">// Testing view.
+// htmlClass: <span id="htmlClass">_hidden</span>
+// bodyClass: <span id="bodyClass"></span></pre>
+          </section>
+          <section class="_mono _text_center" id="overflow">=== Bottom ====</section>
+        </div>
+      </article>
+      <aside id="_side_article"></aside>
+    </main>
+    <aside id="_side_bar"></aside>
+    <footer>
+      <hr class="_m0">
+      <div class="_relative">
+        <div class="_absolute" style="top:.1rem;left:auto;right:0">
+          <div class="_container">
+            <div class="_small"><a class="_a2 _hover_link" href="/nova/site/">Home</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="_container"><small>&copy; 2025 Techie Joe</small></div>
+    </footer>
+    <aside id="_widgets"></aside>
+    <style>
       #topRightNav { position:fixed; top:0;right:0; padding:.6rem }
       #topRightNav ._a3 {
         font-family:"Arial",sans-serif;
@@ -77,74 +146,8 @@
       #topRightNav .sun { font-size: 1.3rem; line-height: 1.4rem; }
       
     </style>
-    <style>
-      body { box-shadow: 0 0 0 1px #3355CC inset }
-      body.oy-scroll { overflow-y:scroll;bottom:40px }
-      .fullview {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-      }
-      #bottom { margin-top:100vh }
-    </style>
-  </head>
-  <body>
-    <header class="_container"><a href="/nova/site/">
-        <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">CSS</span></div></a><span id="maindesc">Testing view.</span>
-    </header>
-    <hr class="_m0"/>
-    <div class="_color_2" id="_main_nav">
-      <nav><a class="_a11" href="/nova/site/basic">Basic</a><a class="_a11" href="/nova/site/starter">Starter</a><a class="_a11" href="/nova/site/lab">Lab</a>
-      </nav>
-    </div>
-    <hr class="_m0"/>
-    <main>
-      <article class="_article">
-        <style>
-          #btns button {
-            margin: .1em;
-            font-size: 0.8rem;
-            vertical-align: top;
-            line-height: 1rem;
-            height: 1.5rem;
-            min-width: 1.5rem;
-          }
-        </style>
-        <header class="_container" id="btns">
-          <button onclick="a();">A</button>
-          <button onclick="b();">B</button>
-          <button onclick="c();">C</button> | 
-          <button onclick="bottom();">Bottom</button>
-        </header>
-        <hr>
-        <section class="_container">
-          <pre class="_scrollable pre">// Testing view.
-// bodyClass: <span id="bodyClass"></span></pre>
-        </section>
-        <section class="_container _mono _text_center" id="bottom" style="display:none">=== Bottom ====</section>
-      </article>
-      <aside id="_side_article"></aside>
-    </main>
-    <aside id="_side_bar"></aside>
-    <aside id="topRightNav"><a class="_needjs _a3 _color" href="#" title="Toggle Style" onclick="event.preventDefault();window.test.disableStyle();"><i class="_icon">s</i></a><a class="_needjs _a3 _color" href="#" onclick="event.preventDefault();theme.change();" title="Change Theme (Ctrl+Alt+T)"><i class="_icon sun">☀</i></a>
+    <aside id="topRightNav"><a class="_needjs _a3 _color" href="#" title="Toggle Style" onclick="event.preventDefault();test.disableStyle();"><i class="_icon">s</i></a><a class="_needjs _a3 _color" href="#" onclick="event.preventDefault();theme.change();" title="Change Theme (Ctrl+Alt+T)"><i class="_icon sun">☀</i></a>
     </aside>
-    <footer>
-      <hr class="_m0">
-      <div class="_relative">
-        <div class="_absolute" style="top:.1rem;left:auto;right:0">
-          <div class="_container">
-            <div class="_small"><a class="_a2 _hover_link" href="/nova/site/">Home</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="_container"><small>&copy; 2025 Techie Joe</small></div>
-    </footer>
-    <aside id="_widgets"></aside>
-    <script type="text/javascript" src="/nova/site/js/theme_v2.0.js?v=0.1.0"></script>
-    <script>// your script goes here</script>
     <script>
       (()=>{
         const
@@ -156,6 +159,8 @@
         w.test = { disableStyle };
       })();
     </script>
+    <script type="text/javascript" src="/nova/site/js/theme_v2.0.js?v=0.1.0"></script>
+    <script>// your script goes here</script>
     <script>
       (()=>{
         const
@@ -165,25 +170,50 @@
           hid = (id,html) => eid(id).innerHTML=html,
           storage = localStorage,
           { log } = console;
-        w.a = ()=>{
-          d.body.className = '';
-          hid('bodyClass',d.body.className);
+        d.html = d.documentElement;
+        var
+          dc = d.html.className,
+          bc = d.body.className,
+          fullview = false,
+          fullscreen = false,
+          overflow = false;
+        const
+          set = ()=>{
+            hid('htmlClass',d.html.className);
+            hid('bodyClass',d.body.className);
+            eid('overflow').setAttribute('style','margin-top:'+(overflow?'100vh':'0'));
+          },
+          v = w.view = {};
+        d.addEventListener('DOMContentLoaded',()=>{
+          dc = d.html.className;
+          bc = d.body.className;
+          set();
+        })
+        v.overflow = ()=>{
+          overflow=!overflow;
+          set();
         };
-        w.b = ()=>{
-          d.body.className = 'fullview';
-          hid('bodyClass',d.body.className);
+        v.reset = ()=>{
+          fullview = false;
+          fullscreen = false;
+          bottom = false;
+          d.html.className = dc;
+          d.body.className = bc;
+          set();
         };
-        w.c = ()=>{
-          d.body.className = 'fullview oy-scroll';
-          hid('bodyClass',d.body.className);
-        };
-        var bottom = false;
-        w.bottom = ()=>{
-          const
-            e = eid('bottom'),
-            s = 'display:'+(bottom?'none':'block');
-           e.setAttribute('style',s);
-           bottom=!bottom;
+        v.fullview = ()=>{
+          fullview=!fullview;
+          fullscreen = false;
+          d.html.className = (fullview?dc+' fullview':dc);
+          d.body.className = (fullview?bc+' fullview':bc);
+          set();
+        },
+        v.fullscreen = ()=>{
+          fullview = false;
+          fullscreen=!fullscreen;
+          d.html.className = (fullscreen?dc+' fullscreen':dc);
+          d.body.className = (fullscreen?bc+' fullscreen':bc);
+          set();
         };
       })();
     </script>

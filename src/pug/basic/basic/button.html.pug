@@ -1,0 +1,38 @@
+extends _html
+
+block append vars
+  -
+    pageid      = 'basic/button'
+    pageUrl     = siteUrl + '/basic/button.html'
+    title       = `Button | ${name}`
+    description = 'Intuitive button styles.'
+
+block header
+  +simpleHeader
+
+block article
+  article._article
+
+    section._container: pre.pre.
+      // #{description}
+    //- pre.
+    hr
+    section.buttons
+      ._p
+        button(onclick=onclick())._btn.__primary Primary
+        button(onclick=onclick())._btn.__secondary Secondary
+        button(onclick=onclick())._btn Ordinary
+      ._p
+        button(onclick=onclick())._btn.__disabled.__primary Primary
+        button(onclick=onclick())._btn.__disabled.__secondary Secondary
+        button(onclick=onclick())._btn.__disabled Ordinary
+    section.btns
+      ._p
+        +a(onclick=onclick())._a31.__primary Primary
+        +a(onclick=onclick())._a31.__secondary Secondary
+        +a(onclick=onclick())._a31 Ordinary
+      ._p
+        +a(onclick=onclick())._a31.__disabled.__primary Primary
+        +a(onclick=onclick())._a31.__disabled.__secondary Secondary
+        +a(onclick=onclick())._a31.__disabled Ordinary
+    //- section
