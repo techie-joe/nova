@@ -55,6 +55,7 @@
     <style>/* your style goes here */</style>
     <style>
       ._pa1px { padding:1px }
+      .fullview { position: absolute; top: 0; right: 0; bottom: 0; left: 0; }
       
       body { box-shadow: 0 0 0 3px #3355CC inset;padding:3px; }
       body #topRightNav { box-shadow:0 0 0 3px #cc33cc inset; }
@@ -64,10 +65,11 @@
       #overflow { color: #2a8e39 }
       
       body.fullview #topRightNav { right:0px;margin-right:15px; }
-      body.fullview   { overflow:auto scroll; position: absolute; top: 0; right: 0; bottom: 0; left: 0;padding-right:0; }
+      body.fullview   { padding-right:0; }
+      body.fullview   { overflow:auto scroll; }
       
       html.fullscreen { overflow:auto scroll }
-      body.fullscreen { overflow:auto; position: absolute; top: 0; right: 0; bottom: auto; left: 0; height:auto; min-height:100%;padding-bottom:40px; }
+      body.fullscreen { overflow:auto; position: absolute; top: 0; right: 0; bottom: auto; left: 0; height:auto; min-height:100%;padding-bottom:40px;margin-bottom:0; }
       
     </style>
   </head>

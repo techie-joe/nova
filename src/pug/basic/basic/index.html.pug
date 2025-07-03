@@ -14,8 +14,8 @@ block article
   article._article._container
 
     ._p._color_1._radius_5._pa_125: +basic_nav
-    ._p._color_1._radius_5._pa_125
-      +menu_a2([
+    ._flex._gap_5
+      ._f._color_1._radius_5._pa_125: +menu_a2([
         ['core/html','core/html.html','Html'],
         ['basic/blank','basic/blank.html','Blank'],
         ['basic/error','basic/error.html','Error'],
@@ -26,4 +26,9 @@ block article
         ['basic/404','basic/e404.html','404'],
         ['404','-404-','&middot;&middot;','Simulate real 404'],
       ])
+      ._fit._color_1._radius_5._pa_125
+        nav._container: +changeThemeLink._a2: +itext('_cicon')|☀
     ._p._color_1._radius_5._pa_125: +icons_nav
+    ._p._color_1._radius_5._pa_125: +menu_a2([
+      ['basic/multiview','basic/multiview.html','Multi View'],
+    ])

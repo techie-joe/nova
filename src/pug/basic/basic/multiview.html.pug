@@ -2,23 +2,24 @@ extends _html
 
 block append vars
   -
-    pageid      = 'lab/multiview'
-    pageUrl     = siteUrl + '/lab/multiview.html'
+    pageid      = 'basic/multiview'
+    pageUrl     = siteUrl + '/basic/multiview.html'
     title       = `Multi View | ${name}`
-    description = 'Testing multi view.'
+    description = 'Create multiple views.'
   
   -
     bodyClass.push('_fullview')
     mainClass.push( '_views', '_fullview', '_scrollable' )
 
 block append style
+  //- 
+    body      { box-shadow: 0 0 0 3px #3355CC inset;padding:3px; }
+    ._views   { box-shadow: 0 0 0 3px #6b33cc inset;padding:3px 0 3px 3px; }
+    ._article { box-shadow: 0 0 0 3px #2a8e39 inset;padding:1px; }
   style.
     ._pa1px { padding:1px }
 
-    body      { box-shadow: 0 0 0 3px #3355CC inset;padding:3px; }
-    ._views   { box-shadow: 0 0 0 3px #6b33cc inset;padding:3px 0 3px 3px; }
     ._view    { box-shadow: 0 0 0 3px #cc7333 inset;padding:3px; }
-    ._article { box-shadow: 0 0 0 3px #2a8e39 inset;padding:1px; }
 
     ._views { scroll-behavior:smooth; }
     ._view  { min-height:400px;min-height:100%; }
@@ -39,11 +40,11 @@ block article
         // #{description}
       //- pre.
   //- article
-  #view-2._view: article._article
+  #view-2._view._color_1: article._article
     section._container: pre.pre| // View 2
   #view-3._view: article._article
     section._container: pre.pre| // View 3
-  #view-4._view: article._article
+  #view-4._view._color_2: article._article
     section._container: pre.pre| // View 4
 
 block widget

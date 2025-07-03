@@ -16,13 +16,13 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/nova/site/icons/favicon-16x16.png?v=0.1.0"/>
     <link rel="icon" type="image/x-icon" sizes="any" href="/nova/site/icons/favicon.ico?v=0.1.0"/>
     <!--[if lt IE 9]><script src="//unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
-    <meta name="description" content="Testing multi view."/>
+    <meta name="description" content="Create multiple views."/>
     <meta name="author" content="Techie Joe"/>
     <meta name="publisher" content="[unknown]"/>
     <meta property="og:title" content="Multi View | NovaCSS"/>
-    <meta property="og:description" content="Testing multi view."/>
+    <meta property="og:description" content="Create multiple views."/>
     <meta property="og:type" content="website"/>
-    <meta property="og:url" content="https://techiejoe.github.io/nova/lab/multiview.html?utm_source=homescreen"/>
+    <meta property="og:url" content="https://techiejoe.github.io/nova/basic/multiview.html?utm_source=homescreen"/>
     <meta property="og:image"/>
     <meta property="og:image:alt"/>
     <link rel="stylesheet" media="all" href="/nova/site/css/nova.css?v=0.1.0" id="_style"/>
@@ -56,10 +56,7 @@
     <style>
       ._pa1px { padding:1px }
       
-      body      { box-shadow: 0 0 0 3px #3355CC inset;padding:3px; }
-      ._views   { box-shadow: 0 0 0 3px #6b33cc inset;padding:3px 0 3px 3px; }
       ._view    { box-shadow: 0 0 0 3px #cc7333 inset;padding:3px; }
-      ._article { box-shadow: 0 0 0 3px #2a8e39 inset;padding:1px; }
       
       ._views { scroll-behavior:smooth; }
       ._view  { min-height:400px;min-height:100%; }
@@ -74,7 +71,7 @@
       <div class="_absolute" id="view-0" aria-hidden="true"></div>
       <div class="_view" id="view-1" style="min-height:300px">
         <header class="_container"><a href="/nova/site/">
-            <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">CSS</span></div></a><span id="maindesc">Testing multi view.</span>
+            <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">CSS</span></div></a><span id="maindesc">Create multiple views.</span>
         </header>
         <hr class="_m0"/>
         <div class="_color_2" id="_main_nav">
@@ -84,11 +81,11 @@
         <hr class="_m0"/>
         <article class="_article">
           <section class="_container">
-            <pre class="_scrollable pre">// Testing multi view.</pre>
+            <pre class="_scrollable pre">// Create multiple views.</pre>
           </section>
         </article>
       </div>
-      <div class="_view" id="view-2">
+      <div class="_view _color_1" id="view-2">
         <article class="_article">
           <section class="_container">
             <pre class="pre">// View 2</pre>
@@ -102,7 +99,7 @@
           </section>
         </article>
       </div>
-      <div class="_view" id="view-4">
+      <div class="_view _color_2" id="view-4">
         <article class="_article">
           <section class="_container">
             <pre class="pre">// View 4</pre>
