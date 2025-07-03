@@ -9,17 +9,20 @@ block append vars
 
 block append style
   style.
-    body { box-shadow: 0 0 0 3px #3355CC inset }
-    body #topRightNav { box-shadow: 0 0 0 3px #cc33cc inset }
-    body #topRightNav { top:.5rem; right:.5rem; }
+    ._pa1px { padding:1px }
+
+    body { box-shadow: 0 0 0 3px #3355CC inset;padding:3px; }
+    body #topRightNav { box-shadow:0 0 0 3px #cc33cc inset; }
+    body #topRightNav { top:3px; right:3px; }
+    body #topRightNav ._a3 { margin:.25rem }
     ._article { box-shadow: 0 0 0 3px #2a8e39 inset }
     #overflow { color: #2a8e39 }
     
-    body.fullview #topRightNav { margin-right:15px }
-    body.fullview   { overflow:auto; position: absolute; top: 0; right: 0; bottom: 40px; left: 0; }
+    body.fullview #topRightNav { right:0px;margin-right:15px; }
+    body.fullview   { overflow:auto scroll; position: absolute; top: 0; right: 0; bottom: 0; left: 0;padding-right:0; }
     
     html.fullscreen { overflow:auto scroll }
-    body.fullscreen { overflow:auto; position: absolute; top: 0; right: 0; bottom: auto; left: 0; height:auto; min-height:100%; }
+    body.fullscreen { overflow:auto; position: absolute; top: 0; right: 0; bottom: auto; left: 0; height:auto; min-height:100%;padding-bottom:40px; }
   
   //- style.
 
@@ -27,21 +30,22 @@ block header
   +simpleHeader
 
 block article
-  article._article._container: ._pa_125
+  article._article: ._pa1px
 
     +btns
       button(onclick="view.reset();" title="Reset") R
-      button(onclick="view.overflow();" title="Overflow Content") O
       +I
       button(onclick="view.fullview();" title="Fullview") FV
       button(onclick="view.fullscreen();" title="Fullscreen") FS
+      +I
+      button(onclick="view.overflow();" title="Overflow Content") O
     hr
     section._container: pre._scrollable.pre.
       // #{description}
       // htmlClass: #[span#htmlClass|#{htmlClass.join(' ')}]
       // bodyClass: #[span#bodyClass|#{bodyClass.join(' ')}]
     //- pre.
-    section#overflow._mono._text_center| === Bottom ====
+    section#overflow._mono._text_center| === Bottom ===
 
 block append script
   script.
@@ -79,7 +83,7 @@ block append script
       v.reset = ()=>{
         fullview = false;
         fullscreen = false;
-        bottom = false;
+        overflow = false;
         d.html.className = dc;
         d.body.className = bc;
         set();

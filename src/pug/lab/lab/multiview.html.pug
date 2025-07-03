@@ -8,20 +8,22 @@ block append vars
     description = 'Testing multi view.'
   
   //- - bodyClass.push('_fullview')
+  //- - mainClass.push('_fullview')
+  //- - mainClass.push('_scrollable')
 
 block append style
   style.
-    body { box-shadow: 0 0 0 3px #3355CC inset }
-    .view { box-shadow: 0 0 0 3px #cc7333 inset }
-    ._article { box-shadow: 0 0 0 3px #2a8e39 inset }
+    ._pa1px { padding:1px }
 
-    body { padding-bottom:3rem }
+    body { box-shadow: 0 0 0 3px #3355CC inset;padding:3px; }
+    .views { box-shadow: 0 0 0 3px #6b33cc inset;padding:3px; }
+    .view { border: 3px solid #cc7333; }
+    ._article { box-shadow: 0 0 0 3px #2a8e39 inset;padding:1px; }
 
-    .view {  }
-
-    #view-1 {  }
+    .views { position:relative;scroll-behavior:smooth;overflow:auto }
 
   //- 
+    .views .fullview   { overflow:auto scroll; position: absolute; top: 0; right: 0; bottom: 40px; left: 0; }
     body #topRightNav { box-shadow: 0 0 0 3px #cc33cc inset }
     body #topRightNav { top:.5rem; right:.5rem; }
     ._article { box-shadow: 0 0 0 3px #2a8e39 inset }
@@ -39,19 +41,21 @@ block header
   +simpleHeader
 
 block article
-  #view-1._absolute(aria-hidden="true")
-  article._article._container(style="min-height:100vh"): ._pa_125
+  #view-0._absolute(aria-hidden="true")
+  #view-1.view(style="min-height:300px"): article._article
     section._container: pre._scrollable.pre.
       // #{description}
     //- pre.
+  //- article
 
 block append main
-  #view-2.view: article._article._container: ._pa_125
-    section._container: pre.pre| // View 2
-  #view-3.view: article._article._container: ._pa_125
-    section._container: pre.pre| // View 3
-  #view-4.view: article._article._container: ._pa_125
-    section._container: pre.pre| // View 4
+  .views
+    #view-2.view(style="min-height:100vh"): article._article
+      section._container: pre.pre| // View 2
+    #view-3.view(style="min-height:100vh"): article._article
+      section._container: pre.pre| // View 3
+    #view-4.view(style="min-height:100vh"): article._article
+      section._container: pre.pre| // View 4
 
 block widget
   ._widgets
@@ -76,7 +80,7 @@ block widget
     nav#navbox._widget._no_print._color._radius_25
       table: tbody
         tr
-          td: +a('#view-1')._a3|1
+          td: +a('#view-0')._a3|1
           td: +a('#view-2')._a3|2
         tr
           td: +a('#view-3')._a3|3

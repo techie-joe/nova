@@ -54,15 +54,14 @@
     </style>
     <style>/* your style goes here */</style>
     <style>
-      body { box-shadow: 0 0 0 3px #3355CC inset }
-      .view { box-shadow: 0 0 0 3px #cc7333 inset }
-      ._article { box-shadow: 0 0 0 3px #2a8e39 inset }
+      ._pa1px { padding:1px }
       
-      body { padding-bottom:3rem }
+      body { box-shadow: 0 0 0 3px #3355CC inset;padding:3px; }
+      .views { box-shadow: 0 0 0 3px #6b33cc inset;padding:3px; }
+      .view { border: 3px solid #cc7333; }
+      ._article { box-shadow: 0 0 0 3px #2a8e39 inset;padding:1px; }
       
-      .view {  }
-      
-      #view-1 {  }
+      .views { position:relative;scroll-behavior:smooth;overflow:auto }
       
     </style>
   </head>
@@ -77,42 +76,38 @@
     </div>
     <hr class="_m0"/>
     <main>
-      <div class="_absolute" id="view-1" aria-hidden="true"></div>
-      <article class="_article _container" style="min-height:100vh">
-        <div class="_pa_125">
+      <div class="_absolute" id="view-0" aria-hidden="true"></div>
+      <div class="view" id="view-1" style="min-height:300px">
+        <article class="_article">
           <section class="_container">
             <pre class="_scrollable pre">// Testing multi view.</pre>
           </section>
-        </div>
-      </article>
+        </article>
+      </div>
       <aside id="_side_article"></aside>
     </main>
-    <div class="view" id="view-2">
-      <article class="_article _container">
-        <div class="_pa_125">
+    <div class="views">
+      <div class="view" id="view-2" style="min-height:100vh">
+        <article class="_article">
           <section class="_container">
             <pre class="pre">// View 2</pre>
           </section>
-        </div>
-      </article>
-    </div>
-    <div class="view" id="view-3">
-      <article class="_article _container">
-        <div class="_pa_125">
+        </article>
+      </div>
+      <div class="view" id="view-3" style="min-height:100vh">
+        <article class="_article">
           <section class="_container">
             <pre class="pre">// View 3</pre>
           </section>
-        </div>
-      </article>
-    </div>
-    <div class="view" id="view-4">
-      <article class="_article _container">
-        <div class="_pa_125">
+        </article>
+      </div>
+      <div class="view" id="view-4" style="min-height:100vh">
+        <article class="_article">
           <section class="_container">
             <pre class="pre">// View 4</pre>
           </section>
-        </div>
-      </article>
+        </article>
+      </div>
     </div>
     <aside id="_side_bar"></aside>
     <footer>
@@ -147,7 +142,7 @@
         <table>
           <tbody>
             <tr>
-              <td><a class="_a3" href="#view-1">1</a>
+              <td><a class="_a3" href="#view-0">1</a>
               </td>
               <td><a class="_a3" href="#view-2">2</a>
               </td>
