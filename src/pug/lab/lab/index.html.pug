@@ -14,6 +14,14 @@ block article
   article._article._container
 
     +boxap: +lab_nav_
+    +boxap: +menu_a2([
+      ['lab/storage','lab/storage.html','Storage'],
+      ['lab/overflow','lab/overflow.html','Overflow'],
+      ['json','json','JSON'],
+      ['color','color','Color'],
+      ['theme','theme','Theme'],
+      ['menu','menu.html','Menu'],
+    ])
     ._flex._gap_5._p
       +boxam([
         ['lab/view','lab/view.html','View'],
@@ -33,14 +41,7 @@ block article
         ['basic/i-emoji','basic/i-emoji.html','Emoji Icons'],
         ['basic/i-flat','basic/i-flat.html','Flat Icons'],
       ])
-    ._flex._gap_5._p
-      +boxam([
-        ['themejs','themejs','ThemeJS'],
-        ['json','json','JSON'],
-        ['color','color','Color'],
-        ['theme','theme','Theme'],
-        ['vanamir','vanamir','Vanamir'],
-      ])
-      +boxam([
-        ['lab/storage','lab/storage.html','Storage'],
-      ])
+    +boxap: +menu_a2([
+      ['themejs','themejs','ThemeJS'],
+      ['vanamir','vanamir','Vanamir'],
+    ])
