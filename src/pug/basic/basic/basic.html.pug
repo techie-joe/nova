@@ -7,10 +7,6 @@ block append vars
     title       = `Basic | ${name}`
     description = 'Basic elements.'
 
-mixin menu(links)
-  each v in links
-    a(href=homeUri+v[1])._a2 !{v[2]}
-
 block article
   article._article
 
