@@ -13,23 +13,29 @@ block header
 block article
   article._article._container
 
-    ._p._color_1._radius_5._pa_125: +lab_nav
-    //- ['lab/fullscreen','lab/fullscreen.html','Full Screen'],
-    ._p._color_1._radius_5._pa_125: +menu_a2([
-      ['lab/view','lab/view.html','View'],
-      ['lab/multiview','lab/multiview.html','Multi View'],
-    ])
-    ._flex._gap_5
-      ._f._color_1._radius_5._pa_125: +menu_a2([
+    +boxap: +lab_nav_
+    ._flex._gap_5._p
+      +boxam([
+        ['lab/view','lab/view.html','View'],
+        ['lab/multiview','lab/multiview.html','Multi View'],
+        ['lab/fullscreen','lab/fullscreen.html','Full Screen'],
+      ])
+      +boxam([
+      ])
+    ._flex._gap_5._p
+      +boxam([
         ['lab/flex','lab/flex.html','Flex'],
         ['lab/flex960','lab/flex960.html','Flex-960'],
       ])
-      ._f._color_1._radius_5._pa_125: +menu_a2([
-        ['basic/button','basic/button.html','Button'],
-        ['basic/i-emoji','basic/i-emoji.html','Emoji Icons'],
+      +boxam([
+        ['lab/button','lab/button.html','Button'],
+        ['basic/button','basic/button.html','Button (Basic)'],
       ])
-      ._f._color_1._radius_5._pa_125: +menu_a2([
+    ._flex._gap_5._p
+      +boxam([
+        ['basic/i-emoji','basic/i-emoji.html','Emoji Icons'],
+        ['basic/i-flat','basic/i-flat.html','Flat Icons'],
+      ])
+      +boxam([
         ['themejs','themejs','ThemeJS'],
       ])
-      ._fit._color_1._radius_5._pa_125
-        nav._container: +changeThemeLink._a2: +itext('_cicon')|☀

@@ -352,6 +352,7 @@ html,body { @extend ._color; }
   display: inline-block;
   padding: 0 .5em;
   white-space: nowrap;
+  vertical-align: middle;
   &:active { opacity:.3 }
 }
 
@@ -580,6 +581,7 @@ $margins: (
 
 // paddings
 $paddings: (
+  "1px"  : 1px,
   "_125" : .125em,
   "_25" : .25em,
   "_5"  : .5em,

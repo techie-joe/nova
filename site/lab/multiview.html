@@ -54,8 +54,6 @@
     </style>
     <style>/* your style goes here */</style>
     <style>
-      ._pa1px { padding:1px }
-      
       body      { box-shadow: 0 0 0 3px #3355CC inset;padding:3px; }
       ._views   { box-shadow: 0 0 0 3px #6b33cc inset;padding:3px 0 3px 3px; }
       ._view    { box-shadow: 0 0 0 3px #cc7333 inset;padding:3px; }
@@ -77,9 +75,13 @@
             <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">CSS</span></div></a><span id="maindesc">Testing multi view.</span>
         </header>
         <hr class="_m0"/>
-        <div class="_color_2" id="_main_nav">
-          <nav><a class="_a11" href="/nova/site/basic">Basic</a><a class="_a11" href="/nova/site/starter">Starter</a><a class="_a11" href="/nova/site/lab">Lab</a>
-          </nav>
+        <div class="_color_2 _flex" id="_main_nav">
+          <div class="_f">
+            <nav><a class="_a11" href="/nova/site/starter">Starter</a><a class="_a11" href="/nova/site/basic">Basic</a><a class="_a11" href="/nova/site/lab">Lab</a>
+            </nav>
+          </div>
+          <div class="_fit"><a class="_needjs _a11" href="#" onclick="event.preventDefault();theme.change();" title="Change Theme (Ctrl+Alt+T)"><i class="_icon _cicon"><i class="itext">☀</i></i></a>
+          </div>
         </div>
         <hr class="_m0"/>
         <article class="_article">

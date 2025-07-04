@@ -1,5 +1,8 @@
 mixin menu_a(v,classes)
-  a(href=homeUri+v[1] class=classes.join(' ') title=v[3]) !{v[2]}
+  if typeof v === 'string'
+    |!{v}
+  else
+    a(href=homeUri+v[1] class=classes.join(' ') title=v[3]) !{v[2]}
 
 mixin menu_m1(links)
   nav._container
@@ -9,7 +12,7 @@ mixin menu_m1(links)
       +l
       +menu_a(v,classes)
 
-mixin menu_a1(links)
+mixin menu_a11(links)
   nav
     each v in links
       - classes = ['_a11'];
@@ -29,12 +32,13 @@ mixin menu_a2(links)
 
 mixin main_nav
   hr._m0
-  #_main_nav._color_2
-    +menu_a1([
-      ['basic','basic','Basic'],
+  #_main_nav._color_2._flex
+    ._f: +menu_a11([
       ['starter','starter','Starter'],
+      ['basic','basic','Basic'],
       ['lab','lab','Lab'],
     ])
+    ._fit: +changeThemeLink._a11: +itext('_cicon')|☀
   hr._m0
 
 mixin core_nav
@@ -42,7 +46,7 @@ mixin core_nav
   +menu_a2([
   ])
 
-mixin basic_nav
+mixin basic_nav_
   //- ['basic/form','basic/form.html','Form'],
   //- ['basic/fieldset','basic/fieldset.html','Fieldset'],
   //- ['basic/legend','basic/legend.html','Legend'], 
@@ -55,7 +59,7 @@ mixin basic_nav
   //- ['basic/image','basic/image.html','Image'],
   //- ['basic/table','basic/table.html','Table'],
   //- ['basic/button','basic/button.html','Button'],
-  ._color_1._pa_125: +menu_a2([
+  +menu_a2([
     ['basic/basic','basic/basic.html','Basic'],
     ['basic/text','basic/text.html','Text'],
     ['basic/table','basic/table.html','Table'],
@@ -66,17 +70,26 @@ mixin basic_nav
     ['basic/alignment','basic/alignment.html','Alignment'],
   ])
 
-mixin icons_nav
-  ._color_1._pa_125: +menu_a2([
+mixin basic_nav
+  ._color_1._pa_125: +basic_nav_
+
+mixin icons_nav_
+  +menu_a2([
     ['basic/i-font-awesome','basic/i-font-awesome.html','Font Awesome Icons'],
     ['basic/i-text','basic/i-text.html','Text Icons'],
     ['basic/i-svg','basic/i-svg.html','SVG Icons'],
   ])
 
-mixin lab_nav
-  ._color_1._pa_125: +menu_a2([
+mixin icons_nav
+  ._color_1._pa_125: +icons_nav_
+
+mixin lab_nav_
+  +menu_a2([
     ['lab/test','lab/test.html','Test'],
     ['lab/temp','lab/temp.html','Temp'],
     ['lab/text','lab/text.html','Text'],
     ['lab/storage','lab/storage.html','Storage'],
   ])
+
+mixin lab_nav
+  ._color_1._pa_125: +lab_nav_
