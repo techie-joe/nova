@@ -1,0 +1,23 @@
+extends ../../_basic/_html
+
+mixin theme_nav
+  //- pageid, uri, title
+  //- ['basic/temp','basic/index.html','Home'],
+  +menu_a2([
+  ])
+
+block header
+  header._container
+    +logo
+    span#maindesc= description
+  +main_nav
+  +theme_nav
+
+mixin boxa
+  ._color_1._radius_5&attributes(attributes): block
+
+mixin boxap
+  +boxa._p._pa1px: block
+
+mixin boxam(menu)
+  +boxa._f: +menu_a2(menu)

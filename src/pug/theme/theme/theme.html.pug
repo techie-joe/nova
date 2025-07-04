@@ -1,0 +1,12 @@
+extends _html
+
+block append vars
+  -
+    pageid      = 'theme/theme'
+    pageUrl     = siteUrl + '/theme/theme.html'
+    title       = `Theme | ${name}`
+    description = 'Testing theme'
+    author      = 'Techie Joe'
+
+block article
+  article: pre| // Jumaat

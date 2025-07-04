@@ -17,6 +17,7 @@ const
       'index',
       'basic',
       'starter',
+      // 'theme',
       'lab',
     ],
     _scss: 'src/scss',

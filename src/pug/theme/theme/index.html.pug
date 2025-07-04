@@ -1,0 +1,22 @@
+extends _html
+
+block append vars
+  -
+    pageid      = 'theme'
+    pageUrl     = siteUrl + '/theme/index.html'
+    title       = `Lab | ${name}`
+    description = 'Laboratory for upcoming features and upgrades.'
+
+block header
+  +simpleHeader
+
+block article
+  article._article._container
+
+    +boxap: +menu_a2([
+      ['themejs','themejs','ThemeJS'],
+      ['json','json','JSON'],
+      ['color','color','Color'],
+      ['theme','theme','Theme'],
+      ['vanamir','vanamir','Vanamir'],
+    ])
