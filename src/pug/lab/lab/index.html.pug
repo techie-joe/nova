@@ -7,36 +7,45 @@ block append vars
     title       = `Lab | ${name}`
     description = 'Laboratory for upcoming features and upgrades.'
 
-block header
-  +simpleHeader
-
 block article
   article._article._container
 
-    +boxap: +lab_nav_
-    ._flex._gap_5._p
-      +boxam([
-        ['lab/view','lab/view.html','View'],
-        ['lab/multiview','lab/multiview.html','Multi View'],
-      ])
-      +boxam([
-        ['lab/flex','lab/flex.html','Flex'],
-        ['lab/flex960','lab/flex960.html','Flex-960'],
-      ])
-    ._flex._gap_5._p
-      +boxam([
-        ['lab/storage','lab/storage.html','Storage'],
-        ['theme','theme','Theme'],
-      ])
-      +boxam([
-        ['basic/button','basic/button.html','Button (Basic)'],
-      ])
-    //- ['lab/fullscreen','lab/fullscreen.html','Full Screen'],
-    //- ['lab/overflow','lab/overflow.html','Overflow'],
-    //- ['json','json','JSON'],
-    //- ['color','color','Color'],
-    //- ['menu','menu.html','Menu'],
-    //- ['basic/i-emoji','basic/i-emoji.html','Emoji Icons'],
-    //- ['basic/i-flat','basic/i-flat.html','Flat Icons'],
-    //- ['themejs','themejs','ThemeJS'],
-    //- ['vanamir','vanamir','Vanamir'],
+    h3._h7| Laboratory
+
+    section
+      ._flex._gap_5._p
+        +boxam([
+          ['lab/test','lab/test.html','Test'],
+          ['lab/text','lab/text.html','Text'],
+          ['lab/storage','lab/storage.html','Storage'],
+        ])
+      ._flex._gap_5._p
+        +boxam([
+          ['lab/view','lab/view.html','View'],
+          ['lab/multiview','lab/multiview.html','Multi View'],
+        ])
+        +boxam([
+          ['lab/flex','lab/flex.html','Flex'],
+          ['lab/flex960','lab/flex960.html','Flex-960'],
+        ])
+        +boxam([
+          ['lab/button','lab/button.html','Button'],
+          ['basic/button','basic/button.html','Basic'],
+        ])
+      ._flex._gap_5._p
+        +boxam([
+          ['theme','theme','Theme'],
+        ])
+    section
+      h3._h7| Upcoming list
+      pre._scrollable.pre.
+        ['menu','menu','Menu'],
+        ['color','color','Color'],
+        ['lab/fullscreen','lab/fullscreen.html','Full Screen'],
+        ['lab/overflow','lab/overflow.html','Overflow'],
+        ['basic/i-flat','basic/i-flat.html','Flat Icons'],
+        ['basic/i-emoji','basic/i-emoji.html','Emoji Icons'],
+        ['vanamir','vanamir','Vanamir'],
+        ['themejs','themejs','ThemeJS'],
+        ['json','json','JSON'],
+      //- pre

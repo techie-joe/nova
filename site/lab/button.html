@@ -6,7 +6,7 @@
   
   <head>
     <meta charset="utf-8"/>
-    <title>Button | NovaCSS</title>
+    <title>Lab buttons | NovaCSS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
     <meta id="_color_scheme" name="color-scheme" content="light dark"/>
@@ -19,7 +19,7 @@
     <meta name="description" content="Testing new button styles."/>
     <meta name="author" content="Techie Joe"/>
     <meta name="publisher" content="[unknown]"/>
-    <meta property="og:title" content="Button | NovaCSS"/>
+    <meta property="og:title" content="Lab buttons | NovaCSS"/>
     <meta property="og:description" content="Testing new button styles."/>
     <meta property="og:type" content="website"/>
     <meta property="og:url" content="https://techiejoe.github.io/nova/lab/button.html?utm_source=homescreen"/>
@@ -68,33 +68,65 @@
       </div>
     </div>
     <hr class="_m0"/>
-    <div class="_color_1 _pa_125">
-      <nav class="_container"><a class="_a2" href="/nova/site/lab/test.html">Test</a><a class="_a2" href="/nova/site/lab/temp.html">Temp</a><a class="_a2" href="/nova/site/lab/text.html">Text</a><a class="_a2 _active" href="/nova/site/lab/button.html">Button</a>
-      </nav>
-    </div>
-    <hr class="_mt0">
     <main>
-      <article class="_article _container">
-        <section>
+      <article class="_article">
+        <section class="_container">
           <pre class="pre">// Testing new button styles.</pre>
         </section>
         <hr>
-        <section class="buttons">
-          <div class="_p">
-            <button class="_btn __primary" onclick="event.preventDefault();">Primary</button>
-            <button class="_btn __secondary" onclick="event.preventDefault();">Secondary</button>
-            <button class="_btn" onclick="event.preventDefault();">Ordinary</button>
-          </div>
-          <div class="_p">
-            <button class="_btn __disabled __primary" onclick="event.preventDefault();">Primary</button>
-            <button class="_btn __disabled __secondary" onclick="event.preventDefault();">Secondary</button>
-            <button class="_btn __disabled" onclick="event.preventDefault();">Ordinary</button>
-          </div>
+        <section class="_container" id="links">
+<a class="_a31 __primary" href="#">Primary</a>
+<a class="_a31 __secondary" href="#">Secondary</a>
+<a class="_a31" href="#">Ordinary</a>
+<a class="_a31 __disabled __primary" href="#">Primary</a>
+<a class="_a31 __disabled __secondary" href="#">Secondary</a>
+<a class="_a31 __disabled" href="#">Ordinary</a>
         </section>
-        <section class="btns">
-          <div class="_p"><a class="_a31 __primary" href="#" onclick="event.preventDefault();">Primary</a><a class="_a31 __secondary" href="#" onclick="event.preventDefault();">Secondary</a><a class="_a31" href="#" onclick="event.preventDefault();">Ordinary</a>
-          </div>
-          <div class="_p"><a class="_a31 __disabled __primary" href="#" onclick="event.preventDefault();">Primary</a><a class="_a31 __disabled __secondary" href="#" onclick="event.preventDefault();">Secondary</a><a class="_a31 __disabled" href="#" onclick="event.preventDefault();">Ordinary</a>
+        <style>
+          #buttons_a31 button {
+            line-height: inherit;
+            background: none;
+          }
+        </style>
+        <section class="_container" id="buttons_a31">
+          <button class="_a31 __primary">Primary</button>
+          <button class="_a31 __secondary">Secondary</button>
+          <button class="_a31">Ordinary</button>
+          <button class="_a31 __disabled __primary" disabled>Primary</button>
+          <button class="_a31 __disabled __secondary" disabled>Secondary</button>
+          <button class="_a31 __disabled" disabled>Ordinary</button>
+        </section>
+        <section class="_container" id="links">
+<a class="_a3 __primary" href="#">Primary</a>
+<a class="_a3 __secondary" href="#">Secondary</a>
+<a class="_a3" href="#">Ordinary</a>
+<a class="_a3 __disabled __primary" href="#">Primary</a>
+<a class="_a3 __disabled __secondary" href="#">Secondary</a>
+<a class="_a3 __disabled" href="#">Ordinary</a>
+        </section>
+        <style>
+          #buttons_a3 button {
+            line-height: inherit;
+            background: none;
+          }
+        </style>
+        <section class="_container" id="buttons_a3">
+          <button class="_a3 __primary">Primary</button>
+          <button class="_a3 __secondary">Secondary</button>
+          <button class="_a3">Ordinary</button>
+          <button class="_a3 __disabled __primary" disabled>Primary</button>
+          <button class="_a3 __disabled __secondary" disabled>Secondary</button>
+          <button class="_a3 __disabled" disabled>Ordinary</button>
+        </section>
+        <style>button { font-family:"Arial",sans-serif; }</style>
+        <section class="_container">
+          <div class="_p">
+            <button class="__primary">Primary</button>
+            <button class="__secondary">Secondary</button>
+            <button>Ordinary</button>
+            <button class="__primary" disabled>Primary</button>
+            <button class="__secondary" disabled>Secondary</button>
+            <button disabled>Ordinary</button>
           </div>
         </section>
       </article>

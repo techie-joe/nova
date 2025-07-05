@@ -4,32 +4,67 @@ block append vars
   -
     pageid      = 'lab/button'
     pageUrl     = siteUrl + '/lab/button.html'
-    title       = `Button | ${name}`
+    title       = `Lab buttons | ${name}`
     description = 'Testing new button styles.'
 
 block article
-  article._article._container
+  article._article
 
-    section: pre.pre.
+    section._container: pre.pre.
       // #{description}
     //- pre.
     hr
-    section.buttons
+    //- ----------------------------------------------------------
+    //- style.
+    section#links._container
+      +_a._a31.__primary Primary
+      +_a._a31.__secondary Secondary
+      +_a._a31 Ordinary
+      +_a._a31.__disabled.__primary Primary
+      +_a._a31.__disabled.__secondary Secondary
+      +_a._a31.__disabled Ordinary
+    style.
+      #buttons_a31 button {
+        line-height: inherit;
+        background: none;
+      }
+    section#buttons_a31._container
+      button._a31.__primary Primary
+      button._a31.__secondary Secondary
+      button._a31 Ordinary
+      button(disabled)._a31.__disabled.__primary Primary
+      button(disabled)._a31.__disabled.__secondary Secondary
+      button(disabled)._a31.__disabled Ordinary
+    //- ----------------------------------------------------------
+    //- style.
+    section#links._container
+      +_a._a3.__primary Primary
+      +_a._a3.__secondary Secondary
+      +_a._a3 Ordinary
+      +_a._a3.__disabled.__primary Primary
+      +_a._a3.__disabled.__secondary Secondary
+      +_a._a3.__disabled Ordinary
+    style.
+      #buttons_a3 button {
+        line-height: inherit;
+        background: none;
+      }
+    section#buttons_a3._container
+      button._a3.__primary Primary
+      button._a3.__secondary Secondary
+      button._a3 Ordinary
+      button(disabled)._a3.__disabled.__primary Primary
+      button(disabled)._a3.__disabled.__secondary Secondary
+      button(disabled)._a3.__disabled Ordinary
+    //- ----------------------------------------------------------
+    style.
+      button { font-family:"Arial",sans-serif; }
+    section._container
       ._p
-        button(onclick=onclick())._btn.__primary Primary
-        button(onclick=onclick())._btn.__secondary Secondary
-        button(onclick=onclick())._btn Ordinary
-      ._p
-        button(onclick=onclick())._btn.__disabled.__primary Primary
-        button(onclick=onclick())._btn.__disabled.__secondary Secondary
-        button(onclick=onclick())._btn.__disabled Ordinary
-    section.btns
-      ._p
-        +a(onclick=onclick())._a31.__primary Primary
-        +a(onclick=onclick())._a31.__secondary Secondary
-        +a(onclick=onclick())._a31 Ordinary
-      ._p
-        +a(onclick=onclick())._a31.__disabled.__primary Primary
-        +a(onclick=onclick())._a31.__disabled.__secondary Secondary
-        +a(onclick=onclick())._a31.__disabled Ordinary
+        button.__primary Primary
+        button.__secondary Secondary
+        button Ordinary
+        button(disabled).__primary Primary
+        button(disabled).__secondary Secondary
+        button(disabled) Ordinary
     //- section

@@ -4,19 +4,12 @@ block append vars
   -
     pageid      = 'theme'
     pageUrl     = siteUrl + '/theme/index.html'
-    title       = `Lab | ${name}`
-    description = 'Laboratory for upcoming features and upgrades.'
-
-block header
-  +simpleHeader
+    title       = `Themes | ${name}`
+    description = 'Building your themes.'
 
 block article
   article._article._container
-
+    h3._h7| Themes
     +boxap: +menu_a2([
-      ['themejs','themejs','ThemeJS'],
-      ['json','json','JSON'],
-      ['color','color','Color'],
-      ['theme','theme','Theme'],
-      ['vanamir','vanamir','Vanamir'],
+      ['theme/theme','theme/theme.html','Jumaat'],
     ])

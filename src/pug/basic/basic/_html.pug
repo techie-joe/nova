@@ -1,5 +1,42 @@
 extends ../../_basic/_html
 
+mixin basic_nav_
+  //- ['basic/form','basic/form.html','Form'],
+  //- ['basic/fieldset','basic/fieldset.html','Fieldset'],
+  //- ['basic/legend','basic/legend.html','Legend'], 
+  //- ['basic/label','basic/label.html','Label'],
+  //- ['basic/input','basic/input.html','Input'],
+  //- ['basic/select','basic/select.html','Select'],
+  //- ['basic/textarea','basic/textarea.html','Textarea'],
+  //- ['basic/checkbox','basic/checkbox.html','Checkbox'],
+  //- ['basic/radio','basic/radio.html','Radio'],
+  //- ['basic/image','basic/image.html','Image'],
+  //- ['basic/table','basic/table.html','Table'],
+  //- ['basic/button','basic/button.html','Button'],
+  +menu_a2([
+    ['basic/basic','basic/basic.html','Basic'],
+    ['basic/text','basic/text.html','Text'],
+    ['basic/table','basic/table.html','Table'],
+    ['basic/link','basic/link.html','Link'],
+    ['basic/details','basic/details.html','Details'],
+    ['basic/flex','basic/flex.html','Flex'],
+    ['basic/container','basic/container.html','Container'],
+    ['basic/alignment','basic/alignment.html','Alignment'],
+  ])
+
+mixin basic_nav
+  ._color_1._pa_125: +basic_nav_
+
+mixin icons_nav_
+  +menu_a2([
+    ['basic/i-font-awesome','basic/i-font-awesome.html','Font Awesome Icons'],
+    ['basic/i-text','basic/i-text.html','Text Icons'],
+    ['basic/i-svg','basic/i-svg.html','SVG Icons'],
+  ])
+
+mixin icons_nav
+  ._color_1._pa_125: +icons_nav_
+
 block header
   +simpleHeader
   +basic_nav

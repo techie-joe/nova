@@ -348,11 +348,13 @@ html,body { @extend ._color; }
 ._a2,
 ._a11,
 ._a1 {
-  @extend ._no_u;
+  text-align: center;
+  text-decoration: none !important;
   display: inline-block;
   padding: 0 .5em;
   white-space: nowrap;
   vertical-align: middle;
+  box-sizing: border-box;
   &:active { opacity:.3 }
 }
 
