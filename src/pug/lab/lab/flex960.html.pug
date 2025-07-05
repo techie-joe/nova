@@ -51,14 +51,23 @@ block article
         background-color:#8884;
       }
     //- style.
-
+    mixin flex(n)
+      - for (let i = 0; i < n ; i++)
+        .f._outline(class="_f"+n) Flex #{n}
+    mixin fit_
+      .f._fit._outline2&attributes(attributes): block
+    mixin flex_
+      .f._f._outline| Flex
     section._p: div(style="max-width:960px;margin:auto")
-      - for (let f = 1; f <= 6 ; f++)
-        ._flex
+      ._flex
+        - for (let f = 1; f <= 12 ; f++)
+          ._f1._flex: +repeat(f): +flex_
+      hr
+      ._flex
+        - for (let f = 1; f <= 6 ; f++)
           - for (let i = 0; i < f ; i++)
             .f._outline(class="_f_"+f) #{960/f}
-      - for (let f = 4; f <= 6 ; f++)
-        ._flex
+        - for (let f = 4; f <= 6 ; f++)
           - for (let i = 0; i < f*2 ; i++)
             .f._outline(class="_f_"+f*2) #{960/4/f*2}
     //- section
