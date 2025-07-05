@@ -66,11 +66,8 @@ block article
           +flex_
       hr
       ._flex._gap_5
-        ._f1._flex._gap_5: +flex_
-        ._f1._flex._gap_5: +repeat(2): +flex_
-        ._f1._flex._gap_5: +repeat(3): +flex_
-        ._f1._flex._gap_5: +repeat(5): +flex_
-        ._f1._flex._gap_5: +repeat(6): +flex_
+        - for (let f = 1; f <= 6 ; f++)
+          ._f1._flex._gap_5: +repeat(f): +flex_
       hr
       //- --------------------------------------------------------      
       ._flex._gap_5
