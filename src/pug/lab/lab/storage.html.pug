@@ -14,9 +14,9 @@ block article
   article._article
 
     +btns
-      button(onclick="(x=>{localStorage.setItem(x.substring(2,7),x.substring(2))})(Math.random().toString(36));updateLog();") Add to Storage
-      button(onclick="localStorage.clear();updateLog();") Clear Storage
-      button(onclick="theme.change();updateLog();") Change Theme
+      button(onclick="(x=>{localStorage.setItem(x.substring(2,7),x.substring(2))})(Math.random().toString(36));") Add to Storage
+      button(onclick="localStorage.clear();") Clear Storage
+      button(onclick="theme.change();") Change Theme
     hr
 
     section._container: pre._scrollable.pre.
@@ -27,6 +27,39 @@ block article
 
 block prepend script
   script.
+    (function () {
+      const originalSetItem = localStorage.setItem;
+      const originalRemoveItem = localStorage.removeItem;
+      const originalClear = localStorage.clear;
+      function triggerChangeEvent(key, oldValue, newValue) {
+        window.dispatchEvent(new CustomEvent('local-storage-change', {
+          detail: { key, oldValue, newValue }
+        }));
+      }
+
+      localStorage.setItem = function (key, value) {
+        const oldValue = localStorage.getItem(key);
+        originalSetItem.apply(this, arguments);
+        triggerChangeEvent(key, oldValue, value);
+      };
+
+      localStorage.removeItem = function (key) {
+        const oldValue = localStorage.getItem(key);
+        originalRemoveItem.apply(this, arguments);
+        triggerChangeEvent(key, oldValue, null);
+      };
+
+      localStorage.clear = function () {
+        originalClear.apply(this);
+        triggerChangeEvent('*', null, null); // use * to signal mass clear
+      };
+
+      // Also listen to cross-tab changes
+      window.addEventListener('storage', (e) => {
+        triggerChangeEvent(e.key, e.oldValue, e.newValue);
+      });
+
+    })();
     (()=>{
       const
         w = window,
@@ -44,7 +77,7 @@ block prepend script
           ].join('\n'));
         };
       //
-      w.addEventListener("storage", (event) => {
+      w.addEventListener("local-storage-change", (event) => {
         updateLog();
       });
       d.addEventListener('DOMContentLoaded', () => {
