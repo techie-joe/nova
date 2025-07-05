@@ -68,12 +68,26 @@
       </div>
     </div>
     <hr class="_m0"/>
+    <div class="_color_1 _pa_125">
+      <nav class="_container"><a class="_a2" href="/nova/site/theme/new_buttons.html">New</a><a class="_a2 _active" href="/nova/site/basic/button.html">Basic</a>
+      </nav>
+    </div>
+    <hr class="_mt0">
     <main>
-      <article class="_article _container">
-        <section>
+      <article class="_article">
+        <section class="_container">
           <pre class="pre">// Basic intuitive buttons.</pre>
         </section>
         <hr>
+        <style>
+          button { font-family:"Arial",sans-serif; }
+          #buttons_a3 button:hover,
+          #buttons_a31 button:hover { background-color: #88888844; }
+          #buttons_a3 button,
+          #buttons_a31 button { line-height: inherit; background: none; }
+          .__disabled._a3,
+          .__disabled._a31 { background:none !important;color:inherit !important;opacity:.3;cursor:default }
+        </style>
         <section class="_container" id="links">
 <a class="_a31 __primary" href="#">Primary</a>
 <a class="_a31 __secondary" href="#">Secondary</a>
@@ -82,19 +96,13 @@
 <a class="_a31 __disabled __secondary" href="#">Secondary</a>
 <a class="_a31 __disabled" href="#">Ordinary</a>
         </section>
-        <style>
-          #buttons_a31 button {
-            line-height: inherit;
-            background: none;
-          }
-        </style>
         <section class="_container" id="buttons_a31">
-          <button class="_a31 __primary">Primary</button>
-          <button class="_a31 __secondary">Secondary</button>
-          <button class="_a31">Ordinary</button>
-          <button class="_a31 __disabled __primary" disabled>Primary</button>
-          <button class="_a31 __disabled __secondary" disabled>Secondary</button>
-          <button class="_a31 __disabled" disabled>Ordinary</button>
+                  <button class="_a31 __primary">Primary</button>
+                  <button class="_a31 __secondary">Secondary</button>
+                  <button class="_a31">Ordinary</button>
+                  <button class="_a31 __disabled __primary" disabled>Primary</button>
+                  <button class="_a31 __disabled __secondary" disabled>Secondary</button>
+                  <button class="_a31 __disabled" disabled>Ordinary</button>
         </section>
         <section class="_container" id="links">
 <a class="_a3 __primary" href="#">Primary</a>
@@ -104,29 +112,22 @@
 <a class="_a3 __disabled __secondary" href="#">Secondary</a>
 <a class="_a3 __disabled" href="#">Ordinary</a>
         </section>
-        <style>
-          #buttons_a3 button {
-            line-height: inherit;
-            background: none;
-          }
-        </style>
         <section class="_container" id="buttons_a3">
-          <button class="_a3 __primary">Primary</button>
-          <button class="_a3 __secondary">Secondary</button>
-          <button class="_a3">Ordinary</button>
-          <button class="_a3 __disabled __primary" disabled>Primary</button>
-          <button class="_a3 __disabled __secondary" disabled>Secondary</button>
-          <button class="_a3 __disabled" disabled>Ordinary</button>
+                  <button class="_a3 __primary">Primary</button>
+                  <button class="_a3 __secondary">Secondary</button>
+                  <button class="_a3">Ordinary</button>
+                  <button class="_a3 __disabled __primary" disabled>Primary</button>
+                  <button class="_a3 __disabled __secondary" disabled>Secondary</button>
+                  <button class="_a3 __disabled" disabled>Ordinary</button>
         </section>
-        <style>button { font-family:"Arial",sans-serif; }</style>
         <section class="_container">
           <div class="_p">
-            <button class="__primary">Primary</button>
-            <button class="__secondary">Secondary</button>
-            <button>Ordinary</button>
-            <button class="__primary" disabled>Primary</button>
-            <button class="__secondary" disabled>Secondary</button>
-            <button disabled>Ordinary</button>
+                    <button class="__primary">Primary</button>
+                    <button class="__secondary">Secondary</button>
+                    <button>Ordinary</button>
+                    <button class="__disabled __primary" disabled>Primary</button>
+                    <button class="__disabled __secondary" disabled>Secondary</button>
+                    <button class="__disabled" disabled>Ordinary</button>
           </div>
         </section>
       </article>

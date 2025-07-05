@@ -40,3 +40,13 @@ mixin main_nav
     ])
     ._fit: +changeThemeLink._a11: +itext('_cicon')|☀
   hr._m0
+
+mixin buttons_menu
+  +menu_a2([
+    ['theme/new_buttons','theme/new_buttons.html','New'],
+    ['basic/button','basic/button.html','Basic'],
+  ])
+
+mixin buttons_nav
+  ._color_1._pa_125: +buttons_menu
+

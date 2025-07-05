@@ -6,7 +6,7 @@
   
   <head>
     <meta charset="utf-8"/>
-    <title>Lab buttons | NovaCSS</title>
+    <title>New buttons | NovaCSS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
     <meta id="_color_scheme" name="color-scheme" content="light dark"/>
@@ -16,13 +16,13 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/nova/site/icons/favicon-16x16.png?v=0.1.0"/>
     <link rel="icon" type="image/x-icon" sizes="any" href="/nova/site/icons/favicon.ico?v=0.1.0"/>
     <!--[if lt IE 9]><script src="//unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
-    <meta name="description" content="Testing new button styles."/>
+    <meta name="description" content="Building new buttons."/>
     <meta name="author" content="Techie Joe"/>
     <meta name="publisher" content="[unknown]"/>
-    <meta property="og:title" content="Lab buttons | NovaCSS"/>
-    <meta property="og:description" content="Testing new button styles."/>
+    <meta property="og:title" content="New buttons | NovaCSS"/>
+    <meta property="og:description" content="Building new buttons."/>
     <meta property="og:type" content="website"/>
-    <meta property="og:url" content="https://techiejoe.github.io/nova/lab/button.html?utm_source=homescreen"/>
+    <meta property="og:url" content="https://techiejoe.github.io/nova/theme/new_buttons.html?utm_source=homescreen"/>
     <meta property="og:image"/>
     <meta property="og:image:alt"/>
     <link rel="stylesheet" media="all" href="/nova/site/css/nova.css?v=0.1.0" id="_style"/>
@@ -56,7 +56,7 @@
   </head>
   <body>
     <header class="_container"><a href="/nova/site/">
-        <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">CSS</span></div></a><span id="maindesc">Testing new button styles.</span>
+        <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">CSS</span></div></a><span id="maindesc">Building new buttons.</span>
     </header>
     <hr class="_m0"/>
     <div class="_color_2 _flex" id="_main_nav">
@@ -68,12 +68,26 @@
       </div>
     </div>
     <hr class="_m0"/>
+    <div class="_color_1 _pa_125">
+      <nav class="_container"><a class="_a2 _active" href="/nova/site/theme/new_buttons.html">New</a><a class="_a2" href="/nova/site/basic/button.html">Basic</a>
+      </nav>
+    </div>
+    <hr class="_mt0">
     <main>
       <article class="_article">
         <section class="_container">
-          <pre class="pre">// Testing new button styles.</pre>
+          <pre class="pre">// Building new buttons.</pre>
         </section>
         <hr>
+        <style>
+          button { font-family:"Arial",sans-serif; }
+          #buttons_a3 button:hover,
+          #buttons_a31 button:hover { background-color: #88888844; }
+          #buttons_a3 button,
+          #buttons_a31 button { line-height: inherit; background: none; }
+          .__disabled._a3,
+          .__disabled._a31 { background:none !important;color:inherit !important;opacity:.3;cursor:default }
+        </style>
         <section class="_container" id="links">
 <a class="_a31 __primary" href="#">Primary</a>
 <a class="_a31 __secondary" href="#">Secondary</a>
@@ -82,19 +96,13 @@
 <a class="_a31 __disabled __secondary" href="#">Secondary</a>
 <a class="_a31 __disabled" href="#">Ordinary</a>
         </section>
-        <style>
-          #buttons_a31 button {
-            line-height: inherit;
-            background: none;
-          }
-        </style>
         <section class="_container" id="buttons_a31">
-          <button class="_a31 __primary">Primary</button>
-          <button class="_a31 __secondary">Secondary</button>
-          <button class="_a31">Ordinary</button>
-          <button class="_a31 __disabled __primary" disabled>Primary</button>
-          <button class="_a31 __disabled __secondary" disabled>Secondary</button>
-          <button class="_a31 __disabled" disabled>Ordinary</button>
+                  <button class="_a31 __primary">Primary</button>
+                  <button class="_a31 __secondary">Secondary</button>
+                  <button class="_a31">Ordinary</button>
+                  <button class="_a31 __disabled __primary" disabled>Primary</button>
+                  <button class="_a31 __disabled __secondary" disabled>Secondary</button>
+                  <button class="_a31 __disabled" disabled>Ordinary</button>
         </section>
         <section class="_container" id="links">
 <a class="_a3 __primary" href="#">Primary</a>
@@ -104,29 +112,22 @@
 <a class="_a3 __disabled __secondary" href="#">Secondary</a>
 <a class="_a3 __disabled" href="#">Ordinary</a>
         </section>
-        <style>
-          #buttons_a3 button {
-            line-height: inherit;
-            background: none;
-          }
-        </style>
         <section class="_container" id="buttons_a3">
-          <button class="_a3 __primary">Primary</button>
-          <button class="_a3 __secondary">Secondary</button>
-          <button class="_a3">Ordinary</button>
-          <button class="_a3 __disabled __primary" disabled>Primary</button>
-          <button class="_a3 __disabled __secondary" disabled>Secondary</button>
-          <button class="_a3 __disabled" disabled>Ordinary</button>
+                  <button class="_a3 __primary">Primary</button>
+                  <button class="_a3 __secondary">Secondary</button>
+                  <button class="_a3">Ordinary</button>
+                  <button class="_a3 __disabled __primary" disabled>Primary</button>
+                  <button class="_a3 __disabled __secondary" disabled>Secondary</button>
+                  <button class="_a3 __disabled" disabled>Ordinary</button>
         </section>
-        <style>button { font-family:"Arial",sans-serif; }</style>
         <section class="_container">
           <div class="_p">
-            <button class="__primary">Primary</button>
-            <button class="__secondary">Secondary</button>
-            <button>Ordinary</button>
-            <button class="__primary" disabled>Primary</button>
-            <button class="__secondary" disabled>Secondary</button>
-            <button disabled>Ordinary</button>
+                    <button class="__primary">Primary</button>
+                    <button class="__secondary">Secondary</button>
+                    <button>Ordinary</button>
+                    <button class="__disabled __primary" disabled>Primary</button>
+                    <button class="__disabled __secondary" disabled>Secondary</button>
+                    <button class="__disabled" disabled>Ordinary</button>
           </div>
         </section>
       </article>

@@ -5,11 +5,9 @@ block append vars
     pageid      = 'theme'
     pageUrl     = siteUrl + '/theme/index.html'
     title       = `Themes | ${name}`
-    description = 'Building your themes.'
+    description = 'Building themes.'
 
 block article
   article._article._container
     h3._h7| Themes
-    +boxap: +menu_a2([
-      ['theme/theme','theme/theme.html','Jumaat'],
-    ])
+    +boxap: +themes_menu

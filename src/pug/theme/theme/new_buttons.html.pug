@@ -2,13 +2,12 @@ extends _html
 
 block append vars
   -
-    pageid      = 'basic/button'
-    pageUrl     = siteUrl + '/basic/button.html'
-    title       = `Basic buttons | ${name}`
-    description = 'Basic intuitive buttons.'
+    pageid      = 'theme/new_buttons'
+    pageUrl     = siteUrl + '/theme/new_buttons.html'
+    title       = `New buttons | ${name}`
+    description = 'Building new buttons.'
 
-block header
-  +simpleHeader
+block append header
   +buttons_nav
   hr._mt0
 

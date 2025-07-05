@@ -1,0 +1,16 @@
+extends ../../_basic/_html
+
+block append vars
+  -
+    pageid      = 'theme/theme_1'
+    pageUrl     = siteUrl + '/theme/theme_1.html'
+    title       = `Theme One | ${name}`
+    description = 'Theme One.'
+    author      = 'Techie Joe'
+
+block header
+  +simpleHeader
+
+block article
+  article._article
+    section._container: pre.pre| // Theme One

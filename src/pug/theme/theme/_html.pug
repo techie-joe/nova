@@ -1,9 +1,8 @@
 extends ../../_basic/_html
 
-mixin theme_nav
-  //- pageid, uri, title
-  //- ['basic/temp','basic/index.html','Home'],
+mixin themes_menu
   +menu_a2([
+    ['theme/theme_1','theme/theme_1.html','One'],
   ])
 
 block header
@@ -11,7 +10,6 @@ block header
     +logo
     span#maindesc= description
   +main_nav
-  +theme_nav
 
 mixin boxa
   ._color_1._radius_5&attributes(attributes): block
