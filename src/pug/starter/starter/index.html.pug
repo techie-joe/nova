@@ -5,10 +5,22 @@ block append vars
     pageid      = 'starter'
     pageUrl     = siteUrl + '/starter/index.html'
     title       = `Starter | ${name}`
-    description = 'Starter templates.'
+    description = 'Starter theme.'
 
 block article
-  article(style="padding-bottom:1.8rem")
-    section._container: pre._scrollable.pre.
+  article._article._container
+
+    section: pre._scrollable.pre.
       // Coming soon ..
     //- pre.
+
+    //- section
+      h3._h7| Starter templates
+      +boxap: +menu_a2([
+      ])
+      ._flex._gap_5._p
+        +boxam([
+        ])
+
+    //- section
+      h3._h7| Starter components

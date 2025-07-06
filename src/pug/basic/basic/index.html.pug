@@ -4,8 +4,8 @@ block append vars
   -
     pageid      = 'basic'
     pageUrl     = siteUrl + '/basic/index.html'
-    title       = `Basic components | ${name}`
-    description = 'Basic components.'
+    title       = `Basic theme | ${name}`
+    description = 'Basic theme.'
 
 block header
   +simpleHeader
@@ -13,23 +13,27 @@ block header
 block article
   article._article._container
 
-    h3._h7| Basic components
+    section
+      h3._h7| Basic templates
+      +boxap: +menu_a2([
+        ['core','core','Core'],
+        ['core/html','core/html.html','Html'],
+        ['core/blank','core/blank.html','Blank'],
+        ' | ',
+        ['basic/error','basic/error.html','Error'],
+        ['basic/400','basic/e400.html','400'],
+        ['basic/401','basic/e401.html','401'],
+        ['basic/403','basic/e403.html','403'],
+        ['basic/404','basic/e404.html','404'],
+        ['404','-404-','&middot;&middot;','Simulate real 404'],
+        ['basic/500','basic/e500.html','500'],
+      ])
 
-    +boxap: +basic_nav_
-    +boxap: +icons_nav_
-    +boxap: +menu_a2([
-      ['basic/multiview','basic/multiview.html','Multi View'],
-      ['basic/button','basic/button.html','Button'],
-    ])
-    +boxap: +menu_a2([
-      ['core/html','core/html.html','Html'],
-      ['core/blank','core/blank.html','Blank'],
-      ' | ',
-      ['basic/error','basic/error.html','Error'],
-      ['basic/400','basic/e400.html','400'],
-      ['basic/401','basic/e401.html','401'],
-      ['basic/403','basic/e403.html','403'],
-      ['basic/404','basic/e404.html','404'],
-      ['404','-404-','&middot;&middot;','Simulate real 404'],
-      ['basic/500','basic/e500.html','500'],
-    ])
+    section
+      h3._h7| Basic components
+      +boxap: +basic_nav_
+      +boxap: +icons_nav_
+      +boxap: +menu_a2([
+        ['basic/multiview','basic/multiview.html','Multi View'],
+        ['basic/button','basic/button.html','Button'],
+      ])
