@@ -21,15 +21,18 @@ mixin simpleHeader
     span#maindesc= description
   +main_nav
 
+mixin basic_helloWorld
+  pre._scrollable.pre.
+    &nbsp;
+    Hello, there.
+    This is a template to get you started.
+    Copy the code from '#[code !{pageid}]' to create your own page.
+
+    #[+backlink._link._a31 Back]
+
 block article
   article._article: section._container
-    pre._scrollable.pre.
-      &nbsp;
-      Hello, there.
-      This is a template to get you started.
-      Copy the code from '#[code !{pageid}]' to create your own page.
-
-      #[+backlink._link._a31 Back]
+    +basic_helloWorld
     hr
     pre._scrollable.pre: +pageData()
 

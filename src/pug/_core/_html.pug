@@ -16,6 +16,16 @@ block updatePageData
     og_description = description
     og_url  = pageUrl? pageUrl + '?utm_source=homescreen' : undefined;
 
+mixin helloWorld
+  pre.
+    &nbsp;
+    Hello, there.
+    This is a template to get you started.
+    Copy the code from '#[code !{pageid}]' to create your own page.
+
+    #[+backlink Back]
+  //-
+
 doctype html
 html(lang=lang class=htmlClass.join(' '))
   |
@@ -46,14 +56,7 @@ html(lang=lang class=htmlClass.join(' '))
 
           block article
             article
-              pre.
-
-                Hello, there.
-                This is a template to get you started.
-                Copy the code from '#[code !{pageid}]' to create your own page.
-
-                #[+backlink Back]
-              //- pre.
+              +helloWorld
               hr
               pre: +pageData()
 

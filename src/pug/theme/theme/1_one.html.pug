@@ -8,9 +8,7 @@ block append vars
     description = 'Theme One.'
     author      = 'Techie Joe'
 
-block header
-  +simpleHeader
-
 block article
-  article._article
-    section._container: pre.pre| // Theme One
+  article._article._container
+    section: pre.pre| // Theme One
+    section: +basic_helloWorld
