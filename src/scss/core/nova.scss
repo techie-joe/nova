@@ -79,7 +79,7 @@ body {
 pre,._pre { @extend ._mono; }
 
 // standardize line height for paragraphs in all browsers.
-p,._p { @extend ._reset_lineheight; }
+p,._p,._p1 { @extend ._reset_lineheight; }
 
 // standardize paragraphs spacing in all browsers.
 ._h1,._h2,._h3,._h4,._h5,._h6,._h7,
@@ -88,6 +88,7 @@ ul,ol,dl,
 blockquote,
 pre,._pre,
 p,._p { margin:.5rem 0 }
+._p1  { margin:1rem 0}
 
 // standardize font size for headings in all browsers.
 h1 { @extend ._h1; }
@@ -514,8 +515,8 @@ u,._u {
 ._valign_bottom { vertical-align: bottom }
 
 ._flex { display:flex; flex-wrap:wrap; }
-._f_row { flex-direction:row }
-._f_column { flex-direction:column }
+._flex_row { @extend ._flex; flex-direction:row }
+._flex_column { @extend ._flex; flex-direction:column }
 
 .__f { box-sizing: border-box }
 
@@ -572,14 +573,19 @@ $margins: (
   ._ml#{$x} { margin-left: $value }
   ._mr#{$x} { margin-right: $value }
   ._mh#{$x} { @extend ._ml#{$x}; @extend ._mr#{$x}; }
+  ._mt#{$x} { margin-top: $value }
+  ._mb#{$x} { margin-bottom: $value }
+  ._mv#{$x} { @extend ._mt#{$x}; @extend ._mb#{$x}; }
 }
 
 // for margin
-._m0 { margin:0 !important }
-._mt0 { margin-top: 0 !important }
-._mb0 { margin-bottom: 0 !important }
+._m0  { margin:0 !important }
 ._ml0 { margin-left: 0 !important }
 ._mr0 { margin-right: 0 !important }
+._mh0 { @extend ._ml0; @extend ._mr0; }
+._mt0 { margin-top: 0 !important }
+._mb0 { margin-bottom: 0 !important }
+._mv0 { @extend ._mt0; @extend ._mb0; }
 
 // paddings
 $paddings: (
@@ -594,6 +600,9 @@ $paddings: (
   ._pl#{$x} { padding-left: $value }
   ._pr#{$x} { padding-right: $value }
   ._ph#{$x} { @extend ._pl#{$x}; @extend ._pr#{$x}; }
+  ._pt#{$x} { padding-top: $value }
+  ._pb#{$x} { padding-bottom: $value }
+  ._pv#{$x} { @extend ._pt#{$x}; @extend ._pb#{$x}; }
 }
 
 // for blockquote and q
