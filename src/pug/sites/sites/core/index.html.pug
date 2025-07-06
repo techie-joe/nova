@@ -1,0 +1,12 @@
+extends ../../../_core/_html
+
+block append vars
+  -
+    pageid      = 'sites/core'
+    pageUrl     = siteUrl + '/sites/core/index.html'
+    title       = `Core`
+    description = '[undescribed]'
+    author      = 'Techie Joe'
+
+block article
+  article._article: +helloWorld

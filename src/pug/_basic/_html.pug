@@ -18,7 +18,7 @@ block prepend style
 mixin simpleHeader
   header._container
     +logo
-    span#maindesc= description
+    span#maindesc!=description
   +main_nav
 
 mixin basic_helloWorld
@@ -26,7 +26,7 @@ mixin basic_helloWorld
     &nbsp;
     Hello, there.
     This is a template to get you started.
-    Copy the code from '#[code !{pageid}]' to create your own page.
+    Copy the code from '#[code !{pageid}]' to create a page like this.
 
     #[+backlink._link._a31 Back]
 

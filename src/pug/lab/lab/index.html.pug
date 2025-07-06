@@ -4,15 +4,14 @@ block append vars
   -
     pageid      = 'lab'
     pageUrl     = siteUrl + '/lab/index.html'
-    title       = `Lab | ${name}`
-    description = 'Laboratory for upcoming features and upgrades.'
+    title       = `Lab`
+    description = 'Testing upcoming features.'
 
 block article
   article._article._container
 
-    h3._h7| Laboratory
-
     section
+      h3._h7| Lab tests
       ._flex._gap_5._p
         +boxam([
           ['lab/test','lab/test.html','Test'],
@@ -33,6 +32,7 @@ block article
         +boxam([
           ['theme','theme','Themes'],
         ])
+
     section
       h3._h7| Upcoming list
       ._container: pre._scrollable.pre.
@@ -43,11 +43,19 @@ block article
         ['lab/overflow','lab/overflow.html','Overflow'],
         ['basic/i-flat','basic/i-flat.html','Flat Icons'],
         ['basic/i-emoji','basic/i-emoji.html','Emoji Icons'],
-        ['vanamir','vanamir','Vanamir'],
         ['themejs','themejs','ThemeJS'],
         ['json','json','JSON'],
+        ['vanamir','vanamir','Vanamir'],
 
         - add storage-changed listener to ThemeJS
         - apply fullview and fullscroll into production
         - continue developing flex960
       //- pre
+
+    section
+      h3._h7| Test sites
+      +boxap: +menu_a2([
+          ['sites/core','sites/core','Core'],
+          ['sites/basic','sites/basic','Basic'],
+        ])
+

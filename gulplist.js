@@ -18,6 +18,7 @@ const
       'basic',
       'starter',
       'theme',
+      'sites',
       'lab',
     ],
     _scss: 'src/scss',
