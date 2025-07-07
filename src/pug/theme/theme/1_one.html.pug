@@ -35,8 +35,8 @@ mixin block_4(title)
     p._text_justify: block
 
 block header
-  header#_header: ._color_1._pa1px
-    ._container
+  header#_header
+    ._color_1._pa1px: ._container
       +logo
       span#maindesc!=description
     hr._m0
@@ -50,7 +50,7 @@ block article
     hr
     section(style="margin-top:3rem")
 
-      h2._h2 Key Principles for Building an Effective Website Theme
+      h2._h1 Key Principles for Building an Effective Website Theme
 
       style.
         #i00 > .f { min-width: 240px; max-width: 470px; }
