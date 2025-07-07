@@ -8,13 +8,22 @@
   }
 
 -
-  let js   = {}; // javascripts
   let cssi = {}; // CSS images
-  let svgi = {}; // SVG images
 
 -
-  js = {
+  let js   = { // javascripts
     themeChange : "theme.change();",
     goBack      : "(function(w){var h=w.history;w.opener?w.close():h.length>1?h.back():w.location.href='/';})(window)",
     print       : "window.print();",
+  };
+
+-
+  let svgi = { // SVG images
+    caret:'M10,17L15,12L10,7V17Z',
+    home:'M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z',
+    download:'M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z',
+    bars:'M5,6H19V8H5V6M5,11H19V13H5V11M5,16H19V18H5V16Z',
+    angle:'M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z',
+    arrow:'M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z',
+    cross:'M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z',
   };

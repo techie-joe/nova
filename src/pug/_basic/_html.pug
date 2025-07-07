@@ -39,7 +39,7 @@ block article
 mixin bottomRightLinks(href,text)
   ._small: +a(href||homeUri)._a2._hover_link!=text||'Home'
 block footer
-  footer
+  footer#_footer._color
     hr._m0
     ._relative: ._absolute(style="top:.1rem;left:auto;right:0"): ._container
       block bottomRightLinks

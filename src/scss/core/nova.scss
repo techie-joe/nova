@@ -337,7 +337,6 @@ $select_tc    : #000;
   &._dark,._dark & { @include color( $dark_baseBc, #333 ); }
 }
 
-footer ._container,
 html,body { @extend ._color; }
 
 // ---------------------------------------------------------------
@@ -563,7 +562,6 @@ ul,ol {
 
 // margins
 $margins: (
-  "_125" : .125em,
   "_25" : .25em,
   "_5"  : .5em,
   ""    : 1em
@@ -590,7 +588,6 @@ $margins: (
 // paddings
 $paddings: (
   "1px"  : 1px,
-  "_125" : .125em,
   "_25" : .25em,
   "_5"  : .5em,
   ""    : 1em
