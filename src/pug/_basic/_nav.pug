@@ -1,6 +1,6 @@
 mixin menu_a(v,classes)
   if typeof v === 'string'
-    span._inblock._valign_top|!{v}
+    span._inblock._valign_top._mh_25|!{v}
   else
     a(href=homeUri+v[1] class=classes.join(' ') title=v[3]) !{v[2]}
 
