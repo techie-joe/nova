@@ -13,13 +13,11 @@ block article
     section: nav._container
       |Mix: 
       |#[a(href='#')._hover_link: +isvg(svgi.bars)] 
-      |#[a(href='#')._hover_link Link] 
-      |#[a(href='#')._hover_link| #[+isvg(svgi.compare)]Link] 
-      a(href='#')._a2._hover_link Link
+      |#[a(href='#')._hover_link._hover_u Link] 
+      |#[a(href='#')._hover_link._hover_u| #[+isvg(svgi.compare)]Link] 
+      a(href='#')._a2._hover_link| #[+isvg(svgi.bars,'_cicon')]
       a(href='#')._a2._hover_link| #[+isvg(svgi.compare,'_licon')]Link
-      a(href='#')._a3._hover_link Link
       a(href='#')._a3._hover_link| #[+isvg(svgi.compare,'_licon')]Link
-      a(href='#')._a31._hover_link Link
       a(href='#')._a31._hover_link| #[+isvg(svgi.compare,'_licon')]Link
 
     hr
@@ -86,13 +84,20 @@ block article
       |#[a(href='#')._hover_link Hover-Link] 
       |#[a(href='#')._no_color No-Color] 
       br
-      |#[a(href='#')._hover_link._hover_u Hover-Underline] 
       |#[a(href='#')._hover_link Underline] 
       |#[a(href='#')._hover_link._u_dotted Dotted] 
       |#[a(href='#')._hover_link._u_dashed Dashed] 
       |#[a(href='#')._hover_link._u_double Double] 
       |#[a(href='#')._hover_link._u_wavy Wavy] 
-      |#[a(href='#')._hover_link._no_u No-Underline] 
+      br
+      |#[a(href='#')._hover_link._hover_u Underline] 
+      |#[a(href='#')._hover_link._hover_u._u_dotted Dotted] 
+      |#[a(href='#')._hover_link._hover_u._u_dashed Dashed] 
+      |#[a(href='#')._hover_link._hover_u._u_double Double] 
+      |#[a(href='#')._hover_link._hover_u._u_wavy Wavy] 
+      br
+      |#[a(href='#')._no_color._hover_u Hover-Underline] 
+      |#[a(href='#')._no_u._hover_link Hover-Color] 
       br
       script.
         (()=>{

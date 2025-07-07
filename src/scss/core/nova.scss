@@ -353,7 +353,6 @@ html,body { @extend ._color; }
   display: inline-block;
   padding: 0 .5em;
   white-space: nowrap;
-  vertical-align: middle;
   box-sizing: border-box;
   &:active { opacity:.3 }
 }
@@ -453,12 +452,15 @@ u,._u {
   text-decoration: underline;
   text-underline-offset: .12em; // improve readability
 }
+a[href]._hover_u,._hover_u {
+  & { text-decoration: none }
+  &:hover { text-decoration-line: underline }
+}
 ._u_dotted { @extend ._u; text-decoration-style: dotted !important }
 ._u_dashed { @extend ._u; text-decoration-style: dashed !important }
 ._u_double { @extend ._u; text-decoration-style: double !important }
-._u_wavy { @extend ._u; text-decoration-style: wavy !important }
-._no_u, ._no_deco, a[href]._hover_u { text-decoration: none !important }
-._hover_u, a[href]._hover_u { &:hover { text-decoration: underline !important } }
+._u_wavy   { @extend ._u; text-decoration-style: wavy   !important }
+._no_u, ._no_deco { text-decoration: none !important }
 
 ._i { font-style: italic !important }
 ._no_i { font-style: normal !important }
@@ -512,6 +514,7 @@ u,._u {
 ._valign_top    { vertical-align: top }
 ._valign_middle { vertical-align: middle }
 ._valign_bottom { vertical-align: bottom }
+._valign_baseline { vertical-align: baseline }
 
 ._flex { display:flex; flex-wrap:wrap; }
 ._flex_row { @extend ._flex; flex-direction:row }
@@ -689,9 +692,10 @@ a,._a {
 *::before{ content: none !important }
 
 // ------------------------------------------------------ links */
-a[href], a[href]:visited { text-decoration: underline }
-
-a[href]::after { content: " (" attr(href) ")" }
+a[href] {
+  &,&:visited { text-decoration: underline }
+  &::after { content: " (" attr(href) ")" }
+}
 abbr[title]::after { content: " (" attr(title) ")" }
 
 // * Don't show links that are fragment identifiers,
