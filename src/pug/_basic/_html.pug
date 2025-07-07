@@ -15,11 +15,16 @@ block stylesheet
 block style
   +logo_style
 
-mixin simpleHeader
-  header._container
+mixin logo_bar
+  ._container
     +logo
     span#maindesc!=description
-  +main_nav
+  hr._m0
+
+mixin simpleHeader
+  header
+    +logo_bar
+    +main_nav
 
 mixin basic_helloWorld
   pre._scrollable.pre.

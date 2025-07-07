@@ -25,13 +25,14 @@ block append style
 
 block header
   header
+    +main_nav
     ._color_1: ._center_m._table
       +logo
       #maindesc|!{description}
-    +main_nav
+    hr._m0
 
 block article
-  article._container: pre._scrollable.pre.
+  article._container: ._960(style="width:fit-content;padding:2em 0"): pre._scrollable.pre.
     Name         : !{name}
     Title        : !{title}
     Description  : !{description}
