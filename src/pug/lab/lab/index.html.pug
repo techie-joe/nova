@@ -17,6 +17,7 @@ block article
           ['lab/test','lab/test.html','Test'],
           ['lab/text','lab/text.html','Text'],
           ['lab/storage','lab/storage.html','Storage'],
+          ['lab/button','lab/button.html','Button'],
         ])
       ._flex._gap_5._p
         +boxam([
@@ -27,16 +28,23 @@ block article
           ['lab/flex','lab/flex.html','Flex'],
           ['lab/flex960','lab/flex960.html','Flex-960'],
         ])
-      ._flex._gap_5._p: +boxa._f: +buttons_menu
       ._flex._gap_5._p
         +boxam([
           ['theme','theme','Themes'],
         ])
 
     section._p1
+      h3._h7| Test sites
+      +boxap: +menu_a2([
+          ['sites/core','sites/core','Core'],
+          ['sites/basic','sites/basic','Basic'],
+        ])
+
+    section._p1
       h3._h7| Upcoming list
       ._container: pre._scrollable.pre.
         ['lab/overflow','lab/overflow.html','Overflow'],
+        ['logo','logo','Logo'],
         ['menu','menu','Menu'],
         ['color','color','Color'],
         ['basic/image','basic/image.html','Image'],
@@ -51,11 +59,3 @@ block article
         - apply fullview and fullscroll into production
         - continue developing flex960
       //- pre
-
-    section._p1
-      h3._h7| Test sites
-      +boxap: +menu_a2([
-          ['sites/core','sites/core','Core'],
-          ['sites/basic','sites/basic','Basic'],
-        ])
-
