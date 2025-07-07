@@ -54,22 +54,24 @@
     </style>
   </head>
   <body>
-    <header>
-      <div class="_container"><a href="/nova/site/">
-          <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></div></a><span id="maindesc">Theme One.</span>
-      </div>
-      <hr class="_m0"/>
-      <div class="_color_2 _flex" id="_main_nav">
-        <div class="_f">
-          <nav><a class="_a11" href="/nova/site/starter">Starter</a><a class="_a11" href="/nova/site/basic">Basic</a><a class="_a11" href="/nova/site/lab">Lab</a>
-          </nav>
+    <header id="_header">
+      <div class="_color_1 _pa1px">
+        <div class="_container"><a href="/nova/site/">
+            <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></div></a><span id="maindesc">Theme One.</span>
         </div>
-        <div class="_fit"><a class="_needjs _a11" href="#" onclick="event.preventDefault();theme.change();" title="Change Theme (Ctrl+Alt+T)"><i class="_icon _cicon"><i class="itext">☀</i></i></a>
+        <hr class="_m0">
+        <div class="_color_2 _flex" id="_main_nav">
+          <div class="_f">
+            <nav><a class="_a11" href="/nova/site/starter">Starter</a><a class="_a11" href="/nova/site/basic">Basic</a><a class="_a11" href="/nova/site/lab">Lab</a>
+            </nav>
+          </div>
+          <div class="_fit"><a class="_needjs _a11" href="#" onclick="event.preventDefault();theme.change();" title="Change Theme (Ctrl+Alt+T)"><i class="_icon _cicon"><i class="itext">☀</i></i></a>
+          </div>
         </div>
+        <hr class="_m0"/>
       </div>
-      <hr class="_m0"/>
     </header>
-    <main>
+    <main id="_main">
       <article class="_article _container">
         <div class="_960">
           <section>
@@ -82,21 +84,28 @@ Copy the code from '<code>theme/1_one</code>' to create a page like this.
 </pre>
           </section>
           <hr>
-          <section>
-            <div class="_flex_column _gap2" style="margin:2rem auto">
-              <div class="_text_justify">
-                <h3 class="_inline _h7">Building a Good Theme for a Website</h3>
-                <p class="_inline">: Creating a cohesive and visually appealing theme for your website is crucial for attracting and retaining visitors. A well-designed theme enhances user experience, reflects your brand's identity, and helps convey your message effectively. Here is a comprehensive guide on how to build a good theme for your website.
-                </p>
+          <section style="margin-top:3rem">
+            <h2 class="_h2">Key Principles for Building an Effective Website Theme</h2>
+            <style>#i00 > .f { min-width: 240px; max-width: 470px; }</style>
+            <div class="_flex _gap2" id="i00" style="margin:2rem auto">
+              <div class="f _f2">
+                <div class="_text_justify">
+                  <h3 class="_inline _h7">Building a Good Theme for a Website</h3>
+                  <p class="_inline">: Creating a cohesive and visually appealing theme for your website is crucial for attracting and retaining visitors. A well-designed theme enhances user experience, reflects your brand's identity, and helps convey your message effectively. Here is a comprehensive guide on how to build a good theme for your website.
+                  </p>
+                </div>
               </div>
-              <div class="_text_justify">
-                <h3 class="_inline _h7">Define Your Purpose and Audience</h3>
-                <p class="_inline">: Before diving into design, clarify the purpose of your website. Is it a blog, an e-commerce site, a portfolio, or a corporate page? Understanding your target audience's preferences and needs will guide your design choices and help you create a theme that resonates with them.
-                </p>
+              <div class="f _f2">
+                <div class="_text_justify">
+                  <h3 class="_inline _h7">Define Your Purpose and Audience</h3>
+                  <p class="_inline">: Before diving into design, clarify the purpose of your website. Is it a blog, an e-commerce site, a portfolio, or a corporate page? Understanding your target audience's preferences and needs will guide your design choices and help you create a theme that resonates with them.
+                  </p>
+                </div>
               </div>
             </div>
-            <div class="_flex _gap2" style="margin:2rem auto">
-              <div class="_f4 _flex_column _gap2">
+            <style>#i01 > .f { min-width: 240px; max-width: 470px; }</style>
+            <div class="_flex _gap2" id="i01" style="margin:2rem auto">
+              <div class="f _f4 _flex_column _gap2">
                 <div>
                   <h3 class="_h6">Choose the Right Color Palette</h3>
                   <p class="_text_justify">Colors evoke emotions and set the tone for your website. Select a color palette that aligns with your brand's identity and appeals to your audience. Use tools like Adobe Color or Coolors to experiment with different color schemes. Ensure your chosen colors provide enough contrast for readability and accessibility.
@@ -104,11 +113,11 @@ Copy the code from '<code>theme/1_one</code>' to create a page like this.
                 </div>
                 <div>
                   <h3 class="_h6">Typography Matters</h3>
-                  <p class="_text_justify">Fonts play a significant role in your website's readability and aesthetic appeal. Choose fonts that complement your brand’s personality and maintain consistency throughout the site. Use a combination of a primary font for headings and a secondary font for body text. Tools like Google Fonts offer a wide range of web-safe fonts to choose from.
+                  <p class="_text_justify">Fonts play a significant role in your website's readability and aesthetic appeal. Choose fonts that complement your brand's personality and maintain consistency throughout the site. Use a combination of a primary font for headings and a secondary font for body text. Tools like Google Fonts offer a wide range of web-safe fonts to choose from.
                   </p>
                 </div>
               </div>
-              <div class="_f4 _flex_column _gap2">
+              <div class="f _f4 _flex_column _gap2">
                 <div>
                   <h3 class="_h6">Create a Layout Grid</h3>
                   <p class="_text_justify">A layout grid helps organize your content and ensures a balanced and structured design. It provides a framework for placing elements like text, images, and buttons in a visually appealing way. Tools like Sketch or Figma can help you create and implement a layout grid.
@@ -120,42 +129,43 @@ Copy the code from '<code>theme/1_one</code>' to create a page like this.
                   </p>
                 </div>
               </div>
-              <div class="_f4 _flex_column _gap2">
-                <div class="_color_2 _radius_5 _pa _container">
+              <div class="f _f4 _flex_column _gap2">
+                <div class="_color_2 _radius_5 _pa">
                   <h3 class="_h6">Optimize for Responsiveness</h3>
                   <p class="_text_justify">Your website should look and function well on all devices, including desktops, tablets, and smartphones. Use responsive design techniques to ensure your theme adapts seamlessly to different screen sizes. Test your design on multiple devices to identify and fix any issues.
                   </p>
                 </div>
-                <div class="_color_2 _radius_5 _pa _container">
+                <div class="_color_2 _radius_5 _pa">
                   <h3 class="_h6">Use High-Quality Images and Graphics</h3>
                   <p class="_text_justify">Visual elements like images, icons, and graphics add depth and interest to your theme. Invest in high-quality visuals that align with your brand's style. Use tools like Unsplash or Pexels for free stock photos, and tools like Canva for creating custom graphics.
                   </p>
                 </div>
               </div>
             </div>
-            <div class="_flex _gap2" style="margin:2rem auto">
-              <div class="_f2">
+            <style>#i02 > .f { max-width:470px }</style>
+            <div class="_flex _gap2" id="i02" style="margin:2rem auto">
+              <div class="f _f2">
                 <div class="_text_justify">
                   <h3 class="_inline _h7">Consistent Branding</h3>
                   <p class="_inline">: Maintain consistency in your branding elements, such as logos, colors, fonts, and styles. Consistent branding helps build brand recognition and trust. Create a style guide that outlines your brand's visual identity and design principles.
                   </p>
                 </div>
               </div>
-              <div class="_f2">
+              <div class="f _f2">
                 <div class="_text_justify">
                   <h3 class="_inline _h7">Ensure Fast Loading Times</h3>
                   <p class="_inline">: A slow website can frustrate visitors and lead to high bounce rates. Optimize your theme for speed by minimizing the use of large images, leveraging browser caching, and using a content delivery network (CDN). Tools like GTmetrix or Google PageSpeed Insights can help you identify and fix performance issues.
                   </p>
                 </div>
               </div>
-              <div class="_f2">
+              <div class="f _f2">
                 <div class="_text_justify">
                   <h3 class="_inline _h7">Incorporate Interactive Elements</h3>
                   <p class="_inline">: Interactive elements like animations, hover effects, and micro-interactions enhance user engagement. Use them sparingly to draw attention to important elements and improve the overall user experience. Ensure that these interactions are smooth and don't hinder usability.
                   </p>
                 </div>
               </div>
-              <div class="_f2">
+              <div class="f _f2">
                 <div class="_text_justify">
                   <h3 class="_inline _h7">Test and Iterate</h3>
                   <p class="_inline">: Once your theme is designed, test it thoroughly to identify any issues or areas for improvement. Gather feedback from users and make necessary adjustments. Regularly update your theme to keep it fresh and aligned with current design trends.
@@ -230,9 +240,9 @@ Copy the code from '<code>theme/1_one</code>' to create a page like this.
           </div>
         </div>
       </footer>
-      <aside id="_side_article"></aside>
+      <aside class="_side_article"></aside>
     </main>
-    <aside id="_side_bar"></aside>
+    <aside class="_side_bar"></aside>
     <footer class="_color" id="_footer">
       <hr class="_m0">
       <div class="_relative">

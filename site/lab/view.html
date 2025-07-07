@@ -73,7 +73,7 @@
     </style>
   </head>
   <body>
-    <header>
+    <header id="_header">
       <div class="_container"><a href="/nova/site/">
           <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></div></a><span id="maindesc">Testing view.</span>
       </div>
@@ -88,7 +88,7 @@
       </div>
       <hr class="_m0"/>
     </header>
-    <main>
+    <main id="_main">
       <article class="_article">
         <div class="_pa1px">
           <style>
@@ -100,12 +100,12 @@
               min-height: 1.5rem;
             }
           </style>
-          <header class="_container" id="btns">
+          <div class="_container" id="btns">
             <button onclick="view.reset();" title="Reset">R</button> | 
             <button onclick="view.fullview();" title="Fullview">FV</button>
             <button onclick="view.fullscreen();" title="Fullscreen">FS</button> | 
             <button onclick="view.overflow();" title="Overflow Content">O</button>
-          </header>
+          </div>
           <hr>
           <section class="_container">
             <pre class="_scrollable pre">// Testing view.
@@ -115,9 +115,9 @@
           <section class="_mono _text_center" id="overflow">=== Bottom ===</section>
         </div>
       </article>
-      <aside id="_side_article"></aside>
+      <aside class="_side_article"></aside>
     </main>
-    <aside id="_side_bar"></aside>
+    <aside class="_side_bar"></aside>
     <footer class="_color" id="_footer">
       <hr class="_m0">
       <div class="_relative">

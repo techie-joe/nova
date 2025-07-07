@@ -30,12 +30,17 @@ mixin block_3(title)
     p._text_justify: block
 
 mixin block_4(title)
-  div&attributes(attributes)._color_2._radius_5._pa._container
+  div&attributes(attributes)._color_2._radius_5._pa
     h3._h6 !{title}
     p._text_justify: block
 
 block header
-  +simpleHeader
+  header#_header: ._color_1._pa1px
+    ._container
+      +logo
+      span#maindesc!=description
+    hr._m0
+    +main_nav
 
 block article
 
@@ -43,49 +48,57 @@ block article
 
     section: +basic_helloWorld
     hr
-    section
+    section(style="margin-top:3rem")
 
-      ._flex_column._gap2(style="margin:2rem auto")
+      h2._h2 Key Principles for Building an Effective Website Theme
 
-        +block_1('Building a Good Theme for a Website')| : Creating a cohesive and visually appealing theme for your website is crucial for attracting and retaining visitors. A well-designed theme enhances user experience, reflects your brand's identity, and helps convey your message effectively. Here is a comprehensive guide on how to build a good theme for your website.
+      style.
+        #i00 > .f { min-width: 240px; max-width: 470px; }
+      #i00._flex._gap2(style="margin:2rem auto")
 
-        +block_1('Define Your Purpose and Audience')| : Before diving into design, clarify the purpose of your website. Is it a blog, an e-commerce site, a portfolio, or a corporate page? Understanding your target audience's preferences and needs will guide your design choices and help you create a theme that resonates with them.
-        
-      ._flex._gap2(style="margin:2rem auto")
+        .f._f2: +block_1('Building a Good Theme for a Website')| : Creating a cohesive and visually appealing theme for your website is crucial for attracting and retaining visitors. A well-designed theme enhances user experience, reflects your brand's identity, and helps convey your message effectively. Here is a comprehensive guide on how to build a good theme for your website.
 
-        ._f4._flex_column._gap2
+        .f._f2: +block_1('Define Your Purpose and Audience')| : Before diving into design, clarify the purpose of your website. Is it a blog, an e-commerce site, a portfolio, or a corporate page? Understanding your target audience's preferences and needs will guide your design choices and help you create a theme that resonates with them.
+      
+      style.
+        #i01 > .f { min-width: 240px; max-width: 470px; }
+      #i01._flex._gap2(style="margin:2rem auto")
+
+        .f._f4._flex_column._gap2
 
           +block_2('Choose the Right Color Palette')| Colors evoke emotions and set the tone for your website. Select a color palette that aligns with your brand's identity and appeals to your audience. Use tools like Adobe Color or Coolors to experiment with different color schemes. Ensure your chosen colors provide enough contrast for readability and accessibility.
           
-          +block_3('Typography Matters')| Fonts play a significant role in your website's readability and aesthetic appeal. Choose fonts that complement your brand’s personality and maintain consistency throughout the site. Use a combination of a primary font for headings and a secondary font for body text. Tools like Google Fonts offer a wide range of web-safe fonts to choose from.
+          +block_3('Typography Matters')| Fonts play a significant role in your website's readability and aesthetic appeal. Choose fonts that complement your brand's personality and maintain consistency throughout the site. Use a combination of a primary font for headings and a secondary font for body text. Tools like Google Fonts offer a wide range of web-safe fonts to choose from.
 
-        ._f4._flex_column._gap2
+        .f._f4._flex_column._gap2
           
           +block_2('Create a Layout Grid')| A layout grid helps organize your content and ensures a balanced and structured design. It provides a framework for placing elements like text, images, and buttons in a visually appealing way. Tools like Sketch or Figma can help you create and implement a layout grid.
 
           +block_3('Focus on Navigation')| User-friendly navigation is essential for a positive user experience. Design a clear and intuitive navigation menu that allows visitors to find information easily. Use descriptive labels and consider implementing a sticky menu that remains visible as users scroll down the page.
 
-        ._f4._flex_column._gap2
+        .f._f4._flex_column._gap2
 
           +block_4('Optimize for Responsiveness')| Your website should look and function well on all devices, including desktops, tablets, and smartphones. Use responsive design techniques to ensure your theme adapts seamlessly to different screen sizes. Test your design on multiple devices to identify and fix any issues.
 
           +block_4('Use High-Quality Images and Graphics')| Visual elements like images, icons, and graphics add depth and interest to your theme. Invest in high-quality visuals that align with your brand's style. Use tools like Unsplash or Pexels for free stock photos, and tools like Canva for creating custom graphics.
       
-      ._flex._gap2(style="margin:2rem auto")
+      style.
+        #i02 > .f { max-width:470px }
+      #i02._flex._gap2(style="margin:2rem auto")
 
-        ._f2
+        .f._f2
 
           +block_1('Consistent Branding')| : Maintain consistency in your branding elements, such as logos, colors, fonts, and styles. Consistent branding helps build brand recognition and trust. Create a style guide that outlines your brand's visual identity and design principles.
 
-        ._f2
+        .f._f2
   
           +block_1('Ensure Fast Loading Times')| : A slow website can frustrate visitors and lead to high bounce rates. Optimize your theme for speed by minimizing the use of large images, leveraging browser caching, and using a content delivery network (CDN). Tools like GTmetrix or Google PageSpeed Insights can help you identify and fix performance issues.
 
-        ._f2
+        .f._f2
 
           +block_1('Incorporate Interactive Elements')| : Interactive elements like animations, hover effects, and micro-interactions enhance user engagement. Use them sparingly to draw attention to important elements and improve the overall user experience. Ensure that these interactions are smooth and don't hinder usability.
 
-        ._f2
+        .f._f2
 
           +block_1('Test and Iterate')| : Once your theme is designed, test it thoroughly to identify any issues or areas for improvement. Gather feedback from users and make necessary adjustments. Regularly update your theme to keep it fresh and aligned with current design trends.
 

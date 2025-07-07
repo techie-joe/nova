@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html class="_hidden" lang="en">
+  
+  <!-- Nova Builder v0.1.0 |  -->
+  <!-- layout:main/_html -->
+  
+  <head>
+    <meta charset="utf-8"/>
+    <title>Overflow | Nova Builder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+    <meta id="_color_scheme" name="color-scheme" content="light dark"/>
+    <meta id="_theme_color" name="theme-color" content="#222222"/>
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/nova/site/icons/apple-touch-icon.png?v=0.1.0"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="/nova/site/icons/favicon-32x32.png?v=0.1.0"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="/nova/site/icons/favicon-16x16.png?v=0.1.0"/>
+    <link rel="icon" type="image/x-icon" sizes="any" href="/nova/site/icons/favicon.ico?v=0.1.0"/>
+    <!--[if lt IE 9]><script src="//unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
+    <meta name="description" content="Handling overflow."/>
+    <meta name="author" content="Techie Joe"/>
+    <meta name="publisher" content="[unknown]"/>
+    <meta property="og:title" content="Overflow"/>
+    <meta property="og:description" content="Handling overflow."/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://techiejoe.github.io/nova/site/lab/overflow.html?utm_source=homescreen"/>
+    <meta property="og:image"/>
+    <meta property="og:image:alt"/>
+    <link rel="stylesheet" media="all" href="/nova/site/css/nova.css?v=0.1.0" id="_style"/>
+    <link rel="stylesheet" media="all" href="/nova/site/css/basic.css?v=0.1.0" id="_custom_style"/>
+    <style>
+      #logo {
+        font-weight: 600;
+        margin-left: -.25rem;
+        margin-right: .5rem;
+        padding: .25rem .5rem;
+        display: inline-block;
+        cursor: default;
+        border-radius: .3rem;
+        letter-spacing: -0.05em;
+      }
+      #logo .s1 { color:#000 }
+      #logo .s2 { color:#1b36b0 }
+      ._dark #logo .s1 { color:#fff }
+      ._dark #logo .s2 { color:#7a8eea }
+      a #logo { cursor:pointer }
+      a #logo:hover { background-color:#fff }
+      ._dark a #logo:hover { background-color:#fff3 }
+      a #logo:active { opacity:.3 }
+      #maindesc {
+        font-size: 0.9em;
+        line-height: 1.25;
+        vertical-align: text-top;
+      }
+    </style>
+  </head>
+  <body>
+    <header id="_header">
+      <div class="_container"><a href="/nova/site/">
+          <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></div></a><span id="maindesc">Handling overflow.</span>
+      </div>
+      <hr class="_m0"/>
+      <div class="_color_2 _flex" id="_main_nav">
+        <div class="_f">
+          <nav><a class="_a11" href="/nova/site/starter">Starter</a><a class="_a11" href="/nova/site/basic">Basic</a><a class="_a11" href="/nova/site/lab">Lab</a>
+          </nav>
+        </div>
+        <div class="_fit"><a class="_needjs _a11" href="#" onclick="event.preventDefault();theme.change();" title="Change Theme (Ctrl+Alt+T)"><i class="_icon _cicon"><i class="itext">☀</i></i></a>
+        </div>
+      </div>
+      <hr class="_m0"/>
+    </header>
+    <main id="_main">
+      <article class="_article _container">
+        <section>
+          <pre class="pre">// Handling overflow ..</pre>
+        </section>
+        <hr>
+        <style>
+          .oo {
+            display:inline-block;
+            width:12rem;
+          }
+          .o {
+            display:inline-block;
+            width:12rem;
+            height:12rem;
+            margin:.5rem;
+            vertical-align:top;
+            padding: .25rem;
+            font-size: 0.9em;
+            overflow:auto;
+          }
+          .top {
+            position:absolute;
+            top:0;left:0;
+          }
+          .t {  }
+          .p { padding:.4em 0;line-height:1em; }
+          .q { padding:.4em;line-height:1em; }
+          .s { }
+          .a {
+            display:inline-block;
+            padding:.6rem;
+          }
+          .b {
+            display:inline-block;
+            outline: 1px solid tomato;
+            color:tomato !important;
+            text-decoration:none !important;
+            text-align:center;
+            padding:.2em .4em;
+          }
+          ._clip {
+            white-space: nowrap;
+            overflow: hidden;
+          }
+          ._ellipsis {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+          ._mask {
+            white-space: nowrap;
+            overflow: hidden;
+            mask: linear-gradient(to left, transparent 0%, black 20%);
+          }
+          ._mask_both {
+            white-space: nowrap;
+            overflow: hidden;
+            mask: linear-gradient(to left, transparent 0%, black 20%, black 80%, transparent 100%);
+          }
+          ._snap { scroll-snap-type: x mandatory }
+          ._snap ._snap-item { scroll-snap-align: center }
+          
+          /* -------------------------------------------------------- */
+          
+          ._hover_show { display:block;margin:1px }
+          ._hover_show.__active ._trigger,
+          ._hover_show ._trigger {
+            cursor:pointer;
+            transition: background-color .2s;
+          }
+          ._hover_show ._item { position:relative }
+          ._hover_show.__absolute ._content { position:absolute }
+          ._hover_show ._content {
+            overflow:hidden;
+            transition:max-height .2s ease .4s;
+            max-height:0px;
+          }
+          ._hover_show.__active ._trigger,
+          ._hover_show:hover ._trigger { background-color:#8883 }
+          ._hover_show.__active ._content,
+          ._hover_show:hover ._content { max-height:100px }
+          
+          ._a a._hover_show:visited,
+          ._a a._hover_show:hover,
+          ._a a._hover_show { color:inherit;text-decoration:none }
+          
+        </style>
+        <section class="_960">
+          <div class="o _outline" style="overflow:visible">
+            <div class="t">Use <code>._hover_show</code> reveal more on hover.</div>
+            <div class="_hover_show">
+              <div class="_trigger p">The default type,</div>
+              <div class="_item">
+                <div class="_content _color_1">
+                  <div class="q">way too long .. way too long .. way too long .. way too long .. way too long .. way too long .. 
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="s">would shove other content.</div>
+            <div class="_hover_show __absolute">
+              <div class="_trigger p">The absolute type,</div>
+              <div class="_item">
+                <div class="_content _color_1">
+                  <div class="q">way too long .. way too long .. way too long .. way too long .. way too long .. way too long .. 
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="s">would overlay above others.</div>
+          </div>
+          <div class="o _outline _relative _scrollable">
+            <div class="top" id="t1"></div>
+            <div class="t">Use <code>._scrollable</code> when <a href="#i1">the item</a> is out of view.</div>
+            <div class="a" id="i1" style="position:absolute;bottom:-50%;right:-50%;"><a class="b _radius_25" href="#t1">Click Me</a></div>
+          </div>
+          <div class="o _outline">
+            <div class="_p t _clip">Use <code>._clip</code> to cut the rest of the text.</div>
+            <div class="_p t _ellipsis">Use <code>._ellipsis</code> to add dots at the end of the line.</div>
+            <div class="_p t _mask">Use <code>._mask</code> to add gradient at the end of the line.</div>
+            <div class="_p t _mask_both">Use <code>._mask_both</code> to add gradients to both ends of the line.</div>
+            <div class="_p t _tc_red">Only works on a single line.</div>
+          </div>
+        </section>
+      </article>
+      <aside class="_side_article"></aside>
+    </main>
+    <aside class="_side_bar"></aside>
+    <footer class="_color" id="_footer">
+      <hr class="_m0">
+      <div class="_relative">
+        <div class="_absolute" style="top:.1rem;left:auto;right:0">
+          <div class="_container">
+            <div class="_small"><a class="_a2 _hover_link" href="/nova/site/">Home</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="_container"><small>&copy; 2025 Techie Joe</small></div>
+    </footer>
+    <aside id="_widgets"></aside>
+    <script type="text/javascript" src="/nova/site/js/theme_v2.0.js?v=0.1.0"></script>
+    <script>// your script goes here</script>
+  </body>
+</html>

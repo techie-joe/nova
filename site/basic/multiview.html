@@ -55,7 +55,6 @@
     <style>
       ._view    { box-shadow: 0 0 0 3px #cc7333 inset;padding:3px; }
       
-      ._views { scroll-behavior:smooth; }
       ._view  { min-height:400px;min-height:100%; }
       
       #view-2 { position:absolute;top:0;left:100%;right:-100%;bottom:0;min-height:400px; }
@@ -64,10 +63,10 @@
     </style>
   </head>
   <body class="_fullview">
-    <main class="_views _fullview _scrollable">
+    <main class="_views _fullview _scrollable" id="_main">
       <div class="_absolute" id="view-0" aria-hidden="true"></div>
       <div class="_view" id="view-1" style="min-height:300px">
-        <header>
+        <header id="_header">
           <div class="_container"><a href="/nova/site/">
               <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></div></a><span id="maindesc">Create multiple views.</span>
           </div>
@@ -109,9 +108,9 @@
           </section>
         </article>
       </div>
-      <aside id="_side_article"></aside>
+      <aside class="_side_article"></aside>
     </main>
-    <aside id="_side_bar"></aside>
+    <aside class="_side_bar"></aside>
     <footer class="_color" id="_footer">
       <hr class="_m0">
       <div class="_relative">

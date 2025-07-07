@@ -24,29 +24,31 @@ block append style
   //- style.
 
 block header
-  header
-    +main_nav
+  header#_header
     ._color_1: ._center_m._table
       +logo
       #maindesc|!{description}
     hr._m0
+    +main_nav
+    hr._m0
 
 block article
-  article._container: ._960(style="width:fit-content;padding:2em 0"): pre._scrollable.pre.
-    Name         : !{name}
-    Title        : !{title}
-    Description  : !{description}
-    Version      : !{version}
+  article._article._container
+    section(style="margin:1em auto"): pre._scrollable.pre.
+      Name         : !{name}
+      Title        : !{title}
+      Description  : !{description}
+      Version      : !{version}
 
-    Author       : !{author}
-    Year         : !{year}
-    LICENSE      : !{license}
+      Author       : !{author}
+      Year         : !{year}
+      LICENSE      : !{license}
 
-    URL          : !{pageUrl}
-    URI          : !{homeUri} 
+      URL          : !{pageUrl}
+      URI          : !{homeUri} 
 
-    Last updated : !{today}
-  |
+      Last updated : !{today}
+    |
 
 block bottomRightLinks
   +bottomRightLinks('/')

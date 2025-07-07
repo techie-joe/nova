@@ -244,7 +244,7 @@ template { @extend ._hidden; }
 // base
 // ---------------------------------------------------------------
 
-html,body { @extend ._scrollable; scroll-behavior: smooth; }
+html,body { @extend ._scrollable; }
 
 ._container { margin:.5rem }
 
@@ -498,7 +498,7 @@ u,._u {
 
 ._absolute_right { position:absolute;right:0;left:auto; }
 
-._scrollable { overflow:auto }
+._scrollable { overflow:auto; scroll-behavior: smooth; }
 
 ._indent { text-indent: 2em }
 

@@ -52,25 +52,25 @@ html(lang=lang class=htmlClass.join(' '))
     body(class=bodyClass.join(' '))
 
       block header
-        header
+        header#_header
 
       block main
-        main(class=mainClass.join(' '))
+        main#_main(class=mainClass.join(' '))
 
           block article
-            article
+            article._article
               +helloWorld
               hr
               pre: +pageData()
 
           block side_article
-            aside#_side_article
+            aside._side_article
       
       block side_bar
-        aside#_side_bar
+        aside._side_bar
 
       block footer
-        footer
+        footer#_footer
           hr
           ._container: small| &copy; !{year} !{author}
 
