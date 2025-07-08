@@ -7,32 +7,39 @@ block append vars
     title       = `Link`
     description = 'Intuitive hyperlink styles.'
 
+mixin ax(href,title,cls)
+  a(href=href||'#' title=title onclick=onclick())&attributes(attributes): block
+
+mixin _ax(href,title,cls)
+  +l
+  a(href=href||'#' title=title onclick=onclick())&attributes(attributes): block
+
 block article
   article._article
 
     section: nav._container
       |Mix: 
-      |#[a(href='#')._hover_link: +isvg(svgi.bars)] 
-      |#[a(href='#')._hover_link._hover_u Link] 
-      |#[a(href='#')._hover_link._hover_u| #[+isvg(svgi.compare)]Link] 
-      a(href='#')._a2._hover_link| #[+isvg(svgi.bars,'_cicon')]
-      a(href='#')._a2._hover_link| #[+isvg(svgi.compare,'_licon')]Link
-      a(href='#')._a3._hover_link| #[+isvg(svgi.compare,'_licon')]Link
-      a(href='#')._a31._hover_link| #[+isvg(svgi.compare,'_licon')]Link
+      +_ax._hover_link: +isvg(svgi.bars)
+      +_ax._hover_link._hover_u Link
+      +_ax._hover_link._hover_u| #[+isvg(svgi.compare)]Link
+      +_ax._a2._hover_link| #[+isvg(svgi.bars,'_cicon')]
+      +ax._a2._hover_link| #[+isvg(svgi.compare,'_licon')]Link
+      +ax._a3._hover_link| #[+isvg(svgi.compare,'_licon')]Link
+      +ax._a31._hover_link| #[+isvg(svgi.compare,'_licon')]Link
 
     hr
 
     section._flex(style="margin-top:-.5rem")
       ._f
         mixin ilinks(cls)
-          a(href='#' class=cls): +itext('_cicon')|☀
-          a(href='#' class=cls): +isvg(svgi.compare,'_cicon')
-          a(href='#' class=cls)| #[+itext('_licon')|☀]Link
-          a(href='#' class=cls)| #[+isvg(svgi.compare,'_licon')]Link
-          a(href='#' class=cls)._hover: +itext('_cicon')|☀
-          a(href='#' class=cls)._hover: +isvg(svgi.compare,'_cicon')
-          a(href='#' class=cls)._hover| #[+itext('_licon')|☀]Link
-          a(href='#' class=cls)._hover| #[+isvg(svgi.compare,'_licon')]Link
+          +ax(class=cls)| #[+itext('_cicon')|☀]
+          +ax(class=cls)| #[+isvg(svgi.compare,'_cicon')]
+          +ax(class=cls)| #[+itext('_licon')|☀]Link
+          +ax(class=cls)| #[+isvg(svgi.compare,'_licon')]Link
+          +ax(class=cls)._hover| #[+itext('_cicon')|☀]
+          +ax(class=cls)._hover| #[+isvg(svgi.compare,'_cicon')]
+          +ax(class=cls)._hover| #[+itext('_licon')|☀]Link
+          +ax(class=cls)._hover| #[+isvg(svgi.compare,'_licon')]Link
         nav._container: +ilinks('_a31')
         hr._m0
         nav._container: +ilinks('_a3')
@@ -45,11 +52,11 @@ block article
         hr._m0
       ._f
         mixin nlinks(cls,id)
-          a(href='#' class=cls id=id) Hyperlink
-          a(href='#' class=cls)._link Link
-          a(href='#' class=cls)._visited Visited
-          a(href='#' class=cls)._hover Hover
-          a(href='#' class=cls)._active Active
+          +ax(class=cls id=id) Hyperlink
+          +ax(class=cls)._link Link
+          +ax(class=cls)._visited Visited
+          +ax(class=cls)._hover Hover
+          +ax(class=cls)._active Active
           script.
             document.getElementById('#{id}').href+='?t='+(new Date().getTime());
         nav._container: +nlinks('_a31','hyperlink31')
@@ -65,39 +72,39 @@ block article
     //- section.flex
 
     section._container
-      |#[a(href='#')._hover_link._hover_u| #[+isvg(svgi.compare)]Link] 
-      |#[a(href='#')._hover_link._hover_u| #[+itext|☀]Link] 
+      +_ax._hover_link._hover_u| #[+isvg(svgi.compare)]Link
+      +_ax._hover_link._hover_u| #[+itext|☀]Link
       br
-      |#[a(href='#')#hyperlink_i: +isvg(svgi.compare)] 
-      |#[a(href='#')._link: +isvg(svgi.compare)] 
-      |#[a(href='#')._visited: +isvg(svgi.compare)] 
-      |#[a(href='#')._hover: +isvg(svgi.compare)] 
-      |#[a(href='#')._active: +isvg(svgi.compare)] 
-      |#[a(href='#')._hover_link: +isvg(svgi.compare)] 
-      |#[a(href='#')._no_color: +isvg(svgi.compare)] 
+      +_ax#hyperlink_i: +isvg(svgi.compare)
+      +_ax._link: +isvg(svgi.compare)
+      +_ax._visited: +isvg(svgi.compare)
+      +_ax._hover: +isvg(svgi.compare)
+      +_ax._active: +isvg(svgi.compare)
+      +_ax._hover_link: +isvg(svgi.compare)
+      +_ax._no_color: +isvg(svgi.compare)
       br
-      |#[a(href='#')#hyperlink Hyperlink] 
-      |#[a(href='#')._link Link] 
-      |#[a(href='#')._visited Visited] 
-      |#[a(href='#')._hover Hover] 
-      |#[a(href='#')._active Active] 
-      |#[a(href='#')._hover_link Hover-Link] 
-      |#[a(href='#')._no_color No-Color] 
+      +_ax#hyperlink Hyperlink
+      +_ax._link Link
+      +_ax._visited Visited
+      +_ax._hover Hover
+      +_ax._active Active
+      +_ax._hover_link Hover-Link
+      +_ax._no_color No-Color
       br
-      |#[a(href='#')._hover_link Underline] 
-      |#[a(href='#')._hover_link._u_dotted Dotted] 
-      |#[a(href='#')._hover_link._u_dashed Dashed] 
-      |#[a(href='#')._hover_link._u_double Double] 
-      |#[a(href='#')._hover_link._u_wavy Wavy] 
+      +_ax._hover_link Underline
+      +_ax._hover_link._u_dotted Dotted
+      +_ax._hover_link._u_dashed Dashed
+      +_ax._hover_link._u_double Double
+      +_ax._hover_link._u_wavy Wavy
       br
-      |#[a(href='#')._hover_link._hover_u Underline] 
-      |#[a(href='#')._hover_link._hover_u._u_dotted Dotted] 
-      |#[a(href='#')._hover_link._hover_u._u_dashed Dashed] 
-      |#[a(href='#')._hover_link._hover_u._u_double Double] 
-      |#[a(href='#')._hover_link._hover_u._u_wavy Wavy] 
+      +_ax._hover_link._hover_u Underline
+      +_ax._hover_link._hover_u._u_dotted Dotted
+      +_ax._hover_link._hover_u._u_dashed Dashed
+      +_ax._hover_link._hover_u._u_double Double
+      +_ax._hover_link._hover_u._u_wavy Wavy
       br
-      |#[a(href='#')._no_color._hover_u Hover-Underline] 
-      |#[a(href='#')._no_u._hover_link Hover-Color] 
+      +_ax._no_color._hover_u Hover-Underline
+      +_ax._no_u._hover_link Hover-Color
       br
       script.
         (()=>{

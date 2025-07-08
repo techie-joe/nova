@@ -7,33 +7,31 @@ block append vars
     title       = `Details`
     description = 'Styling details and summary elements.'
 
+block append style
+  style.
+    ._article details ._scrollable._content { max-height:300px }
+  //- style.
+
 block article
   article._article
 
     section._container
-      details._border._radius_5._m0
-        summary._no_select._no_marker #[span._arrow] Summary #[small._i (no-marker, custom-marker)]
-        div._content._scrollable
-          ._container
-            pre._scrollable.pre
-              +pageData
+      details._border._radius_5
+        summary._no_select._no_marker #[span._arrow] Summary #[small._i (custom-marker, border, radius, no-margin)]
+        ._content._scrollable: ._container: pre._scrollable.pre: +pageData
       //- details
-    hr
-    section._container
-      details._border._radius_5._m0
-        summary._no_select Summary #[small._i (border, radius, no-margin)]
-        div._content._scrollable
-          ._container
-            pre._scrollable.pre
-              +pageData
-      //- details
-    hr
-    section._container
+    hr._mb0
+    
+    section
       details
-        summary._no_select Summary
-        div._content._scrollable
-          ._container
-            pre._scrollable.pre
-              +pageData
+        summary._no_select._no_marker #[span._arrow] Summary #[small._i (custom-marker)]
+        ._content._scrollable: ._container: pre._scrollable.pre: +pageData
       //- details
-    hr
+    hr._m0
+
+    section
+      details
+        summary._no_select Summary #[small._i (default)]
+        ._content._scrollable: ._container: pre._scrollable.pre: +pageData
+      //- details
+    hr._mt0

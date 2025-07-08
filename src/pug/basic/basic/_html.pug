@@ -26,7 +26,7 @@ mixin basic_nav_
   ])
 
 mixin basic_nav
-  ._color_1._pa1px: +basic_nav_
+  ._color_1._pad: +basic_nav_
 
 mixin icons_nav_
   +menu_a2([
@@ -36,7 +36,7 @@ mixin icons_nav_
   ])
 
 mixin icons_nav
-  ._color_1._pa1px: +icons_nav_
+  ._color_1._pad: +icons_nav_
 
 block header
   +simpleHeader
@@ -47,7 +47,7 @@ mixin boxa
   ._color_1._radius_5&attributes(attributes): block
 
 mixin boxap
-  +boxa._p._pa1px: block
+  +boxa._p._pad: block
 
 mixin boxam(menu)
   +boxa._f: +menu_a2(menu)

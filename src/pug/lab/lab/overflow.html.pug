@@ -98,6 +98,11 @@ block article
 
     section._960
 
+      .o._outline._relative._scrollable
+        #t1.top
+        .t| Use #[code ._scrollable] when #[a(href="#i1") the item] is out of view.
+        .a#i1(style="position:absolute;bottom:-50%;right:-50%;"): a(href='#t1').b._radius_25 Click Me
+
       .o._outline(style="overflow:visible")
         .t| Use #[code ._hover_show] reveal more on hover.
         ._hover_show
@@ -108,11 +113,6 @@ block article
           ._trigger.p| The absolute type,
           ._item: ._content._color_1: .q: +repeat(6)| way too long .. 
         .s| would overlay above others.
-
-      .o._outline._relative._scrollable
-        #t1.top
-        .t| Use #[code ._scrollable] when #[a(href="#i1") the item] is out of view.
-        .a#i1(style="position:absolute;bottom:-50%;right:-50%;"): a(href='#t1').b._radius_25 Click Me
 
       .o._outline
 

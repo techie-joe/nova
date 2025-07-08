@@ -52,11 +52,14 @@
         vertical-align: text-top;
       }
     </style>
+    <style>._article details ._scrollable._content { max-height:300px }</style>
   </head>
   <body>
     <header id="_header">
-      <div class="_container"><a href="/nova/site/">
-          <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></div></a><span id="maindesc">Styling details and summary elements.</span>
+      <div class="_color_1">
+        <div class="_pa_5"><a href="/nova/site/">
+            <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></div></a><span id="maindesc">Styling details and summary elements.</span>
+        </div>
       </div>
       <hr class="_m0"/>
       <div class="_color_2 _flex" id="_main_nav">
@@ -69,7 +72,7 @@
       </div>
       <hr class="_m0"/>
     </header>
-    <div class="_color_1 _pa1px">
+    <div class="_color_1 _pad">
       <nav class="_container"><a class="_a2" href="/nova/site/basic/basic.html">Basic</a><a class="_a2" href="/nova/site/basic/text.html">Text</a><a class="_a2" href="/nova/site/basic/table.html">Table</a><a class="_a2" href="/nova/site/basic/link.html">Link</a><a class="_a2" href="/nova/site/basic/button.html">Button</a><a class="_a2 _active" href="/nova/site/basic/details.html">Details</a><a class="_a2" href="/nova/site/basic/flex.html">Flex</a><a class="_a2" href="/nova/site/basic/container.html">Container</a><a class="_a2" href="/nova/site/basic/alignment.html">Alignment</a>
       </nav>
     </div>
@@ -77,8 +80,8 @@
     <main id="_main">
       <article class="_article">
         <section class="_container">
-          <details class="_border _radius_5 _m0">
-            <summary class="_no_select _no_marker"><span class="_arrow"></span> Summary <small class="_i">(no-marker, custom-marker)</small></summary>
+          <details class="_border _radius_5">
+            <summary class="_no_select _no_marker"><span class="_arrow"></span> Summary <small class="_i">(custom-marker, border, radius, no-margin)</small></summary>
             <div class="_content _scrollable">
               <div class="_container">
                 <pre class="_scrollable pre">
@@ -88,7 +91,7 @@ version          = 0.1.0
 author           = Techie Joe
 license          = MIT
 
-today            = Mon, 07 Jul 2025 20:06:01 GMT
+today            = Tue, 08 Jul 2025 04:07:14 GMT
 year             = 2025
 
 layout           = main/_html
@@ -115,50 +118,10 @@ siteUrl          = https://techiejoe.github.io/nova/site
             </div>
           </details>
         </section>
-        <hr>
-        <section class="_container">
-          <details class="_border _radius_5 _m0">
-            <summary class="_no_select">Summary <small class="_i">(border, radius, no-margin)</small></summary>
-            <div class="_content _scrollable">
-              <div class="_container">
-                <pre class="_scrollable pre">
-name             = Nova Builder
-version          = 0.1.0
-
-author           = Techie Joe
-license          = MIT
-
-today            = Mon, 07 Jul 2025 20:06:01 GMT
-year             = 2025
-
-layout           = main/_html
-homeUri          = /nova/site/
-
-pageUrl          = https://techiejoe.github.io/nova/site/basic/details.html
-title            = Details
-description      = Styling details and summary elements.
-pageid           = basic/details
-
-og_url           = https://techiejoe.github.io/nova/site/basic/details.html?utm_source=homescreen
-og_title         = Details
-og_description   = Styling details and summary elements.
-og_type          = website
-og_image         = undefined
-og_imageAlt      = undefined
-
-authorUrl        = https://techiejoe.github.io
-sourceUrl        = https://github.com/techie-joe/nova
-localUrl         = http://localhost/nova/site
-siteUrl          = https://techiejoe.github.io/nova/site
-</pre>
-              </div>
-            </div>
-          </details>
-        </section>
-        <hr>
-        <section class="_container">
+        <hr class="_mb0">
+        <section>
           <details>
-            <summary class="_no_select">Summary</summary>
+            <summary class="_no_select _no_marker"><span class="_arrow"></span> Summary <small class="_i">(custom-marker)</small></summary>
             <div class="_content _scrollable">
               <div class="_container">
                 <pre class="_scrollable pre">
@@ -168,7 +131,7 @@ version          = 0.1.0
 author           = Techie Joe
 license          = MIT
 
-today            = Mon, 07 Jul 2025 20:06:01 GMT
+today            = Tue, 08 Jul 2025 04:07:14 GMT
 year             = 2025
 
 layout           = main/_html
@@ -195,7 +158,47 @@ siteUrl          = https://techiejoe.github.io/nova/site
             </div>
           </details>
         </section>
-        <hr>
+        <hr class="_m0">
+        <section>
+          <details>
+            <summary class="_no_select">Summary <small class="_i">(default)</small></summary>
+            <div class="_content _scrollable">
+              <div class="_container">
+                <pre class="_scrollable pre">
+name             = Nova Builder
+version          = 0.1.0
+
+author           = Techie Joe
+license          = MIT
+
+today            = Tue, 08 Jul 2025 04:07:14 GMT
+year             = 2025
+
+layout           = main/_html
+homeUri          = /nova/site/
+
+pageUrl          = https://techiejoe.github.io/nova/site/basic/details.html
+title            = Details
+description      = Styling details and summary elements.
+pageid           = basic/details
+
+og_url           = https://techiejoe.github.io/nova/site/basic/details.html?utm_source=homescreen
+og_title         = Details
+og_description   = Styling details and summary elements.
+og_type          = website
+og_image         = undefined
+og_imageAlt      = undefined
+
+authorUrl        = https://techiejoe.github.io
+sourceUrl        = https://github.com/techie-joe/nova
+localUrl         = http://localhost/nova/site
+siteUrl          = https://techiejoe.github.io/nova/site
+</pre>
+              </div>
+            </div>
+          </details>
+        </section>
+        <hr class="_mt0">
       </article>
       <aside class="_side_article"></aside>
     </main>
