@@ -4,8 +4,8 @@ block append vars
   -
     pageid      = 'basic'
     pageUrl     = siteUrl + '/basic/index.html'
-    title       = `Basic theme`
-    description = 'Basic theme.'
+    title       = `Basic`
+    description = 'The basics'
 
 block header
   +simpleHeader
@@ -13,11 +13,13 @@ block header
 block article
   article._article._container
 
+    h2._h4._p1(style="color:inherit") Let's explore the fundemental elements of Nova Builder
+
     section._p1
       h3._h7| Basic templates
       +boxap: +menu_a2([
-        ['core/html','core/html.html','Html'],
-        ['core/blank','core/blank.html','Blank'],
+        ['sites/core','sites/core','Core'],
+        ['sites/basic','sites/basic','Basic'],
         ' | ',
         ['basic/error','basic/error.html','Error'],
         ['basic/400','basic/e400.html','400'],
