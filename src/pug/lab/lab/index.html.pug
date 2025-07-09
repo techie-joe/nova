@@ -5,13 +5,13 @@ block append vars
     pageid      = 'lab'
     pageUrl     = siteUrl + '/lab/index.html'
     title       = `Lab`
-    description = 'Testing upcoming features.'
+    description = 'Developing new features'
 
 block article
   article._article._container
 
     section._p1
-      h3._h7| Lab tests
+      h3._h7| Lab experiments
       ._flex._gap_5._p
         +boxam([
           ['lab/test','lab/test.html','Test'],
@@ -31,19 +31,19 @@ block article
         ])
       ._flex._gap_5._p
         +boxam([
-          ['core/html','core/html.html','Html'],
-          ['core/blank','core/blank.html','Blank'],
+          ['lab/core','lab/core.html','Core'],
+          ['lab/basic','lab/basic.html','Basic'],
         ])
-
-    section._p1
-      h3._h7| Test sites
       +boxap: +menu_a2([
           ['theme','theme','Themes'],
         ])
 
     section._p1
-      h3._h7| Upcoming list
+      h3._h7| Upcoming features
       ._container: pre._scrollable.pre.
+        - make new lab header
+        - restructure themes
+
         ['logo','logo','Logo'],
         ['menu','menu','Menu'],
         ['color','color','Color'],

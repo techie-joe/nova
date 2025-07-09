@@ -6,7 +6,7 @@
   
   <head>
     <meta charset="utf-8"/>
-    <title>Core | [project_name]</title>
+    <title>[untitled] | [project_name]</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
     <meta id="_color_scheme" name="color-scheme" content="light dark"/>
@@ -19,22 +19,25 @@
     <meta name="description" content="[undescribed]"/>
     <meta name="author" content="Techie Joe"/>
     <meta name="publisher" content="[unknown]"/>
-    <meta property="og:title" content="Core | [project_name]"/>
+    <meta property="og:title" content="[untitled]"/>
     <meta property="og:description" content="[undescribed]"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:url" content="[site_url]/sites/core/index.html?utm_source=homescreen"/>
+    <meta property="og:url" content="[site_url]/lab/core.html?utm_source=homescreen"/>
     <meta property="og:image"/>
     <meta property="og:image:alt"/>
+    <style>
+      html,body { font-family:system-ui,sans-serif }
+      hr { border:0;border-bottom:1px solid #888 }
+    </style>
     <style>/* your style goes here */</style>
   </head>
   <body>
-    <header></header>
-    <main>
-      <article>
+    <header id="_header"></header>
+    <main id="_main">
+      <article class="_article">
         <pre>&nbsp;
-Hello, there.
 This is a template to get you started.
-Copy the code from '<code>sites/core</code>' to create a page like this.
+Copy the code from '<code>lab/core</code>' to create a page like this.
 
 <a class="_needjs" href="#" onclick="event.preventDefault();(function(w){var h=w.history;w.opener?w.close():h.length>1?h.back():w.location.href='/';})(window)" title="Back to previous page">Back</a></pre>
         <hr>
@@ -45,19 +48,19 @@ version          = [version]
 author           = Techie Joe
 license          = [unknown]
 
-today            = Sun, 06 Jul 2025 17:38:21 GMT
+today            = Wed, 09 Jul 2025 09:16:47 GMT
 year             = 2025
 
 layout           = core/_html
 homeUri          = /nova/site/
 
-pageUrl          = [site_url]/sites/core/index.html
-title            = Core | [project_name]
+pageUrl          = [site_url]/lab/core.html
+title            = [untitled]
 description      = [undescribed]
-pageid           = sites/core
+pageid           = lab/core
 
-og_url           = [site_url]/sites/core/index.html?utm_source=homescreen
-og_title         = Core | [project_name]
+og_url           = [site_url]/lab/core.html?utm_source=homescreen
+og_title         = [untitled]
 og_description   = [undescribed]
 og_type          = website
 og_image         = undefined
@@ -69,10 +72,10 @@ localUrl         = [local_url]
 siteUrl          = [site_url]
 </pre>
       </article>
-      <aside id="_side_article"></aside>
+      <aside class="_side_article"></aside>
     </main>
-    <aside id="_side_bar"></aside>
-    <footer>
+    <aside class="_side_bar"></aside>
+    <footer id="_footer">
       <hr>
       <div class="_container"><small>&copy; 2025 Techie Joe</small></div>
     </footer>

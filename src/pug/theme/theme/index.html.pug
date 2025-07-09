@@ -5,11 +5,22 @@ block append vars
     pageid      = 'theme'
     pageUrl     = siteUrl + '/theme/index.html'
     title       = `Themes`
-    description = 'Building themes.'
+    description = 'Theme collections'
+
+mixin boxa
+  ._color_1._radius_5&attributes(attributes): block
+
+mixin boxap
+  +boxa._p._pad: block
+
+mixin boxam(menu)
+  +boxa._f: +menu_a2(menu)
 
 block article
   article._article._container
 
     section._p1
       h3._h7| Themes
-      +boxap: +themes_menu
+      +boxap: +menu_a2([
+        ['theme/1_one','theme/1_one','One'],
+      ])
