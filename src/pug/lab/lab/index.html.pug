@@ -5,7 +5,7 @@ block append vars
     pageid      = 'lab'
     pageUrl     = siteUrl + '/lab/index.html'
     title       = `Lab`
-    description = 'Developing new features'
+    description = 'New feature developments'
 
 block article
   article._article._container
@@ -29,14 +29,11 @@ block article
           ['lab/flex','lab/flex.html','Flex'],
           ['lab/flex960','lab/flex960.html','Flex-960'],
         ])
-      ._flex._gap_5._p
-        +boxam([
-          ['lab/core','lab/core.html','Core'],
-          ['lab/basic','lab/basic.html','Basic'],
-        ])
       +boxap: +menu_a2([
-          ['theme','theme','Themes'],
-        ])
+        ['theme/core','theme/core.html','Core'],
+        ['theme/basic','theme/basic.html','Basic'],
+        ['theme/one','theme/one.html','One'],
+      ])
 
     section._p1
       h3._h7| Upcoming features

@@ -16,11 +16,11 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/nova/site/icons/favicon-16x16.png?v=0.1.0"/>
     <link rel="icon" type="image/x-icon" sizes="any" href="/nova/site/icons/favicon.ico?v=0.1.0"/>
     <!--[if lt IE 9]><script src="//unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
-    <meta name="description" content="Handling overflow."/>
+    <meta name="description" content="Handling overflow"/>
     <meta name="author" content="Techie Joe"/>
     <meta name="publisher" content="[unknown]"/>
     <meta property="og:title" content="Overflow"/>
-    <meta property="og:description" content="Handling overflow."/>
+    <meta property="og:description" content="Handling overflow"/>
     <meta property="og:type" content="website"/>
     <meta property="og:url" content="https://techiejoe.github.io/nova/site/lab/overflow.html?utm_source=homescreen"/>
     <meta property="og:image"/>
@@ -57,7 +57,7 @@
     <header id="_header">
       <div class="_color_1">
         <div class="_pa_5"><a href="/nova/site/">
-            <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></div></a><span id="maindesc">Handling overflow.</span>
+            <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></div></a><span id="maindesc">Handling overflow</span>
         </div>
       </div>
       <hr class="_m0"/>
@@ -72,8 +72,8 @@
       <hr class="_m0"/>
     </header>
     <main id="_main">
-      <article class="_article _container">
-        <section>
+      <article class="_article">
+        <section class="_container">
           <pre class="pre">// Handling overflow ..</pre>
         </section>
         <hr>
@@ -159,41 +159,43 @@
           ._a a._hover_show { color:inherit;text-decoration:none }
           
         </style>
-        <section class="_960">
-          <div class="o _outline _relative _scrollable">
-            <div class="top" id="t1"></div>
-            <div class="t">Use <code>._scrollable</code> when <a href="#i1">the item</a> is out of view.</div>
-            <div class="a" id="i1" style="position:absolute;bottom:-50%;right:-50%;"><a class="b _radius_25" href="#t1">Click Me</a></div>
-          </div>
-          <div class="o _outline" style="overflow:visible">
-            <div class="t">Use <code>._hover_show</code> reveal more on hover.</div>
-            <div class="_hover_show">
-              <div class="_trigger p">The default type,</div>
-              <div class="_item">
-                <div class="_content _color_1">
-                  <div class="q">way too long .. way too long .. way too long .. way too long .. way too long .. way too long .. 
+        <section class="_container">
+          <div class="_960">
+            <div class="o _outline _relative _scrollable">
+              <div class="top" id="t1"></div>
+              <div class="t">Use <code>._scrollable</code> when <a href="#i1">the item</a> is out of view.</div>
+              <div class="a" id="i1" style="position:absolute;bottom:-50%;right:-50%;"><a class="b _radius_25" href="#t1">Click Me</a></div>
+            </div>
+            <div class="o _outline" style="overflow:visible">
+              <div class="t">Use <code>._hover_show</code> reveal more on hover.</div>
+              <div class="_hover_show">
+                <div class="_trigger p">The default type,</div>
+                <div class="_item">
+                  <div class="_content _color_1">
+                    <div class="q">way too long .. way too long .. way too long .. way too long .. way too long .. way too long .. 
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="s">would shove other content.</div>
-            <div class="_hover_show __absolute">
-              <div class="_trigger p">The absolute type,</div>
-              <div class="_item">
-                <div class="_content _color_1">
-                  <div class="q">way too long .. way too long .. way too long .. way too long .. way too long .. way too long .. 
+              <div class="s">would shove other content.</div>
+              <div class="_hover_show __absolute">
+                <div class="_trigger p">The absolute type,</div>
+                <div class="_item">
+                  <div class="_content _color_1">
+                    <div class="q">way too long .. way too long .. way too long .. way too long .. way too long .. way too long .. 
+                    </div>
                   </div>
                 </div>
               </div>
+              <div class="s">would overlay above others.</div>
             </div>
-            <div class="s">would overlay above others.</div>
-          </div>
-          <div class="o _outline">
-            <div class="_p t _clip">Use <code>._clip</code> to cut the rest of the text.</div>
-            <div class="_p t _ellipsis">Use <code>._ellipsis</code> to add dots at the end of the line.</div>
-            <div class="_p t _mask">Use <code>._mask</code> to add gradient at the end of the line.</div>
-            <div class="_p t _mask_both">Use <code>._mask_both</code> to add gradients to both ends of the line.</div>
-            <div class="_p t _tc_red">Only works on a single line.</div>
+            <div class="o _outline">
+              <div class="_p t _clip">Use <code>._clip</code> to cut the rest of the text.</div>
+              <div class="_p t _ellipsis">Use <code>._ellipsis</code> to add dots at the end of the line.</div>
+              <div class="_p t _mask">Use <code>._mask</code> to add gradient at the end of the line.</div>
+              <div class="_p t _mask_both">Use <code>._mask_both</code> to add gradients to both ends of the line.</div>
+              <div class="_p t _tc_red">Only works on a single line.</div>
+            </div>
           </div>
         </section>
       </article>

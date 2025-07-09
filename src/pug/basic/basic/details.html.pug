@@ -5,7 +5,7 @@ block append vars
     pageid      = 'basic/details'
     pageUrl     = siteUrl + '/basic/details.html'
     title       = `Details`
-    description = 'Styling details and summary elements.'
+    description = 'Details and summary elements'
 
 block append style
   style.
@@ -17,7 +17,7 @@ block article
 
     section._container
       details._border._radius_5
-        summary._no_select._no_marker #[span._arrow] Summary #[small._i (custom-marker, border, radius, no-margin)]
+        summary._no_select._no_marker #[span._arrow] Summary #[small._i (custom-marker, border, radius)]
         ._content._scrollable: ._container: pre._scrollable.pre: +pageData
       //- details
     hr._mb0

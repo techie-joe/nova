@@ -5,12 +5,12 @@ block append vars
     pageid      = 'lab/overflow'
     pageUrl     = siteUrl + '/lab/overflow.html'
     title       = `Overflow`
-    description = 'Handling overflow.'
+    description = 'Handling overflow'
 
 block article
-  article._article._container
+  article._article
 
-    section: pre.pre.
+    section._container: pre.pre.
       // Handling overflow ..
     //- pre.
     hr
@@ -96,7 +96,7 @@ block article
       ._a a._hover_show:hover,
       ._a a._hover_show { color:inherit;text-decoration:none }
 
-    section._960
+    section._container: ._960
 
       .o._outline._relative._scrollable
         #t1.top
