@@ -42,10 +42,10 @@
       #logo .s2 { color:#1b36b0 }
       ._dark #logo .s1 { color:#fff }
       ._dark #logo .s2 { color:#7a8eea }
-      a #logo { cursor:pointer }
-      a #logo:hover { background-color:#fff }
-      ._dark a #logo:hover { background-color:#fff3 }
-      a #logo:active { opacity:.3 }
+      a#logo { cursor:pointer;text-decoration:none }
+      a#logo:hover { background-color:#fff }
+      ._dark a#logo:hover { background-color:#fff3 }
+      a#logo:active { opacity:.3 }
       #maindesc {
         font-size: 0.9em;
         line-height: 1.25;
@@ -58,14 +58,13 @@
       <div class="_view" id="_main_view">
         <header id="_header">
           <div class="_color_1">
-            <div class="_pa_5"><a href="/nova/site/">
-                <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></div></a><span id="maindesc">Testing new stuff.</span>
+            <div class="_pa_5"><a class="_no_select" href="/nova/site/" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></a><span id="maindesc">Testing new stuff.</span>
             </div>
           </div>
           <hr class="_m0"/>
         </header>
         <div class="_color_2 _flex" id="_main_nav">
-          <div class="_fit"><a class="_needjs _a11" href="#" onclick="event.preventDefault();(function(w){var h=w.history;w.opener?w.close():h.length>1?h.back():w.location.href='/';})(window)" title="Back to previous page"><i class="_icon _licon"><i class="isvg _rotate_180">
+          <div class="_fit"><a class="_a11" href="./"><i class="_icon _licon"><i class="isvg _rotate_180">
                   <svg viewBox="0 0 24 24">
                     <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
                   </svg></i></i>Back</a>
