@@ -19,9 +19,10 @@ block updatePageData
 mixin helloWorld
   pre.
     &nbsp;
-    This is a template. Edit this document to get started.
-
-    #[+backlink Back]
+    This is a template.
+    Edit this document to get started.
+    &nbsp;
+    #[+backlink|Back]
     &nbsp;
   //-
 
@@ -58,9 +59,9 @@ html(lang=lang class=htmlClass.join(' '))
 
           block article
             article._article
-              +helloWorld
+              section: +helloWorld
               hr
-              pre: +pageData()
+              section: pre: +pageData()
 
           block side_article
             aside._side_article

@@ -33,15 +33,16 @@ mixin simpleHeader
 mixin basic_helloWorld
   pre._scrollable.pre.
     &nbsp;
-    This is a template. Edit this document to get started.
-
-    #[+backlink._link._a31 Back]
+    This is a template.
+    Edit this document to get started.
+    &nbsp;
+    #[+backlink._link._a31|Back]
 
 block article
-  article._article: section._container
-    +basic_helloWorld
+  article._article
+    section._container: +basic_helloWorld
     hr
-    pre._scrollable.pre: +pageData()
+    section._container: pre._scrollable.pre: +pageData()
 
 mixin bottomRightLinks(href,text)
   ._small: +a(href||homeUri)._a2._hover_link!=text||'Home'

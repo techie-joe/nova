@@ -545,7 +545,9 @@ $gaps: (
 $radiuses: (
   "_25" : .25em,
   "_5"  : .5em,
-  ""    : 1em
+  ""    : 1em,
+  "1_5" : 1.5em,
+  "2"   : 2em
 );
 @each $x, $value in $radiuses { ._radius#{$x}  { border-radius: $value; } }
   
