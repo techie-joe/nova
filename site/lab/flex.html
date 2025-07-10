@@ -54,143 +54,147 @@
     </style>
   </head>
   <body>
-    <header id="_header">
-      <div class="_color_1">
-        <div class="_pa_5"><a href="/nova/site/">
-            <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></div></a><span id="maindesc">Testing flex components.</span>
+    <div id="_views">
+      <div class="_view" id="_main_view">
+        <header id="_header">
+          <div class="_color_1">
+            <div class="_pa_5"><a href="/nova/site/">
+                <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></div></a><span id="maindesc">Testing flex components.</span>
+            </div>
+          </div>
+          <hr class="_m0"/>
+        </header>
+        <div class="_color_2 _flex" id="_main_nav">
+          <div class="_fit"><a class="_needjs _a11" href="#" onclick="event.preventDefault();(function(w){var h=w.history;w.opener?w.close():h.length>1?h.back():w.location.href='/';})(window)" title="Back to previous page"><i class="_icon _licon"><i class="isvg _rotate_180">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
+                  </svg></i></i>Back</a>
+          </div>
+          <div class="_f">
+            <nav>
+            </nav>
+          </div>
+          <div class="_fit"><a class="_needjs _a11" href="#" onclick="event.preventDefault();theme.change();" title="Change Theme (Ctrl+Alt+T)"><i class="_icon _cicon"><i class="itext">☀</i></i></a>
+          </div>
         </div>
-      </div>
-      <hr class="_m0"/>
-    </header>
-    <div class="_color_2 _flex" id="_main_nav">
-      <div class="_fit"><a class="_needjs _a11" href="#" onclick="event.preventDefault();(function(w){var h=w.history;w.opener?w.close():h.length>1?h.back():w.location.href='/';})(window)" title="Back to previous page"><i class="_icon _licon"><i class="isvg _rotate_180">
-              <svg viewBox="0 0 24 24">
-                <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
-              </svg></i></i>Back</a>
-      </div>
-      <div class="_f">
-        <nav>
-        </nav>
-      </div>
-      <div class="_fit"><a class="_needjs _a11" href="#" onclick="event.preventDefault();theme.change();" title="Change Theme (Ctrl+Alt+T)"><i class="_icon _cicon"><i class="itext">☀</i></i></a>
+        <hr class="_m0"/>
+        <main id="_main">
+          <article class="_article">
+            <section class="_container">
+              <pre class="pre">// Testing fill and fit ..</pre>
+              <hr>
+              <style>
+                ._outline {
+                  background-color:rgba(255, 0, 183, .15);
+                }
+                ._outline2 {
+                  outline: 1px solid rgba(0, 158, 36, .83);
+                  background-color:rgba(0, 158, 36, .15);
+                }
+                .f {
+                  padding:.25em .5em;
+                  text-align: center;
+                  font-size:.8em;
+                  user-select:none;
+                }
+                .f:hover {
+                  background-color:#8884;
+                }
+              </style>
+              <div class="_flex _gap_5">
+                <div class="_f1 _flex _gap_5">
+                                <div class="f _fit _outline2">Fit
+                                </div>
+                                <div class="f _fit _outline2" style="flex-basis:100px;">100px
+                                </div>
+                  <div class="f _f6 _outline">Flex 6</div>
+                                <div class="f _f _outline">Flex</div>
+                </div>
+                <div class="_f1 _flex _gap_5">
+                                <div class="f _fit _outline2" style="flex-basis:50px;">50px
+                                </div>
+                                <div class="f _f _outline">Flex</div>
+                                <div class="f _fit _outline2" style="flex-basis:100px;">100px
+                                </div>
+                                <div class="f _f _outline">Flex</div>
+                                <div class="f _fit _outline2" style="flex-basis:200px;">200px
+                                </div>
+                </div>
+                <div class="_f1 _flex _gap_5">
+                                <div class="f _fit _outline2" style="flex-basis:300px;">300px
+                                </div>
+                                <div class="f _f _outline">Flex</div>
+                                <div class="f _f _outline">Flex</div>
+                                <div class="f _f _outline">Flex</div>
+                </div>
+                <div class="_f1 _flex _gap_5">
+                                <div class="f _fit _outline2" style="flex-basis:300px;">300px
+                                </div>
+                                <div class="f _fit _outline2" style="flex-basis:200px;">200px
+                                </div>
+                                <div class="f _fit _outline2" style="flex-basis:100px;">100px
+                                </div>
+                                <div class="f _fit _outline2" style="flex-basis:50px;">50px
+                                </div>
+                                <div class="f _f _outline">Flex</div>
+                </div>
+              </div>
+              <hr>
+              <div class="_flex _gap_5">
+                <div class="_f1 _flex _gap_5">
+                                <div class="f _f _outline">Flex</div>
+                </div>
+                <div class="_f1 _flex _gap_5">
+                                <div class="f _f _outline">Flex</div>
+                                <div class="f _f _outline">Flex</div>
+                </div>
+                <div class="_f1 _flex _gap_5">
+                                <div class="f _f _outline">Flex</div>
+                                <div class="f _f _outline">Flex</div>
+                                <div class="f _f _outline">Flex</div>
+                </div>
+                <div class="_f1 _flex _gap_5">
+                                <div class="f _f _outline">Flex</div>
+                                <div class="f _f _outline">Flex</div>
+                                <div class="f _f _outline">Flex</div>
+                                <div class="f _f _outline">Flex</div>
+                </div>
+                <div class="_f1 _flex _gap_5">
+                                <div class="f _f _outline">Flex</div>
+                                <div class="f _f _outline">Flex</div>
+                                <div class="f _f _outline">Flex</div>
+                                <div class="f _f _outline">Flex</div>
+                                <div class="f _f _outline">Flex</div>
+                </div>
+                <div class="_f1 _flex _gap_5">
+                                <div class="f _f _outline">Flex</div>
+                                <div class="f _f _outline">Flex</div>
+                                <div class="f _f _outline">Flex</div>
+                                <div class="f _f _outline">Flex</div>
+                                <div class="f _f _outline">Flex</div>
+                                <div class="f _f _outline">Flex</div>
+                </div>
+              </div>
+              <hr>
+            </section>
+          </article>
+          <aside class="_side_article"></aside>
+        </main>
+        <aside class="_side_bar"></aside>
+        <footer class="_color" id="_footer">
+          <hr class="_m0">
+          <div class="_relative">
+            <div class="_absolute" style="top:.1rem;left:auto;right:0">
+              <div class="_container">
+                <div class="_small"><a class="_a2 _hover_link" href="/nova/site/">Home</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="_container"><small>&copy; 2025 Techie Joe</small></div>
+        </footer>
       </div>
     </div>
-    <hr class="_m0"/>
-    <main id="_main">
-      <article class="_article">
-        <section class="_container">
-          <pre class="pre">// Testing fill and fit ..</pre>
-          <hr>
-          <style>
-            ._outline {
-              background-color:rgba(255, 0, 183, .15);
-            }
-            ._outline2 {
-              outline: 1px solid rgba(0, 158, 36, .83);
-              background-color:rgba(0, 158, 36, .15);
-            }
-            .f {
-              padding:.25em .5em;
-              text-align: center;
-              font-size:.8em;
-              user-select:none;
-            }
-            .f:hover {
-              background-color:#8884;
-            }
-          </style>
-          <div class="_flex _gap_5">
-            <div class="_f1 _flex _gap_5">
-                        <div class="f _fit _outline2">Fit
-                        </div>
-                        <div class="f _fit _outline2" style="flex-basis:100px;">100px
-                        </div>
-              <div class="f _f6 _outline">Flex 6</div>
-                        <div class="f _f _outline">Flex</div>
-            </div>
-            <div class="_f1 _flex _gap_5">
-                        <div class="f _fit _outline2" style="flex-basis:50px;">50px
-                        </div>
-                        <div class="f _f _outline">Flex</div>
-                        <div class="f _fit _outline2" style="flex-basis:100px;">100px
-                        </div>
-                        <div class="f _f _outline">Flex</div>
-                        <div class="f _fit _outline2" style="flex-basis:200px;">200px
-                        </div>
-            </div>
-            <div class="_f1 _flex _gap_5">
-                        <div class="f _fit _outline2" style="flex-basis:300px;">300px
-                        </div>
-                        <div class="f _f _outline">Flex</div>
-                        <div class="f _f _outline">Flex</div>
-                        <div class="f _f _outline">Flex</div>
-            </div>
-            <div class="_f1 _flex _gap_5">
-                        <div class="f _fit _outline2" style="flex-basis:300px;">300px
-                        </div>
-                        <div class="f _fit _outline2" style="flex-basis:200px;">200px
-                        </div>
-                        <div class="f _fit _outline2" style="flex-basis:100px;">100px
-                        </div>
-                        <div class="f _fit _outline2" style="flex-basis:50px;">50px
-                        </div>
-                        <div class="f _f _outline">Flex</div>
-            </div>
-          </div>
-          <hr>
-          <div class="_flex _gap_5">
-            <div class="_f1 _flex _gap_5">
-                        <div class="f _f _outline">Flex</div>
-            </div>
-            <div class="_f1 _flex _gap_5">
-                        <div class="f _f _outline">Flex</div>
-                        <div class="f _f _outline">Flex</div>
-            </div>
-            <div class="_f1 _flex _gap_5">
-                        <div class="f _f _outline">Flex</div>
-                        <div class="f _f _outline">Flex</div>
-                        <div class="f _f _outline">Flex</div>
-            </div>
-            <div class="_f1 _flex _gap_5">
-                        <div class="f _f _outline">Flex</div>
-                        <div class="f _f _outline">Flex</div>
-                        <div class="f _f _outline">Flex</div>
-                        <div class="f _f _outline">Flex</div>
-            </div>
-            <div class="_f1 _flex _gap_5">
-                        <div class="f _f _outline">Flex</div>
-                        <div class="f _f _outline">Flex</div>
-                        <div class="f _f _outline">Flex</div>
-                        <div class="f _f _outline">Flex</div>
-                        <div class="f _f _outline">Flex</div>
-            </div>
-            <div class="_f1 _flex _gap_5">
-                        <div class="f _f _outline">Flex</div>
-                        <div class="f _f _outline">Flex</div>
-                        <div class="f _f _outline">Flex</div>
-                        <div class="f _f _outline">Flex</div>
-                        <div class="f _f _outline">Flex</div>
-                        <div class="f _f _outline">Flex</div>
-            </div>
-          </div>
-          <hr>
-        </section>
-      </article>
-      <aside class="_side_article"></aside>
-    </main>
-    <aside class="_side_bar"></aside>
-    <footer class="_color" id="_footer">
-      <hr class="_m0">
-      <div class="_relative">
-        <div class="_absolute" style="top:.1rem;left:auto;right:0">
-          <div class="_container">
-            <div class="_small"><a class="_a2 _hover_link" href="/nova/site/">Home</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="_container"><small>&copy; 2025 Techie Joe</small></div>
-    </footer>
     <aside id="_widgets"></aside>
     <script type="text/javascript" src="/nova/site/js/theme_v2.0.js?v=0.1.0"></script>
     <script>// your script goes here</script>

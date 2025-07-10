@@ -58,160 +58,164 @@
     </style>
   </head>
   <body>
-    <header id="_header">
-      <div class="_color_1">
-        <div class="_pa_5"><a href="/nova/site/">
-            <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></div></a><span id="maindesc">Common elements</span>
-        </div>
-      </div>
-      <hr class="_m0"/>
-      <div class="_color_2 _flex" id="_main_nav">
-        <div class="_f">
-          <nav><a class="_a11" href="/nova/site/starter">Starter</a><a class="_a11" href="/nova/site/basic">Basic</a><a class="_a11" href="/nova/site/lab">Lab</a>
-          </nav>
-        </div>
-        <div class="_fit"><a class="_needjs _a11" href="#" onclick="event.preventDefault();theme.change();" title="Change Theme (Ctrl+Alt+T)"><i class="_icon _cicon"><i class="itext">☀</i></i></a>
-        </div>
-      </div>
-      <hr class="_m0"/>
-    </header>
-    <div class="_color_1 _pad">
-      <nav class="_container"><a class="_a2 _active" href="/nova/site/basic/common.html">Common</a><a class="_a2" href="/nova/site/basic/text.html">Text</a><a class="_a2" href="/nova/site/basic/table.html">Table</a><a class="_a2" href="/nova/site/basic/link.html">Link</a><a class="_a2" href="/nova/site/basic/button.html">Button</a><a class="_a2" href="/nova/site/basic/details.html">Details</a><a class="_a2" href="/nova/site/basic/flex.html">Flex</a><a class="_a2" href="/nova/site/basic/container.html">Container</a><a class="_a2" href="/nova/site/basic/alignment.html">Alignment</a>
-      </nav>
-    </div>
-    <hr class="_mt0">
-    <main id="_main">
-      <article class="_article">
-        <section class="_container">
-          <div>
-            normal
-            <span>span</span>
-            <b>bold</b>
-            <span class="_b">span</span>
-            <i>italic</i>
-            <span class="_i">span</span>
-          </div>
-          <div>
-            <u>underlined</u>
-            <span class="_u">span</span>
-            <abbr title="abbreviation">abbr</abbr>
-            <span class="_u_dotted">dotted</span> 
-            <span class="_u_dashed">dashed</span> 
-            <span class="_u_double">double</span> 
-            <span class="_u_wavy">wavy</span> 
-          </div>
-          <div>
-            <s>striked</s>
-            <span class="_striked">span</span>
-          </div>
-          <div>
-            normal
-            <small>tag-small</small>
-            <small class="_small">small</small>
-            <small class="_smaller">smaller</small>
-            <small class="_smallest">smallest</small>
-          </div>
-          <div>
-            normal
-            <code>code</code>
-            <samp>samp</samp>
-            <kbd>kbd</kbd>
-          </div>
-          <div>
-            normal
-            <sub>sub</sub>
-            <sup>sup</sup>
-            H
-            <sup>T</sup>
-            y_
-            <sub>g_</sub>
-          </div>
-          <div><span class="_lowercase">LOWERCASE</span>
-            <span class="_uppercase">uppercase</span>
-            <span class="_capitalize">capitalized</span>
-          </div>
-          <div><span>normal</span>
-            <span class="_tc_contra">contra</span>
-            <span class="_tc_blue">blue</span>
-            <span class="_tc_purple">purple</span>
-            <span class="_tc_orange">orange</span>
-            <span class="_tc_red">red</span>
-            <span class="_tc_green">green</span>
-          </div>
-          <div><span class="_border">border</span>
-            <span class="_boxline">boxline</span>
-            <span class="_outline">outline</span>
-            <span class="_select">select</span>
-          </div>
-        </section>
-        <hr>
-        <section class="_indiv _container" id="indiv">
-          <div class="_inblock _border">border</div>
-          <div class="_inblock _outline">outline</div>
-          <div class="_inblock _boxline">boxline</div>
-          <div class="_inblock _select">select</div><br>
-          <div class="_inblock _border">border</div>
-          <div class="_inblock _outline">outline</div>
-          <div class="_inblock _boxline">boxline</div>
-          <div class="_inblock _select">select</div><br>
-        </section>
-        <hr>
-        <section class="_container">
-          <p>paragraph</p>
-          <div class="_p">div._p paragraph</div>
-          <pre>pre is in mono</pre>
-          <div class="_pre">div._pre is also in mono</div>
-          <blockquote>blockquote and 
-            <q>quoted</q>
-          </blockquote>
-          <blockquote class="_blockquote">blockquote._blockquote</blockquote>
-          <div class="_blockquote">div._blockquote</div>
-          <dl>
-            <dt>dt term</dt>
-            <dd>dd description</dd>
-            <dd class="_no_bullet">dd._no_bullet</dd>
-          </dl>
-          <ul>
-            <li>unordered list</li>
-          </ul>
-          <ol>
-            <li>ordered list</li>
-          </ol>
-          <ul class="_no_bullet">
-            <li>ul._no_bullet</li>
-          </ul>
-          <ol class="_no_bullet">
-            <li>ol._no_bullet</li>
-          </ol>
-          <ul class="_no_pad">
-            <li>ul._no_pad</li>
-          </ul>
-          <ol class="_no_pad">
-            <li>ol._no_pad</li>
-          </ol>
-          <ul class="_plain">
-            <li>ul._plain</li>
-          </ul>
-          <ol class="_plain">
-            <li>ol._plain</li>
-          </ol>
-        </section>
-      </article>
-      <aside class="_side_article"></aside>
-    </main>
-    <aside class="_side_bar"></aside>
-    <footer class="_color" id="_footer">
-      <hr class="_m0">
-      <div class="_relative">
-        <div class="_absolute" style="top:.1rem;left:auto;right:0">
-          <div class="_container">
-            <div class="_small"><a class="_a2 _hover_link" href="/nova/site/">Home</a>
+    <div id="_views">
+      <div class="_view" id="_main_view">
+        <header id="_header">
+          <div class="_color_1">
+            <div class="_pa_5"><a href="/nova/site/">
+                <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></div></a><span id="maindesc">Common elements</span>
             </div>
           </div>
+          <hr class="_m0"/>
+          <div class="_color_2 _flex" id="_main_nav">
+            <div class="_f">
+              <nav><a class="_a11" href="/nova/site/starter">Starter</a><a class="_a11" href="/nova/site/basic">Basic</a><a class="_a11" href="/nova/site/lab">Lab</a>
+              </nav>
+            </div>
+            <div class="_fit"><a class="_needjs _a11" href="#" onclick="event.preventDefault();theme.change();" title="Change Theme (Ctrl+Alt+T)"><i class="_icon _cicon"><i class="itext">☀</i></i></a>
+            </div>
+          </div>
+          <hr class="_m0"/>
+        </header>
+        <div class="_color_1 _pad">
+          <nav class="_container"><a class="_a2 _active" href="/nova/site/basic/common.html">Common</a><a class="_a2" href="/nova/site/basic/text.html">Text</a><a class="_a2" href="/nova/site/basic/table.html">Table</a><a class="_a2" href="/nova/site/basic/link.html">Link</a><a class="_a2" href="/nova/site/basic/button.html">Button</a><a class="_a2" href="/nova/site/basic/details.html">Details</a><a class="_a2" href="/nova/site/basic/flex.html">Flex</a><a class="_a2" href="/nova/site/basic/container.html">Container</a><a class="_a2" href="/nova/site/basic/alignment.html">Alignment</a>
+          </nav>
         </div>
+        <hr class="_mt0">
+        <main id="_main">
+          <article class="_article">
+            <section class="_container">
+              <div>
+                normal
+                <span>span</span>
+                <b>bold</b>
+                <span class="_b">span</span>
+                <i>italic</i>
+                <span class="_i">span</span>
+              </div>
+              <div>
+                <u>underlined</u>
+                <span class="_u">span</span>
+                <abbr title="abbreviation">abbr</abbr>
+                <span class="_u_dotted">dotted</span> 
+                <span class="_u_dashed">dashed</span> 
+                <span class="_u_double">double</span> 
+                <span class="_u_wavy">wavy</span> 
+              </div>
+              <div>
+                <s>striked</s>
+                <span class="_striked">span</span>
+              </div>
+              <div>
+                normal
+                <small>tag-small</small>
+                <small class="_small">small</small>
+                <small class="_smaller">smaller</small>
+                <small class="_smallest">smallest</small>
+              </div>
+              <div>
+                normal
+                <code>code</code>
+                <samp>samp</samp>
+                <kbd>kbd</kbd>
+              </div>
+              <div>
+                normal
+                <sub>sub</sub>
+                <sup>sup</sup>
+                H
+                <sup>T</sup>
+                y_
+                <sub>g_</sub>
+              </div>
+              <div><span class="_lowercase">LOWERCASE</span>
+                <span class="_uppercase">uppercase</span>
+                <span class="_capitalize">capitalized</span>
+              </div>
+              <div><span>normal</span>
+                <span class="_tc_contra">contra</span>
+                <span class="_tc_blue">blue</span>
+                <span class="_tc_purple">purple</span>
+                <span class="_tc_orange">orange</span>
+                <span class="_tc_red">red</span>
+                <span class="_tc_green">green</span>
+              </div>
+              <div><span class="_border">border</span>
+                <span class="_boxline">boxline</span>
+                <span class="_outline">outline</span>
+                <span class="_select">select</span>
+              </div>
+            </section>
+            <hr>
+            <section class="_indiv _container" id="indiv">
+              <div class="_inblock _border">border</div>
+              <div class="_inblock _outline">outline</div>
+              <div class="_inblock _boxline">boxline</div>
+              <div class="_inblock _select">select</div><br>
+              <div class="_inblock _border">border</div>
+              <div class="_inblock _outline">outline</div>
+              <div class="_inblock _boxline">boxline</div>
+              <div class="_inblock _select">select</div><br>
+            </section>
+            <hr>
+            <section class="_container">
+              <p>paragraph</p>
+              <div class="_p">div._p paragraph</div>
+              <pre>pre is in mono</pre>
+              <div class="_pre">div._pre is also in mono</div>
+              <blockquote>blockquote and 
+                <q>quoted</q>
+              </blockquote>
+              <blockquote class="_blockquote">blockquote._blockquote</blockquote>
+              <div class="_blockquote">div._blockquote</div>
+              <dl>
+                <dt>dt term</dt>
+                <dd>dd description</dd>
+                <dd class="_no_bullet">dd._no_bullet</dd>
+              </dl>
+              <ul>
+                <li>unordered list</li>
+              </ul>
+              <ol>
+                <li>ordered list</li>
+              </ol>
+              <ul class="_no_bullet">
+                <li>ul._no_bullet</li>
+              </ul>
+              <ol class="_no_bullet">
+                <li>ol._no_bullet</li>
+              </ol>
+              <ul class="_no_pad">
+                <li>ul._no_pad</li>
+              </ul>
+              <ol class="_no_pad">
+                <li>ol._no_pad</li>
+              </ol>
+              <ul class="_plain">
+                <li>ul._plain</li>
+              </ul>
+              <ol class="_plain">
+                <li>ol._plain</li>
+              </ol>
+            </section>
+          </article>
+          <aside class="_side_article"></aside>
+        </main>
+        <aside class="_side_bar"></aside>
+        <footer class="_color" id="_footer">
+          <hr class="_m0">
+          <div class="_relative">
+            <div class="_absolute" style="top:.1rem;left:auto;right:0">
+              <div class="_container">
+                <div class="_small"><a class="_a2 _hover_link" href="/nova/site/">Home</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="_container"><small>&copy; 2025 Techie Joe</small></div>
+        </footer>
       </div>
-      <div class="_container"><small>&copy; 2025 Techie Joe</small></div>
-    </footer>
+    </div>
     <aside id="_widgets"></aside>
     <script type="text/javascript" src="/nova/site/js/theme_v2.0.js?v=0.1.0"></script>
     <script>// your script goes here</script>

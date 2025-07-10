@@ -53,90 +53,88 @@
       }
     </style>
     <style>
-      .fullview { position: absolute; top: 0; right: 0; bottom: 0; left: 0; }
-      
-      body { box-shadow: 0 0 0 3px #3355CC inset;padding:3px; }
+      body #_views { box-shadow: 0 0 0 3px #3355CC inset }
       body #topRightNav { box-shadow:0 0 0 3px #cc33cc inset; }
-      body #topRightNav { top:3px; right:3px; }
       body #topRightNav ._a3 { margin:.25rem }
       ._article { box-shadow: 0 0 0 3px #2a8e39 inset }
       #overflow { color: #2a8e39 }
       
       body.fullview #topRightNav { right:0px;margin-right:15px; }
-      body.fullview   { padding-right:0; }
-      body.fullview   { overflow:auto scroll; }
+      body.fullview #_views { overflow:auto scroll; position: absolute; top: 0; right: 0; bottom: 40px; left: 0; height:auto; min-height:0;margin:0;padding:0 }
+      body.fullview ._view { padding:0 }
       
-      html.fullscreen { overflow:auto scroll }
-      body.fullscreen { overflow:auto; position: absolute; top: 0; right: 0; bottom: auto; left: 0; height:auto; min-height:100%;margin-bottom:0;padding-bottom:0;padding-top:0; }
-      body.fullscreen ._article { margin-bottom:40px }
+      body.fullscreen #_views { overflow:auto; position: absolute; top: 0; right: 0; bottom: auto; left: 0; height:auto; min-height:100%;margin:0;padding:0 }
       
     </style>
   </head>
   <body>
-    <header id="_header">
-      <div class="_color_1">
-        <div class="_pa_5"><a href="/nova/site/">
-            <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></div></a><span id="maindesc">Testing view.</span>
-        </div>
-      </div>
-      <hr class="_m0"/>
-    </header>
-    <div class="_color_2 _flex" id="_main_nav">
-      <div class="_fit"><a class="_needjs _a11" href="#" onclick="event.preventDefault();(function(w){var h=w.history;w.opener?w.close():h.length>1?h.back():w.location.href='/';})(window)" title="Back to previous page"><i class="_icon _licon"><i class="isvg _rotate_180">
-              <svg viewBox="0 0 24 24">
-                <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
-              </svg></i></i>Back</a>
-      </div>
-      <div class="_f">
-        <nav>
-        </nav>
-      </div>
-      <div class="_fit"><a class="_needjs _a11" href="#" onclick="event.preventDefault();theme.change();" title="Change Theme (Ctrl+Alt+T)"><i class="_icon _cicon"><i class="itext">☀</i></i></a>
-      </div>
-    </div>
-    <hr class="_m0"/>
-    <main id="_main">
-      <article class="_article">
-        <div class="_pad">
-          <style>
-            #btns button {
-              margin: .1em;
-              font-size: 0.8rem;
-              vertical-align: top;
-              line-height: inherit;
-              min-height: 1.5rem;
-            }
-          </style>
-          <div class="_container" id="btns">
-            <button onclick="view.reset();" title="Reset">R</button> | 
-            <button onclick="view.fullview();" title="Fullview">FV</button>
-            <button onclick="view.fullscreen();" title="Fullscreen">FS</button> | 
-            <button onclick="view.overflow();" title="Overflow Content">O</button>
-          </div>
-          <hr>
-          <section class="_container">
-            <pre class="_scrollable pre">// Testing view.
-// htmlClass: <span id="htmlClass">_hidden</span>
-// bodyClass: <span id="bodyClass"></span></pre>
-          </section>
-          <section class="_mono _text_center" id="overflow">=== Bottom ===</section>
-        </div>
-      </article>
-      <aside class="_side_article"></aside>
-    </main>
-    <aside class="_side_bar"></aside>
-    <footer class="_color" id="_footer">
-      <hr class="_m0">
-      <div class="_relative">
-        <div class="_absolute" style="top:.1rem;left:auto;right:0">
-          <div class="_container">
-            <div class="_small"><a class="_a2 _hover_link" href="/nova/site/">Home</a>
+    <div id="_views">
+      <div class="_view" id="_main_view">
+        <header id="_header">
+          <div class="_color_1">
+            <div class="_pa_5"><a href="/nova/site/">
+                <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></div></a><span id="maindesc">Testing view.</span>
             </div>
           </div>
+          <hr class="_m0"/>
+        </header>
+        <div class="_color_2 _flex" id="_main_nav">
+          <div class="_fit"><a class="_needjs _a11" href="#" onclick="event.preventDefault();(function(w){var h=w.history;w.opener?w.close():h.length>1?h.back():w.location.href='/';})(window)" title="Back to previous page"><i class="_icon _licon"><i class="isvg _rotate_180">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
+                  </svg></i></i>Back</a>
+          </div>
+          <div class="_f">
+            <nav>
+            </nav>
+          </div>
+          <div class="_fit"><a class="_needjs _a11" href="#" onclick="event.preventDefault();theme.change();" title="Change Theme (Ctrl+Alt+T)"><i class="_icon _cicon"><i class="itext">☀</i></i></a>
+          </div>
         </div>
+        <hr class="_m0"/>
+        <main id="_main">
+          <article class="_article">
+            <div class="_pad">
+              <style>
+                #btns button {
+                  margin: .1em;
+                  font-size: 0.8rem;
+                  vertical-align: top;
+                  line-height: inherit;
+                  min-height: 1.5rem;
+                }
+              </style>
+              <div class="_container" id="btns">
+                <button onclick="view.reset();" title="Reset">R</button> | 
+                <button onclick="view.fullview();" title="Fullview">FV</button> | 
+                <button onclick="view.overflow();" title="Overflow Content">O</button>
+              </div>
+              <hr>
+              <section class="_container">
+                <pre class="_scrollable pre">// Testing view.
+// htmlClass: <span id="htmlClass">_hidden</span>
+// bodyClass: <span id="bodyClass"></span></pre>
+              </section>
+              <section class="_mono _text_center" id="overflow">=== Bottom ===</section>
+            </div>
+          </article>
+          <aside class="_side_article"></aside>
+        </main>
+        <aside class="_side_bar"></aside>
+        <footer class="_color" id="_footer">
+          <hr class="_m0">
+          <div class="_relative">
+            <div class="_absolute" style="top:.1rem;left:auto;right:0">
+              <div class="_container">
+                <div class="_small"><a class="_a2 _hover_link" href="/nova/site/">Home</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="_container"><small>&copy; 2025 Techie Joe</small></div>
+        </footer>
       </div>
-      <div class="_container"><small>&copy; 2025 Techie Joe</small></div>
-    </footer>
+    </div>
     <aside id="_widgets"></aside>
     <style>
       #topRightNav { position:fixed; top:0;right:0; padding:.6rem }
@@ -220,14 +218,12 @@
         v.fullview = ()=>{
           fullview=!fullview;
           fullscreen = false;
-          d.html.className = (fullview?dc+' fullview':dc);
           d.body.className = (fullview?bc+' fullview':bc);
           set();
         },
         v.fullscreen = ()=>{
           fullview = false;
           fullscreen=!fullscreen;
-          d.html.className = (fullscreen?dc+' fullscreen':dc);
           d.body.className = (fullscreen?bc+' fullscreen':bc);
           set();
         };

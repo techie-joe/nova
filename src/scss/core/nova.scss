@@ -246,6 +246,19 @@ template { @extend ._hidden; }
 
 html,body { @extend ._scrollable; }
 
+#_views {
+  @extend ._scrollable;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: auto;
+  left: 0;
+  height: auto;
+  min-height: 100%;
+}
+
+._960 { max-width:60em;margin:auto }
+
 ._container { margin:.5rem }
 
 ._blockquote,blockquote { padding: .5em 1em; border-left: .25rem solid transparent; }

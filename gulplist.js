@@ -13,9 +13,9 @@ const
   buildList = {
     _pug: 'src/pug',
     pug: [
-      // 'core',
+      'core',
       'index',
-      // 'starter',
+      'starter',
       'basic',
       'lab',
       'template',

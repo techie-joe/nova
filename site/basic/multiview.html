@@ -55,39 +55,65 @@
     <style>
       ._view    { box-shadow: 0 0 0 3px #cc7333 inset;padding:3px; }
       
-      ._view  { min-height:400px;min-height:100%; }
+      body.fullview #topRightNav { right:0px;margin-right:15px; }
+      body.fullview #_views { overflow:auto scroll; position: absolute; top: 0; right: 0; bottom: 40px; left: 0; height:auto; min-height:0;margin:0;padding:0 }
+      body.fullview ._view { padding:0 }
       
-      #view-2 { position:absolute;top:0;left:100%;right:-100%;bottom:0;min-height:400px; }
-      #view-4 { position:absolute;top:100%;left:100%;right:-100%;bottom:-100%;min-height:400px; }
+      #view-2 { position:absolute;top:0;left:100%;right:-100%;bottom:0; }
+      #view-3 { min-height:100%; }
+      #view-4 { position:absolute;top:100%;left:100%;right:-100%;bottom:-100%; }
       
     </style>
   </head>
-  <body class="_fullview">
-    <main class="_views _fullview _scrollable" id="_main">
-      <div class="_absolute" id="view-0" aria-hidden="true"></div>
-      <div class="_view" id="view-1" style="min-height:300px">
+  <body class="fullview">
+    <div id="_views">
+      <div class="_absolute" id="view-1" aria-hidden="true"></div>
+      <div class="_view" id="_main_view">
         <header id="_header">
-          <div class="_color_1">
-            <div class="_pa_5"><a href="/nova/site/">
-                <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></div></a><span id="maindesc">Create multiple views</span>
+          <header id="_header">
+            <div class="_color_1">
+              <div class="_pa_5"><a href="/nova/site/">
+                  <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></div></a><span id="maindesc">Create multiple views</span>
+              </div>
             </div>
-          </div>
-          <hr class="_m0"/>
+            <hr class="_m0"/>
+          </header>
           <div class="_color_2 _flex" id="_main_nav">
+            <div class="_fit"><a class="_a11" href="./"><i class="_icon _licon"><i class="isvg _rotate_180">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
+                    </svg></i></i>Back</a>
+            </div>
             <div class="_f">
-              <nav><a class="_a11" href="/nova/site/starter">Starter</a><a class="_a11" href="/nova/site/basic">Basic</a><a class="_a11" href="/nova/site/lab">Lab</a>
+              <nav>
               </nav>
             </div>
             <div class="_fit"><a class="_needjs _a11" href="#" onclick="event.preventDefault();theme.change();" title="Change Theme (Ctrl+Alt+T)"><i class="_icon _cicon"><i class="itext">☀</i></i></a>
             </div>
           </div>
-          <hr class="_m0"/>
+          <hr class="_m0">
         </header>
-        <article class="_article">
-          <section class="_container">
-            <pre class="_scrollable pre">// Create multiple views</pre>
-          </section>
-        </article>
+        <main id="_main">
+          <article class="_article" style="min-height:300px">
+            <section class="_container">
+              <pre class="_scrollable pre">// Create multiple views</pre>
+            </section>
+          </article>
+          <aside class="_side_article"></aside>
+        </main>
+        <aside class="_side_bar"></aside>
+        <footer class="_color" id="_footer">
+          <hr class="_m0">
+          <div class="_relative">
+            <div class="_absolute" style="top:.1rem;left:auto;right:0">
+              <div class="_container">
+                <div class="_small"><a class="_a2 _hover_link" href="/nova/site/">Home</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="_container"><small>&copy; 2025 Techie Joe</small></div>
+        </footer>
       </div>
       <div class="_view" id="view-2">
         <article class="_article">
@@ -110,21 +136,7 @@
           </section>
         </article>
       </div>
-      <aside class="_side_article"></aside>
-    </main>
-    <aside class="_side_bar"></aside>
-    <footer class="_color" id="_footer">
-      <hr class="_m0">
-      <div class="_relative">
-        <div class="_absolute" style="top:.1rem;left:auto;right:0">
-          <div class="_container">
-            <div class="_small"><a class="_a2 _hover_link" href="/nova/site/">Home</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="_container"><small>&copy; 2025 Techie Joe</small></div>
-    </footer>
+    </div>
     <div class="_widgets">
       <style>
         #navbox {
@@ -145,7 +157,7 @@
         <table>
           <tbody>
             <tr>
-              <td><a class="_a3" href="#view-0">1</a>
+              <td><a class="_a3" href="#view-1">1</a>
               </td>
               <td><a class="_a3" href="#view-2">2</a>
               </td>

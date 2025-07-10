@@ -54,171 +54,175 @@
     </style>
   </head>
   <body>
-    <header id="_header">
-      <div class="_color_1">
-        <div class="_pa_5"><a href="/nova/site/">
-            <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></div></a><span id="maindesc">Handling overflow</span>
+    <div id="_views">
+      <div class="_view" id="_main_view">
+        <header id="_header">
+          <div class="_color_1">
+            <div class="_pa_5"><a href="/nova/site/">
+                <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></div></a><span id="maindesc">Handling overflow</span>
+            </div>
+          </div>
+          <hr class="_m0"/>
+        </header>
+        <div class="_color_2 _flex" id="_main_nav">
+          <div class="_fit"><a class="_needjs _a11" href="#" onclick="event.preventDefault();(function(w){var h=w.history;w.opener?w.close():h.length>1?h.back():w.location.href='/';})(window)" title="Back to previous page"><i class="_icon _licon"><i class="isvg _rotate_180">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
+                  </svg></i></i>Back</a>
+          </div>
+          <div class="_f">
+            <nav>
+            </nav>
+          </div>
+          <div class="_fit"><a class="_needjs _a11" href="#" onclick="event.preventDefault();theme.change();" title="Change Theme (Ctrl+Alt+T)"><i class="_icon _cicon"><i class="itext">☀</i></i></a>
+          </div>
         </div>
-      </div>
-      <hr class="_m0"/>
-    </header>
-    <div class="_color_2 _flex" id="_main_nav">
-      <div class="_fit"><a class="_needjs _a11" href="#" onclick="event.preventDefault();(function(w){var h=w.history;w.opener?w.close():h.length>1?h.back():w.location.href='/';})(window)" title="Back to previous page"><i class="_icon _licon"><i class="isvg _rotate_180">
-              <svg viewBox="0 0 24 24">
-                <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
-              </svg></i></i>Back</a>
-      </div>
-      <div class="_f">
-        <nav>
-        </nav>
-      </div>
-      <div class="_fit"><a class="_needjs _a11" href="#" onclick="event.preventDefault();theme.change();" title="Change Theme (Ctrl+Alt+T)"><i class="_icon _cicon"><i class="itext">☀</i></i></a>
+        <hr class="_m0"/>
+        <main id="_main">
+          <article class="_article">
+            <section class="_container">
+              <pre class="pre">// Handling overflow ..</pre>
+            </section>
+            <hr>
+            <style>
+              .oo {
+                display:inline-block;
+                width:12rem;
+              }
+              .o {
+                display:inline-block;
+                width:12rem;
+                height:12rem;
+                margin:.5rem;
+                vertical-align:top;
+                padding: .25rem;
+                font-size: 0.9em;
+                overflow:auto;
+              }
+              .top {
+                position:absolute;
+                top:0;left:0;
+              }
+              .t {  }
+              .p { padding:.4em 0;line-height:1em; }
+              .q { padding:.4em;line-height:1em; }
+              .s { }
+              .a {
+                display:inline-block;
+                padding:.6rem;
+              }
+              .b {
+                display:inline-block;
+                outline: 1px solid tomato;
+                color:tomato !important;
+                text-decoration:none !important;
+                text-align:center;
+                padding:.2em .4em;
+              }
+              ._clip {
+                white-space: nowrap;
+                overflow: hidden;
+              }
+              ._ellipsis {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+              }
+              ._mask {
+                white-space: nowrap;
+                overflow: hidden;
+                mask: linear-gradient(to left, transparent 0%, black 20%);
+              }
+              ._mask_both {
+                white-space: nowrap;
+                overflow: hidden;
+                mask: linear-gradient(to left, transparent 0%, black 20%, black 80%, transparent 100%);
+              }
+              ._snap { scroll-snap-type: x mandatory }
+              ._snap ._snap-item { scroll-snap-align: center }
+              
+              /* -------------------------------------------------------- */
+              
+              ._hover_show { display:block;margin:1px }
+              ._hover_show.__active ._trigger,
+              ._hover_show ._trigger {
+                cursor:pointer;
+                transition: background-color .2s;
+              }
+              ._hover_show ._item { position:relative }
+              ._hover_show.__absolute ._content { position:absolute }
+              ._hover_show ._content {
+                overflow:hidden;
+                transition:max-height .2s ease .4s;
+                max-height:0px;
+              }
+              ._hover_show.__active ._trigger,
+              ._hover_show:hover ._trigger { background-color:#8883 }
+              ._hover_show.__active ._content,
+              ._hover_show:hover ._content { max-height:100px }
+              
+              ._a a._hover_show:visited,
+              ._a a._hover_show:hover,
+              ._a a._hover_show { color:inherit;text-decoration:none }
+              
+            </style>
+            <section class="_container">
+              <div class="_960">
+                <div class="o _outline _relative _scrollable">
+                  <div class="top" id="t1"></div>
+                  <div class="t">Use <code>._scrollable</code> when <a href="#i1">the item</a> is out of view.</div>
+                  <div class="a" id="i1" style="position:absolute;bottom:-50%;right:-50%;"><a class="b _radius_25" href="#t1">Click Me</a></div>
+                </div>
+                <div class="o _outline" style="overflow:visible">
+                  <div class="t">Use <code>._hover_show</code> reveal more on hover.</div>
+                  <div class="_hover_show">
+                    <div class="_trigger p">The default type,</div>
+                    <div class="_item">
+                      <div class="_content _color_1">
+                        <div class="q">way too long .. way too long .. way too long .. way too long .. way too long .. way too long .. 
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="s">would shove other content.</div>
+                  <div class="_hover_show __absolute">
+                    <div class="_trigger p">The absolute type,</div>
+                    <div class="_item">
+                      <div class="_content _color_1">
+                        <div class="q">way too long .. way too long .. way too long .. way too long .. way too long .. way too long .. 
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="s">would overlay above others.</div>
+                </div>
+                <div class="o _outline">
+                  <div class="_p t _clip">Use <code>._clip</code> to cut the rest of the text.</div>
+                  <div class="_p t _ellipsis">Use <code>._ellipsis</code> to add dots at the end of the line.</div>
+                  <div class="_p t _mask">Use <code>._mask</code> to add gradient at the end of the line.</div>
+                  <div class="_p t _mask_both">Use <code>._mask_both</code> to add gradients to both ends of the line.</div>
+                  <div class="_p t _tc_red">Only works on a single line.</div>
+                </div>
+              </div>
+            </section>
+          </article>
+          <aside class="_side_article"></aside>
+        </main>
+        <aside class="_side_bar"></aside>
+        <footer class="_color" id="_footer">
+          <hr class="_m0">
+          <div class="_relative">
+            <div class="_absolute" style="top:.1rem;left:auto;right:0">
+              <div class="_container">
+                <div class="_small"><a class="_a2 _hover_link" href="/nova/site/">Home</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="_container"><small>&copy; 2025 Techie Joe</small></div>
+        </footer>
       </div>
     </div>
-    <hr class="_m0"/>
-    <main id="_main">
-      <article class="_article">
-        <section class="_container">
-          <pre class="pre">// Handling overflow ..</pre>
-        </section>
-        <hr>
-        <style>
-          .oo {
-            display:inline-block;
-            width:12rem;
-          }
-          .o {
-            display:inline-block;
-            width:12rem;
-            height:12rem;
-            margin:.5rem;
-            vertical-align:top;
-            padding: .25rem;
-            font-size: 0.9em;
-            overflow:auto;
-          }
-          .top {
-            position:absolute;
-            top:0;left:0;
-          }
-          .t {  }
-          .p { padding:.4em 0;line-height:1em; }
-          .q { padding:.4em;line-height:1em; }
-          .s { }
-          .a {
-            display:inline-block;
-            padding:.6rem;
-          }
-          .b {
-            display:inline-block;
-            outline: 1px solid tomato;
-            color:tomato !important;
-            text-decoration:none !important;
-            text-align:center;
-            padding:.2em .4em;
-          }
-          ._clip {
-            white-space: nowrap;
-            overflow: hidden;
-          }
-          ._ellipsis {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-          }
-          ._mask {
-            white-space: nowrap;
-            overflow: hidden;
-            mask: linear-gradient(to left, transparent 0%, black 20%);
-          }
-          ._mask_both {
-            white-space: nowrap;
-            overflow: hidden;
-            mask: linear-gradient(to left, transparent 0%, black 20%, black 80%, transparent 100%);
-          }
-          ._snap { scroll-snap-type: x mandatory }
-          ._snap ._snap-item { scroll-snap-align: center }
-          
-          /* -------------------------------------------------------- */
-          
-          ._hover_show { display:block;margin:1px }
-          ._hover_show.__active ._trigger,
-          ._hover_show ._trigger {
-            cursor:pointer;
-            transition: background-color .2s;
-          }
-          ._hover_show ._item { position:relative }
-          ._hover_show.__absolute ._content { position:absolute }
-          ._hover_show ._content {
-            overflow:hidden;
-            transition:max-height .2s ease .4s;
-            max-height:0px;
-          }
-          ._hover_show.__active ._trigger,
-          ._hover_show:hover ._trigger { background-color:#8883 }
-          ._hover_show.__active ._content,
-          ._hover_show:hover ._content { max-height:100px }
-          
-          ._a a._hover_show:visited,
-          ._a a._hover_show:hover,
-          ._a a._hover_show { color:inherit;text-decoration:none }
-          
-        </style>
-        <section class="_container">
-          <div class="_960">
-            <div class="o _outline _relative _scrollable">
-              <div class="top" id="t1"></div>
-              <div class="t">Use <code>._scrollable</code> when <a href="#i1">the item</a> is out of view.</div>
-              <div class="a" id="i1" style="position:absolute;bottom:-50%;right:-50%;"><a class="b _radius_25" href="#t1">Click Me</a></div>
-            </div>
-            <div class="o _outline" style="overflow:visible">
-              <div class="t">Use <code>._hover_show</code> reveal more on hover.</div>
-              <div class="_hover_show">
-                <div class="_trigger p">The default type,</div>
-                <div class="_item">
-                  <div class="_content _color_1">
-                    <div class="q">way too long .. way too long .. way too long .. way too long .. way too long .. way too long .. 
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="s">would shove other content.</div>
-              <div class="_hover_show __absolute">
-                <div class="_trigger p">The absolute type,</div>
-                <div class="_item">
-                  <div class="_content _color_1">
-                    <div class="q">way too long .. way too long .. way too long .. way too long .. way too long .. way too long .. 
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="s">would overlay above others.</div>
-            </div>
-            <div class="o _outline">
-              <div class="_p t _clip">Use <code>._clip</code> to cut the rest of the text.</div>
-              <div class="_p t _ellipsis">Use <code>._ellipsis</code> to add dots at the end of the line.</div>
-              <div class="_p t _mask">Use <code>._mask</code> to add gradient at the end of the line.</div>
-              <div class="_p t _mask_both">Use <code>._mask_both</code> to add gradients to both ends of the line.</div>
-              <div class="_p t _tc_red">Only works on a single line.</div>
-            </div>
-          </div>
-        </section>
-      </article>
-      <aside class="_side_article"></aside>
-    </main>
-    <aside class="_side_bar"></aside>
-    <footer class="_color" id="_footer">
-      <hr class="_m0">
-      <div class="_relative">
-        <div class="_absolute" style="top:.1rem;left:auto;right:0">
-          <div class="_container">
-            <div class="_small"><a class="_a2 _hover_link" href="/nova/site/">Home</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="_container"><small>&copy; 2025 Techie Joe</small></div>
-    </footer>
     <aside id="_widgets"></aside>
     <script type="text/javascript" src="/nova/site/js/theme_v2.0.js?v=0.1.0"></script>
     <script>// your script goes here</script>

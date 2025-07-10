@@ -51,28 +51,34 @@ html(lang=lang class=htmlClass.join(' '))
   block body
     body(class=bodyClass.join(' '))
 
-      block header
-        header#_header
+      block views
+        div#_views
 
-      block main
-        main#_main(class=mainClass.join(' '))
+          block view
+            div#_main_view._view
 
-          block article
-            article._article
-              section: +helloWorld
-              hr
-              section: pre: +pageData()
+              block header
+                header#_header
 
-          block side_article
-            aside._side_article
-      
-      block side_bar
-        aside._side_bar
+              block main
+                main#_main(class=mainClass.join(' '))
 
-      block footer
-        footer#_footer
-          hr
-          ._container: small| &copy; !{year} !{author}
+                  block article
+                    article._article
+                      section: +helloWorld
+                      hr
+                      section: pre: +pageData()
+
+                  block side_article
+                    aside._side_article
+              
+              block side_bar
+                aside._side_bar
+
+              block footer
+                footer#_footer
+                  hr
+                  ._container: small| &copy; !{year} !{author}
 
       block widget
         aside#_widgets

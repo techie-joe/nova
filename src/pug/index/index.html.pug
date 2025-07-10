@@ -35,19 +35,22 @@ block header
     +main_nav
 
 block article
-  article._article._container
-    section(style="margin:1em auto"): pre._scrollable.pre.
+  article._article(style="max-width:fit-content;margin:1em auto")
+    //- section._container: pre.pre._scrollable: +pageData
+    //- hr
+    section._container: pre._scrollable.pre.
       Name         : !{name}
+      Version      : !{version}
+
       Title        : !{title}
       Description  : !{description}
-      Version      : !{version}
+
+      URL          : !{pageUrl}
+      URI          : !{homeUri} 
 
       Author       : !{author}
       Year         : !{year}
       LICENSE      : !{license}
-
-      URL          : !{pageUrl}
-      URI          : !{homeUri} 
 
       Last updated : !{today}
     |

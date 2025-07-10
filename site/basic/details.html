@@ -55,166 +55,170 @@
     <style>._article details ._scrollable._content { max-height:300px }</style>
   </head>
   <body>
-    <header id="_header">
-      <div class="_color_1">
-        <div class="_pa_5"><a href="/nova/site/">
-            <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></div></a><span id="maindesc">Details and summary elements</span>
-        </div>
-      </div>
-      <hr class="_m0"/>
-      <div class="_color_2 _flex" id="_main_nav">
-        <div class="_f">
-          <nav><a class="_a11" href="/nova/site/starter">Starter</a><a class="_a11" href="/nova/site/basic">Basic</a><a class="_a11" href="/nova/site/lab">Lab</a>
-          </nav>
-        </div>
-        <div class="_fit"><a class="_needjs _a11" href="#" onclick="event.preventDefault();theme.change();" title="Change Theme (Ctrl+Alt+T)"><i class="_icon _cicon"><i class="itext">☀</i></i></a>
-        </div>
-      </div>
-      <hr class="_m0"/>
-    </header>
-    <div class="_color_1 _pad">
-      <nav class="_container"><a class="_a2" href="/nova/site/basic/common.html">Common</a><a class="_a2" href="/nova/site/basic/text.html">Text</a><a class="_a2" href="/nova/site/basic/table.html">Table</a><a class="_a2" href="/nova/site/basic/link.html">Link</a><a class="_a2" href="/nova/site/basic/button.html">Button</a><a class="_a2 _active" href="/nova/site/basic/details.html">Details</a><a class="_a2" href="/nova/site/basic/flex.html">Flex</a><a class="_a2" href="/nova/site/basic/container.html">Container</a><a class="_a2" href="/nova/site/basic/alignment.html">Alignment</a>
-      </nav>
-    </div>
-    <hr class="_mt0">
-    <main id="_main">
-      <article class="_article">
-        <section class="_container">
-          <details class="_border _radius_5">
-            <summary class="_no_select _no_marker"><span class="_arrow"></span> Summary <small class="_i">(custom-marker, border, radius)</small></summary>
-            <div class="_content _scrollable">
-              <div class="_container">
-                <pre class="_scrollable pre">
-name             = Nova Builder
-version          = 0.1.0
-
-author           = Techie Joe
-license          = MIT
-
-today            = Thu, 10 Jul 2025 16:43:23 GMT
-year             = 2025
-
-layout           = main/_html
-homeUri          = /nova/site/
-
-pageid           = basic/details
-pageUrl          = https://techiejoe.github.io/nova/site/basic/details.html
-title            = Details
-description      = Details and summary elements
-
-og_url           = https://techiejoe.github.io/nova/site/basic/details.html?utm_source=homescreen
-og_title         = Details
-og_description   = Details and summary elements
-og_type          = website
-og_image         = undefined
-og_imageAlt      = undefined
-
-siteUrl          = https://techiejoe.github.io/nova/site
-authorUrl        = https://techiejoe.github.io
-sourceUrl        = https://github.com/techie-joe/nova
-localUrl         = http://localhost/nova/site
-</pre>
-              </div>
-            </div>
-          </details>
-        </section>
-        <hr class="_mb0">
-        <section>
-          <details>
-            <summary class="_no_select _no_marker"><span class="_arrow"></span> Summary <small class="_i">(custom-marker)</small></summary>
-            <div class="_content _scrollable">
-              <div class="_container">
-                <pre class="_scrollable pre">
-name             = Nova Builder
-version          = 0.1.0
-
-author           = Techie Joe
-license          = MIT
-
-today            = Thu, 10 Jul 2025 16:43:23 GMT
-year             = 2025
-
-layout           = main/_html
-homeUri          = /nova/site/
-
-pageid           = basic/details
-pageUrl          = https://techiejoe.github.io/nova/site/basic/details.html
-title            = Details
-description      = Details and summary elements
-
-og_url           = https://techiejoe.github.io/nova/site/basic/details.html?utm_source=homescreen
-og_title         = Details
-og_description   = Details and summary elements
-og_type          = website
-og_image         = undefined
-og_imageAlt      = undefined
-
-siteUrl          = https://techiejoe.github.io/nova/site
-authorUrl        = https://techiejoe.github.io
-sourceUrl        = https://github.com/techie-joe/nova
-localUrl         = http://localhost/nova/site
-</pre>
-              </div>
-            </div>
-          </details>
-        </section>
-        <hr class="_m0">
-        <section>
-          <details>
-            <summary class="_no_select">Summary <small class="_i">(default)</small></summary>
-            <div class="_content _scrollable">
-              <div class="_container">
-                <pre class="_scrollable pre">
-name             = Nova Builder
-version          = 0.1.0
-
-author           = Techie Joe
-license          = MIT
-
-today            = Thu, 10 Jul 2025 16:43:23 GMT
-year             = 2025
-
-layout           = main/_html
-homeUri          = /nova/site/
-
-pageid           = basic/details
-pageUrl          = https://techiejoe.github.io/nova/site/basic/details.html
-title            = Details
-description      = Details and summary elements
-
-og_url           = https://techiejoe.github.io/nova/site/basic/details.html?utm_source=homescreen
-og_title         = Details
-og_description   = Details and summary elements
-og_type          = website
-og_image         = undefined
-og_imageAlt      = undefined
-
-siteUrl          = https://techiejoe.github.io/nova/site
-authorUrl        = https://techiejoe.github.io
-sourceUrl        = https://github.com/techie-joe/nova
-localUrl         = http://localhost/nova/site
-</pre>
-              </div>
-            </div>
-          </details>
-        </section>
-        <hr class="_mt0">
-      </article>
-      <aside class="_side_article"></aside>
-    </main>
-    <aside class="_side_bar"></aside>
-    <footer class="_color" id="_footer">
-      <hr class="_m0">
-      <div class="_relative">
-        <div class="_absolute" style="top:.1rem;left:auto;right:0">
-          <div class="_container">
-            <div class="_small"><a class="_a2 _hover_link" href="/nova/site/">Home</a>
+    <div id="_views">
+      <div class="_view" id="_main_view">
+        <header id="_header">
+          <div class="_color_1">
+            <div class="_pa_5"><a href="/nova/site/">
+                <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></div></a><span id="maindesc">Details and summary elements</span>
             </div>
           </div>
+          <hr class="_m0"/>
+          <div class="_color_2 _flex" id="_main_nav">
+            <div class="_f">
+              <nav><a class="_a11" href="/nova/site/starter">Starter</a><a class="_a11" href="/nova/site/basic">Basic</a><a class="_a11" href="/nova/site/lab">Lab</a>
+              </nav>
+            </div>
+            <div class="_fit"><a class="_needjs _a11" href="#" onclick="event.preventDefault();theme.change();" title="Change Theme (Ctrl+Alt+T)"><i class="_icon _cicon"><i class="itext">☀</i></i></a>
+            </div>
+          </div>
+          <hr class="_m0"/>
+        </header>
+        <div class="_color_1 _pad">
+          <nav class="_container"><a class="_a2" href="/nova/site/basic/common.html">Common</a><a class="_a2" href="/nova/site/basic/text.html">Text</a><a class="_a2" href="/nova/site/basic/table.html">Table</a><a class="_a2" href="/nova/site/basic/link.html">Link</a><a class="_a2" href="/nova/site/basic/button.html">Button</a><a class="_a2 _active" href="/nova/site/basic/details.html">Details</a><a class="_a2" href="/nova/site/basic/flex.html">Flex</a><a class="_a2" href="/nova/site/basic/container.html">Container</a><a class="_a2" href="/nova/site/basic/alignment.html">Alignment</a>
+          </nav>
         </div>
+        <hr class="_mt0">
+        <main id="_main">
+          <article class="_article">
+            <section class="_container">
+              <details class="_border _radius_5">
+                <summary class="_no_select _no_marker"><span class="_arrow"></span> Summary <small class="_i">(custom-marker, border, radius)</small></summary>
+                <div class="_content _scrollable">
+                  <div class="_container">
+                    <pre class="_scrollable pre">
+name             = Nova Builder
+version          = 0.1.0
+
+author           = Techie Joe
+license          = MIT
+
+today            = Thu, 10 Jul 2025 19:51:27 GMT
+year             = 2025
+
+layout           = main/_html
+homeUri          = /nova/site/
+
+pageid           = basic/details
+pageUrl          = https://techiejoe.github.io/nova/site/basic/details.html
+title            = Details
+description      = Details and summary elements
+
+og_url           = https://techiejoe.github.io/nova/site/basic/details.html?utm_source=homescreen
+og_title         = Details
+og_description   = Details and summary elements
+og_type          = website
+og_image         = undefined
+og_imageAlt      = undefined
+
+siteUrl          = https://techiejoe.github.io/nova/site
+authorUrl        = https://techiejoe.github.io
+sourceUrl        = https://github.com/techie-joe/nova
+localUrl         = http://localhost/nova/site
+</pre>
+                  </div>
+                </div>
+              </details>
+            </section>
+            <hr class="_mb0">
+            <section>
+              <details>
+                <summary class="_no_select _no_marker"><span class="_arrow"></span> Summary <small class="_i">(custom-marker)</small></summary>
+                <div class="_content _scrollable">
+                  <div class="_container">
+                    <pre class="_scrollable pre">
+name             = Nova Builder
+version          = 0.1.0
+
+author           = Techie Joe
+license          = MIT
+
+today            = Thu, 10 Jul 2025 19:51:27 GMT
+year             = 2025
+
+layout           = main/_html
+homeUri          = /nova/site/
+
+pageid           = basic/details
+pageUrl          = https://techiejoe.github.io/nova/site/basic/details.html
+title            = Details
+description      = Details and summary elements
+
+og_url           = https://techiejoe.github.io/nova/site/basic/details.html?utm_source=homescreen
+og_title         = Details
+og_description   = Details and summary elements
+og_type          = website
+og_image         = undefined
+og_imageAlt      = undefined
+
+siteUrl          = https://techiejoe.github.io/nova/site
+authorUrl        = https://techiejoe.github.io
+sourceUrl        = https://github.com/techie-joe/nova
+localUrl         = http://localhost/nova/site
+</pre>
+                  </div>
+                </div>
+              </details>
+            </section>
+            <hr class="_m0">
+            <section>
+              <details>
+                <summary class="_no_select">Summary <small class="_i">(default)</small></summary>
+                <div class="_content _scrollable">
+                  <div class="_container">
+                    <pre class="_scrollable pre">
+name             = Nova Builder
+version          = 0.1.0
+
+author           = Techie Joe
+license          = MIT
+
+today            = Thu, 10 Jul 2025 19:51:27 GMT
+year             = 2025
+
+layout           = main/_html
+homeUri          = /nova/site/
+
+pageid           = basic/details
+pageUrl          = https://techiejoe.github.io/nova/site/basic/details.html
+title            = Details
+description      = Details and summary elements
+
+og_url           = https://techiejoe.github.io/nova/site/basic/details.html?utm_source=homescreen
+og_title         = Details
+og_description   = Details and summary elements
+og_type          = website
+og_image         = undefined
+og_imageAlt      = undefined
+
+siteUrl          = https://techiejoe.github.io/nova/site
+authorUrl        = https://techiejoe.github.io
+sourceUrl        = https://github.com/techie-joe/nova
+localUrl         = http://localhost/nova/site
+</pre>
+                  </div>
+                </div>
+              </details>
+            </section>
+            <hr class="_mt0">
+          </article>
+          <aside class="_side_article"></aside>
+        </main>
+        <aside class="_side_bar"></aside>
+        <footer class="_color" id="_footer">
+          <hr class="_m0">
+          <div class="_relative">
+            <div class="_absolute" style="top:.1rem;left:auto;right:0">
+              <div class="_container">
+                <div class="_small"><a class="_a2 _hover_link" href="/nova/site/">Home</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="_container"><small>&copy; 2025 Techie Joe</small></div>
+        </footer>
       </div>
-      <div class="_container"><small>&copy; 2025 Techie Joe</small></div>
-    </footer>
+    </div>
     <aside id="_widgets"></aside>
     <script type="text/javascript" src="/nova/site/js/theme_v2.0.js?v=0.1.0"></script>
     <script>// your script goes here</script>

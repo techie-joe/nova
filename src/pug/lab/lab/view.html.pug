@@ -9,25 +9,21 @@ block append vars
 
 block append style
   style.
-    .fullview { position: absolute; top: 0; right: 0; bottom: 0; left: 0; }
 
-    body { box-shadow: 0 0 0 3px #3355CC inset;padding:3px; }
+    body #_views { box-shadow: 0 0 0 3px #3355CC inset }
     body #topRightNav { box-shadow:0 0 0 3px #cc33cc inset; }
-    body #topRightNav { top:3px; right:3px; }
     body #topRightNav ._a3 { margin:.25rem }
     ._article { box-shadow: 0 0 0 3px #2a8e39 inset }
     #overflow { color: #2a8e39 }
     
     body.fullview #topRightNav { right:0px;margin-right:15px; }
-    body.fullview   { padding-right:0; }
-    body.fullview   { overflow:auto scroll; }
+    body.fullview #_views { overflow:auto scroll; position: absolute; top: 0; right: 0; bottom: 40px; left: 0; height:auto; min-height:0;margin:0;padding:0 }
+    body.fullview ._view { padding:0 }
     
-    html.fullscreen { overflow:auto scroll }
-    body.fullscreen { overflow:auto; position: absolute; top: 0; right: 0; bottom: auto; left: 0; height:auto; min-height:100%;margin-bottom:0;padding-bottom:0;padding-top:0; }
-    body.fullscreen ._article { margin-bottom:40px }
-  
-  //- style.
+    body.fullscreen #_views { overflow:auto; position: absolute; top: 0; right: 0; bottom: auto; left: 0; height:auto; min-height:100%;margin:0;padding:0 }
 
+  //- style.
+    
 block article
   article._article: ._pad
 
@@ -35,7 +31,7 @@ block article
       button(onclick="view.reset();" title="Reset") R
       +I
       button(onclick="view.fullview();" title="Fullview") FV
-      button(onclick="view.fullscreen();" title="Fullscreen") FS
+      //- button(onclick="view.fullscreen();" title="Fullscreen") FS
       +I
       button(onclick="view.overflow();" title="Overflow Content") O
     hr
@@ -90,14 +86,12 @@ block append script
       v.fullview = ()=>{
         fullview=!fullview;
         fullscreen = false;
-        d.html.className = (fullview?dc+' fullview':dc);
         d.body.className = (fullview?bc+' fullview':bc);
         set();
       },
       v.fullscreen = ()=>{
         fullview = false;
         fullscreen=!fullscreen;
-        d.html.className = (fullscreen?dc+' fullscreen':dc);
         d.body.className = (fullscreen?bc+' fullscreen':bc);
         set();
       };
