@@ -12,22 +12,25 @@ block append style
     #logo {
       display: block;
       text-align: center;
-      font-size: 3em;
+      font-size: 3rem;
       margin: 1em auto;
     }
     #maindesc {
+      font-size:1rem;
       text-align: center;
       position: relative;
       top: -3em;
       margin:1em auto;
+      font-weight: 400;
+      color: inherit;
     }
   //- style.
 
 block header
   header#_header
     ._color_1._pad: ._center_m._table
-      +logo
-      #maindesc|!{description}
+      h1: +logo
+      h2#maindesc|!{description}
     hr._m0
     +main_nav
 

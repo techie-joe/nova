@@ -1,7 +1,16 @@
 extends ../../_basic/_html
 
+mixin lab_nav
+  #_main_nav._color_2._flex
+    ._fit: +backlink._a11|#[+isvg(svgi.angle,'_licon')._rotate_180]Back
+    ._f: +menu_a11([
+    ])
+    ._fit: +changeThemeLink._a11: +itext('_cicon')|☀
+  hr._m0
+
 block header
-  +simpleHeader
+  +simplestHeader
+  +lab_nav
 
 mixin btns
   style.
@@ -17,8 +26,16 @@ mixin btns
 mixin boxa
   ._color_1._radius_5&attributes(attributes): block
 
-mixin boxap
-  +boxa._p._pad: block
+mixin boxap(menu)
+  +boxa._p._pad&attributes(attributes)
+    if(menu)
+      +menu_a2(menu)
+    else
+      block
 
-mixin boxam(menu)
-  +boxa._f: +menu_a2(menu)
+mixin boxaf(menu)
+  +boxa._f&attributes(attributes)
+    if(menu)
+      +menu_a2(menu)
+    else
+      block

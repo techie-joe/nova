@@ -7,12 +7,69 @@ block append vars
     title       = `Common`
     description = 'Common elements'
 
+block append style
+  style.
+    #indiv > * { padding:.25em .5em }
+
 block article
   article._article
 
-    style.
-      #indiv > * { padding:.25em .5em }
-    //- style
+    section._container
+      div
+        | normal
+        | #[span span]
+        | #[b bold]
+        | #[span._b span]
+        | #[i italic]
+        | #[span._i span]
+      div
+        | #[u underlined]
+        | #[span._u span]
+        | #[abbr(title="abbreviation") abbr]
+        | #[span._u_dotted dotted] 
+        | #[span._u_dashed dashed] 
+        | #[span._u_double double] 
+        | #[span._u_wavy wavy] 
+      div
+        | #[s striked]
+        | #[span._striked span]
+      div
+        | normal
+        | #[small tag-small]
+        | #[small._small small]
+        | #[small._smaller smaller]
+        | #[small._smallest smallest]
+      div
+        | normal
+        | #[code code]
+        | #[samp samp]
+        | #[kbd kbd]
+      div
+        | normal
+        | #[sub sub]
+        | #[sup sup]
+        | H
+        | #[sup T]
+        | y_
+        | #[sub g_]
+      div
+        | #[span._lowercase LOWERCASE]
+        | #[span._uppercase uppercase]
+        | #[span._capitalize capitalized]
+      div
+        | #[span normal]
+        | #[span._tc_contra contra]
+        | #[span._tc_blue blue]
+        | #[span._tc_purple purple]
+        | #[span._tc_orange orange]
+        | #[span._tc_red red]
+        | #[span._tc_green green]
+      div
+        | #[span._border border]
+        | #[span._boxline boxline]
+        | #[span._outline outline]
+        | #[span._select select]
+    hr
 
     section#indiv._indiv._container: +repeat(2)
       ._inblock._border border

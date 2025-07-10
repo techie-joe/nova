@@ -21,6 +21,10 @@ mixin logo_bar
     span#maindesc!=description
   hr._m0
 
+mixin simplestHeader
+  header#_header
+    +logo_bar
+
 mixin simpleHeader
   header#_header
     +logo_bar
@@ -29,8 +33,7 @@ mixin simpleHeader
 mixin basic_helloWorld
   pre._scrollable.pre.
     &nbsp;
-    This is a template to get you started.
-    Copy the code from '#[code !{pageid}]' to create a page like this.
+    This is a template. Edit this document to get started.
 
     #[+backlink._link._a31 Back]
 

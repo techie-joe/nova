@@ -5,7 +5,7 @@ block append vars
     pageid      = 'basic/text'
     pageUrl     = siteUrl + '/basic/text.html'
     title       = `Text`
-    description = 'Text elements are kept tidy and functional'
+    description = 'Keep texts neat and tidy'
   -
     cssi.gridlines = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1px" height="10px"><rect width="1" height="1" fill="%23A9790688" /></svg>';
 
@@ -15,86 +15,9 @@ block append style
   //- style.
 
 block article
-  article._article._960
+  article._article._container: ._960
 
-    section._container
-      div
-        | normal
-        | #[span span]
-        | #[b bold]
-        | #[span._b span]
-        | #[i italic]
-        | #[span._i span]
-      div
-        | #[u underlined]
-        | #[span._u span]
-        | #[abbr(title="abbreviation") abbr]
-        | #[span._u_dotted dotted] 
-        | #[span._u_dashed dashed] 
-        | #[span._u_double double] 
-        | #[span._u_wavy wavy] 
-      div
-        | #[s strikethrough]
-        | #[span._striked span]
-      div
-        | normal
-        | #[small tag-small]
-        | #[small._small small]
-        | #[small._smaller smaller]
-        | #[small._smallest smallest]
-      div
-        | normal
-        | #[code code]
-        | #[samp samp]
-        | #[kbd kbd]
-      div
-        | normal
-        | #[sub sub]
-        | #[sup sup]
-        | H
-        | #[sup T]
-        | y_
-        | #[sub g_]
-      div
-        | #[span._lowercase LOWERCASE]
-        | #[span._uppercase uppercase]
-        | #[span._capitalize capitalized]
-      div
-        | #[span normal]
-        | #[span._tc_contra contra]
-        | #[span._tc_blue blue]
-        | #[span._tc_purple purple]
-        | #[span._tc_orange orange]
-        | #[span._tc_red red]
-        | #[span._tc_green green]
-      div
-        | #[span._border border]
-        | #[span._boxline boxline]
-        | #[span._outline outline]
-        | #[span._select select]
-    hr
-    section._container
-
-      p(style="max-width: 36rem;") Use helper class to customize the visual appearance of headings and texts. They helps separate visual appearance from semantics, giving you better control over both. Use #[code._code _h1] to #[code._code _h7] for headings, and #[code._code _t1] to #[code._code _t12] for other texts.
-
-      - var heros     = 'Text Sample';
-      - var headings  = 'Text Sample';
-
-      ._text_centerx
-        p._t10 #{heros} 3
-        p._t9 #{heros} 2
-        p._t8 #{heros} 1
-        h1._h1 #{headings} 1
-        h2._h2 #{headings} 2
-        h3._h3 #{headings} 3
-        h4._h4 #{headings} 4
-        h5._h5 #{headings} 5
-        h6._h6 #{headings} 6
-        div._h7 #{headings} 7
-        p Normal Text
-
-    hr
-    section._960: ._container._flex(style="gap:2rem")#info
+    section._flex(style="gap:2rem")#info
       ._fit(style="flex-basis: 32rem;")
         h2._sans._h4 System Font
         p._system._text_justify.
@@ -115,6 +38,28 @@ block article
         p._mono._text_justify.
           Monospace fonts, such as Courier New and Consolas, have characters that occupy the same horizontal space. This uniform spacing makes them ideal for displaying scripts and source codes. They align text neatly, thus enhance readability.
     //- section
+
+    hr
+
+    section
+
+      p(style="max-width: 36rem;") Use helper class to customize the visual appearance of headings and texts. They helps separate visual appearance from semantics, giving you better control over both. Use #[code._code _h1] to #[code._code _h7] for headings, and #[code._code _t1] to #[code._code _t12] for other texts.
+
+      - var heros     = 'Text Sample';
+      - var headings  = 'Text Sample';
+
+      ._text_centerx
+        p._t10 #{heros} 3
+        p._t9 #{heros} 2
+        p._t8 #{heros} 1
+        h1._h1 #{headings} 1
+        h2._h2 #{headings} 2
+        h3._h3 #{headings} 3
+        h4._h4 #{headings} 4
+        h5._h5 #{headings} 5
+        h6._h6 #{headings} 6
+        div._h7 #{headings} 7
+        p Normal Text
 
     hr
 
@@ -143,9 +88,9 @@ block article
         - n++
     //- mixin
 
-    section._container._flex
+    section._flex
 
-      ._f1: p Text sizes are meticulously adjusted.
+      ._f1: ._small._mono // Proper text sizing for maximum adaptability #[hr]
 
       ._f.g.demo.gridlines(style="flex: 1 0 340px;")
         .u._t1: +rag(13)

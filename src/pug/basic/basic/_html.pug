@@ -46,8 +46,16 @@ block header
 mixin boxa
   ._color_1._radius_5&attributes(attributes): block
 
-mixin boxap
-  +boxa._p._pad: block
+mixin boxap(menu)
+  +boxa._p._pad&attributes(attributes)
+    if(menu)
+      +menu_a2(menu)
+    else
+      block
 
-mixin boxam(menu)
-  +boxa._f: +menu_a2(menu)
+mixin boxaf(menu)
+  +boxa._f&attributes(attributes)
+    if(menu)
+      +menu_a2(menu)
+    else
+      block

@@ -30,7 +30,9 @@ block header
 block article
   #view-0._absolute(aria-hidden="true")
   #view-1._view(style="min-height:300px")
-    +simpleHeader
+    header#_header
+      +simplestHeader
+      +lab_nav
     article._article
       section._container: pre._scrollable.pre.
         // #{description}

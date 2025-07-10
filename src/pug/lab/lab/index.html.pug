@@ -7,13 +7,16 @@ block append vars
     title       = `Lab`
     description = 'New feature developments'
 
+block header
+  +simpleHeader
+
 block article
   article._article._container
 
     section._p1
       h3._h7| Lab experiments
       ._flex._gap_5._p
-        +boxam([
+        +boxaf([
           ['lab/test','lab/test.html','Test'],
           ['lab/text','lab/text.html','Text'],
           ['lab/storage','lab/storage.html','Storage'],
@@ -21,29 +24,34 @@ block article
           ['lab/overflow','lab/overflow.html','Overflow'],
         ])
       ._flex._gap_5._p
-        +boxam([
+        +boxaf([
           ['lab/view','lab/view.html','View'],
           ['lab/multiview','lab/multiview.html','Multi View'],
         ])
-        +boxam([
+        +boxaf([
           ['lab/flex','lab/flex.html','Flex'],
           ['lab/flex960','lab/flex960.html','Flex-960'],
         ])
-      +boxap: +menu_a2([
-        ['template/core','template/core','Core'],
-        ['template/basic','template/basic','Basic'],
+
+    section._p1
+      h3._h7| Templates
+      +boxap([
         ['template/one','template/one','One'],
+        ['template/one/index_','template/one/index_.html','&middot;&middot;','Info'],
       ])
-      +boxap: +menu_a2([
-        ['lab/core','lab/core','Core'],
-        ['lab/basic','lab/basic','Basic'],
+      +boxap([
+        ['template/basic','template/basic','Basic'],
+        ['template/basic/index_','template/basic/index_.html','&middot;&middot;','Info'],
+      ])
+      +boxap([
+        ['template/core','template/core','Core'],
+        ['template/core/index_','template/core/index_.html','&middot;&middot;','Info'],
       ])
 
     section._p1
       h3._h7| Upcoming features
       ._container: pre._scrollable.pre.
-        - make new lab header
-        - restructure themes
+        - fix multiview header/view/main semantic
 
         ['logo','logo','Logo'],
         ['menu','menu','Menu'],

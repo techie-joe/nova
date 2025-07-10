@@ -16,11 +16,11 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/nova/site/icons/favicon-16x16.png?v=0.1.0"/>
     <link rel="icon" type="image/x-icon" sizes="any" href="/nova/site/icons/favicon.ico?v=0.1.0"/>
     <!--[if lt IE 9]><script src="//unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
-    <meta name="description" content="Text elements are kept tidy and functional"/>
+    <meta name="description" content="Keep texts neat and tidy"/>
     <meta name="author" content="Techie Joe"/>
     <meta name="publisher" content="[unknown]"/>
     <meta property="og:title" content="Text"/>
-    <meta property="og:description" content="Text elements are kept tidy and functional"/>
+    <meta property="og:description" content="Keep texts neat and tidy"/>
     <meta property="og:type" content="website"/>
     <meta property="og:url" content="https://techiejoe.github.io/nova/site/basic/text.html?utm_source=homescreen"/>
     <meta property="og:image"/>
@@ -58,7 +58,7 @@
     <header id="_header">
       <div class="_color_1">
         <div class="_pa_5"><a href="/nova/site/">
-            <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></div></a><span id="maindesc">Text elements are kept tidy and functional</span>
+            <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></div></a><span id="maindesc">Keep texts neat and tidy</span>
         </div>
       </div>
       <hr class="_m0"/>
@@ -78,89 +78,9 @@
     </div>
     <hr class="_mt0">
     <main id="_main">
-      <article class="_article _960">
-        <section class="_container">
-          <div>
-            normal
-            <span>span</span>
-            <b>bold</b>
-            <span class="_b">span</span>
-            <i>italic</i>
-            <span class="_i">span</span>
-          </div>
-          <div>
-            <u>underlined</u>
-            <span class="_u">span</span>
-            <abbr title="abbreviation">abbr</abbr>
-            <span class="_u_dotted">dotted</span> 
-            <span class="_u_dashed">dashed</span> 
-            <span class="_u_double">double</span> 
-            <span class="_u_wavy">wavy</span> 
-          </div>
-          <div>
-            <s>strikethrough</s>
-            <span class="_striked">span</span>
-          </div>
-          <div>
-            normal
-            <small>tag-small</small>
-            <small class="_small">small</small>
-            <small class="_smaller">smaller</small>
-            <small class="_smallest">smallest</small>
-          </div>
-          <div>
-            normal
-            <code>code</code>
-            <samp>samp</samp>
-            <kbd>kbd</kbd>
-          </div>
-          <div>
-            normal
-            <sub>sub</sub>
-            <sup>sup</sup>
-            H
-            <sup>T</sup>
-            y_
-            <sub>g_</sub>
-          </div>
-          <div><span class="_lowercase">LOWERCASE</span>
-            <span class="_uppercase">uppercase</span>
-            <span class="_capitalize">capitalized</span>
-          </div>
-          <div><span>normal</span>
-            <span class="_tc_contra">contra</span>
-            <span class="_tc_blue">blue</span>
-            <span class="_tc_purple">purple</span>
-            <span class="_tc_orange">orange</span>
-            <span class="_tc_red">red</span>
-            <span class="_tc_green">green</span>
-          </div>
-          <div><span class="_border">border</span>
-            <span class="_boxline">boxline</span>
-            <span class="_outline">outline</span>
-            <span class="_select">select</span>
-          </div>
-        </section>
-        <hr>
-        <section class="_container">
-          <p style="max-width: 36rem;">Use helper class to customize the visual appearance of headings and texts. They helps separate visual appearance from semantics, giving you better control over both. Use <code class="_code">_h1</code> to <code class="_code">_h7</code> for headings, and <code class="_code">_t1</code> to <code class="_code">_t12</code> for other texts.</p>
-          <div class="_text_centerx">
-            <p class="_t10">Text Sample 3</p>
-            <p class="_t9">Text Sample 2</p>
-            <p class="_t8">Text Sample 1</p>
-            <h1 class="_h1">Text Sample 1</h1>
-            <h2 class="_h2">Text Sample 2</h2>
-            <h3 class="_h3">Text Sample 3</h3>
-            <h4 class="_h4">Text Sample 4</h4>
-            <h5 class="_h5">Text Sample 5</h5>
-            <h6 class="_h6">Text Sample 6</h6>
-            <div class="_h7">Text Sample 7</div>
-            <p>Normal Text</p>
-          </div>
-        </section>
-        <hr>
-        <section class="_960">
-          <div class="_container _flex" style="gap:2rem" id="info">
+      <article class="_article _container">
+        <div class="_960">
+          <section class="_flex" style="gap:2rem" id="info">
             <div class="_fit" style="flex-basis: 32rem;">
               <h2 class="_sans _h4">System Font</h2>
               <p class="_system _text_justify">
@@ -186,137 +106,156 @@
               <h2 class="_mono _h4">Monospace</h2>
               <p class="_mono _text_justify">Monospace fonts, such as Courier New and Consolas, have characters that occupy the same horizontal space. This uniform spacing makes them ideal for displaying scripts and source codes. They align text neatly, thus enhance readability.</p>
             </div>
-          </div>
-        </section>
-        <hr>
-        <style>
-          .gridlines {
-            min-height: 100px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1px" height="10px"><rect width="1" height="1" fill="%23A9790688" /></svg>');
-            background-repeat: repeat;
-          }
-          
-          .g{display:flex;flex-flow:row wrap;align-content:flex-start}
-          .u{display:inline-block;vertical-align:top}
-          .demo .u { margin: 0 2px; padding-bottom: 18px; }
-          
-          .io1  { background: #66668844; box-shadow:0 1px orange; }
-          .io2  { background: #66886644; box-shadow:0 1px orange; }
-        </style>
-        <section class="_container _flex">
-          <div class="_f1">
-            <p>Text sizes are meticulously adjusted.</p>
-          </div>
-          <div class="_f g demo gridlines" style="flex: 1 0 340px;">
-            <div class="u _t1">
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+          </section>
+          <hr>
+          <section>
+            <p style="max-width: 36rem;">Use helper class to customize the visual appearance of headings and texts. They helps separate visual appearance from semantics, giving you better control over both. Use <code class="_code">_h1</code> to <code class="_code">_h7</code> for headings, and <code class="_code">_t1</code> to <code class="_code">_t12</code> for other texts.</p>
+            <div class="_text_centerx">
+              <p class="_t10">Text Sample 3</p>
+              <p class="_t9">Text Sample 2</p>
+              <p class="_t8">Text Sample 1</p>
+              <h1 class="_h1">Text Sample 1</h1>
+              <h2 class="_h2">Text Sample 2</h2>
+              <h3 class="_h3">Text Sample 3</h3>
+              <h4 class="_h4">Text Sample 4</h4>
+              <h5 class="_h5">Text Sample 5</h5>
+              <h6 class="_h6">Text Sample 6</h6>
+              <div class="_h7">Text Sample 7</div>
+              <p>Normal Text</p>
             </div>
-            <div class="u _t2">
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
+          </section>
+          <hr>
+          <style>
+            .gridlines {
+              min-height: 100px;
+              background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1px" height="10px"><rect width="1" height="1" fill="%23A9790688" /></svg>');
+              background-repeat: repeat;
+            }
+            
+            .g{display:flex;flex-flow:row wrap;align-content:flex-start}
+            .u{display:inline-block;vertical-align:top}
+            .demo .u { margin: 0 2px; padding-bottom: 18px; }
+            
+            .io1  { background: #66668844; box-shadow:0 1px orange; }
+            .io2  { background: #66886644; box-shadow:0 1px orange; }
+          </style>
+          <section class="_flex">
+            <div class="_f1">
+              <div class="_small _mono">// Proper text sizing for maximum adaptability 
+                <hr>
+              </div>
             </div>
-            <div class="u _t3">
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+            <div class="_f g demo gridlines" style="flex: 1 0 340px;">
+              <div class="u _t1">
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+              </div>
+              <div class="u _t2">
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+              </div>
+              <div class="u _t3">
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+              </div>
+              <div class="u _t4">
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+              </div>
+              <div class="u _t5">
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+              </div>
+              <div class="u _t6">
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+              </div>
+              <div class="u _t7">
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+              </div>
             </div>
-            <div class="u _t4">
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
+            <div class="_f g demo gridlines" style="flex: 1 0 340px;">
+              <div class="u _t8">
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+              </div>
+              <div class="u _t9">
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+              </div>
+              <div class="u _t10">
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+                          <div class="io1">&nbsp;</div>
+                          <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
+              </div>
             </div>
-            <div class="u _t5">
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-            </div>
-            <div class="u _t6">
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-            </div>
-            <div class="u _t7">
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-            </div>
-          </div>
-          <div class="_f g demo gridlines" style="flex: 1 0 340px;">
-            <div class="u _t8">
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-            </div>
-            <div class="u _t9">
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-            </div>
-            <div class="u _t10">
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-                      <div class="io1">&nbsp;</div>
-                      <div class="io2">H_<sup class="_sup">H</sup><sub class="_sub">_</sub></div>
-            </div>
-          </div>
-        </section>
+          </section>
+        </div>
       </article>
       <aside class="_side_article"></aside>
     </main>

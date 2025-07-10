@@ -34,21 +34,47 @@ mixin block_4(title)
     h3._h6 !{title}
     p._text_justify: block
 
+mixin page_a11(links)
+  each v in links
+    - classes = ['_a11'];
+    - if(pageid === v[0]) classes.push('_active')
+    if typeof v === 'string'
+      span._inblock._mh_25|!{v}
+    else
+      a(href=homeUri+v[1] onclick=onclick() class=classes.join(' ') title=v[3]) !{v[2]}
+      //- a(href=homeUri+v[1] class=classes.join(' ') title=v[3]) !{v[2]}
+
+mixin page_nav
+  nav#_main_nav._color_2: ._flex._960
+    ._fit: +backlink._a11|#[+isvg(svgi.angle,'_cicon')._rotate_180]
+    ._f: +page_a11([
+      ['home','home','Home'],
+      ['about','about','About'],
+      ['template/one','products','Products'],
+      ['services','services','Services'],
+      ['gallery','gallery','Gallery'],
+      ['blog','blog','Blog'],
+      ['contact','contact','Contact'],
+    ])
+    ._fit: +changeThemeLink._a11: +itext('_cicon')|☀
+  hr._m0
+
 block header
   header#_header
-    ._color_1._pad: ._container
+    ._color_1._pad: ._960._pa_5
       +logo
       span#maindesc!=description
     hr._m0
-    +main_nav
+    +page_nav
 
 block article
 
-  article._article._container: ._960
+  article._article._container: ._960(style="margin:3rem auto")
 
-    section: +basic_helloWorld
+    section(style="margin-top:-3rem"): +basic_helloWorld
     hr
-    section(style="margin-top:3rem")
+
+    section._p1
 
       h2._h1 How to Build an Effective Website Theme
 
@@ -108,7 +134,7 @@ block article
 
     hr
 
-    section._flex._gap2(style="margin:2rem auto 3rem")
+    section._flex._gap2(style="margin:2rem auto")
       ._fit(style="flex-basis:300px;")
         h3._h6 Buttons
         .buttons._p

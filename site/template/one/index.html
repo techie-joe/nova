@@ -56,34 +56,38 @@
   <body>
     <header id="_header">
       <div class="_color_1 _pad">
-        <div class="_container"><a href="/nova/site/">
+        <div class="_960 _pa_5"><a href="/nova/site/">
             <div class="_no_select" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></div></a><span id="maindesc">Theme One Preview</span>
         </div>
       </div>
       <hr class="_m0">
-      <div class="_color_2 _flex" id="_main_nav">
-        <div class="_f">
-          <nav><a class="_a11" href="/nova/site/starter">Starter</a><a class="_a11" href="/nova/site/basic">Basic</a><a class="_a11" href="/nova/site/lab">Lab</a>
-          </nav>
+      <nav class="_color_2" id="_main_nav">
+        <div class="_flex _960">
+          <div class="_fit"><a class="_needjs _a11" href="#" onclick="event.preventDefault();(function(w){var h=w.history;w.opener?w.close():h.length>1?h.back():w.location.href='/';})(window)" title="Back to previous page"><i class="_icon _cicon"><i class="isvg _rotate_180">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
+                  </svg></i></i></a>
+          </div>
+          <div class="_f"><a class="_a11" href="/nova/site/home" onclick="event.preventDefault();">Home</a><a class="_a11" href="/nova/site/about" onclick="event.preventDefault();">About</a><a class="_a11 _active" href="/nova/site/products" onclick="event.preventDefault();">Products</a><a class="_a11" href="/nova/site/services" onclick="event.preventDefault();">Services</a><a class="_a11" href="/nova/site/gallery" onclick="event.preventDefault();">Gallery</a><a class="_a11" href="/nova/site/blog" onclick="event.preventDefault();">Blog</a><a class="_a11" href="/nova/site/contact" onclick="event.preventDefault();">Contact</a>
+          </div>
+          <div class="_fit"><a class="_needjs _a11" href="#" onclick="event.preventDefault();theme.change();" title="Change Theme (Ctrl+Alt+T)"><i class="_icon _cicon"><i class="itext">☀</i></i></a>
+          </div>
         </div>
-        <div class="_fit"><a class="_needjs _a11" href="#" onclick="event.preventDefault();theme.change();" title="Change Theme (Ctrl+Alt+T)"><i class="_icon _cicon"><i class="itext">☀</i></i></a>
-        </div>
-      </div>
+      </nav>
       <hr class="_m0"/>
     </header>
     <main id="_main">
       <article class="_article _container">
-        <div class="_960">
-          <section>
+        <div class="_960" style="margin:3rem auto">
+          <section style="margin-top:-3rem">
             <pre class="_scrollable pre">&nbsp;
-This is a template to get you started.
-Copy the code from '<code>template/one</code>' to create a page like this.
+This is a template. Edit this document to get started.
 
 <a class="_needjs _link _a31" href="#" onclick="event.preventDefault();(function(w){var h=w.history;w.opener?w.close():h.length>1?h.back():w.location.href='/';})(window)" title="Back to previous page">Back</a>
 </pre>
           </section>
           <hr>
-          <section style="margin-top:3rem">
+          <section class="_p1">
             <h2 class="_h1">How to Build an Effective Website Theme</h2>
             <style>#i00 > .f { min-width: 240px; max-width: 470px; }</style>
             <div class="_flex _gap2" id="i00" style="margin:2rem auto">
@@ -181,7 +185,7 @@ Copy the code from '<code>template/one</code>' to create a page like this.
             </div>
           </div>
           <hr>
-          <section class="_flex _gap2" style="margin:2rem auto 3rem">
+          <section class="_flex _gap2" style="margin:2rem auto">
             <div class="_fit" style="flex-basis:300px;">
               <h3 class="_h6">Buttons</h3>
               <div class="buttons _p"><a class="_a31 __primary" href="#" onclick="event.preventDefault();">Primary</a><a class="_a31 __secondary" href="#" onclick="event.preventDefault();">Secondary</a><a class="_a31" href="#" onclick="event.preventDefault();">Ordinary</a>

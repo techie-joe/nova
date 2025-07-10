@@ -14,7 +14,7 @@ const
     _pug: 'src/pug',
     pug: [
       // 'core',
-      // 'index',
+      'index',
       // 'starter',
       'basic',
       'lab',
