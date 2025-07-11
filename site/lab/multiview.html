@@ -53,14 +53,12 @@
       }
     </style>
     <style>
-      body      { box-shadow: 0 0 0 3px #3355CC inset; }
-      #_views   { box-shadow: 0 0 0 3px #6b33cc inset; }
-      ._view    { box-shadow: 0 0 0 3px #cc7333 inset;padding:3px; }
-      ._article { box-shadow: 0 0 0 3px #2a8e39 inset;padding:1px; }
+      ._view    { box-shadow: 0 0 0 3px #cc7333 inset;padding:3px;box-sizing:border-box; }
+      ._article { box-shadow: 0 0 0 3px #2a8e39 inset;padding:3px;box-sizing:border-box; }
       
-      body.fullview #topRightNav { right:0px;margin-right:15px; }
-      body.fullview #_views { overflow:auto scroll; position: absolute; top: 0; right: 0; bottom: 40px; left: 0; height:auto; min-height:0;margin:0;padding:0 }
-      body.fullview ._view { padding:0 }
+      #topRightNav { right:0;margin-right:15px; }
+      #_views { overflow:auto scroll; position: absolute; top: 0; right: 0; bottom: 42px; left: 0; height:auto; min-height:0;margin:0;padding:0 }
+      ._view { padding:0 }
       
       #view-2 { position:absolute;top:0;left:100%;right:-100%;bottom:0; }
       #view-3 { min-height:100%; }
@@ -68,7 +66,7 @@
       
     </style>
   </head>
-  <body class="fullview">
+  <body>
     <div id="_views">
       <div class="_absolute" id="view-1" aria-hidden="true"></div>
       <div class="_view" id="_main_view">

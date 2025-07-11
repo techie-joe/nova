@@ -16,11 +16,11 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/nova/site/icons/favicon-16x16.png?v=0.1.0"/>
     <link rel="icon" type="image/x-icon" sizes="any" href="/nova/site/icons/favicon.ico?v=0.1.0"/>
     <!--[if lt IE 9]><script src="//unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
-    <meta name="description" content="Testing view."/>
+    <meta name="description" content="Testing view"/>
     <meta name="author" content="Techie Joe"/>
     <meta name="publisher" content="[unknown]"/>
     <meta property="og:title" content="View"/>
-    <meta property="og:description" content="Testing view."/>
+    <meta property="og:description" content="Testing view"/>
     <meta property="og:type" content="website"/>
     <meta property="og:url" content="https://techiejoe.github.io/nova/site/test/view.html?utm_source=homescreen"/>
     <meta property="og:image"/>
@@ -53,17 +53,19 @@
       }
     </style>
     <style>
-      body #_views { box-shadow: 0 0 0 3px #3355CC inset }
-      body #topRightNav { box-shadow:0 0 0 3px #cc33cc inset; }
-      body #topRightNav ._a3 { margin:.25rem }
-      ._article { box-shadow: 0 0 0 3px #2a8e39 inset }
-      #overflow { color: #2a8e39 }
+      body         { box-shadow: 0 0 0 3px #3355CC inset; }
+      #_views      { box-shadow: 0 0 0 3px #3355CC inset; }
+      ._view       { box-shadow: 0 0 0 3px #cc7333 inset; }
+      ._article    { box-shadow: 0 0 0 3px #2a8e39 inset; }
+      #topRightNav { box-shadow: 0 0 0 3px #cc33cc inset; }
+      #overflow    { color: #2a8e39 }
       
-      body.fullview #topRightNav { right:0px;margin-right:15px; }
-      body.fullview #_views { overflow:auto scroll; position: absolute; top: 0; right: 0; bottom: 40px; left: 0; height:auto; min-height:0;margin:0;padding:0 }
-      body.fullview ._view { padding:0 }
-      
-      body.fullscreen #_views { overflow:auto; position: absolute; top: 0; right: 0; bottom: auto; left: 0; height:auto; min-height:100%;margin:0;padding:0 }
+      .fullview #topRightNav { right:0px;margin-right:15px; }
+      .fullview #_views {
+        overflow:auto scroll; position: absolute; top: 0; right: 0; bottom: 40px; left: 0; height:auto; min-height:0;
+        margin:0;padding:0
+      }
+      .fullview ._view { padding:0 }
       
     </style>
   </head>
@@ -72,7 +74,7 @@
       <div class="_view" id="_main_view">
         <header id="_header">
           <div class="_color_1">
-            <div class="_pa_5"><a class="_no_select" href="/nova/site/" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></a><span id="maindesc">Testing view.</span>
+            <div class="_pa_5"><a class="_no_select" href="/nova/site/" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></a><span id="maindesc">Testing view</span>
             </div>
           </div>
           <hr class="_m0"/>
@@ -110,7 +112,7 @@
               </div>
               <hr>
               <section class="_container">
-                <pre class="_scrollable pre">// Testing view.
+                <pre class="_scrollable pre">// Testing view
 // htmlClass: <span id="htmlClass">_hidden</span>
 // bodyClass: <span id="bodyClass"></span></pre>
               </section>
@@ -217,13 +219,13 @@
         v.fullview = ()=>{
           fullview=!fullview;
           fullscreen = false;
-          d.body.className = (fullview?bc+' fullview':bc);
+          d.html.className = (fullview?dc+' fullview':dc);
           set();
         },
         v.fullscreen = ()=>{
           fullview = false;
           fullscreen=!fullscreen;
-          d.body.className = (fullscreen?bc+' fullscreen':bc);
+          d.html.className = (fullscreen?dc+' fullscreen':dc);
           set();
         };
       })();

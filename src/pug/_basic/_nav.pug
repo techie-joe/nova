@@ -30,12 +30,15 @@ mixin menu_a2(links)
 
 //- pageid, uri, title
 
+mixin main_menu
+  +menu_a11([
+    ['starter','starter','Starter'],
+    ['basic','basic','Basic'],
+    ['lab','lab','Lab'],
+  ])
+
 mixin main_nav
   #_main_nav._color_2._flex
-    ._f: +menu_a11([
-      ['starter','starter','Starter'],
-      ['basic','basic','Basic'],
-      ['lab','lab','Lab'],
-    ])
+    ._f: +main_menu
     ._fit: +changeThemeLink._a11: +itext('_cicon')|☀
   hr._m0

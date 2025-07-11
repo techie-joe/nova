@@ -5,22 +5,28 @@ block append vars
     pageid      = 'test/view'
     pageUrl     = siteUrl + '/test/view.html'
     title       = `View`
-    description = 'Testing view.'
+    description = 'Testing view'
 
 block append style
   style.
 
-    body #_views { box-shadow: 0 0 0 3px #3355CC inset }
-    body #topRightNav { box-shadow:0 0 0 3px #cc33cc inset; }
-    body #topRightNav ._a3 { margin:.25rem }
-    ._article { box-shadow: 0 0 0 3px #2a8e39 inset }
-    #overflow { color: #2a8e39 }
+    body         { box-shadow: 0 0 0 3px #3355CC inset; }
+    #_views      { box-shadow: 0 0 0 3px #3355CC inset; }
+    ._view       { box-shadow: 0 0 0 3px #cc7333 inset; }
+    ._article    { box-shadow: 0 0 0 3px #2a8e39 inset; }
+    #topRightNav { box-shadow: 0 0 0 3px #cc33cc inset; }
+    #overflow    { color: #2a8e39 }
+
+    .fullview #topRightNav { right:0px;margin-right:15px; }
+    .fullview #_views {
+      overflow:auto scroll; position: absolute; top: 0; right: 0; bottom: 40px; left: 0; height:auto; min-height:0;
+      margin:0;padding:0
+    }
+    .fullview ._view { padding:0 }
     
-    body.fullview #topRightNav { right:0px;margin-right:15px; }
-    body.fullview #_views { overflow:auto scroll; position: absolute; top: 0; right: 0; bottom: 40px; left: 0; height:auto; min-height:0;margin:0;padding:0 }
-    body.fullview ._view { padding:0 }
+  //- style.
     
-    body.fullscreen #_views { overflow:auto; position: absolute; top: 0; right: 0; bottom: auto; left: 0; height:auto; min-height:100%;margin:0;padding:0 }
+    .fullscreen #_views { overflow:auto; position: absolute; top: 0; right: 0; bottom: auto; left: 0; height:auto; min-height:100%;margin:0;padding:0 }
 
   //- style.
     
@@ -86,13 +92,13 @@ block append script
       v.fullview = ()=>{
         fullview=!fullview;
         fullscreen = false;
-        d.body.className = (fullview?bc+' fullview':bc);
+        d.html.className = (fullview?dc+' fullview':dc);
         set();
       },
       v.fullscreen = ()=>{
         fullview = false;
         fullscreen=!fullscreen;
-        d.body.className = (fullscreen?bc+' fullscreen':bc);
+        d.html.className = (fullscreen?dc+' fullscreen':dc);
         set();
       };
     })();
