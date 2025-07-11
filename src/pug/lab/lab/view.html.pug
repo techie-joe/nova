@@ -10,20 +10,17 @@ block append vars
 block append style
   style.
 
-    #_views      { box-shadow: 0 0 0 3px #3355CC inset;padding:3px;box-sizing:border-box; }
-    ._view       { box-shadow: 0 0 0 3px #cc7333 inset;padding:3px 3px 38px;box-sizing:border-box; }
+    #_views      { box-shadow: 0 0 0 3px #3355CC inset; }
     ._article    { box-shadow: 0 0 0 3px #2a8e39 inset;padding:3px;box-sizing:border-box; }
-    #topRightNav { box-shadow: 0 0 0 3px #cc33cc inset;padding:3px;box-sizing:border-box; }
+    #topRightNav { box-shadow: 0 0 0 3px #cc33cc inset; }
     #overflow    { color: #2a8e39 }
 
-    #topRightNav { margin:6px }
-
-    .fullview #topRightNav { right:6px;margin-right:15px; }
+    .fullview #topRightNav { right:0;margin-right:15px; }
     .fullview #_views {
       overflow:auto scroll; position: absolute; top: 0; right: 0; bottom: 40px; left: 0; height:auto; min-height:0;
-      margin:0;padding:3px
+      margin:0;padding:0
     }
-    .fullview ._view { padding:3px }
+    .fullview ._view { padding:0 }
     
   //- style.
     
