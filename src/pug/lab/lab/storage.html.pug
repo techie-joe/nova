@@ -11,7 +11,7 @@ block article
   article._article
 
     +btns
-      button(onclick="(x=>{localStorage.setItem(x.substring(2,7),x.substring(2))})(Math.random().toString(36));") Add to Storage
+      button(onclick="(x=>{localStorage.setItem(x.substring(2,7),x.substring(2,10))})(Math.random().toString(36));") Add to Storage
       button(onclick="localStorage.clear();") Clear Storage
       button(onclick="theme.change();") Change Theme
     hr

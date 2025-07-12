@@ -32,13 +32,20 @@ mixin topRightNav
   //- aside
   script.
     (()=>{
+      var m = 'all';
       const
       w = window,
       d = document,
-      e = d.getElementById("_style"),
-      m = e.getAttribute("media"),
-      disableStyle = ()=>{ e.setAttribute("media",e.getAttribute("media")==='x'?m:'x') };
-      w.test = { disableStyle };
+      setMedia = (id,media) => { d.getElementById(id).setAttribute("media",media) },
+      disableStyle = ()=>{
+        m=m==='all'?'x':'all';
+        mi=m==='all'?'x':'all';
+        setMedia("_style",m);
+        setMedia("_coreStyle",mi);
+      };
+      Object.assign(w.test=w.test||{},{
+        disableStyle
+      });
     })();
   //- script.
 

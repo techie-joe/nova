@@ -39,13 +39,18 @@ html(lang=lang class=htmlClass.join(' '))
         include _meta
         include _seo
 
-      block stylesheet
-      
-      block style
-        style.
+      block coreStyle
+        style#_coreStyle.
           html,body { font-family:system-ui,sans-serif }
           hr { border:0;border-bottom:1px solid #888 }
-        style| /* your style goes here */
+          svg { display: inline-block; width: 1em; height: 1em; }
+          ._flex { display:flex }
+
+      block stylesheet
+
+      block style
+        style.
+          /* your style goes here */
         //- style.
 
   block body

@@ -17,11 +17,51 @@ block article
   article._article
 
     +btns
-      button(onclick="alert('Test run ..')") Test Run
+      button(onclick="test.run('Test run ..')") Test Run
     hr
-    section._container: pre._scrollable.pre.
+    section._container: pre._scrollable.pre#pre.
       // #{description}
     //- pre.
+    script.
+      (()=>{
+        const
+          w = window,
+          d = document,
+          pre = d.getElementById('pre'),
+          run = ()=>{
+            pre.innerHTML += `\n`+Math.random().toString(36).substring(2,10);
+          };
+        Object.assign(w.test=w.test||{},{
+          run
+        });
+      })();
+    hr
+
+    style.
+      #logo1 {
+        font-weight: 600;
+        margin-left: -.25rem;
+        padding: .25rem .5rem;
+        display: inline-block;
+        cursor: default;
+        border-radius: .3rem;
+        letter-spacing: -0.05em;
+      }
+      #logo1 .s1 { color:#000 }
+      #logo1 .s2 { color:#1b36b0 }
+      ._dark #logo1 .s1 { color:#fff }
+      ._dark #logo1 .s2 { color:#7a8eea }
+      a#logo1 { cursor:pointer;text-decoration:none }
+      a#logo1:hover { background-color:#fff }
+      ._dark a#logo1:hover { background-color:#fff3 }
+      a#logo1:active { opacity:.3 }
+      #maindesc {
+        font-size: 0.9em;
+        line-height: 1.25;
+        vertical-align: text-top;
+      }
+    //- style.
+    section._container: #logo1: +_logo
 
 //- block append script
   script.
