@@ -367,6 +367,19 @@ html,body { @extend ._color; }
   white-space: nowrap;
   box-sizing: border-box;
   &:active { opacity:.3 }
+  &.__disabled { background:none !important;color:inherit !important;opacity:.3;cursor:default }
+}
+
+button {
+  &._a31,
+  &._a3,
+  &._a2,
+  &._a11,
+  &._a1 {
+    font-family: $sans;
+    line-height: inherit;
+    background: none;
+  }
 }
 
 ._cicon { margin:0 -.3em }
@@ -558,9 +571,7 @@ $gaps: (
 $radiuses: (
   "_25" : .25em,
   "_5"  : .5em,
-  ""    : 1em,
-  "1_5" : 1.5em,
-  "2"   : 2em
+  ""    : 1em
 );
 @each $x, $value in $radiuses { ._radius#{$x}  { border-radius: $value; } }
   

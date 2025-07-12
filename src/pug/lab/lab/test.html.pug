@@ -5,7 +5,7 @@ block append vars
     pageid      = 'lab/test'
     pageUrl     = siteUrl + '/lab/test.html'
     title       = `Test`
-    description = 'Testing new stuff.'
+    description = 'Testing new stuff'
 
 //- block header
 
@@ -17,7 +17,8 @@ block article
   article._article
 
     +btns
-      button(onclick="test.run('Test run ..')") Test Run
+      button._a3(onclick="test.reset()") Reset
+      button._a3(onclick="test.run('Test run ..')") Test Run
     hr
     section._container: pre._scrollable.pre#pre.
       // #{description}
@@ -28,11 +29,15 @@ block article
           w = window,
           d = document,
           pre = d.getElementById('pre'),
+          pre_text = pre.innerHTML,
+          reset = () => {
+            pre.innerHTML = pre_text;
+          },
           run = ()=>{
             pre.innerHTML += `\n`+Math.random().toString(36).substring(2,10);
           };
         Object.assign(w.test=w.test||{},{
-          run
+          run, reset
         });
       })();
     hr

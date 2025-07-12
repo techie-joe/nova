@@ -11,9 +11,9 @@ block article
   article._article
 
     +btns
-      button(onclick="(x=>{localStorage.setItem(x.substring(2,7),x.substring(2,10))})(Math.random().toString(36));") Add to Storage
-      button(onclick="localStorage.clear();") Clear Storage
-      button(onclick="theme.change();") Change Theme
+      button._a3(onclick="(x=>{localStorage.setItem(x.substring(2,7),x.substring(2,10))})(Math.random().toString(36));") Add to Storage
+      button._a3(onclick="localStorage.clear();") Clear Storage
+      button._a3(onclick="theme.change();") Change Theme
     hr
 
     section._container: pre._scrollable.pre.

@@ -16,11 +16,11 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/nova/site/icons/favicon-16x16.png?v=0.1.0"/>
     <link rel="icon" type="image/x-icon" sizes="any" href="/nova/site/icons/favicon.ico?v=0.1.0"/>
     <!--[if lt IE 9]><script src="//unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
-    <meta name="description" content="Testing new stuff."/>
+    <meta name="description" content="Testing new stuff"/>
     <meta name="author" content="Techie Joe"/>
     <meta name="publisher" content="[unknown]"/>
     <meta property="og:title" content="Test"/>
-    <meta property="og:description" content="Testing new stuff."/>
+    <meta property="og:description" content="Testing new stuff"/>
     <meta property="og:type" content="website"/>
     <meta property="og:url" content="https://techiejoe.github.io/nova/site/lab/test.html?utm_source=homescreen"/>
     <meta property="og:image"/>
@@ -64,7 +64,7 @@
       <div class="_view" id="_main_view">
         <header id="_header">
           <div class="_color_1">
-            <div class="_pa_5"><a class="_no_select" href="/nova/site/" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></a><span id="maindesc">Testing new stuff.</span>
+            <div class="_pa_5"><a class="_no_select" href="/nova/site/" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></a><span id="maindesc">Testing new stuff</span>
             </div>
           </div>
           <hr class="_m0"/>
@@ -95,11 +95,12 @@
               }
             </style>
             <div class="_container" id="btns">
-              <button onclick="test.run('Test run ..')">Test Run</button>
+              <button class="_a3" onclick="test.reset()">Reset</button>
+              <button class="_a3" onclick="test.run('Test run ..')">Test Run</button>
             </div>
             <hr>
             <section class="_container">
-              <pre class="_scrollable pre" id="pre">// Testing new stuff.</pre>
+              <pre class="_scrollable pre" id="pre">// Testing new stuff</pre>
             </section>
             <script>
               (()=>{
@@ -107,11 +108,15 @@
                   w = window,
                   d = document,
                   pre = d.getElementById('pre'),
+                  pre_text = pre.innerHTML,
+                  reset = () => {
+                    pre.innerHTML = pre_text;
+                  },
                   run = ()=>{
                     pre.innerHTML += `\n`+Math.random().toString(36).substring(2,10);
                   };
                 Object.assign(w.test=w.test||{},{
-                  run
+                  run, reset
                 });
               })();
             </script>
@@ -164,7 +169,7 @@
     </div>
     <aside id="_widgets"></aside>
     <style>
-      #topRightNav { position:fixed; top:0;right:0; padding:.6rem }
+      #topRightNav { position:fixed; top:0;right:0; padding:.75rem }
       #topRightNav ._a3 {
         font-family:"Arial",sans-serif;
         font-size:1.2rem;
@@ -199,8 +204,8 @@
         disableStyle = ()=>{
           m=m==='all'?'x':'all';
           mi=m==='all'?'x':'all';
-          setMedia("_style",m);
           setMedia("_coreStyle",mi);
+          setMedia("_style",m);
         };
         Object.assign(w.test=w.test||{},{
           disableStyle
