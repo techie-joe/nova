@@ -15,82 +15,86 @@ block append style
   //- style.
 
 block article
-  article._article._container: ._960
-
-    section._flex(style="gap:2rem")#info
+  article._article
+  
+    section._ma: ._960: ._flex(style="gap:2rem")#info
       ._fit(style="flex-basis: 32rem;")
         h2._sans._h4 System Font
         p._system._text_justify.
           System font is the default set of fonts used by an operating system for displaying text across the user interface. The primary goal is to provide a seamless experience for users as they interact with different applications and system elements. Common examples includes "Segoe UI" on Windows, "San Francisco" on macOS, and "Roboto" on Android. They are an integral part of the overall design language and contribute to the visual identity of the operating system.
 
-      ._f3
+      ._f(style="flex-basis: 220px;")
         h2._sans._h4 Sans
         p._sans._text_justify.
           Sans fonts, such as Arial and Helvetica, are known for their clean and modern look, lacking the small decorative strokes at the ends of letters. They are widely used for digital media due to their readability on screens.
 
-      ._f3
+      ._f(style="flex-basis: 220px;")
         h2._serif._h4 Serif
         p._serif._text_justify.
           Serif fonts, like Times New Roman, Garamond and Georgia, feature small lines or strokes attached to the ends of letters, giving a more traditional and formal appearance. These fonts are often used in print media for their elegant look.
 
-      ._f3
+      ._f(style="flex-basis: 220px;")
         h2._mono._h4 Monospace
         p._mono._text_justify.
           Monospace fonts, such as Courier New and Consolas, have characters that occupy the same horizontal space. This uniform spacing makes them ideal for displaying scripts and source codes. They align text neatly, thus enhance readability.
     //- section
 
+  hr
+
+  section._ma: ._960
+
+    p(style="max-width: 36rem;") Use helper class to customize the visual appearance of headings and texts. They helps separate visual appearance from semantics, giving you better control over both. Use #[code._code _h1] to #[code._code _h7] for headings, and #[code._code _t1] to #[code._code _t12] for other texts.
+
+    - var heros     = 'Text Sample';
+    - var headings  = 'Text Sample';
+
+    ._text_centerx
+      p._t10 #{heros} 3
+      p._t9 #{heros} 2
+      p._t8 #{heros} 1
+      h1._h1 #{headings} 1
+      h2._h2 #{headings} 2
+      h3._h3 #{headings} 3
+      h4._h4 #{headings} 4
+      h5._h5 #{headings} 5
+      h6._h6 #{headings} 6
+      div._h7 #{headings} 7
+      p Normal Text
+
+  hr
+
+  style.
+    .gridlines {
+      min-height: 100px;
+      background-image: url('!{cssi.gridlines}');
+      background-repeat: repeat;
+    }
+
+    .g{display:flex;flex-flow:row wrap;align-content:flex-start}
+    .u{display:inline-block;vertical-align:top}
+    .demo .u { margin: 0 2px; padding-bottom: 18px; }
+
+    .io1  { background: #66668844; box-shadow:0 1px orange; }
+    .io2  { background: #66886644; box-shadow:0 1px orange; }
+  //- style.
+
+  mixin rag(x)
+    - var n = 0
+    while n < x
+      if(n%2==0)
+        .io2 H_#[sup._sup H]#[sub._sub _]
+      else
+        .io1 &nbsp;
+      - n++
+  //- mixin
+
+  section._960
+
+    ._container._small._mono // Proper text sizing for maximum adaptability
+
     hr
 
-    section
-
-      p(style="max-width: 36rem;") Use helper class to customize the visual appearance of headings and texts. They helps separate visual appearance from semantics, giving you better control over both. Use #[code._code _h1] to #[code._code _h7] for headings, and #[code._code _t1] to #[code._code _t12] for other texts.
-
-      - var heros     = 'Text Sample';
-      - var headings  = 'Text Sample';
-
-      ._text_centerx
-        p._t10 #{heros} 3
-        p._t9 #{heros} 2
-        p._t8 #{heros} 1
-        h1._h1 #{headings} 1
-        h2._h2 #{headings} 2
-        h3._h3 #{headings} 3
-        h4._h4 #{headings} 4
-        h5._h5 #{headings} 5
-        h6._h6 #{headings} 6
-        div._h7 #{headings} 7
-        p Normal Text
-
-    hr
-
-    style.
-      .gridlines {
-        min-height: 100px;
-        background-image: url('!{cssi.gridlines}');
-        background-repeat: repeat;
-      }
-
-      .g{display:flex;flex-flow:row wrap;align-content:flex-start}
-      .u{display:inline-block;vertical-align:top}
-      .demo .u { margin: 0 2px; padding-bottom: 18px; }
-
-      .io1  { background: #66668844; box-shadow:0 1px orange; }
-      .io2  { background: #66886644; box-shadow:0 1px orange; }
-    //- style.
-
-    mixin rag(x)
-      - var n = 0
-      while n < x
-        if(n%2==0)
-          .io2 H_#[sup._sup H]#[sub._sub _]
-        else
-          .io1 &nbsp;
-        - n++
-    //- mixin
-
-    section._flex
-
-      ._f1: ._small._mono // Proper text sizing for maximum adaptability #[hr]
+    ._flex
 
       ._f.g.demo.gridlines(style="flex: 1 0 340px;")
         .u._t1: +rag(13)
@@ -105,5 +109,5 @@ block article
         .u._t8: +rag(5)
         .u._t9: +rag(5)
         .u._t10: +rag(5)
-    
-    //- section
+  
+  //- section

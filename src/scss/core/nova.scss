@@ -590,7 +590,9 @@ ul,ol {
 $margins: (
   "_25" : .25em,
   "_5"  : .5em,
-  ""    : 1em
+  ""    : 1em,
+  "1_5" : 1.5em,
+  "2"   : 2em
 );
 @each $x, $value in $margins {
   ._ma#{$x} { margin: $value }
@@ -616,6 +618,8 @@ $paddings: (
   "_25" : .25em,
   "_5"  : .5em,
   ""    : 1em
+  "1_5" : 1.5em,
+  "2"   : 2em
 );
 @each $x, $value in $paddings {
   ._pa#{$x} { padding: $value }
