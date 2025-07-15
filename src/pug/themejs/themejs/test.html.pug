@@ -21,7 +21,7 @@ block header
 block article
   article._article
 
-    section._container: nav.nav
+    section._container: nav.nav(style="font-size:.8rem")
       +_a()(onclick=onclick('test.run();') title="Run Test")._a3|Run #[+itext('_cicon')|&raquo;]
       +_a()(onclick=onclick('test.clear();') title="Clear Test Box")._a3|Clear
       =' | '
