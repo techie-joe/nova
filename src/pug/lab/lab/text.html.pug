@@ -14,3 +14,29 @@ block article
     section._container: pre._scrollable.pre.
       // Testing text ..
     //- pre.
+
+    hr
+
+    style.
+      .logo { font-size:2em }
+      .logo {
+        font-weight: 600;
+        padding: .25rem .5rem;
+        display: inline-block;
+        cursor: default;
+        border-radius: .3rem;
+        letter-spacing: -0.05em;
+        white-space: nowrap;
+      }
+      .logo .s1 { color:#000 }
+      .logo .s2 { color:#1b36b0 }
+      ._dark .logo .s1 { color:#fff }
+      ._dark .logo .s2 { color:#7a8eea }
+      a.logo { cursor:pointer;text-decoration:none }
+      a.logo:hover { background-color:#fff }
+      ._dark a.logo:hover { background-color:#fff3 }
+      a.logo:active { opacity:.3 }
+    //- style.
+    section._container
+      ._inblock.logo._mono: +_logo
+      ._inblock.logo._serif: +_logo('Theme','JS')
