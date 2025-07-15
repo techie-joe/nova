@@ -80,6 +80,9 @@ pre,._pre { @extend ._mono; }
 
 // standardize line height for paragraphs in all browsers.
 p,._p,._p1 { @extend ._reset_lineheight; }
+._t8,._t9,._t10,
+._h1,._h2,._h3,._h4,._h5,._h6,._h7,
+h1,h2,h3,h4,h5,h6 { line-height:1.25 }
 
 // standardize paragraphs spacing in all browsers.
 ._h1,._h2,._h3,._h4,._h5,._h6,._h7,
@@ -92,8 +95,8 @@ p,._p { margin:.5rem 0 }
 
 // standardize font size for headings in all browsers.
 h1 { @extend ._h1; }
-._h7 { @extend ._b; }
-._h1,._h2,._h3,._h4,._h5,._h6,._h7 { @extend ._tc_contra; }
+._t8,._t9,._t10 { @extend ._b; }
+._h1,._h2,._h3,._h4,._h5,._h6,._h7 { @extend ._b; @extend ._tc_contra; }
 ._h7,._t1 { font-size: 1rem     }
 ._h6,._t2 { font-size: 1.083rem }
 ._h5,._t3 { font-size: 1.182rem }
