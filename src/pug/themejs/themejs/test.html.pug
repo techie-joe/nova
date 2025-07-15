@@ -1,0 +1,67 @@
+extends ../../_basic/_html
+
+block append vars
+  -
+    pageid      = 'themejs'
+    pageUrl     = siteUrl + '/themejs/test.html'
+    title       = `ThemeJS Test`
+    description = 'Testing ThemeJS'
+
+block header
+  nav#_main_nav._color_1: ._flex
+    ._fit: +backlink._a11|#[+isvg(svgi.angle,'_cicon')._rotate_180]
+    ._f
+      +a('./')._a11|#[span._tc_contra Theme]#[span._tc_blue Js]
+      span._mono(style="vertical-align:.1em;"): span#jstest._tc_red._b._small='[JS:OFF]'
+    ._fit: +changeThemeLink._a11: +itext('_cicon')|☀
+  hr._m0
+
+block article
+  article._article
+
+    section._container: nav.nav
+      +_a()(onclick=onclick('test.run();') title="Run Test")._a3|Run #[+itext('_cicon')|&raquo;]
+      +_a()(onclick=onclick('test.clear();') title="Clear Test Box")._a3|Clear
+      =' | '
+      +_a()(onclick=onclick('test.run_check();') title="Theme Check")._a3|Check
+      +_a()(onclick=onclick('test.run_updateClass();') title="Theme updateClass")._a3|updateClass
+      +_a()(onclick=onclick('test.run_set();') title="Theme Set")._a3|Set
+      +a()(onclick=onclick('test.run_set(1);') title="Theme Set 1")._a3|1
+      +a()(onclick=onclick('test.run_set(2);') title="Theme Set 2")._a3|2
+      +a()(onclick=onclick('test.run_set(3);') title="Theme Set 3")._a3|3
+      +_a()(onclick=onclick('test.run_change();') title="Theme Change")._a3|Change
+      +_a()(onclick=onclick('test.run_reset();') title="Reset Theme")._a3|Reset
+      =' | '
+      +_a()(onclick=onclick('storage.set();') title="Storage Set")._a3|Set
+      +_a()(onclick=onclick('storage.get();') title="Storage Get")._a3|Get
+      +_a()(onclick=onclick('storage.remove();') title="Storage Remove")._a3|Remove
+
+
+    hr._mb0
+    section#jso._mono._text_left._scrollable(style="overflow-y:scroll;height:500px")
+      ._container: pre#jsout._smaller
+    hr._mt0
+
+    section._hidden
+      #element
+
+block script
+  //- +jsv(src)
+
+  //- dev --------------------------------------------------------
+  +jsv('/_ace/scripts/ts_js/theme_v1.0.js')(defer)
+  +jsv('/_ace/scripts/gulp_js/test_theme_v1.0.js')(defer)
+  //- ------------------------------------------------------------
+
+  //- production -------------------------------------------------
+  //- +jsv(assetsUrl+'js/theme_v1.0.js')(defer)
+  //- +jsv(assetsUrl+'js/test_theme_v1.0.js')(defer)
+  //- ------------------------------------------------------------
+
+  script.
+    (function(){
+
+      var jstest = document.getElementById('jstest');
+      jstest && (jstest.setAttribute('style','color:green;'),jstest.innerHTML = '[JS:OK]');
+
+    })();

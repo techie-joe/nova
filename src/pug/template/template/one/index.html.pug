@@ -51,8 +51,8 @@ block header
       span#maindesc!=description
     hr._m0
     nav#_main_nav._color_2: ._flex._960
+      ._fit: +backlink._a11|#[+isvg(svgi.angle,'_cicon')._rotate_180]
       ._f
-        +backlink._a11|#[+isvg(svgi.angle,'_cicon')._rotate_180]
         +a('./')._a11|Home
         +page_a11([
           ['about','about','About'],
@@ -67,7 +67,7 @@ block header
 
 block article
 
-  article._article._ma2: ._960(style="margin:3rem auto")
+  article._article._ma: ._960(style="margin:3rem auto")
 
     section(style="margin-top:-3rem"): +basic_helloWorld
     hr
@@ -155,8 +155,8 @@ block append article
 
   style.
     #article_footer { padding:1rem 1px 3rem }
-  footer#article_footer._color_1: ._ma2: ._960._flex._gap2
-    ._f
+  footer#article_footer._color_1: ._ma: ._960._flex._gap2
+    ._f(style="flex-basis:200px;")
       h6._h7._no_margin Official Address
       //- |#[b Company Name]#[br]
       div._mv._small
@@ -168,14 +168,14 @@ block append article
       div._tc_contra._no_wrap #[b._b + 012 345 6789]
       div._small._no_wrap #[span your-email@your-domain.com]
 
-    ._f
+    ._f(style="flex-basis:150px;")
       h6._h7._no_margin Primary Segment
       ul._plain
         +liba._hover_link._hover_u This segment
         +liba._hover_link._hover_u Will have links
         +liba._hover_link._hover_u To some pages
 
-    ._f
+    ._f(style="flex-basis:150px;")
       h6._h7._no_margin Secondary Segment
       ul._plain
         +liba._hover_link._hover_u Put some links

@@ -19,6 +19,7 @@ const
       'basic',
       'lab',
       'template',
+      'themejs',
     ],
     _scss: 'src/scss',
     scss: [
