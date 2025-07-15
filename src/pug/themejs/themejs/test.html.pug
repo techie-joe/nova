@@ -9,9 +9,11 @@ block append vars
 
 block header
   nav#_main_nav._color_1: ._flex
-    ._fit: +backlink._a11|#[+isvg(svgi.angle,'_cicon')._rotate_180]
+    ._fit
+      +a(homeUri+'lab')._a11|#[+isvg(svgi.angle,'_cicon')._rotate_180]
     ._f
-      +a('./')._a11|#[span._tc_contra Theme]#[span._tc_blue Js]
+      span._b._a11|#[span._tc_contra Theme]#[span._tc_blue Js]
+      //- +a('./')._a11|#[span._tc_contra Theme]#[span._tc_blue Js]
       span._mono(style="vertical-align:.1em;"): span#jstest._tc_red._b._small='[JS:OFF]'
     ._fit: +changeThemeLink._a11: +itext('_cicon')|☀
   hr._m0

@@ -362,9 +362,11 @@ html,body { @extend ._color; }
 ._a2,
 ._a11,
 ._a1 {
+  @extend ._inblock;
+  @extend ._no_select;
+  @extend ._no_deco;
+  cursor: pointer;
   text-align: center;
-  text-decoration: none !important;
-  display: inline-block;
   padding: 0 .5em;
   white-space: nowrap;
   box-sizing: border-box;

@@ -6,7 +6,7 @@
   
   <head>
     <meta charset="utf-8"/>
-    <title>[untitled] | Nova Builder</title>
+    <title>ThemeJS Test | Nova Builder</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
     <meta id="_color_scheme" name="color-scheme" content="light dark"/>
@@ -16,13 +16,13 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/nova/site/icons/favicon-16x16.png?v=0.1.0"/>
     <link rel="icon" type="image/x-icon" sizes="any" href="/nova/site/icons/favicon.ico?v=0.1.0"/>
     <!--[if lt IE 9]><script src="//unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
-    <meta name="description" content="[undescribed]"/>
+    <meta name="description" content="Testing ThemeJS"/>
     <meta name="author" content="Techie Joe"/>
     <meta name="publisher" content="[unknown]"/>
-    <meta property="og:title" content="[untitled]"/>
-    <meta property="og:description" content="[undescribed]"/>
+    <meta property="og:title" content="ThemeJS Test"/>
+    <meta property="og:description" content="Testing ThemeJS"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:url" content="[page_url]?utm_source=homescreen"/>
+    <meta property="og:url" content="https://techiejoe.github.io/nova/site/themejs/test.html?utm_source=homescreen"/>
     <meta property="og:image"/>
     <meta property="og:image:alt"/>
     <style id="_coreStyle">
@@ -63,53 +63,44 @@
   <body>
     <div id="_views">
       <div class="_view" id="_main_view">
-        <header id="_header"></header>
+        <nav class="_color_1" id="_main_nav">
+          <div class="_flex">
+            <div class="_fit"><a class="_a11" href="/nova/site/lab"><i class="_icon _cicon"><i class="isvg _rotate_180">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
+                    </svg></i></i></a>
+            </div>
+            <div class="_f"><span class="_b _a11"><span class="_tc_contra">Theme</span><span class="_tc_blue">Js</span></span><span class="_mono" style="vertical-align:.1em;"><span class="_tc_red _b _small" id="jstest">[JS:OFF]</span></span></div>
+            <div class="_fit"><a class="_needjs _a11" href="#" onclick="event.preventDefault();theme.change();" title="Change Theme (Ctrl+Alt+T)"><i class="_icon _cicon"><i class="itext">☀</i></i></a>
+            </div>
+          </div>
+        </nav>
+        <hr class="_m0">
         <main id="_main">
-          <article class="_article _container">
-            <pre class="pre"><a class="_a31" href="test.html">Test</a></pre>
-          </article>
-          <hr>
           <article class="_article">
             <section class="_container">
-              <pre class="_scrollable pre">&nbsp;
-This is a template.
-Edit this document to get started.
-&nbsp;
-<a class="_needjs _link _a31" href="#" onclick="event.preventDefault();(function(w){var h=w.history;w.opener?w.close():h.length>1?h.back():w.location.href='/';})(window)" title="Back to previous page">Back</a>
-</pre>
+              <nav class="nav">
+<a class="_a3" href="#" title="Run Test" onclick="event.preventDefault();test.run();">Run <i class="_icon _cicon"><i class="itext">&raquo;</i></i></a>
+<a class="_a3" href="#" title="Clear Test Box" onclick="event.preventDefault();test.clear();">Clear</a> | 
+<a class="_a3" href="#" title="Theme Check" onclick="event.preventDefault();test.run_check();">Check</a>
+<a class="_a3" href="#" title="Theme updateClass" onclick="event.preventDefault();test.run_updateClass();">updateClass</a>
+<a class="_a3" href="#" title="Theme Set" onclick="event.preventDefault();test.run_set();">Set</a><a class="_a3" href="#" title="Theme Set 1" onclick="event.preventDefault();test.run_set(1);">1</a><a class="_a3" href="#" title="Theme Set 2" onclick="event.preventDefault();test.run_set(2);">2</a><a class="_a3" href="#" title="Theme Set 3" onclick="event.preventDefault();test.run_set(3);">3</a>
+<a class="_a3" href="#" title="Theme Change" onclick="event.preventDefault();test.run_change();">Change</a>
+<a class="_a3" href="#" title="Reset Theme" onclick="event.preventDefault();test.run_reset();">Reset</a> | 
+<a class="_a3" href="#" title="Storage Set" onclick="event.preventDefault();storage.set();">Set</a>
+<a class="_a3" href="#" title="Storage Get" onclick="event.preventDefault();storage.get();">Get</a>
+<a class="_a3" href="#" title="Storage Remove" onclick="event.preventDefault();storage.remove();">Remove</a>
+              </nav>
             </section>
-            <hr>
-            <section class="_container">
-              <pre class="_scrollable pre">
-name             = Nova Builder
-version          = 0.1.0
-
-author           = Techie Joe
-license          = MIT
-
-today            = Tue, 15 Jul 2025 08:59:27 GMT
-year             = 2025
-
-layout           = main/_html
-homeUri          = /nova/site/
-
-pageid           = [page_id]
-pageUrl          = [page_url]
-title            = [untitled]
-description      = [undescribed]
-
-og_url           = [page_url]?utm_source=homescreen
-og_title         = [untitled]
-og_description   = [undescribed]
-og_type          = website
-og_image         = undefined
-og_imageAlt      = undefined
-
-siteUrl          = https://techiejoe.github.io/nova/site
-authorUrl        = https://techiejoe.github.io
-sourceUrl        = https://github.com/techie-joe/nova
-localUrl         = http://localhost/nova/site
-</pre>
+            <hr class="_mb0">
+            <section class="_mono _text_left _scrollable" id="jso" style="overflow-y:scroll;height:500px">
+              <div class="_container">
+                <pre class="_smaller" id="jsout"></pre>
+              </div>
+            </section>
+            <hr class="_mt0">
+            <section class="_hidden">
+              <div id="element"></div>
             </section>
           </article>
           <aside class="_side_article"></aside>
@@ -130,7 +121,15 @@ localUrl         = http://localhost/nova/site
       </div>
     </div>
     <aside id="_widgets"></aside>
-    <script type="text/javascript" src="/nova/site/js/theme_v2.0.js?v=0.1.0"></script>
-    <script>// your script goes here</script>
+    <script type="text/javascript" src="/_ace/scripts/ts_js/theme_v1.0.js?v=0.1.0" defer="defer"></script>
+    <script type="text/javascript" src="/_ace/scripts/gulp_js/test_theme_v1.0.js?v=0.1.0" defer="defer"></script>
+    <script>
+      (function(){
+      
+        var jstest = document.getElementById('jstest');
+        jstest && (jstest.setAttribute('style','color:green;'),jstest.innerHTML = '[JS:OK]');
+      
+      })();
+    </script>
   </body>
 </html>
