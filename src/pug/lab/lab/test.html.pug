@@ -26,7 +26,7 @@ block append script
     (()=>{
       let test = '';
       const
-        assign = (target,obj) => Object.assign(target=target||{},obj),
+        assign = (target,obj) => Object.assign(target||{},obj),
         w = window,
         d = document,
         eid = e => d.getElementById(e),
@@ -41,7 +41,7 @@ block append script
           pre.innerHTML = test;
           scroll();
         };
-      assign(w.test,{ run, reset });
+      w.test = assign(w.test,{ run, reset });
     })();
 
 //- block append script

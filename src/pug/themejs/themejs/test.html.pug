@@ -17,7 +17,7 @@ mixin lab_nav
       span(style="padding:0 .5em;line-height:1.8em;"): span#jss._b._small._mono='[JS:--]'
       +menu_a11([
       ])
-    //- ._fit: +changeThemeLink._a11: +itext('_cicon')|☀
+    ._fit: +changeThemeLink._a11: +itext('_cicon')|☀
   hr._m0
 
 block header
@@ -35,15 +35,17 @@ block article
         vertical-align: top;
         line-height: inherit;
       }
-    ._container#btns._indiv
-      button._a3(onclick="test.reset()") Reset
-      button._a3(onclick="test.run()") Run
-    //- 
-      ._fit=' | '
+    section._container#btns._flex
       ._fit._no_wrap._indiv
-        button(onclick='test.store();' title="Add Store")._a3|Store
+        button._a3(onclick="test.reset()") Reset
+        button._a3(onclick="test.run()") Run
+      ._fit._text_center='|'
+      ._fit._no_wrap._indiv
+        button(onclick='test.storeAdd();' title="Add Store")._a3|Store
         button(onclick='test.storeCheck();' title="Store Check")._a3|Check
         button(onclick='test.storeClear();' title="Store Clear")._a3|Clear
+      ._f
+    //- 
       ._fit=' | '
       ._f
         button(onclick='test.run_updateClass();' title="Theme updateClass")._a3|updateClass

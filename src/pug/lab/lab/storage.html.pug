@@ -24,36 +24,37 @@ block prepend script
   script.
     (()=>{
 
-      const originalSetItem = localStorage.setItem;
-      const originalRemoveItem = localStorage.removeItem;
-      const originalClear = localStorage.clear;
+      const
+        w = window,
+        s = localStorage,
+        { setItem, removeItem, clear } = s;
 
-      function triggerChangeEvent(key, oldValue, newValue) {
-        window.dispatchEvent(new CustomEvent('local-storage-change', {
+      function storageChanged(key, oldValue, newValue) {
+        w.dispatchEvent(new CustomEvent('storageChanged', {
           detail: { key, oldValue, newValue }
         }));
       }
 
-      localStorage.setItem = function (key, value) {
-        const oldValue = localStorage.getItem(key);
-        originalSetItem.apply(this, arguments);
-        triggerChangeEvent(key, oldValue, value);
+      s.setItem = function (key, value) {
+        const oldValue = s.getItem(key);
+        setItem.apply(this, arguments);
+        storageChanged(key, oldValue, value);
       };
 
-      localStorage.removeItem = function (key) {
-        const oldValue = localStorage.getItem(key);
-        originalRemoveItem.apply(this, arguments);
-        triggerChangeEvent(key, oldValue, null);
+      s.removeItem = function (key) {
+        const oldValue = s.getItem(key);
+        removeItem.apply(this, arguments);
+        storageChanged(key, oldValue, null);
       };
 
-      localStorage.clear = function () {
-        originalClear.apply(this);
-        triggerChangeEvent('*', null, null); // use * to signal mass clear
+      s.clear = function () {
+        clear.apply(this);
+        storageChanged('*', null, null); // use * to clear all
       };
 
       // Also listen to cross-tab changes
-      window.addEventListener('storage', (e) => {
-        triggerChangeEvent(e.key, e.oldValue, e.newValue);
+      w.addEventListener('storage', (e) => {
+        storageChanged(e.key, e.oldValue, e.newValue);
       });
 
     })();
@@ -80,7 +81,7 @@ block prepend script
             `storage[${storage.length}]: `+JSON.stringify(storage, null, 2)
           ].join('\n'));
         };
-      w.addEventListener("local-storage-change", (event) => {
+      w.addEventListener("storageChanged", (event) => {
         updateLog();
       });
       d.addEventListener('DOMContentLoaded', () => {

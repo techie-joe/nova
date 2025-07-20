@@ -80,6 +80,8 @@
             <nav>
             </nav>
           </div>
+          <div class="_fit"><a class="_needjs _a11" href="#" onclick="event.preventDefault();theme.change();" title="Change Theme (Ctrl+Alt+T)"><i class="_icon _cicon"><i class="itext">☀</i></i></a>
+          </div>
         </div>
         <hr class="_m0"/>
         <main id="_main">
@@ -93,10 +95,19 @@
                 line-height: inherit;
               }
             </style>
-            <div class="_container _indiv" id="btns">
-              <button class="_a3" onclick="test.reset()">Reset</button>
-              <button class="_a3" onclick="test.run()">Run</button>
-            </div>
+            <section class="_container _flex" id="btns">
+              <div class="_fit _no_wrap _indiv">
+                <button class="_a3" onclick="test.reset()">Reset</button>
+                <button class="_a3" onclick="test.run()">Run</button>
+              </div>
+              <div class="_fit _text_center">|</div>
+              <div class="_fit _no_wrap _indiv">
+                <button class="_a3" onclick="test.storeAdd();" title="Add Store">Store</button>
+                <button class="_a3" onclick="test.storeCheck();" title="Store Check">Check</button>
+                <button class="_a3" onclick="test.storeClear();" title="Store Clear">Clear</button>
+              </div>
+              <div class="_f"></div>
+            </section>
             <hr class="_mb0">
             <style>#pre { font-size:.8rem }</style>
             <section class="_scrollable" style="height:500px" id="sec">

@@ -5,7 +5,7 @@
   let test = '';
   const
     now = () => new Date().getMilliseconds(),
-    assign = (target,obj) => Object.assign(target=target||{},obj),
+    assign = (target,obj) => Object.assign(target||{},obj),
     w = window,
     d = document,
     doc = d.documentElement || d.body, // html or body
@@ -38,6 +38,14 @@
     },
     note = (v, style) => { out(v, style); cog(v, style); },
     tes = (what, label) => { what ? note(label + ': ☑', GREEN) : note(label + ': ☒', RED); },
+    storeAdd = () => {
+      let
+        x = Math.random().toString(36),
+        k = x.substring(2,7),
+        v = x.substring(2,10);
+      localStorage.setItem(k,v);
+      storeCheck();
+    },
     storeCheck = () => {
       out(`storage[${storage.length}]: ` + JSON.stringify(storage, null, 2));
       hr();
@@ -73,9 +81,10 @@
 
   // ==================================================== finished
 
-  w.test = {
+  w.test = assign(w.test,{
     run,
     reset,
+    storeAdd,
     storeCheck,
     storeClear,
     // run_check,
@@ -83,7 +92,7 @@
     // run_set,
     // run_change,
     // run_updateClass,
-  };
+  });
 
   w.onload = run;
 

@@ -95,10 +95,10 @@
                 line-height: inherit;
               }
             </style>
-            <div class="_container _indiv" id="btns">
+            <section class="_container _indiv" id="btns">
               <button class="_a3" onclick="test.reset()">Reset</button>
               <button class="_a3" onclick="test.run('Test run ..')">Test Run</button>
-            </div>
+            </section>
             <hr class="_mb0">
             <section class="_scrollable" style="height:400px" id="sec">
               <pre class="pre _container" id="pre">// Testing new stuff ..</pre>
@@ -173,7 +173,7 @@
       (()=>{
         let test = '';
         const
-          assign = (target,obj) => Object.assign(target=target||{},obj),
+          assign = (target,obj) => Object.assign(target||{},obj),
           w = window,
           d = document,
           eid = e => d.getElementById(e),
@@ -188,7 +188,7 @@
             pre.innerHTML = test;
             scroll();
           };
-        assign(w.test,{ run, reset });
+        w.test = assign(w.test,{ run, reset });
       })();
       
     </script>
