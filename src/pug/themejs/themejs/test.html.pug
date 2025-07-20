@@ -14,7 +14,7 @@ mixin lab_nav
   #_main_nav._color_2._flex
     ._fit: +a(homeUri+'lab')._a11|#[+isvg(svgi.angle,'_licon')._rotate_180]Back
     ._f
-      span(style="padding:0 .5em;line-height:1.8em;"): span#jstest._b._small._mono='[JS:--]'
+      span(style="padding:0 .5em;line-height:1.8em;"): span#jss._b._small._mono='[JS:--]'
       +menu_a11([
       ])
     //- ._fit: +changeThemeLink._a11: +itext('_cicon')|☀
@@ -26,57 +26,150 @@ block header
 
 block article
   article._article
-    style.
-      #nav button { font-size:.8rem;min-height: 1.5rem; }
-      #jsout { font-size:.8rem }
-    section._container#nav._flex
-      ._fit._no_wrap._indiv
-        button(onclick=onclick('location.reload()') title="Reload Page")._a3|Reload
-        button(onclick=onclick('test.clear();') title="Clear console")._a3|Clear
-        button(onclick=onclick('test.run();') title="Run Tests")._a3|Run #[+itext('_cicon')|&raquo;]
-      ._fit=' | '
-      ._fit._no_wrap._indiv
-        button(onclick=onclick('test.store();') title="Add Store")._a3|Store
-        button(onclick=onclick('test.storeCheck();') title="Store Check")._a3|Check
-        button(onclick=onclick('test.storeClear();') title="Store Clear")._a3|Clear
-      ._fit=' | '
-      ._f
-        button(onclick=onclick('test.run_updateClass();') title="Theme updateClass")._a3|updateClass
-      ._fit=' | '
-      ._f
-        button(onclick=onclick('test.run_set();') title="Theme Set")._a3|Set
-        button(onclick=onclick('test.run_set(1);') title="Theme Set 1")._a3|1
-        button(onclick=onclick('test.run_set(2);') title="Theme Set 2")._a3|2
-        button(onclick=onclick('test.run_set(3);') title="Theme Set 3")._a3|3
-      ._fit=' | '
-      ._f
-        button(onclick=onclick('test.run_change();') title="Theme Change")._a3|Change
-        button(onclick=onclick('test.run_reset();') title="Reset Theme")._a3|Reset
-      ._fit=' | '
-      ._f
-        button(onclick=onclick('storage.set();') title="Storage Set")._a3|Set
-        button(onclick=onclick('storage.get();') title="Storage Get")._a3|Get
-        button(onclick=onclick('storage.remove();') title="Storage Remove")._a3|Remove
 
+    style.
+      #btns button {
+        margin: .1em;
+        font-size: 0.8rem;
+        min-height: 1.5rem;
+        vertical-align: top;
+        line-height: inherit;
+      }
+    ._container#btns._indiv
+      button._a3(onclick="test.reset()") Reset
+      button._a3(onclick="test.run()") Run
+    //- 
+      ._fit=' | '
+      ._fit._no_wrap._indiv
+        button(onclick='test.store();' title="Add Store")._a3|Store
+        button(onclick='test.storeCheck();' title="Store Check")._a3|Check
+        button(onclick='test.storeClear();' title="Store Clear")._a3|Clear
+      ._fit=' | '
+      ._f
+        button(onclick='test.run_updateClass();' title="Theme updateClass")._a3|updateClass
+      ._fit=' | '
+      ._f
+        button(onclick='test.run_set();' title="Theme Set")._a3|Set
+        button(onclick='test.run_set(1);' title="Theme Set 1")._a3|1
+        button(onclick='test.run_set(2);' title="Theme Set 2")._a3|2
+        button(onclick='test.run_set(3);' title="Theme Set 3")._a3|3
+      ._fit=' | '
+      ._f
+        button(onclick='test.run_change();' title="Theme Change")._a3|Change
+        button(onclick='test.run_reset();' title="Reset Theme")._a3|Reset
+      ._fit=' | '
+      ._f
+        button(onclick='storage.set();' title="Storage Set")._a3|Set
+        button(onclick='storage.get();' title="Storage Get")._a3|Get
+        button(onclick='storage.remove();' title="Storage Remove")._a3|Remove
     hr._mb0
+    style.
+      #pre { font-size:.8rem }
     section._scrollable(style="height:500px")#sec
       pre.pre#pre._container| // #{description} ..
     hr._mt0
+    section._hidden#element
 
-    section._hidden: #element
-
-block script
+block append script
   //- +jsv(src)
   //- ------------------------------------------------------------
   //- +jsv('/_ace/scripts/ts_js/theme_v1.0.js')(defer)
   //- +jsv('/_ace/scripts/gulp_js/test_theme_v1.0.js')(defer)
-  +jsv('/nova/src/files/index/'+'jss/test_theme_v2.0.js')
+  //- +jsv('/nova/src/files/index/'+'jss/test_theme_v2.0.js')
   //- ------------------------------------------------------------
   //- +jsv(homeUri+'js/theme_v2.0.js')
   //- ------------------------------------------------------------
+  script.
+    (() => {
+      let test = '';
+      const
+        now = () => new Date().getMilliseconds(),
+        assign = (target,obj) => Object.assign(target=target||{},obj),
+        w = window,
+        d = document,
+        doc = d.documentElement || d.body, // html or body
+        eid = e => d.getElementById(e),
+        hid = (id, html) => eid(id).innerHTML += html,
+        jss = eid('jss'),
+        sec = eid('sec'),
+        pre = eid('pre'),
+        pre_text = pre.innerHTML,
+        element = eid('element'),
+        storage = localStorage,
+        { log } = console,
+        scroll = () => { sec.scrollTo(0, sec.scrollHeight); },
+        hr = () => { pre.append(d.createElement('hr')); },
+        KEY = 'cuba',
+        TC = 'theme',
+        TL = 'themes',
+        GREY = 'color:#888888;',
+        RED = 'color:#e22200;',
+        GREEN = 'color:#008800;',
+        ORANGE = 'color:#916900;',
+        PURPLE = 'color:#9f40a9;',
+        BROWN = 'color:#a52a2a;',
+        out = (v, style) => {
+          var e = d.createElement('div');
+          style && e.setAttribute('style', style);
+          e.append(v);
+          pre.append(e);
+        },
+        note = (v, style) => { out(v, style); log('%c' + v, style); },
+        tes = (what, label) => { what ? note(label + ': ☑', GREEN) : note(label + ': ☒', RED); },
+        storeCheck = () => {
+          out(`storage[${storage.length}]: ` + JSON.stringify(storage, null, 2));
+          hr();
+          scroll();
+        },
+        storeClear = () => {
+          storage.clear();
+          storeCheck();
+        },
+        reset = () => {
+          test = ''; pre.innerHTML = pre_text; console.clear();
+          out('Console was cleared', GREY + 'font-style:italic;font-size:.75rem'); hr();
+        },
+        run = () => {
+          storeCheck();
+        };
 
+      // ================================================ add listener
+
+      w.onerror = (event) => {
+        jss && (
+          jss.setAttribute('style', RED),
+          jss.innerHTML = '[JS:ER]'
+        );
+        out(event.toString(), RED);
+        scroll();
+      };
+
+      // ==================================================== finished
+
+      assign(w.test, {
+        run,
+        reset,
+        storeCheck,
+        storeClear,
+        // run_check,
+        // run_reset,
+        // run_set,
+        // run_change,
+        // run_updateClass,
+      });
+
+      w.onload = run;
+
+    })();
   script.
     (()=>{
-      var e = document.getElementById('jstest');
-      e && ( e.setAttribute('style','color:green;'), e.innerHTML = '[JS:OK]' );
+      const
+        w = window,
+        d = document,
+        eid = e => d.getElementById(e),
+        e = eid('jss');
+      e && (
+        e.setAttribute('style','color:green;'),
+        e.innerHTML = '[JS:OK]'
+      );
     })();

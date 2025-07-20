@@ -90,12 +90,12 @@
               #btns button {
                 margin: .1em;
                 font-size: 0.8rem;
+                min-height: 1.5rem;
                 vertical-align: top;
                 line-height: inherit;
-                min-height: 1.5rem;
               }
             </style>
-            <div class="_container" id="btns">
+            <div class="_container _indiv" id="btns">
               <button class="_a3" onclick="test.reset()">Reset</button>
               <button class="_a3" onclick="test.run('Test run ..')">Test Run</button>
             </div>
@@ -173,14 +173,14 @@
       (()=>{
         let test = '';
         const
+          assign = (target,obj) => Object.assign(target=target||{},obj),
           w = window,
           d = document,
           eid = e => d.getElementById(e),
           sec = eid('sec'),
           pre = eid('pre'),
           pre_text = pre.innerHTML,
-          { log, clear } = console,
-          assign = (target, obj) => Object.assign(target = target || {},obj),
+          { log } = console,
           scroll = () => { sec.scrollTo(0, sec.scrollHeight); },
           reset = () => { test = ''; pre.innerHTML = pre_text; },
           run = () => {
@@ -190,6 +190,7 @@
           };
         assign(w.test,{ run, reset });
       })();
+      
     </script>
   </body>
 </html>

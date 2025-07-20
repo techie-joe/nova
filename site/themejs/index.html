@@ -76,7 +76,7 @@
                     <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
                   </svg></i></i>Back</a>
           </div>
-          <div class="_f"><span style="padding:0 .5em;line-height:1.8em;"><span class="_b _small _mono" id="jstest">[JS:--]</span></span>
+          <div class="_f"><span style="padding:0 .5em;line-height:1.8em;"><span class="_b _small _mono" id="jss">[JS:--]</span></span>
             <nav>
             </nav>
           </div>
@@ -85,53 +85,25 @@
         <main id="_main">
           <article class="_article">
             <style>
-              #nav button { font-size:.8rem;min-height: 1.5rem; }
-              #jsout { font-size:.8rem }
+              #btns button {
+                margin: .1em;
+                font-size: 0.8rem;
+                min-height: 1.5rem;
+                vertical-align: top;
+                line-height: inherit;
+              }
             </style>
-            <section class="_container _flex" id="nav">
-              <div class="_fit _no_wrap _indiv">
-                <button class="_a3" onclick="event.preventDefault();location.reload()" title="Reload Page">Reload</button>
-                <button class="_a3" onclick="event.preventDefault();test.clear();" title="Clear console">Clear</button>
-                <button class="_a3" onclick="event.preventDefault();test.run();" title="Run Tests">Run <i class="_icon _cicon"><i class="itext">&raquo;</i></i>
-                </button>
-              </div>
-              <div class="_fit"> | </div>
-              <div class="_fit _no_wrap _indiv">
-                <button class="_a3" onclick="event.preventDefault();test.store();" title="Add Store">Store</button>
-                <button class="_a3" onclick="event.preventDefault();test.storeCheck();" title="Store Check">Check</button>
-                <button class="_a3" onclick="event.preventDefault();test.storeClear();" title="Store Clear">Clear</button>
-              </div>
-              <div class="_fit"> | </div>
-              <div class="_f">
-                <button class="_a3" onclick="event.preventDefault();test.run_updateClass();" title="Theme updateClass">updateClass</button>
-              </div>
-              <div class="_fit"> | </div>
-              <div class="_f">
-                <button class="_a3" onclick="event.preventDefault();test.run_set();" title="Theme Set">Set</button>
-                <button class="_a3" onclick="event.preventDefault();test.run_set(1);" title="Theme Set 1">1</button>
-                <button class="_a3" onclick="event.preventDefault();test.run_set(2);" title="Theme Set 2">2</button>
-                <button class="_a3" onclick="event.preventDefault();test.run_set(3);" title="Theme Set 3">3</button>
-              </div>
-              <div class="_fit"> | </div>
-              <div class="_f">
-                <button class="_a3" onclick="event.preventDefault();test.run_change();" title="Theme Change">Change</button>
-                <button class="_a3" onclick="event.preventDefault();test.run_reset();" title="Reset Theme">Reset</button>
-              </div>
-              <div class="_fit"> | </div>
-              <div class="_f">
-                <button class="_a3" onclick="event.preventDefault();storage.set();" title="Storage Set">Set</button>
-                <button class="_a3" onclick="event.preventDefault();storage.get();" title="Storage Get">Get</button>
-                <button class="_a3" onclick="event.preventDefault();storage.remove();" title="Storage Remove">Remove</button>
-              </div>
-            </section>
+            <div class="_container _indiv" id="btns">
+              <button class="_a3" onclick="test.reset()">Reset</button>
+              <button class="_a3" onclick="test.run()">Run</button>
+            </div>
             <hr class="_mb0">
+            <style>#pre { font-size:.8rem }</style>
             <section class="_scrollable" style="height:500px" id="sec">
               <pre class="pre _container" id="pre">// Testing ThemeJS ..</pre>
             </section>
             <hr class="_mt0">
-            <section class="_hidden">
-              <div id="element"></div>
-            </section>
+            <section class="_hidden" id="element"></section>
           </article>
           <aside class="_side_article"></aside>
         </main>
@@ -151,11 +123,101 @@
       </div>
     </div>
     <aside id="_widgets"></aside>
-    <script type="text/javascript" src="/nova/src/files/index/jss/test_theme_v2.0.js?v=0.1.0"></script>
+    <script>// your script goes here</script>
+    <script>
+      (() => {
+        let test = '';
+        const
+          now = () => new Date().getMilliseconds(),
+          assign = (target,obj) => Object.assign(target=target||{},obj),
+          w = window,
+          d = document,
+          doc = d.documentElement || d.body, // html or body
+          eid = e => d.getElementById(e),
+          hid = (id, html) => eid(id).innerHTML += html,
+          jss = eid('jss'),
+          sec = eid('sec'),
+          pre = eid('pre'),
+          pre_text = pre.innerHTML,
+          element = eid('element'),
+          storage = localStorage,
+          { log } = console,
+          scroll = () => { sec.scrollTo(0, sec.scrollHeight); },
+          hr = () => { pre.append(d.createElement('hr')); },
+          KEY = 'cuba',
+          TC = 'theme',
+          TL = 'themes',
+          GREY = 'color:#888888;',
+          RED = 'color:#e22200;',
+          GREEN = 'color:#008800;',
+          ORANGE = 'color:#916900;',
+          PURPLE = 'color:#9f40a9;',
+          BROWN = 'color:#a52a2a;',
+          out = (v, style) => {
+            var e = d.createElement('div');
+            style && e.setAttribute('style', style);
+            e.append(v);
+            pre.append(e);
+          },
+          note = (v, style) => { out(v, style); log('%c' + v, style); },
+          tes = (what, label) => { what ? note(label + ': ☑', GREEN) : note(label + ': ☒', RED); },
+          storeCheck = () => {
+            out(`storage[${storage.length}]: ` + JSON.stringify(storage, null, 2));
+            hr();
+            scroll();
+          },
+          storeClear = () => {
+            storage.clear();
+            storeCheck();
+          },
+          reset = () => {
+            test = ''; pre.innerHTML = pre_text; console.clear();
+            out('Console was cleared', GREY + 'font-style:italic;font-size:.75rem'); hr();
+          },
+          run = () => {
+            storeCheck();
+          };
+      
+        // ================================================ add listener
+      
+        w.onerror = (event) => {
+          jss && (
+            jss.setAttribute('style', RED),
+            jss.innerHTML = '[JS:ER]'
+          );
+          out(event.toString(), RED);
+          scroll();
+        };
+      
+        // ==================================================== finished
+      
+        assign(w.test, {
+          run,
+          reset,
+          storeCheck,
+          storeClear,
+          // run_check,
+          // run_reset,
+          // run_set,
+          // run_change,
+          // run_updateClass,
+        });
+      
+        w.onload = run;
+      
+      })();
+    </script>
     <script>
       (()=>{
-        var e = document.getElementById('jstest');
-        e && ( e.setAttribute('style','color:green;'), e.innerHTML = '[JS:OK]' );
+        const
+          w = window,
+          d = document,
+          eid = e => d.getElementById(e),
+          e = eid('jss');
+        e && (
+          e.setAttribute('style','color:green;'),
+          e.innerHTML = '[JS:OK]'
+        );
       })();
     </script>
   </body>
