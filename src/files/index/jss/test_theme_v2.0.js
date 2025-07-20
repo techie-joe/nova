@@ -1,6 +1,42 @@
 /* ===============================================================
 // TESTING ThemeJs v2.0
 // ============================================================ */
+(()=>{
+
+  const
+    w = window,
+    s = localStorage,
+    { setItem, removeItem, clear } = s;
+
+  function storageChanged(key, oldValue, newValue) {
+    w.dispatchEvent(new CustomEvent('storageChanged', {
+      detail: { key, oldValue, newValue }
+    }));
+  }
+
+  s.setItem = function (key, value) {
+    const oldValue = s.getItem(key);
+    setItem.apply(this, arguments);
+    storageChanged(key, oldValue, value);
+  };
+
+  s.removeItem = function (key) {
+    const oldValue = s.getItem(key);
+    removeItem.apply(this, arguments);
+    storageChanged(key, oldValue, null);
+  };
+
+  s.clear = function () {
+    clear.apply(this);
+    storageChanged('*', null, null); // use * to clear all
+  };
+
+  // Also listen to cross-tab changes
+  w.addEventListener('storage', (e) => {
+    storageChanged(e.key, e.oldValue, e.newValue);
+  });
+
+})();
 (() => {
   let test = '';
   const
@@ -44,22 +80,18 @@
         k = x.substring(2,7),
         v = x.substring(2,10);
       localStorage.setItem(k,v);
-      storeCheck();
     },
     storeCheck = () => {
       out(`storage[${storage.length}]: ` + JSON.stringify(storage, null, 2));
-      hr();
       scroll();
     },
     storeClear = () => {
       storage.clear();
-      storeCheck();
     },
     reset = () => {
       test = ''; pre.innerHTML = ''; console.clear();
       jss.setAttribute('style', GREEN); jss.innerHTML = '[JS:OK]';
       out('Console was cleared', GREY);
-      hr();
     },
     run = () => {
       storeCheck();
@@ -81,21 +113,25 @@
 
   // ==================================================== finished
 
-  w.test = assign(w.test,{
-    run,
-    reset,
-    storeAdd,
-    storeCheck,
-    storeClear,
-    // run_check,
-    // run_reset,
-    // run_set,
-    // run_change,
-    // run_updateClass,
+  w.addEventListener("storageChanged", storeCheck);
+
+  d.addEventListener('DOMContentLoaded', () => {
+
+    w.test = assign(w.test,{
+      run,
+      reset,
+      storeAdd,
+      storeCheck,
+      storeClear,
+      // run_check,
+      // run_reset,
+      // run_set,
+      // run_change,
+      // run_updateClass,
+    });
+
+    // run();
+
   });
-
-  w.onload = run;
-
-  hr();
 
 })();

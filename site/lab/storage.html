@@ -186,12 +186,8 @@
               `storage[${storage.length}]: `+JSON.stringify(storage, null, 2)
             ].join('\n'));
           };
-        w.addEventListener("storageChanged", (event) => {
-          updateLog();
-        });
-        d.addEventListener('DOMContentLoaded', () => {
-          updateLog();
-        });
+        w.addEventListener("storageChanged", updateLog);
+        d.addEventListener('DOMContentLoaded', updateLog);
       })();
     </script>
     <script type="text/javascript" src="/nova/site/js/theme_v2.0.js?v=0.1.0"></script>
