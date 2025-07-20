@@ -51,6 +51,7 @@
     sec = eid('sec'),
     pre = eid('pre'),
     pre_text = pre.innerHTML,
+    stg = eid('storage'),
     element = eid('element'),
     storage = localStorage,
     { log } = console,
@@ -82,8 +83,9 @@
       localStorage.setItem(k,v);
     },
     storeCheck = () => {
-      out(`storage[${storage.length}]: ` + JSON.stringify(storage, null, 2));
-      scroll();
+      stg.innerHTML = `storage[${storage.length}]: ` + JSON.stringify(storage, null, 2);
+      // out(`storage[${storage.length}]: ` + JSON.stringify(storage, null, 2));
+      // scroll();
     },
     storeClear = () => {
       storage.clear();
@@ -95,11 +97,6 @@
     },
     run = () => {
       storeCheck();
-      jss && (
-        jss.setAttribute('style', GREEN),
-        jss.innerHTML = '[JS:OK]'
-      );      
-      cog(pre_text, GREY);
     };
 
   // ================================================ add listener
@@ -129,8 +126,13 @@
       // run_change,
       // run_updateClass,
     });
-
-    // run();
+    
+    storeCheck();
+    jss && (
+      jss.setAttribute('style', GREEN),
+      jss.innerHTML = '[JS:OK]'
+    );      
+    cog(pre_text, GREY);
 
   });
 

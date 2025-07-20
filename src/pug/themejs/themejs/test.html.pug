@@ -8,7 +8,7 @@ block append vars
     description = 'Testing ThemeJS'
   -
     INCLUDE_THEMEJS = false;
-    htmlClass.push('_dark')
+    htmlClass.push('_hidden')
 
 mixin lab_nav
   #_main_nav._color_2._flex
@@ -66,9 +66,12 @@ block article
         button(onclick='storage.remove();' title="Storage Remove")._a3|Remove
     hr._mb0
     style.
-      #pre { font-size:.8rem }
-    section._scrollable(style="height:500px")#sec
-      pre.pre#pre._container| // #{description} ..
+      .pre { font-size:.8rem }
+    ._flex
+      ._f6: section._scrollable(style="height:500px")#sec_storage
+        pre.pre#storage._container
+      ._f: section._scrollable(style="height:500px")#sec
+        pre.pre#pre._container| // #{description} ..
     hr._mt0
     section._hidden#element
 
