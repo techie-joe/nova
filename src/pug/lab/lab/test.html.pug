@@ -15,35 +15,37 @@ block append vars
 
 block article
   article._article
-
     +btns
       button._a3(onclick="test.reset()") Reset
       button._a3(onclick="test.run('Test run ..')") Test Run
-    hr
-    section._container: pre._scrollable.pre#pre.
-      // #{description}
-    //- pre.
-    script.
-      (()=>{
-        const
-          w = window,
-          d = document,
-          pre = d.getElementById('pre'),
-          pre_text = pre.innerHTML,
-          reset = () => {
-            pre.innerHTML = pre_text;
-          },
-          run = ()=>{
-            pre.innerHTML += `\n`+Math.random().toString(36).substring(2,10);
-          };
-        Object.assign(w.test=w.test||{},{
-          run, reset
-        });
-      })();
-    hr
+    hr._mb0
+    section._scrollable(style="height:400px")#sec
+      pre.pre#pre._container| // #{description} ..
+    hr._mt0
 
-//- block append script
+block append script
   script.
+    (()=>{
+      let test = '';
+      const
+        w = window,
+        d = document,
+        eid = e => d.getElementById(e),
+        sec = eid('sec'),
+        pre = eid('pre'),
+        pre_text = pre.innerHTML,
+        { log, clear } = console,
+        assign = (target, obj) => Object.assign(target = target || {},obj),
+        scroll = () => { sec.scrollTo(0, sec.scrollHeight); },
+        reset = () => { test = ''; pre.innerHTML = pre_text; },
+        run = () => {
+          test += Math.random().toString(36).substring(2, 10)+'\n';
+          pre.innerHTML = test;
+          scroll();
+        };
+      assign(w.test,{ run, reset });
+    })();
+  //- script.
     (()=>{
     })();
   //- script.

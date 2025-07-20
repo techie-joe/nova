@@ -16,11 +16,11 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/nova/site/icons/favicon-16x16.png?v=0.1.0"/>
     <link rel="icon" type="image/x-icon" sizes="any" href="/nova/site/icons/favicon.ico?v=0.1.0"/>
     <!--[if lt IE 9]><script src="//unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
-    <meta name="description" content="Testing storage."/>
+    <meta name="description" content="Testing storage"/>
     <meta name="author" content="Techie Joe"/>
     <meta name="publisher" content="[unknown]"/>
     <meta property="og:title" content="Storage"/>
-    <meta property="og:description" content="Testing storage."/>
+    <meta property="og:description" content="Testing storage"/>
     <meta property="og:type" content="website"/>
     <meta property="og:url" content="https://techiejoe.github.io/nova/site/lab/storage.html?utm_source=homescreen"/>
     <meta property="og:image"/>
@@ -65,7 +65,7 @@
       <div class="_view" id="_main_view">
         <header id="_header">
           <div class="_color_1">
-            <div class="_pa_5"><a class="_no_select" href="/nova/site/" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></a><span id="maindesc">Testing storage.</span>
+            <div class="_pa_5"><a class="_no_select" href="/nova/site/" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></a><span id="maindesc">Testing storage</span>
             </div>
           </div>
           <hr class="_m0"/>
@@ -96,16 +96,16 @@
               }
             </style>
             <div class="_container" id="btns">
-              <button class="_a3" onclick="(x=&gt;{localStorage.setItem(x.substring(2,7),x.substring(2,10))})(Math.random().toString(36));">Add to Storage</button>
               <button class="_a3" onclick="localStorage.clear();">Clear Storage</button>
+              <button class="_a3" onclick="test_addStorage();">Add to Storage</button>
               <button class="_a3" onclick="theme.change();">Change Theme</button>
             </div>
-            <hr>
-            <section class="_container">
-              <pre class="_scrollable pre">// Testing storage ..
+            <hr class="_mb0">
+            <section class="_scrollable" style="height:400px" id="sec">
+              <pre class="pre _container" id="pre">// Testing storage ..
 <span id="localStorage"></span></pre>
             </section>
-            <hr>
+            <hr class="_mt0">
           </article>
           <aside class="_side_article"></aside>
         </main>
@@ -126,10 +126,12 @@
     </div>
     <aside id="_widgets"></aside>
     <script>
-      (function () {
+      (()=>{
+      
         const originalSetItem = localStorage.setItem;
         const originalRemoveItem = localStorage.removeItem;
         const originalClear = localStorage.clear;
+      
         function triggerChangeEvent(key, oldValue, newValue) {
           window.dispatchEvent(new CustomEvent('local-storage-change', {
             detail: { key, oldValue, newValue }
@@ -159,6 +161,8 @@
         });
       
       })();
+    </script>
+    <script>
       (()=>{
         const
           w = window,
@@ -166,16 +170,21 @@
           eid = (id) => d.getElementById(id),
           hid = (id,html) => eid(id).innerHTML=html,
           storage = localStorage,
-          { log } = console;
-        const
+          { log } = console,
+          test = w.test_addStorage = () => {
+            let
+              x = Math.random().toString(36),
+              k = x.substring(2,7),
+              v = x.substring(2,10);
+            localStorage.setItem(k,v);
+          },
           updateLog = w.updateLog = () => {
             hid('localStorage', [
-              `storage.length: ${storage.length}`,
-              `theme: ${storage['theme']}`,
-              JSON.stringify(storage, null, 2)
+              '',
+              `theme: ${storage['theme']}\n`,
+              `storage[${storage.length}]: `+JSON.stringify(storage, null, 2)
             ].join('\n'));
           };
-        //
         w.addEventListener("local-storage-change", (event) => {
           updateLog();
         });

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="_hidden" lang="en">
+<html class="_dark" lang="en">
   
   <!-- Nova Builder v0.1.0 |  -->
   <!-- layout:main/_html -->
@@ -63,40 +63,70 @@
   <body>
     <div id="_views">
       <div class="_view" id="_main_view">
-        <nav class="_color_1" id="_main_nav">
-          <div class="_flex">
-            <div class="_fit"><a class="_a11" href="/nova/site/lab"><i class="_icon _cicon"><i class="isvg _rotate_180">
-                    <svg viewBox="0 0 24 24">
-                      <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
-                    </svg></i></i></a>
-            </div>
-            <div class="_f"><span class="_b _a11"><span class="_tc_contra">Theme</span><span class="_tc_blue">Js</span></span><span class="_mono" style="vertical-align:.1em;"><span class="_tc_red _b _small" id="jstest">[JS:OFF]</span></span></div>
-            <div class="_fit"><a class="_needjs _a11" href="#" onclick="event.preventDefault();theme.change();" title="Change Theme (Ctrl+Alt+T)"><i class="_icon _cicon"><i class="itext">☀</i></i></a>
+        <header id="_header">
+          <div class="_color_1">
+            <div class="_pa_5"><a class="_no_select" href="/nova/site/" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></a><span id="maindesc">Testing ThemeJS</span>
             </div>
           </div>
-        </nav>
-        <hr class="_m0">
+          <hr class="_m0"/>
+        </header>
+        <div class="_color_2 _flex" id="_main_nav">
+          <div class="_fit"><a class="_a11" href="/nova/site/lab"><i class="_icon _licon"><i class="isvg _rotate_180">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
+                  </svg></i></i>Back</a>
+          </div>
+          <div class="_f"><span style="padding:0 .5em;line-height:1.8em;"><span class="_b _small _mono" id="jstest">[JS:--]</span></span>
+            <nav>
+            </nav>
+          </div>
+        </div>
+        <hr class="_m0"/>
         <main id="_main">
           <article class="_article">
-            <section class="_container">
-              <nav class="nav" style="font-size:.8rem">
-<a class="_a3" href="#" title="Run Test" onclick="event.preventDefault();test.run();">Run <i class="_icon _cicon"><i class="itext">&raquo;</i></i></a>
-<a class="_a3" href="#" title="Clear Test Box" onclick="event.preventDefault();test.clear();">Clear</a> | 
-<a class="_a3" href="#" title="Theme Check" onclick="event.preventDefault();test.run_check();">Check</a>
-<a class="_a3" href="#" title="Theme updateClass" onclick="event.preventDefault();test.run_updateClass();">updateClass</a>
-<a class="_a3" href="#" title="Theme Set" onclick="event.preventDefault();test.run_set();">Set</a><a class="_a3" href="#" title="Theme Set 1" onclick="event.preventDefault();test.run_set(1);">1</a><a class="_a3" href="#" title="Theme Set 2" onclick="event.preventDefault();test.run_set(2);">2</a><a class="_a3" href="#" title="Theme Set 3" onclick="event.preventDefault();test.run_set(3);">3</a>
-<a class="_a3" href="#" title="Theme Change" onclick="event.preventDefault();test.run_change();">Change</a>
-<a class="_a3" href="#" title="Reset Theme" onclick="event.preventDefault();test.run_reset();">Reset</a> | 
-<a class="_a3" href="#" title="Storage Set" onclick="event.preventDefault();storage.set();">Set</a>
-<a class="_a3" href="#" title="Storage Get" onclick="event.preventDefault();storage.get();">Get</a>
-<a class="_a3" href="#" title="Storage Remove" onclick="event.preventDefault();storage.remove();">Remove</a>
-              </nav>
+            <style>
+              #nav button { font-size:.8rem;min-height: 1.5rem; }
+              #jsout { font-size:.8rem }
+            </style>
+            <section class="_container _flex" id="nav">
+              <div class="_fit _no_wrap _indiv">
+                <button class="_a3" onclick="event.preventDefault();location.reload()" title="Reload Page">Reload</button>
+                <button class="_a3" onclick="event.preventDefault();test.clear();" title="Clear console">Clear</button>
+                <button class="_a3" onclick="event.preventDefault();test.run();" title="Run Tests">Run <i class="_icon _cicon"><i class="itext">&raquo;</i></i>
+                </button>
+              </div>
+              <div class="_fit"> | </div>
+              <div class="_fit _no_wrap _indiv">
+                <button class="_a3" onclick="event.preventDefault();test.store();" title="Add Store">Store</button>
+                <button class="_a3" onclick="event.preventDefault();test.storeCheck();" title="Store Check">Check</button>
+                <button class="_a3" onclick="event.preventDefault();test.storeClear();" title="Store Clear">Clear</button>
+              </div>
+              <div class="_fit"> | </div>
+              <div class="_f">
+                <button class="_a3" onclick="event.preventDefault();test.run_updateClass();" title="Theme updateClass">updateClass</button>
+              </div>
+              <div class="_fit"> | </div>
+              <div class="_f">
+                <button class="_a3" onclick="event.preventDefault();test.run_set();" title="Theme Set">Set</button>
+                <button class="_a3" onclick="event.preventDefault();test.run_set(1);" title="Theme Set 1">1</button>
+                <button class="_a3" onclick="event.preventDefault();test.run_set(2);" title="Theme Set 2">2</button>
+                <button class="_a3" onclick="event.preventDefault();test.run_set(3);" title="Theme Set 3">3</button>
+              </div>
+              <div class="_fit"> | </div>
+              <div class="_f">
+                <button class="_a3" onclick="event.preventDefault();test.run_change();" title="Theme Change">Change</button>
+                <button class="_a3" onclick="event.preventDefault();test.run_reset();" title="Reset Theme">Reset</button>
+              </div>
+              <div class="_fit"> | </div>
+              <div class="_f">
+                <button class="_a3" onclick="event.preventDefault();storage.set();" title="Storage Set">Set</button>
+                <button class="_a3" onclick="event.preventDefault();storage.get();" title="Storage Get">Get</button>
+                <button class="_a3" onclick="event.preventDefault();storage.remove();" title="Storage Remove">Remove</button>
+              </div>
             </section>
             <hr class="_mb0">
-            <section class="_mono _text_left _scrollable" id="jso" style="overflow-y:scroll;height:500px">
-              <div class="_container">
-                <pre class="_smaller" id="jsout"></pre>
-              </div>
+            <section class="_scrollable" style="height:500px" id="sec">
+              <pre class="pre _container" id="pre">// Testing ThemeJS ..</pre>
             </section>
             <hr class="_mt0">
             <section class="_hidden">
@@ -121,14 +151,11 @@
       </div>
     </div>
     <aside id="_widgets"></aside>
-    <script type="text/javascript" src="/_ace/scripts/ts_js/theme_v1.0.js?v=0.1.0" defer="defer"></script>
-    <script type="text/javascript" src="/_ace/scripts/gulp_js/test_theme_v1.0.js?v=0.1.0" defer="defer"></script>
+    <script type="text/javascript" src="/nova/src/files/index/jss/test_theme_v2.0.js?v=0.1.0"></script>
     <script>
-      (function(){
-      
-        var jstest = document.getElementById('jstest');
-        jstest && (jstest.setAttribute('style','color:green;'),jstest.innerHTML = '[JS:OK]');
-      
+      (()=>{
+        var e = document.getElementById('jstest');
+        e && ( e.setAttribute('style','color:green;'), e.innerHTML = '[JS:OK]' );
       })();
     </script>
   </body>

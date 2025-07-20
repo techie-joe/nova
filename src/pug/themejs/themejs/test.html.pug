@@ -6,64 +6,77 @@ block append vars
     pageUrl     = siteUrl + '/themejs/test.html'
     title       = `ThemeJS Test`
     description = 'Testing ThemeJS'
+  -
+    INCLUDE_THEMEJS = false;
+    htmlClass.push('_dark')
+
+mixin lab_nav
+  #_main_nav._color_2._flex
+    ._fit: +a(homeUri+'lab')._a11|#[+isvg(svgi.angle,'_licon')._rotate_180]Back
+    ._f
+      span(style="padding:0 .5em;line-height:1.8em;"): span#jstest._b._small._mono='[JS:--]'
+      +menu_a11([
+      ])
+    //- ._fit: +changeThemeLink._a11: +itext('_cicon')|☀
+  hr._m0
 
 block header
-  nav#_main_nav._color_1: ._flex
-    ._fit
-      +a(homeUri+'lab')._a11|#[+isvg(svgi.angle,'_cicon')._rotate_180]
-    ._f
-      span._b._a11|#[span._tc_contra Theme]#[span._tc_blue Js]
-      //- +a('./')._a11|#[span._tc_contra Theme]#[span._tc_blue Js]
-      span._mono(style="vertical-align:.1em;"): span#jstest._tc_red._b._small='[JS:OFF]'
-    ._fit: +changeThemeLink._a11: +itext('_cicon')|☀
-  hr._m0
+  +simplestHeader
+  +lab_nav
 
 block article
   article._article
-
-    section._container: nav.nav(style="font-size:.8rem")
-      +_a()(onclick=onclick('test.run();') title="Run Test")._a3|Run #[+itext('_cicon')|&raquo;]
-      +_a()(onclick=onclick('test.clear();') title="Clear Test Box")._a3|Clear
-      =' | '
-      +_a()(onclick=onclick('test.run_check();') title="Theme Check")._a3|Check
-      +_a()(onclick=onclick('test.run_updateClass();') title="Theme updateClass")._a3|updateClass
-      +_a()(onclick=onclick('test.run_set();') title="Theme Set")._a3|Set
-      +a()(onclick=onclick('test.run_set(1);') title="Theme Set 1")._a3|1
-      +a()(onclick=onclick('test.run_set(2);') title="Theme Set 2")._a3|2
-      +a()(onclick=onclick('test.run_set(3);') title="Theme Set 3")._a3|3
-      +_a()(onclick=onclick('test.run_change();') title="Theme Change")._a3|Change
-      +_a()(onclick=onclick('test.run_reset();') title="Reset Theme")._a3|Reset
-      =' | '
-      +_a()(onclick=onclick('storage.set();') title="Storage Set")._a3|Set
-      +_a()(onclick=onclick('storage.get();') title="Storage Get")._a3|Get
-      +_a()(onclick=onclick('storage.remove();') title="Storage Remove")._a3|Remove
-
+    style.
+      #nav button { font-size:.8rem;min-height: 1.5rem; }
+      #jsout { font-size:.8rem }
+    section._container#nav._flex
+      ._fit._no_wrap._indiv
+        button(onclick=onclick('location.reload()') title="Reload Page")._a3|Reload
+        button(onclick=onclick('test.clear();') title="Clear console")._a3|Clear
+        button(onclick=onclick('test.run();') title="Run Tests")._a3|Run #[+itext('_cicon')|&raquo;]
+      ._fit=' | '
+      ._fit._no_wrap._indiv
+        button(onclick=onclick('test.store();') title="Add Store")._a3|Store
+        button(onclick=onclick('test.storeCheck();') title="Store Check")._a3|Check
+        button(onclick=onclick('test.storeClear();') title="Store Clear")._a3|Clear
+      ._fit=' | '
+      ._f
+        button(onclick=onclick('test.run_updateClass();') title="Theme updateClass")._a3|updateClass
+      ._fit=' | '
+      ._f
+        button(onclick=onclick('test.run_set();') title="Theme Set")._a3|Set
+        button(onclick=onclick('test.run_set(1);') title="Theme Set 1")._a3|1
+        button(onclick=onclick('test.run_set(2);') title="Theme Set 2")._a3|2
+        button(onclick=onclick('test.run_set(3);') title="Theme Set 3")._a3|3
+      ._fit=' | '
+      ._f
+        button(onclick=onclick('test.run_change();') title="Theme Change")._a3|Change
+        button(onclick=onclick('test.run_reset();') title="Reset Theme")._a3|Reset
+      ._fit=' | '
+      ._f
+        button(onclick=onclick('storage.set();') title="Storage Set")._a3|Set
+        button(onclick=onclick('storage.get();') title="Storage Get")._a3|Get
+        button(onclick=onclick('storage.remove();') title="Storage Remove")._a3|Remove
 
     hr._mb0
-    section#jso._mono._text_left._scrollable(style="overflow-y:scroll;height:500px")
-      ._container: pre#jsout._smaller
+    section._scrollable(style="height:500px")#sec
+      pre.pre#pre._container| // #{description} ..
     hr._mt0
 
-    section._hidden
-      #element
+    section._hidden: #element
 
 block script
   //- +jsv(src)
-
-  //- dev --------------------------------------------------------
-  +jsv('/_ace/scripts/ts_js/theme_v1.0.js')(defer)
-  +jsv('/_ace/scripts/gulp_js/test_theme_v1.0.js')(defer)
   //- ------------------------------------------------------------
-
-  //- production -------------------------------------------------
-  //- +jsv(assetsUrl+'js/theme_v1.0.js')(defer)
-  //- +jsv(assetsUrl+'js/test_theme_v1.0.js')(defer)
+  //- +jsv('/_ace/scripts/ts_js/theme_v1.0.js')(defer)
+  //- +jsv('/_ace/scripts/gulp_js/test_theme_v1.0.js')(defer)
+  +jsv('/nova/src/files/index/'+'jss/test_theme_v2.0.js')
+  //- ------------------------------------------------------------
+  //- +jsv(homeUri+'js/theme_v2.0.js')
   //- ------------------------------------------------------------
 
   script.
-    (function(){
-
-      var jstest = document.getElementById('jstest');
-      jstest && (jstest.setAttribute('style','color:green;'),jstest.innerHTML = '[JS:OK]');
-
+    (()=>{
+      var e = document.getElementById('jstest');
+      e && ( e.setAttribute('style','color:green;'), e.innerHTML = '[JS:OK]' );
     })();

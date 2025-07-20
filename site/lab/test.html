@@ -99,29 +99,11 @@
               <button class="_a3" onclick="test.reset()">Reset</button>
               <button class="_a3" onclick="test.run('Test run ..')">Test Run</button>
             </div>
-            <hr>
-            <section class="_container">
-              <pre class="_scrollable pre" id="pre">// Testing new stuff</pre>
+            <hr class="_mb0">
+            <section class="_scrollable" style="height:400px" id="sec">
+              <pre class="pre _container" id="pre">// Testing new stuff ..</pre>
             </section>
-            <script>
-              (()=>{
-                const
-                  w = window,
-                  d = document,
-                  pre = d.getElementById('pre'),
-                  pre_text = pre.innerHTML,
-                  reset = () => {
-                    pre.innerHTML = pre_text;
-                  },
-                  run = ()=>{
-                    pre.innerHTML += `\n`+Math.random().toString(36).substring(2,10);
-                  };
-                Object.assign(w.test=w.test||{},{
-                  run, reset
-                });
-              })();
-            </script>
-            <hr>
+            <hr class="_mt0">
           </article>
           <aside class="_side_article"></aside>
         </main>
@@ -187,5 +169,27 @@
     </script>
     <script type="text/javascript" src="/nova/site/js/theme_v2.0.js?v=0.1.0"></script>
     <script>// your script goes here</script>
+    <script>
+      (()=>{
+        let test = '';
+        const
+          w = window,
+          d = document,
+          eid = e => d.getElementById(e),
+          sec = eid('sec'),
+          pre = eid('pre'),
+          pre_text = pre.innerHTML,
+          { log, clear } = console,
+          assign = (target, obj) => Object.assign(target = target || {},obj),
+          scroll = () => { sec.scrollTo(0, sec.scrollHeight); },
+          reset = () => { test = ''; pre.innerHTML = pre_text; },
+          run = () => {
+            test += Math.random().toString(36).substring(2, 10)+'\n';
+            pre.innerHTML = test;
+            scroll();
+          };
+        assign(w.test,{ run, reset });
+      })();
+    </script>
   </body>
 </html>
