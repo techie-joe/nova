@@ -18,6 +18,7 @@
     element = eid('element'),
     storage = localStorage,
     { log } = console,
+    cog = (v, style) => { log('%c' + v, style); },
     scroll = () => { sec.scrollTo(0, sec.scrollHeight); },
     hr = () => { pre.append(d.createElement('hr')); },
     KEY = 'cuba',
@@ -35,7 +36,7 @@
       e.append(v);
       pre.append(e);
     },
-    note = (v, style) => { out(v, style); log('%c' + v, style); },
+    note = (v, style) => { out(v, style); cog(v, style); },
     tes = (what, label) => { what ? note(label + ': ☑', GREEN) : note(label + ': ☒', RED); },
     storeCheck = () => {
       out(`storage[${storage.length}]: ` + JSON.stringify(storage, null, 2));
@@ -47,27 +48,32 @@
       storeCheck();
     },
     reset = () => {
-      test = ''; pre.innerHTML = pre_text; console.clear();
-      out('Console was cleared', GREY + 'font-style:italic;font-size:.75rem'); hr();
+      test = ''; pre.innerHTML = ''; console.clear();
+      jss.setAttribute('style', GREEN); jss.innerHTML = '[JS:OK]';
+      out('Console was cleared', GREY);
+      hr();
     },
     run = () => {
       storeCheck();
+      jss && (
+        jss.setAttribute('style', GREEN),
+        jss.innerHTML = '[JS:OK]'
+      );      
+      cog(pre_text, GREY);
     };
 
   // ================================================ add listener
 
   w.onerror = (event) => {
-    jss && (
-      jss.setAttribute('style', RED),
-      jss.innerHTML = '[JS:ER]'
-    );
+    jss.setAttribute('style', RED); jss.innerHTML = '[JS:ER]';
     out(event.toString(), RED);
+    hr();
     scroll();
   };
 
   // ==================================================== finished
 
-  assign(w.test, {
+  w.test = {
     run,
     reset,
     storeCheck,
@@ -77,8 +83,10 @@
     // run_set,
     // run_change,
     // run_updateClass,
-  });
+  };
 
   w.onload = run;
+
+  hr();
 
 })();
