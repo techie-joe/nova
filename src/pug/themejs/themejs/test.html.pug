@@ -37,13 +37,13 @@ block article
       }
     section._container#btns._flex
       ._fit._no_wrap._indiv
-        button._a3(onclick="test.reset()") Reset
-        button._a3(onclick="test.run()") Run
-      ._fit._text_center='|'
-      ._fit._no_wrap._indiv
         button(onclick='test.storeAdd();' title="Add Store")._a3|Store
         button(onclick='test.storeCheck();' title="Store Check")._a3|Check
         button(onclick='test.storeClear();' title="Store Clear")._a3|Clear
+      ._fit._text_center='|'
+      ._fit._no_wrap._indiv
+        button._a3(onclick="test.reset()") Reset
+        button._a3(onclick="test.run()") Run
       ._f
     //- 
       ._fit=' | '
@@ -66,12 +66,15 @@ block article
         button(onclick='storage.remove();' title="Storage Remove")._a3|Remove
     hr._mb0
     style.
-      .pre { font-size:.8rem }
-    ._flex
-      ._f6: section._scrollable(style="height:500px")#sec_storage
-        pre.pre#storage._container
-      ._f: section._scrollable(style="height:500px")#sec
-        pre.pre#pre._container| // #{description} ..
+      #test .pre { font-size:.8rem }
+      #test .sec { max-height:500px }
+    #test._flex
+      ._fit(style="flex-basis:300px")
+        section._scrollable.sec#sec_storage
+          pre.pre#storage._container
+      ._f
+        section._scrollable.sec#sec
+          pre.pre#pre._container| // #{description} ..
     hr._mt0
     section._hidden#element
 

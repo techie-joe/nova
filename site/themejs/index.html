@@ -97,27 +97,30 @@
             </style>
             <section class="_container _flex" id="btns">
               <div class="_fit _no_wrap _indiv">
-                <button class="_a3" onclick="test.reset()">Reset</button>
-                <button class="_a3" onclick="test.run()">Run</button>
-              </div>
-              <div class="_fit _text_center">|</div>
-              <div class="_fit _no_wrap _indiv">
                 <button class="_a3" onclick="test.storeAdd();" title="Add Store">Store</button>
                 <button class="_a3" onclick="test.storeCheck();" title="Store Check">Check</button>
                 <button class="_a3" onclick="test.storeClear();" title="Store Clear">Clear</button>
               </div>
+              <div class="_fit _text_center">|</div>
+              <div class="_fit _no_wrap _indiv">
+                <button class="_a3" onclick="test.reset()">Reset</button>
+                <button class="_a3" onclick="test.run()">Run</button>
+              </div>
               <div class="_f"></div>
             </section>
             <hr class="_mb0">
-            <style>.pre { font-size:.8rem }</style>
-            <div class="_flex">
-              <div class="_f6">
-                <section class="_scrollable" style="height:500px" id="sec_storage">
+            <style>
+              #test .pre { font-size:.8rem }
+              #test .sec { max-height:500px }
+            </style>
+            <div class="_flex" id="test">
+              <div class="_fit" style="flex-basis:300px">
+                <section class="_scrollable sec" id="sec_storage">
                   <pre class="pre _container" id="storage"></pre>
                 </section>
               </div>
               <div class="_f">
-                <section class="_scrollable" style="height:500px" id="sec">
+                <section class="_scrollable sec" id="sec">
                   <pre class="pre _container" id="pre">// Testing ThemeJS ..</pre>
                 </section>
               </div>

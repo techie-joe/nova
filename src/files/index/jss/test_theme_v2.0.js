@@ -1,7 +1,9 @@
 /* ===============================================================
 // TESTING ThemeJs v2.0
 // ============================================================ */
-(()=>{
+(() => {
+
+  // add localstorage listener
 
   const
     w = window,
@@ -38,29 +40,27 @@
 
 })();
 (() => {
+
   let test = '';
+
   const
-    now = () => new Date().getMilliseconds(),
-    assign = (target,obj) => Object.assign(target||{},obj),
+    now = () => new Date(),
+    TYPE = e => Object.prototype.toString.call(e),
+    A = a => typeof a,
+    isFUN = a => A(a) === A(() => { }),
+    isARR = Array.isArray ? (a => Array.isArray(a)) : (a => TYPE(a) === TYPE([])),
+    assign = (target, obj) => Object.assign(target || {}, obj),
     w = window,
     d = document,
     doc = d.documentElement || d.body, // html or body
+    { log } = console,
+    cog = (v, style) => { log('%c' + v, style); },
     eid = e => d.getElementById(e),
     hid = (id, html) => eid(id).innerHTML += html,
     jss = eid('jss'),
     sec = eid('sec'),
     pre = eid('pre'),
     pre_text = pre.innerHTML,
-    stg = eid('storage'),
-    element = eid('element'),
-    storage = localStorage,
-    { log } = console,
-    cog = (v, style) => { log('%c' + v, style); },
-    scroll = () => { sec.scrollTo(0, sec.scrollHeight); },
-    hr = () => { pre.append(d.createElement('hr')); },
-    KEY = 'cuba',
-    TC = 'theme',
-    TL = 'themes',
     GREY = 'color:#888888;',
     RED = 'color:#e22200;',
     GREEN = 'color:#008800;',
@@ -73,31 +73,54 @@
       e.append(v);
       pre.append(e);
     },
-    note = (v, style) => { out(v, style); cog(v, style); },
-    tes = (what, label) => { what ? note(label + ': ☑', GREEN) : note(label + ': ☒', RED); },
+    scroll = (e) => { e.scrollTo(0, e.scrollHeight); },
+    hr = () => { pre.append(d.createElement('hr')); },
+    storage = localStorage,
+    stg = eid('storage'),
+    ste = eid('sec_storage'),
     storeAdd = () => {
       let
         x = Math.random().toString(36),
-        k = x.substring(2,7),
-        v = x.substring(2,10);
-      localStorage.setItem(k,v);
+        k = x.substring(2, 7),
+        v = x.substring(2, 10);
+      localStorage.setItem(k, v);
     },
     storeCheck = () => {
-      stg.innerHTML = `storage[${storage.length}]: ` + JSON.stringify(storage, null, 2);
-      // out(`storage[${storage.length}]: ` + JSON.stringify(storage, null, 2));
-      // scroll();
+      stg.innerHTML = `storage[${storage.length}]: `
+        + JSON.stringify(storage, null, 2);
+      // out(`storage[${storage.length}]: `
+      //   + JSON.stringify(storage, null, 2));
+      scroll(ste);
     },
     storeClear = () => {
       storage.clear();
     },
+    element = eid('element'),
     reset = () => {
       test = ''; pre.innerHTML = ''; console.clear();
       jss.setAttribute('style', GREEN); jss.innerHTML = '[JS:OK]';
       out('Console was cleared', GREY);
     },
+    note = (v, style) => { out(v, style); cog(v, style); },
+    noted = (label) => { note(label + ': ☒', RED); },
     run = () => {
       storeCheck();
+      hr();
+
+      if (isFUN(theme.list)) {
+        note(`theme.list    = [${theme.list()}]`);
+      } else { noted('theme.list'); }
+
+      if (isFUN(theme.current)) {
+        note(`theme.current = "${theme.current()}"`);
+      } else { noted('theme.current'); }
+
+      scroll(sec);
     };
+
+  //   KEY = 'cuba',
+  //   TC = 'theme',
+  //   TL = 'themes';
 
   // ================================================ add listener
 
@@ -105,7 +128,7 @@
     jss.setAttribute('style', RED); jss.innerHTML = '[JS:ER]';
     out(event.toString(), RED);
     hr();
-    scroll();
+    scroll(sec);
   };
 
   // ==================================================== finished
@@ -114,7 +137,7 @@
 
   d.addEventListener('DOMContentLoaded', () => {
 
-    w.test = assign(w.test,{
+    w.test = assign(w.test, {
       run,
       reset,
       storeAdd,
@@ -126,13 +149,13 @@
       // run_change,
       // run_updateClass,
     });
-    
-    storeCheck();
+
     jss && (
       jss.setAttribute('style', GREEN),
       jss.innerHTML = '[JS:OK]'
-    );      
+    );
     cog(pre_text, GREY);
+    run();
 
   });
 
