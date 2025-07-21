@@ -38,29 +38,29 @@ block article
     section._container#btns._flex
       ._fit._no_wrap._indiv
         button(onclick='test.storeAdd();' title="Add Store")._a3|Store
-        button(onclick='test.storeCheck();' title="Store Check")._a3|Check
-        button(onclick='test.storeClear();' title="Store Clear")._a3|Clear
+        button(onclick='test.storeClear();' title="Clear Store")._a3|Clear
       ._fit._text_center='|'
       ._fit._no_wrap._indiv
-        button._a3(onclick="test.reset()") Reset
-        button._a3(onclick="test.run()") Run Test
+        button(onclick='theme.change();' title="Theme Change")._a3|Theme
+        button(onclick='theme.reset();' title="Theme Reset")._a3|Reset
+      ._fit._text_center='|'
+      ._fit._no_wrap._indiv
+        button._a3(onclick="test.run()" title="Run Test") Test
+        button._a3(onclick='test.sync();' title="Sync Status")|Sync
+        button._a3(onclick="test.reset()" title="Reset Test") Reset
       ._f
     //- 
-      ._fit=' | '
-      ._f
+      ._fit._text_center='|'
+      ._fit._no_wrap._indiv
         button(onclick='test.run_updateClass();' title="Theme updateClass")._a3|updateClass
-      ._fit=' | '
-      ._f
+      ._fit._text_center='|'
+      ._fit._no_wrap._indiv
         button(onclick='test.run_set();' title="Theme Set")._a3|Set
         button(onclick='test.run_set(1);' title="Theme Set 1")._a3|1
         button(onclick='test.run_set(2);' title="Theme Set 2")._a3|2
         button(onclick='test.run_set(3);' title="Theme Set 3")._a3|3
-      ._fit=' | '
-      ._f
-        button(onclick='test.run_change();' title="Theme Change")._a3|Change
-        button(onclick='test.run_reset();' title="Reset Theme")._a3|Reset
-      ._fit=' | '
-      ._f
+      ._fit._text_center='|'
+      ._fit._no_wrap._indiv
         button(onclick='storage.set();' title="Storage Set")._a3|Set
         button(onclick='storage.get();' title="Storage Get")._a3|Get
         button(onclick='storage.remove();' title="Storage Remove")._a3|Remove

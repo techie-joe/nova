@@ -50,6 +50,7 @@
     isFUN = a => A(a) === A(() => { }),
     isARR = Array.isArray ? (a => Array.isArray(a)) : (a => TYPE(a) === TYPE([])),
     assign = (target, obj) => Object.assign(target || {}, obj),
+    stringify = (obj) => JSON.stringify(obj, null, 2),
     w = window,
     d = document,
     doc = d.documentElement || d.body, // html or body
@@ -73,6 +74,9 @@
       e.append(v);
       pre.append(e);
     },
+    note = (v, style) => { out(v, style); cog(v, style); },
+    note_ok = (label) => { note(label + ': ☑', GREEN); },
+    note_err = (label) => { note(label + ': ☒', RED); },
     scroll = (e) => { e.scrollTo(0, e.scrollHeight); },
     hr = () => { pre.append(d.createElement('hr')); },
     storage = localStorage,
@@ -85,13 +89,6 @@
         v = x.substring(2, 10);
       localStorage.setItem(k, v);
     },
-    storeCheck = () => {
-      stg.innerHTML = `storage[${storage.length}]: `
-        + JSON.stringify(storage, null, 2);
-      // out(`storage[${storage.length}]: `
-      //   + JSON.stringify(storage, null, 2));
-      scroll(ste);
-    },
     storeClear = () => {
       storage.clear();
     },
@@ -101,20 +98,35 @@
       jss.setAttribute('style', GREEN); jss.innerHTML = '[JS:OK]';
       out('Console was cleared', GREY);
     },
-    note = (v, style) => { out(v, style); cog(v, style); },
-    noted = (label) => { note(label + ': ☒', RED); },
-    run = () => {
-      storeCheck();
-      hr();
+    sync = () => {
+      const o = [];
+
+      o.push(`doc.className: "${doc.className}"`);
 
       if (isFUN(theme.list)) {
-        note(`theme.list    = [${theme.list()}]`);
-      } else { noted('theme.list'); }
+        o.push(`theme.list:    [${theme.list()}]`);
+      } else { note_err('theme.list'); }
 
       if (isFUN(theme.current)) {
-        note(`theme.current = "${theme.current()}"`);
-      } else { noted('theme.current'); }
+        o.push(`theme.current: "${theme.current()}"`);
+      } else { note_err('theme.current'); }
 
+      o.push(`storage[${storage.length}]: ` + stringify(storage));
+      // out(`storage[${storage.length}]: ` + stringify(storage));
+
+      stg.innerHTML = o.join('\n');
+      scroll(ste);
+
+    },
+    TEST_FUN = (what, label) => (isFUN(what) ? note_ok(label) : note_err(label), what),
+    run = () => {
+      sync();
+      hr();
+      TEST_FUN(theme.list, 'theme.list');
+      TEST_FUN(theme.current, 'theme.current');
+      TEST_FUN(theme.set, 'theme.set');
+      TEST_FUN(theme.change, 'theme.change');
+      TEST_FUN(theme.reset, 'theme.reset');
       scroll(sec);
     };
 
@@ -133,17 +145,17 @@
 
   // ==================================================== finished
 
-  w.addEventListener("storageChanged", storeCheck);
+  w.addEventListener("storageChanged", sync);
 
   d.addEventListener('DOMContentLoaded', () => {
 
     w.test = assign(w.test, {
       run,
+      sync,
       reset,
       storeAdd,
-      storeCheck,
       storeClear,
-      // run_check,
+      // run_sync,
       // run_reset,
       // run_set,
       // run_change,
