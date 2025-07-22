@@ -148,10 +148,10 @@
 
   d.addEventListener('DOMContentLoaded', () => {
 
-    if (!window.theme) {
-      note_err('ThemeJS is missing');
+    try { theme } catch (err) {
+      note_err(err);
       doc.classList.remove('_hidden')
-      return;
+      return;      
     }
 
     w.test = assign(w.test, {
