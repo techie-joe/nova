@@ -89,9 +89,24 @@
         v = x.substring(2, 10);
       localStorage.setItem(k, v);
     },
-    storeClear = () => {
-      storage.clear();
+    getRandomStoreKey = () => {
+      return storage.key(Math.floor(Math.random() * storage.length));
     },
+    storeGet = (key) => {
+      const
+        k = key || getRandomStoreKey(),
+        v = k?storage.getItem(k):null;
+      out(`"${k}": "${v}"`);
+      scroll(sec);
+    },
+    storeRemove = (key) => {
+      const
+        k = key || getRandomStoreKey(),
+        v = k?storage.removeItem(k):null;
+      out(`"${k}": "${v}"`);
+      scroll(sec);
+    },
+    storeClear = () => { storage.clear(); },
     element = eid('element'),
     reset = () => {
       test = ''; pre.innerHTML = ''; console.clear();
@@ -151,7 +166,7 @@
     try { theme } catch (err) {
       note_err(err);
       doc.classList.remove('_hidden')
-      return;      
+      return;
     }
 
     w.test = assign(w.test, {
@@ -159,6 +174,8 @@
       sync,
       reset,
       storeAdd,
+      storeGet,
+      storeRemove,
       storeClear,
       // run_sync,
       // run_reset,

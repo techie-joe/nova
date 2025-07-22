@@ -36,7 +36,9 @@ block article
       }
     section._container#btns._flex
       ._fit._no_wrap._indiv
-        button(onclick='test.storeAdd();' title="Add Store")._a3|Store
+        button(onclick='test.storeAdd();' title="Add Store Item")._a3|Store
+        button(onclick='test.storeGet();' title="Get Store Item")._a3|Get
+        button(onclick='test.storeRemove();' title="Remove Store Item")._a3|Remove
         button(onclick='test.storeClear();' title="Clear Store")._a3|Clear
       ._fit._text_center='|'
       ._fit._no_wrap._indiv
@@ -58,11 +60,6 @@ block article
         button(onclick='test.run_set(1);' title="Theme Set 1")._a3|1
         button(onclick='test.run_set(2);' title="Theme Set 2")._a3|2
         button(onclick='test.run_set(3);' title="Theme Set 3")._a3|3
-      ._fit._text_center='|'
-      ._fit._no_wrap._indiv
-        button(onclick='storage.set();' title="Storage Set")._a3|Set
-        button(onclick='storage.get();' title="Storage Get")._a3|Get
-        button(onclick='storage.remove();' title="Storage Remove")._a3|Remove
     hr._mb0
     style.
       #test .pre { font-size:.8rem }
