@@ -6,9 +6,8 @@ block append vars
     pageUrl     = siteUrl + '/themejs/test.html'
     title       = `ThemeJS Test`
     description = 'Testing ThemeJS'
-  -
-    INCLUDE_THEMEJS = false;
-    htmlClass.push('_hidden')
+
+  - INCLUDE_THEMEJS = false;
 
 mixin lab_nav
   #_main_nav._color_2._flex
@@ -78,6 +77,9 @@ block article
     hr._mt0
     section._hidden#element
 
+block prepend script
+  script.
+    (()=>{const d=document;(d.documentElement||d.body).classList.add('_hidden');})();
 block append script
   //- +jsv(src)
   //- ------------------------------------------------------------

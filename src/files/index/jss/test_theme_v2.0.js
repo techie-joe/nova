@@ -130,7 +130,6 @@
       scroll(sec);
     };
 
-  //   KEY = 'cuba',
   //   TC = 'theme',
   //   TL = 'themes';
 
@@ -148,6 +147,12 @@
   w.addEventListener("storageChanged", sync);
 
   d.addEventListener('DOMContentLoaded', () => {
+
+    if (!window.theme) {
+      note_err('ThemeJS is missing');
+      doc.classList.remove('_hidden')
+      return;
+    }
 
     w.test = assign(w.test, {
       run,
