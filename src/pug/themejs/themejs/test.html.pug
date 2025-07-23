@@ -31,15 +31,15 @@ block article
   article._article
 
     style.
-      #btns button {
+      .btns button {
         margin: .1em;
         font-size: 0.8rem;
         min-height: 1.5rem;
         vertical-align: top;
         line-height: inherit;
       }
-      #btns .monobtn button { font-family:monospace,monospace; }
-    section._container#btns._flex
+      .btns .monobtn button { font-family:monospace,monospace; }
+    section._container.btns._flex._mb0
       ._fit._no_wrap._indiv
         button(onclick='test.storeAdd();' title="Add Store Item")._a3|Store
         button(onclick='test.storeGet();' title="Get Store Item")._a3|Get
@@ -51,18 +51,24 @@ block article
         button(onclick='test.themeChange();' title="Change Theme")._a3|Change
         button(onclick='test.themeReset();' title="Reset Theme")._a3|Reset
       ._fit._text_center='|'
-      ._fit._no_wrap._indiv.monobtn
-        button(onclick='test.themeSet();' title='theme.set()')._a3='()'
-        button(onclick='test.themeSet([]);' title='theme.set([])')._a3='[]'
-        button(onclick='test.themeSet(["T1","T2","T3"]);' title='theme.set(["T1","T2","T3"])')._a3='[..]'
-        button(onclick='test.themeSet("T1");' title='theme.set("T1")')._a3|T1
-        button(onclick='test.themeSet("T2");' title='theme.set("T2")')._a3|T2
-        button(onclick='test.themeSet("T3");' title='theme.set("T3")')._a3|T3
-      ._fit._text_center='|'
       ._fit._no_wrap._indiv
         button._a3(onclick="test.run()" title="Run Test") Test
         button._a3(onclick='test.sync();' title="Sync Status")|Sync
         button._a3(onclick="test.reset()" title="Reset Test") Reset
+      ._f
+    section._container.btns._flex._mt0
+      ._fit._no_wrap._indiv.monobtn
+        button(onclick='test.themeSet();' title='theme.set()')._a3='()'
+        button(onclick='test.themeSet([]);' title='theme.set([])')._a3='[]'
+        button(onclick='test.themeSet("");' title='theme.set("")')._a3|none
+        button(onclick='test.themeSet("_dark");' title='theme.set("_dark")')._a3|dark
+        button(onclick='test.themeSet("_pink");' title='theme.set("_pink")')._a3|pink
+        button(onclick='test.themeSet("_tan");' title='theme.set("_tan")')._a3|tan
+      ._fit._text_center='|'
+      ._fit._no_wrap._indiv
+        button(onclick='test.themeSet(["_dark"]);' title='theme.set(["_dark"])')._a3='S1'
+        button(onclick='test.themeSet(["_pink","_tan"]);' title='theme.set(["_pink","_tan"])')._a3='S2'
+        button(onclick='test.themeSet(["_dark","_pink","_tan"]);' title='theme.set(["_dark","_pink","_tan"])')._a3='S3'
       ._f
     //- 
       ._fit._text_center='|'
@@ -71,7 +77,7 @@ block article
     hr._mb0
     style.
       #test .pre { font-size:.8rem }
-      #test .sec { max-height:500px }
+      #test .sec { max-height:450px }
     #test._flex
       ._fit(style="flex-basis:300px")
         section._scrollable.sec#sec_storage
@@ -89,7 +95,9 @@ block append script
   //- ------------------------------------------------------------
   //- +jsv('/_ace/scripts/ts_js/theme_v1.0.js')(defer)
   //- +jsv('/_ace/scripts/gulp_js/test_theme_v1.0.js')(defer)
+  //- ------------------------------------------------------------
   +jsv('/nova/src/files/index/'+'jss/test_theme_v2.0.js')
+  //- +jsv(homeUri+'jss/test_theme_v2.0.js')
   //- ------------------------------------------------------------
   +jsv(homeUri+'js/theme_v2.0.js')
   //- ------------------------------------------------------------

@@ -2,83 +2,213 @@
 // TESTING ThemeJs v2.0
 // ============================================================ */
 (() => {
+
+  // add localstorage listener
+
   const
-    now = () => new Date().getMilliseconds(),
+    w = window,
+    s = localStorage,
+    { setItem, removeItem, clear } = s;
+
+  function storageChanged(key, oldValue, newValue) {
+    w.dispatchEvent(new CustomEvent('storageChanged', {
+      detail: { key, oldValue, newValue }
+    }));
+  }
+
+  s.setItem = function (key, value) {
+    const oldValue = s.getItem(key);
+    setItem.apply(this, arguments);
+    storageChanged(key, oldValue, value);
+  };
+
+  s.removeItem = function (key) {
+    const oldValue = s.getItem(key);
+    removeItem.apply(this, arguments);
+    storageChanged(key, oldValue, null);
+  };
+
+  s.clear = function () {
+    clear.apply(this);
+    storageChanged('*', null, null); // use * to clear all
+  };
+
+  // Also listen to cross-tab changes
+  w.addEventListener('storage', (e) => {
+    storageChanged(e.key, e.oldValue, e.newValue);
+  });
+
+})();
+(() => {
+
+  let test = '';
+
+  const
+    now = () => new Date(),
+    TYPE = e => Object.prototype.toString.call(e),
+    A = a => typeof a,
+    isFUN = a => A(a) === A(() => { }),
+    isOBJ = a => A(a) === A({ }),
+    isARR = Array.isArray ? (a => Array.isArray(a)) : (a => TYPE(a) === TYPE([])),
+    assign = (target, obj) => Object.assign(target || {}, obj),
+    stringify = (obj) => JSON.stringify(obj, null, 2),
+    w = window,
+    d = document,
+    doc = d.documentElement || d.body, // html or body
+    { log } = console,
+    cog = (v, style) => { log('%c' + v, style); },
+    eid = e => d.getElementById(e),
+    hid = (id, html) => eid(id).innerHTML += html,
+    tes = eid('tes'),
+    jss = eid('jss'),
+    sec = eid('sec'),
+    pre = eid('pre'),
     GREY = 'color:#888888;',
     RED = 'color:#e22200;',
     GREEN = 'color:#008800;',
     ORANGE = 'color:#916900;',
     PURPLE = 'color:#9f40a9;',
     BROWN = 'color:#a52a2a;',
-    W = window,
-    D = document,
-    { log, clear } = console,
     out = (v, style) => {
-      var e = D.createElement('span');
-      e.append(v);
+      var e = d.createElement('div');
       style && e.setAttribute('style', style);
-      jsout.append(e, `\n`);
+      e.append(v);
+      pre.append(e);
     },
-    note = (v, style) => { out(v, style); log('%c' + v, style); },
-    test = (what, label) => {
-      what ? note(label + ': ☑', GREEN) : note(label + ': ☒', RED);
-      return what;
-    },
-    eid = e => D.getElementById(e),
-    hid = (id,html) => eid(id).innerHTML+=html,
+    note = (v, style) => { out(v, style); cog(v, style); },
+    note_ok = (label) => { note(label + ': ☑', GREEN); },
+    note_err = (label) => { note(label + ': ☒', RED); },
+    scroll = (e) => { e.scrollTo(0, e.scrollHeight); },
+    hr = () => { pre.append(d.createElement('hr')); },
     storage = localStorage,
-    jso = eid('jso'),
-    jsout = eid('jsout'),
-    jstest = eid('jstest'),
-    element = eid('element'),
-    hr = () => { jsout.append(D.createElement('hr')); },
-    roll = () => { jso.scrollTo(0, jso.scrollHeight); },
-    doc = D.documentElement || D.body, // html or body
-    KEY = 'cuba',
-    TC = 'theme',
-    TL = 'themes',
-    reset = () => {
-      clear();
-      jsout.innerHTML = '';
-      out('Console was cleared', GREY + 'font-style:italic;font-size:.75rem');
-      hr();
+    stg = eid('storage'),
+    ste = eid('sec_storage'),
+    storeAdd = () => {
+      let
+        x = Math.random().toString(36),
+        k = x.substring(2, 7),
+        v = x.substring(2, 10);
+      localStorage.setItem(k, v);
+      out(`storage.set "${k}": "${v}"`);
+      scroll(sec);
     },
-    storeCheck = () => {
-      out(`storage[${storage.length}]: ` + JSON.stringify(storage, null, 2));
-      hr(); roll();
+    getRandomStoreKey = () => {
+      return storage.key(Math.floor(Math.random() * storage.length));
+    },
+    storeGet = (key) => {
+      const
+        k = key || getRandomStoreKey(),
+        v = k ? storage.getItem(k) : null;
+      out(`storage.get "${k}": "${v}"`);
+      scroll(sec);
+    },
+    storeRemove = (key) => {
+      const
+        k = key || storage.key(0),
+        v = k ? storage.removeItem(k) : null;
+      out(`storage.remove "${k}": "${v}"`);
+      scroll(sec);
     },
     storeClear = () => {
       storage.clear();
-      storeCheck();
+      note(`storage.cleared`);
+      scroll(sec);
     },
+    themeCurrent = () => {
+      note(`theme.current is ${theme.current()||'none'}`);
+      scroll(sec);
+    },
+    themeChange = () => {
+      const previous = theme.current();
+      theme.change();
+      const current = theme.current();
+      note(`theme.change from ${previous||'none'} to ${current||'none'}`);
+      scroll(sec);
+    },
+    themeReset = () => {
+      theme.reset();
+      note(`theme.reset to ${theme.current()||'none'}`);
+      scroll(sec);
+    },
+    reset = () => {
+      test = ''; pre.innerHTML = ''; console.clear();
+      jss.setAttribute('style', GREEN); jss.innerHTML = '[JS:OK]';
+      out('Console was cleared', GREY);
+    },
+    sync = () => {
+
+      const o = [];
+
+      o.push(`doc.className: "${doc.className}"`);
+
+      if (isFUN(theme.list)) {
+        o.push(`theme.list:    [${theme.list()}]`);
+      } else { note_err('theme.list'); }
+
+      if (isFUN(theme.current)) {
+        o.push(`theme.current: "${theme.current()}"`);
+      } else { note_err('theme.current'); }
+
+      o.push(`storage[${storage.length}]: ` + stringify(storage));
+
+      stg.innerHTML = o.join('\n');
+      scroll(ste);
+
+    },
+    TEST_FUN = (what, label) => (isFUN(what) ? note_ok(label) : note_err(label), what),
+    TEST_OBJ = (what, label) => (isOBJ(what) ? note_ok(label) : note_err(label), what),
     run = () => {
-      storeCheck();
+      hr();
+      TEST_OBJ(theme, 'theme');
+      TEST_FUN(theme.list, 'theme.list');
+      TEST_FUN(theme.current, 'theme.current');
+      TEST_FUN(theme.set, 'theme.set');
+      TEST_FUN(theme.change, 'theme.change');
+      TEST_FUN(theme.reset, 'theme.reset');
+      scroll(sec);
+      sync();
     };
 
   // ================================================ add listener
 
-  W.onerror = (event) => {
-    jstest && (
-      jstest.setAttribute('style', RED),
-      jstest.innerHTML = '[JS:ER]'
-    );
-    out(event.toString(), RED); roll();
+  w.onerror = (event) => {
+    jss.setAttribute('style', RED); jss.innerHTML = '[JS:ER]';
+    out(event.toString(), RED);
+    scroll(sec);
   };
 
   // ==================================================== finished
 
-  W.test = {
-    reset,
-    storeCheck,
-    storeClear,
-    run,
-    // run_check,
-    // run_reset,
-    // run_set,
-    // run_change,
-    // run_updateClass,
-  };
+  w.addEventListener("storageChanged", sync);
 
-  W.onload = run;
+  d.addEventListener('DOMContentLoaded', () => {
+
+    try { theme } catch (err) {
+      note_err(err);
+      doc.classList.remove('_hidden')
+      return;
+    }
+
+    w.test = assign(w.test, {
+      run,
+      sync,
+      reset,
+      storeAdd,
+      storeGet,
+      storeRemove,
+      storeClear,
+      themeCurrent,
+      themeChange,
+      themeReset,
+    });
+
+    jss && (
+      jss.setAttribute('style', GREEN),
+      jss.innerHTML = '[JS:OK]'
+    );
+
+    run();
+
+  });
 
 })();

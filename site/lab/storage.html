@@ -94,19 +94,44 @@
                 vertical-align: top;
                 line-height: inherit;
               }
+              #btns .monobtn button { font-family:monospace,monospace; }
             </style>
-            <section class="_container _indiv" id="btns">
-              <button class="_a3" onclick="test.storeAdd();" title="Add Store Item">Store</button>
-              <button class="_a3" onclick="test.storeGet();" title="Get Store Item">Get</button>
-              <button class="_a3" onclick="test.storeRemove();" title="Remove Store Item">Remove</button>
-              <button class="_a3" onclick="test.storeClear();" title="Clear Store">Clear</button>
-              <button class="_a3" onclick="theme.change();">Change Theme</button>
+            <section class="_container _flex" id="btns">
+              <div class="_fit _no_wrap _indiv">
+                <button class="_a3" onclick="test.storeAdd();" title="Add Store Item">Store</button>
+                <button class="_a3" onclick="test.storeGet();" title="Get Store Item">Get</button>
+                <button class="_a3" onclick="test.storeRemove();" title="Remove Store Item">Remove</button>
+                <button class="_a3" onclick="test.storeClear();" title="Clear Store">Clear</button>
+              </div>
+              <div class="_fit _text_center">|</div>
+              <div class="_fit _no_wrap _indiv">
+                <button class="_a3" onclick="theme.change();" title="Change Theme">Theme</button>
+              </div>
+              <div class="_fit _text_center">|</div>
+              <div class="_fit _no_wrap _indiv">
+                <button class="_a3" onclick="test.run()" title="Run Test">Test</button>
+                <button class="_a3" onclick="test.sync();" title="Sync Status">Sync</button>
+                <button class="_a3" onclick="test.reset()" title="Reset Test">Reset</button>
+              </div>
+              <div class="_f"></div>
             </section>
             <hr class="_mb0">
-            <section class="_scrollable" style="height:400px" id="sec">
-              <pre class="pre _container" id="pre">// Testing storage ..
-<span id="sec_storage"></span></pre>
-            </section>
+            <style>
+              #test .pre { font-size:.8rem }
+              #test .sec { max-height:500px }
+            </style>
+            <div class="_flex" id="test">
+              <div class="_fit" style="flex-basis:300px">
+                <section class="_scrollable sec" id="sec_storage">
+                  <pre class="pre _container" id="storage"></pre>
+                </section>
+              </div>
+              <div class="_f">
+                <section class="_scrollable sec" id="sec">
+                  <pre class="pre _container" id="pre">// Testing storage ..</pre>
+                </section>
+              </div>
+            </div>
             <hr class="_mt0">
           </article>
           <aside class="_side_article"></aside>
@@ -127,117 +152,7 @@
       </div>
     </div>
     <aside id="_widgets"></aside>
-    <script>
-      (()=>{
-      
-        const
-          w = window,
-          s = localStorage,
-          { setItem, removeItem, clear } = s;
-      
-        function storageChanged(key, oldValue, newValue) {
-          w.dispatchEvent(new CustomEvent('storageChanged', {
-            detail: { key, oldValue, newValue }
-          }));
-        }
-      
-        s.setItem = function (key, value) {
-          const oldValue = s.getItem(key);
-          setItem.apply(this, arguments);
-          storageChanged(key, oldValue, value);
-        };
-      
-        s.removeItem = function (key) {
-          const oldValue = s.getItem(key);
-          removeItem.apply(this, arguments);
-          storageChanged(key, oldValue, null);
-        };
-      
-        s.clear = function () {
-          clear.apply(this);
-          storageChanged('*', null, null); // use * to clear all
-        };
-      
-        // Also listen to cross-tab changes
-        w.addEventListener('storage', (e) => {
-          storageChanged(e.key, e.oldValue, e.newValue);
-        });
-      
-      })();
-    </script>
-    <script>
-      (()=>{
-        let got;
-        const
-          w = window,
-          d = document,
-          assign = (target, obj) => Object.assign(target || {}, obj),
-          stringify = (obj) => JSON.stringify(obj, null, 2),
-          eid = (id) => d.getElementById(id),
-          hid = (id,html) => eid(id).innerHTML=html,
-          { log } = console,
-          storage = localStorage,
-          stg = eid('storage'),
-          ste = eid('sec_storage'),
-          storeAdd = () => {
-            let
-              x = Math.random().toString(36),
-              k = x.substring(2, 7),
-              v = x.substring(2, 10);
-            got = { key:k, value:v };
-            storage.setItem(k, v);
-          },
-          getRandomStoreKey = () => {
-            return storage.key(Math.floor(Math.random() * storage.length));
-          },
-          storeGet = (key) => {
-            const
-              k = key || getRandomStoreKey(),
-              v = k ? storage.getItem(k) : null;
-              got = { key:k, value:v };
-              updateLog();
-          },
-          storeRemove = (key) => {
-            const
-              k = key || storage.key(0);
-              got = { key:k };
-            const
-              v = k ? storage.removeItem(k) : null;
-          },
-          storeClear = () => {
-            got = null;
-            storage.clear();
-          },
-          updateLog = () => {
-            ste.innerHTML = [
-              '',
-              `theme: ${storage['theme']}\n`,
-              `got: ${JSON.stringify(got)}\n`,
-              `storage[${storage.length}]: `+stringify(storage)
-            ].join('\n');
-          };
-        w.addEventListener("storageChanged", updateLog);
-        d.addEventListener('DOMContentLoaded', ()=>{
-      
-          w.test = assign(w.test, {
-            //- run,
-            //- sync,
-            //- reset,
-            storeAdd,
-            storeGet,
-            storeRemove,
-            storeClear,
-            //- themeCurrent,
-            //- themeChange,
-            //- themeReset,
-          });
-      
-          updateLog();
-      
-        });
-      
-      })();
-    </script>
+    <script type="text/javascript" src="/nova/site/jss/test_storage.js?v=0.1.0"></script>
     <script>(()=>{const d=document;(d.documentElement||d.body).classList.add('_hidden');})();</script>
     <script type="text/javascript" src="/nova/site/js/theme_v2.0.js?v=0.1.0"></script>
     <script>// your script goes here</script>

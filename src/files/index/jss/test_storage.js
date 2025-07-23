@@ -1,5 +1,5 @@
 /* ===============================================================
-// TESTING ThemeJs v2.0
+// TESTING Storage
 // ============================================================ */
 (() => {
 
@@ -44,23 +44,18 @@
   let test = '';
 
   const
-    now = () => new Date(),
     TYPE = e => Object.prototype.toString.call(e),
     A = a => typeof a,
     isFUN = a => A(a) === A(() => { }),
     isOBJ = a => A(a) === A({ }),
-    isARR = Array.isArray ? (a => Array.isArray(a)) : (a => TYPE(a) === TYPE([])),
     assign = (target, obj) => Object.assign(target || {}, obj),
     stringify = (obj) => JSON.stringify(obj, null, 2),
     w = window,
     d = document,
-    doc = d.documentElement || d.body, // html or body
     { log } = console,
     cog = (v, style) => { log('%c' + v, style); },
     eid = e => d.getElementById(e),
     hid = (id, html) => eid(id).innerHTML += html,
-    tes = eid('tes'),
-    jss = eid('jss'),
     sec = eid('sec'),
     pre = eid('pre'),
     GREY = 'color:#888888;',
@@ -114,37 +109,13 @@
       note(`storage.cleared`);
       scroll(sec);
     },
-    themeCurrent = () => {
-      note(`theme.current is ${theme.current()||'none'}`);
-      scroll(sec);
-    },
-    themeChange = () => {
-      const previous = theme.current();
-      theme.change();
-      const current = theme.current();
-      note(`theme.change from ${previous||'none'} to ${current||'none'}`);
-      scroll(sec);
-    },
-    themeReset = () => {
-      theme.reset();
-      note(`theme.reset to ${theme.current()||'none'}`);
-      scroll(sec);
-    },
-    themeSet = (set) => {
-      theme.set(set);
-      note(`theme.set to [${theme.list()}] > "${theme.current()||'none'}"`);
-      scroll(sec);
-    },
     reset = () => {
       test = ''; pre.innerHTML = ''; console.clear();
-      jss.setAttribute('style', GREEN); jss.innerHTML = '[JS:OK]';
       out('Console was cleared', GREY);
     },
     sync = () => {
 
       const o = [];
-
-      o.push(`doc.className: "${doc.className}"`);
 
       if (isFUN(theme.list)) {
         o.push(`theme.list:    [${theme.list()}]`);
@@ -164,20 +135,18 @@
     TEST_OBJ = (what, label) => (isOBJ(what) ? note_ok(label) : note_err(label), what),
     run = () => {
       hr();
-      TEST_OBJ(theme, 'theme');
-      TEST_FUN(theme.list, 'theme.list');
-      TEST_FUN(theme.current, 'theme.current');
-      TEST_FUN(theme.set, 'theme.set');
-      TEST_FUN(theme.change, 'theme.change');
-      TEST_FUN(theme.reset, 'theme.reset');
+      TEST_OBJ(storage, 'storage');
+      TEST_FUN(storage.setItem, 'storage.setItem');
+      TEST_FUN(storage.getItem, 'storage.getItem');
+      TEST_FUN(storage.removeItem, 'storage.removeItem');
       scroll(sec);
-      sync();
+      sync()
     };
+
 
   // ================================================ add listener
 
   w.onerror = (event) => {
-    jss.setAttribute('style', RED); jss.innerHTML = '[JS:ER]';
     out(event.toString(), RED);
     scroll(sec);
   };
@@ -188,12 +157,6 @@
 
   d.addEventListener('DOMContentLoaded', () => {
 
-    try { theme } catch (err) {
-      note_err(err);
-      doc.classList.remove('_hidden')
-      return;
-    }
-
     w.test = assign(w.test, {
       run,
       sync,
@@ -202,16 +165,7 @@
       storeGet,
       storeRemove,
       storeClear,
-      themeCurrent,
-      themeChange,
-      themeReset,
-      themeSet,
     });
-
-    jss && (
-      jss.setAttribute('style', GREEN),
-      jss.innerHTML = '[JS:OK]'
-    );
 
     run();
 

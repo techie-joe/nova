@@ -88,16 +88,16 @@
         <main id="_main">
           <article class="_article">
             <style>
-              #btns button {
+              .btns button {
                 margin: .1em;
                 font-size: 0.8rem;
                 min-height: 1.5rem;
                 vertical-align: top;
                 line-height: inherit;
               }
-              #btns .monobtn button { font-family:monospace,monospace; }
+              .btns .monobtn button { font-family:monospace,monospace; }
             </style>
-            <section class="_container _flex" id="btns">
+            <section class="_container btns _flex _mb0">
               <div class="_fit _no_wrap _indiv">
                 <button class="_a3" onclick="test.storeAdd();" title="Add Store Item">Store</button>
                 <button class="_a3" onclick="test.storeGet();" title="Get Store Item">Get</button>
@@ -111,15 +111,6 @@
                 <button class="_a3" onclick="test.themeReset();" title="Reset Theme">Reset</button>
               </div>
               <div class="_fit _text_center">|</div>
-              <div class="_fit _no_wrap _indiv monobtn">
-                <button class="_a3" onclick="test.themeSet();" title="theme.set()">()</button>
-                <button class="_a3" onclick="test.themeSet([]);" title="theme.set([])">[]</button>
-                <button class="_a3" onclick="test.themeSet([&quot;T1&quot;,&quot;T2&quot;,&quot;T3&quot;]);" title="theme.set([&quot;T1&quot;,&quot;T2&quot;,&quot;T3&quot;])">[..]</button>
-                <button class="_a3" onclick="test.themeSet(&quot;T1&quot;);" title="theme.set(&quot;T1&quot;)">T1</button>
-                <button class="_a3" onclick="test.themeSet(&quot;T2&quot;);" title="theme.set(&quot;T2&quot;)">T2</button>
-                <button class="_a3" onclick="test.themeSet(&quot;T3&quot;);" title="theme.set(&quot;T3&quot;)">T3</button>
-              </div>
-              <div class="_fit _text_center">|</div>
               <div class="_fit _no_wrap _indiv">
                 <button class="_a3" onclick="test.run()" title="Run Test">Test</button>
                 <button class="_a3" onclick="test.sync();" title="Sync Status">Sync</button>
@@ -127,10 +118,27 @@
               </div>
               <div class="_f"></div>
             </section>
+            <section class="_container btns _flex _mt0">
+              <div class="_fit _no_wrap _indiv monobtn">
+                <button class="_a3" onclick="test.themeSet();" title="theme.set()">()</button>
+                <button class="_a3" onclick="test.themeSet([]);" title="theme.set([])">[]</button>
+                <button class="_a3" onclick="test.themeSet(&quot;&quot;);" title="theme.set(&quot;&quot;)">none</button>
+                <button class="_a3" onclick="test.themeSet(&quot;_dark&quot;);" title="theme.set(&quot;_dark&quot;)">dark</button>
+                <button class="_a3" onclick="test.themeSet(&quot;_pink&quot;);" title="theme.set(&quot;_pink&quot;)">pink</button>
+                <button class="_a3" onclick="test.themeSet(&quot;_tan&quot;);" title="theme.set(&quot;_tan&quot;)">tan</button>
+              </div>
+              <div class="_fit _text_center">|</div>
+              <div class="_fit _no_wrap _indiv">
+                <button class="_a3" onclick="test.themeSet([&quot;_dark&quot;]);" title="theme.set([&quot;_dark&quot;])">S1</button>
+                <button class="_a3" onclick="test.themeSet([&quot;_pink&quot;,&quot;_tan&quot;]);" title="theme.set([&quot;_pink&quot;,&quot;_tan&quot;])">S2</button>
+                <button class="_a3" onclick="test.themeSet([&quot;_dark&quot;,&quot;_pink&quot;,&quot;_tan&quot;]);" title="theme.set([&quot;_dark&quot;,&quot;_pink&quot;,&quot;_tan&quot;])">S3</button>
+              </div>
+              <div class="_f"></div>
+            </section>
             <hr class="_mb0">
             <style>
               #test .pre { font-size:.8rem }
-              #test .sec { max-height:500px }
+              #test .sec { max-height:450px }
             </style>
             <div class="_flex" id="test">
               <div class="_fit" style="flex-basis:300px">
