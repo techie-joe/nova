@@ -199,9 +199,10 @@
           },
           storeRemove = (key) => {
             const
-              k = key || storage.key(0),
+              k = key || storage.key(0);
+              got = { key:k };
+            const
               v = k ? storage.removeItem(k) : null;
-              got = { key:k, value:v };
           },
           storeClear = () => {
             got = null;
