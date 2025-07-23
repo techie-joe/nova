@@ -187,20 +187,14 @@ button {
   line-height:1;
   i { @extend ._no_i; }
 }
+.itext,
+.isvg,
 .fa, .fab, .far, .fas, .fa-brands, .fa-regular, .fa-solid {
   @extend ._inblock;
   @extend ._text_center;
   line-height:1em;
   min-width:1em;
   min-height:1em;
-}
-.isvg,
-.itext {
-  @extend ._inblock;
-  @extend ._text_center;
-  line-height:1.1em;
-  min-width:1.1em;
-  min-height:1.1em;
 }
 .itext { @extend ._sans; }
 .isvg svg { vertical-align:top }

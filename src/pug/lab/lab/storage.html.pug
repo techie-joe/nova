@@ -10,14 +10,16 @@ block append vars
 block article
   article._article
     +btns
-      button._a3(onclick="localStorage.clear();") Clear Storage
-      button._a3(onclick="test_addStorage();") Add to Storage
+      button(onclick='test.storeAdd();' title="Add Store Item")._a3|Store
+      button(onclick='test.storeGet();' title="Get Store Item")._a3|Get
+      button(onclick='test.storeRemove();' title="Remove Store Item")._a3|Remove
+      button(onclick='test.storeClear();' title="Clear Store")._a3|Clear
       button._a3(onclick="theme.change();") Change Theme
     hr._mb0
     section._scrollable(style="height:400px")#sec
       pre.pre#pre._container.
         // #{description} ..
-        #[span#localStorage]
+        #[span#sec_storage]
     hr._mt0
 
 block prepend script
@@ -60,28 +62,73 @@ block prepend script
     })();
   script.
     (()=>{
+      let got;
       const
         w = window,
         d = document,
+        assign = (target, obj) => Object.assign(target || {}, obj),
+        stringify = (obj) => JSON.stringify(obj, null, 2),
         eid = (id) => d.getElementById(id),
         hid = (id,html) => eid(id).innerHTML=html,
-        storage = localStorage,
         { log } = console,
-        test = w.test_addStorage = () => {
+        storage = localStorage,
+        stg = eid('storage'),
+        ste = eid('sec_storage'),
+        storeAdd = () => {
           let
             x = Math.random().toString(36),
-            k = x.substring(2,7),
-            v = x.substring(2,10);
-          localStorage.setItem(k,v);
+            k = x.substring(2, 7),
+            v = x.substring(2, 10);
+          got = { key:k, value:v };
+          storage.setItem(k, v);
         },
-        updateLog = w.updateLog = () => {
-          hid('localStorage', [
+        getRandomStoreKey = () => {
+          return storage.key(Math.floor(Math.random() * storage.length));
+        },
+        storeGet = (key) => {
+          const
+            k = key || getRandomStoreKey(),
+            v = k ? storage.getItem(k) : null;
+            got = { key:k, value:v };
+            updateLog();
+        },
+        storeRemove = (key) => {
+          const
+            k = key || storage.key(0),
+            v = k ? storage.removeItem(k) : null;
+            got = { key:k, value:v };
+        },
+        storeClear = () => {
+          got = null;
+          storage.clear();
+        },
+        updateLog = () => {
+          ste.innerHTML = [
             '',
             `theme: ${storage['theme']}\n`,
-            `storage[${storage.length}]: `+JSON.stringify(storage, null, 2)
-          ].join('\n'));
+            `got: ${JSON.stringify(got)}\n`,
+            `storage[${storage.length}]: `+stringify(storage)
+          ].join('\n');
         };
       w.addEventListener("storageChanged", updateLog);
-      d.addEventListener('DOMContentLoaded', updateLog);
+      d.addEventListener('DOMContentLoaded', ()=>{
+
+        w.test = assign(w.test, {
+          //- run,
+          //- sync,
+          //- reset,
+          storeAdd,
+          storeGet,
+          storeRemove,
+          storeClear,
+          //- themeCurrent,
+          //- themeChange,
+          //- themeReset,
+        });
+
+        updateLog();
+
+      });
+
     })();
   //- script.

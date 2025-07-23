@@ -9,6 +9,10 @@ block append vars
 
   - INCLUDE_THEMEJS = false;
 
+block prepend script
+  script.
+    (()=>{const d=document;(d.documentElement||d.body).classList.add('_hidden');})();
+
 mixin lab_nav
   #_main_nav._color_2._flex
     ._fit: +a(homeUri+'lab')._a11|#[+isvg(svgi.angle,'_licon')._rotate_180]Back
@@ -34,6 +38,7 @@ block article
         vertical-align: top;
         line-height: inherit;
       }
+      #btns .monobtn button { font-family:monospace,monospace; }
     section._container#btns._flex
       ._fit._no_wrap._indiv
         button(onclick='test.storeAdd();' title="Add Store Item")._a3|Store
@@ -42,8 +47,17 @@ block article
         button(onclick='test.storeClear();' title="Clear Store")._a3|Clear
       ._fit._text_center='|'
       ._fit._no_wrap._indiv
-        button(onclick='theme.change();' title="Theme Change")._a3|Theme
-        button(onclick='theme.reset();' title="Theme Reset")._a3|Reset
+        button(onclick='test.themeCurrent();' title="Current Theme")._a3|Theme
+        button(onclick='test.themeChange();' title="Change Theme")._a3|Change
+        button(onclick='test.themeReset();' title="Reset Theme")._a3|Reset
+      ._fit._text_center='|'
+      ._fit._no_wrap._indiv.monobtn
+        button(onclick='test.themeSet();' title='theme.set()')._a3='()'
+        button(onclick='test.themeSet([]);' title='theme.set([])')._a3='[]'
+        button(onclick='test.themeSet(["T1","T2","T3"]);' title='theme.set(["T1","T2","T3"])')._a3='[..]'
+        button(onclick='test.themeSet("T1");' title='theme.set("T1")')._a3|T1
+        button(onclick='test.themeSet("T2");' title='theme.set("T2")')._a3|T2
+        button(onclick='test.themeSet("T3");' title='theme.set("T3")')._a3|T3
       ._fit._text_center='|'
       ._fit._no_wrap._indiv
         button._a3(onclick="test.run()" title="Run Test") Test
@@ -54,12 +68,6 @@ block article
       ._fit._text_center='|'
       ._fit._no_wrap._indiv
         button(onclick='test.run_updateClass();' title="Theme updateClass")._a3|updateClass
-      ._fit._text_center='|'
-      ._fit._no_wrap._indiv
-        button(onclick='test.run_set();' title="Theme Set")._a3|Set
-        button(onclick='test.run_set(1);' title="Theme Set 1")._a3|1
-        button(onclick='test.run_set(2);' title="Theme Set 2")._a3|2
-        button(onclick='test.run_set(3);' title="Theme Set 3")._a3|3
     hr._mb0
     style.
       #test .pre { font-size:.8rem }
@@ -72,11 +80,10 @@ block article
         section._scrollable.sec#sec
           pre.pre#pre._container| // #{description} ..
     hr._mt0
-    section._hidden#element
 
-block prepend script
-  script.
-    (()=>{const d=document;(d.documentElement||d.body).classList.add('_hidden');})();
+block prepend views
+  template._hidden#tes
+
 block append script
   //- +jsv(src)
   //- ------------------------------------------------------------

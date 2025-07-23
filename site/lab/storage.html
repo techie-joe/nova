@@ -28,8 +28,8 @@
     <style id="_coreStyle">
       html,body { font-family:system-ui,sans-serif }
       hr { border:0;border-bottom:1px solid #888 }
-      svg { display: inline-block; width: 1em; height: 1em; }
       ._flex { display:flex }
+      ._scrollable { overflow: auto }
       
     </style>
     <link rel="stylesheet" media="all" href="/nova/site/css/nova.css?v=0.1.0" id="_style"/>
@@ -72,7 +72,7 @@
         </header>
         <div class="_color_2 _flex" id="_main_nav">
           <div class="_fit"><a class="_a11" href="./"><i class="_icon _licon"><i class="isvg _rotate_180">
-                  <svg viewBox="0 0 24 24">
+                  <svg viewBox="0 0 24 24" style="max-width:1em;max-height:1em;">
                     <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
                   </svg></i></i>Back</a>
           </div>
@@ -96,14 +96,16 @@
               }
             </style>
             <section class="_container _indiv" id="btns">
-              <button class="_a3" onclick="localStorage.clear();">Clear Storage</button>
-              <button class="_a3" onclick="test_addStorage();">Add to Storage</button>
+              <button class="_a3" onclick="test.storeAdd();" title="Add Store Item">Store</button>
+              <button class="_a3" onclick="test.storeGet();" title="Get Store Item">Get</button>
+              <button class="_a3" onclick="test.storeRemove();" title="Remove Store Item">Remove</button>
+              <button class="_a3" onclick="test.storeClear();" title="Clear Store">Clear</button>
               <button class="_a3" onclick="theme.change();">Change Theme</button>
             </section>
             <hr class="_mb0">
             <section class="_scrollable" style="height:400px" id="sec">
               <pre class="pre _container" id="pre">// Testing storage ..
-<span id="localStorage"></span></pre>
+<span id="sec_storage"></span></pre>
             </section>
             <hr class="_mt0">
           </article>
@@ -165,29 +167,74 @@
     </script>
     <script>
       (()=>{
+        let got;
         const
           w = window,
           d = document,
+          assign = (target, obj) => Object.assign(target || {}, obj),
+          stringify = (obj) => JSON.stringify(obj, null, 2),
           eid = (id) => d.getElementById(id),
           hid = (id,html) => eid(id).innerHTML=html,
-          storage = localStorage,
           { log } = console,
-          test = w.test_addStorage = () => {
+          storage = localStorage,
+          stg = eid('storage'),
+          ste = eid('sec_storage'),
+          storeAdd = () => {
             let
               x = Math.random().toString(36),
-              k = x.substring(2,7),
-              v = x.substring(2,10);
-            localStorage.setItem(k,v);
+              k = x.substring(2, 7),
+              v = x.substring(2, 10);
+            got = { key:k, value:v };
+            storage.setItem(k, v);
           },
-          updateLog = w.updateLog = () => {
-            hid('localStorage', [
+          getRandomStoreKey = () => {
+            return storage.key(Math.floor(Math.random() * storage.length));
+          },
+          storeGet = (key) => {
+            const
+              k = key || getRandomStoreKey(),
+              v = k ? storage.getItem(k) : null;
+              got = { key:k, value:v };
+              updateLog();
+          },
+          storeRemove = (key) => {
+            const
+              k = key || storage.key(0),
+              v = k ? storage.removeItem(k) : null;
+              got = { key:k, value:v };
+          },
+          storeClear = () => {
+            got = null;
+            storage.clear();
+          },
+          updateLog = () => {
+            ste.innerHTML = [
               '',
               `theme: ${storage['theme']}\n`,
-              `storage[${storage.length}]: `+JSON.stringify(storage, null, 2)
-            ].join('\n'));
+              `got: ${JSON.stringify(got)}\n`,
+              `storage[${storage.length}]: `+stringify(storage)
+            ].join('\n');
           };
         w.addEventListener("storageChanged", updateLog);
-        d.addEventListener('DOMContentLoaded', updateLog);
+        d.addEventListener('DOMContentLoaded', ()=>{
+      
+          w.test = assign(w.test, {
+            //- run,
+            //- sync,
+            //- reset,
+            storeAdd,
+            storeGet,
+            storeRemove,
+            storeClear,
+            //- themeCurrent,
+            //- themeChange,
+            //- themeReset,
+          });
+      
+          updateLog();
+      
+        });
+      
       })();
     </script>
     <script>(()=>{const d=document;(d.documentElement||d.body).classList.add('_hidden');})();</script>

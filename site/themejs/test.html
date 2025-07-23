@@ -28,8 +28,8 @@
     <style id="_coreStyle">
       html,body { font-family:system-ui,sans-serif }
       hr { border:0;border-bottom:1px solid #888 }
-      svg { display: inline-block; width: 1em; height: 1em; }
       ._flex { display:flex }
+      ._scrollable { overflow: auto }
       
     </style>
     <link rel="stylesheet" media="all" href="/nova/site/css/nova.css?v=0.1.0" id="_style"/>
@@ -61,6 +61,7 @@
     </style>
   </head>
   <body>
+    <template class="_hidden" id="tes"></template>
     <div id="_views">
       <div class="_view" id="_main_view">
         <header id="_header">
@@ -72,7 +73,7 @@
         </header>
         <div class="_color_2 _flex" id="_main_nav">
           <div class="_fit"><a class="_a11" href="/nova/site/lab"><i class="_icon _licon"><i class="isvg _rotate_180">
-                  <svg viewBox="0 0 24 24">
+                  <svg viewBox="0 0 24 24" style="max-width:1em;max-height:1em;">
                     <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
                   </svg></i></i>Back</a>
           </div>
@@ -94,6 +95,7 @@
                 vertical-align: top;
                 line-height: inherit;
               }
+              #btns .monobtn button { font-family:monospace,monospace; }
             </style>
             <section class="_container _flex" id="btns">
               <div class="_fit _no_wrap _indiv">
@@ -104,8 +106,18 @@
               </div>
               <div class="_fit _text_center">|</div>
               <div class="_fit _no_wrap _indiv">
-                <button class="_a3" onclick="theme.change();" title="Theme Change">Theme</button>
-                <button class="_a3" onclick="theme.reset();" title="Theme Reset">Reset</button>
+                <button class="_a3" onclick="test.themeCurrent();" title="Current Theme">Theme</button>
+                <button class="_a3" onclick="test.themeChange();" title="Change Theme">Change</button>
+                <button class="_a3" onclick="test.themeReset();" title="Reset Theme">Reset</button>
+              </div>
+              <div class="_fit _text_center">|</div>
+              <div class="_fit _no_wrap _indiv monobtn">
+                <button class="_a3" onclick="test.themeSet();" title="theme.set()">()</button>
+                <button class="_a3" onclick="test.themeSet([]);" title="theme.set([])">[]</button>
+                <button class="_a3" onclick="test.themeSet([&quot;T1&quot;,&quot;T2&quot;,&quot;T3&quot;]);" title="theme.set([&quot;T1&quot;,&quot;T2&quot;,&quot;T3&quot;])">[..]</button>
+                <button class="_a3" onclick="test.themeSet(&quot;T1&quot;);" title="theme.set(&quot;T1&quot;)">T1</button>
+                <button class="_a3" onclick="test.themeSet(&quot;T2&quot;);" title="theme.set(&quot;T2&quot;)">T2</button>
+                <button class="_a3" onclick="test.themeSet(&quot;T3&quot;);" title="theme.set(&quot;T3&quot;)">T3</button>
               </div>
               <div class="_fit _text_center">|</div>
               <div class="_fit _no_wrap _indiv">
@@ -133,7 +145,6 @@
               </div>
             </div>
             <hr class="_mt0">
-            <section class="_hidden" id="element"></section>
           </article>
           <aside class="_side_article"></aside>
         </main>
@@ -153,7 +164,10 @@
       </div>
     </div>
     <aside id="_widgets"></aside>
-    <script>(()=>{const d=document;(d.documentElement||d.body).classList.add('_hidden');})();</script>
+    <script>
+      (()=>{const d=document;(d.documentElement||d.body).classList.add('_hidden');})();
+      
+    </script>
     <script>// your script goes here</script>
     <script type="text/javascript" src="/nova/src/files/index/jss/test_theme_v2.0.js?v=0.1.0"></script>
     <script type="text/javascript" src="/nova/site/js/theme_v2.0.js?v=0.1.0"></script>

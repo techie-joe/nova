@@ -58,6 +58,7 @@
     cog = (v, style) => { log('%c' + v, style); },
     eid = e => d.getElementById(e),
     hid = (id, html) => eid(id).innerHTML += html,
+    tes = eid('tes'),
     jss = eid('jss'),
     sec = eid('sec'),
     pre = eid('pre'),
@@ -88,6 +89,8 @@
         k = x.substring(2, 7),
         v = x.substring(2, 10);
       localStorage.setItem(k, v);
+      out(`storage.set "${k}": "${v}"`);
+      scroll(sec);
     },
     getRandomStoreKey = () => {
       return storage.key(Math.floor(Math.random() * storage.length));
@@ -95,19 +98,38 @@
     storeGet = (key) => {
       const
         k = key || getRandomStoreKey(),
-        v = k?storage.getItem(k):null;
-      out(`"${k}": "${v}"`);
+        v = k ? storage.getItem(k) : null;
+      out(`storage.get "${k}": "${v}"`);
       scroll(sec);
     },
     storeRemove = (key) => {
       const
-        k = key || getRandomStoreKey(),
-        v = k?storage.removeItem(k):null;
-      out(`"${k}": "${v}"`);
+        k = key || storage.key(0),
+        v = k ? storage.removeItem(k) : null;
+      out(`storage.remove "${k}": "${v}"`);
       scroll(sec);
     },
-    storeClear = () => { storage.clear(); },
-    element = eid('element'),
+    storeClear = () => {
+      storage.clear();
+      note(`storage.cleared`);
+      scroll(sec);
+    },
+    themeCurrent = () => {
+      note(`theme.current is ${theme.current()||'none'}`);
+      scroll(sec);
+    },
+    themeChange = () => {
+      const previous = theme.current();
+      theme.change();
+      const current = theme.current();
+      note(`theme.change from ${previous||'none'} to ${current||'none'}`);
+      scroll(sec);
+    },
+    themeReset = () => {
+      theme.reset();
+      note(`theme.reset to ${theme.current()||'none'}`);
+      scroll(sec);
+    },
     reset = () => {
       test = ''; pre.innerHTML = ''; console.clear();
       jss.setAttribute('style', GREEN); jss.innerHTML = '[JS:OK]';
@@ -135,7 +157,6 @@
     },
     TEST_FUN = (what, label) => (isFUN(what) ? note_ok(label) : note_err(label), what),
     run = () => {
-      sync();
       hr();
       TEST_FUN(theme.list, 'theme.list');
       TEST_FUN(theme.current, 'theme.current');
@@ -143,6 +164,7 @@
       TEST_FUN(theme.change, 'theme.change');
       TEST_FUN(theme.reset, 'theme.reset');
       scroll(sec);
+      sync();
     };
 
   //   TC = 'theme',
@@ -177,11 +199,9 @@
       storeGet,
       storeRemove,
       storeClear,
-      // run_sync,
-      // run_reset,
-      // run_set,
-      // run_change,
-      // run_updateClass,
+      themeCurrent,
+      themeChange,
+      themeReset,
     });
 
     jss && (
