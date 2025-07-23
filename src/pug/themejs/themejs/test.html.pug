@@ -59,16 +59,17 @@ block article
     section._container.btns._flex._mt0
       ._fit._no_wrap._indiv.monobtn
         button(onclick='test.themeSet();' title='theme.set()')._a3='()'
-        button(onclick='test.themeSet([]);' title='theme.set([])')._a3='[]'
         button(onclick='test.themeSet("");' title='theme.set("")')._a3|none
         button(onclick='test.themeSet("_dark");' title='theme.set("_dark")')._a3|dark
         button(onclick='test.themeSet("_pink");' title='theme.set("_pink")')._a3|pink
         button(onclick='test.themeSet("_tan");' title='theme.set("_tan")')._a3|tan
       ._fit._text_center='|'
       ._fit._no_wrap._indiv
-        button(onclick='test.themeSet(["_dark"]);' title='theme.set(["_dark"])')._a3='S1'
+        button(onclick='test.themeSet([]);' title='theme.set([])')._a3='[]'
+        button(onclick='test.themeSet([""]);' title='theme.set([""])')._a3='S0'
+        button(onclick='test.themeSet(["","_dark"]);' title='theme.set(["","_dark"])')._a3='S1'
         button(onclick='test.themeSet(["_pink","_tan"]);' title='theme.set(["_pink","_tan"])')._a3='S2'
-        button(onclick='test.themeSet(["_dark","_pink","_tan"]);' title='theme.set(["_dark","_pink","_tan"])')._a3='S3'
+        button(onclick='test.themeSet(["","_dark","_pink","_tan"]);' title='theme.set(["","_dark","_pink","_tan"])')._a3='S3'
       ._f
     //- 
       ._fit._text_center='|'

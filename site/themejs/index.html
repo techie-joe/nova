@@ -121,7 +121,6 @@
             <section class="_container btns _flex _mt0">
               <div class="_fit _no_wrap _indiv monobtn">
                 <button class="_a3" onclick="test.themeSet();" title="theme.set()">()</button>
-                <button class="_a3" onclick="test.themeSet([]);" title="theme.set([])">[]</button>
                 <button class="_a3" onclick="test.themeSet(&quot;&quot;);" title="theme.set(&quot;&quot;)">none</button>
                 <button class="_a3" onclick="test.themeSet(&quot;_dark&quot;);" title="theme.set(&quot;_dark&quot;)">dark</button>
                 <button class="_a3" onclick="test.themeSet(&quot;_pink&quot;);" title="theme.set(&quot;_pink&quot;)">pink</button>
@@ -129,9 +128,11 @@
               </div>
               <div class="_fit _text_center">|</div>
               <div class="_fit _no_wrap _indiv">
-                <button class="_a3" onclick="test.themeSet([&quot;_dark&quot;]);" title="theme.set([&quot;_dark&quot;])">S1</button>
+                <button class="_a3" onclick="test.themeSet([]);" title="theme.set([])">[]</button>
+                <button class="_a3" onclick="test.themeSet([&quot;&quot;]);" title="theme.set([&quot;&quot;])">S0</button>
+                <button class="_a3" onclick="test.themeSet([&quot;&quot;,&quot;_dark&quot;]);" title="theme.set([&quot;&quot;,&quot;_dark&quot;])">S1</button>
                 <button class="_a3" onclick="test.themeSet([&quot;_pink&quot;,&quot;_tan&quot;]);" title="theme.set([&quot;_pink&quot;,&quot;_tan&quot;])">S2</button>
-                <button class="_a3" onclick="test.themeSet([&quot;_dark&quot;,&quot;_pink&quot;,&quot;_tan&quot;]);" title="theme.set([&quot;_dark&quot;,&quot;_pink&quot;,&quot;_tan&quot;])">S3</button>
+                <button class="_a3" onclick="test.themeSet([&quot;&quot;,&quot;_dark&quot;,&quot;_pink&quot;,&quot;_tan&quot;]);" title="theme.set([&quot;&quot;,&quot;_dark&quot;,&quot;_pink&quot;,&quot;_tan&quot;])">S3</button>
               </div>
               <div class="_f"></div>
             </section>
