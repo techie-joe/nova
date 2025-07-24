@@ -20,18 +20,17 @@ block article
       #btns .monobtn button { font-family:monospace,monospace; }
     section._container#btns._flex
       ._fit._no_wrap._indiv
-        button(onclick='test.storeAdd();' title="Add Store Item")._a3|Store
+        button(onclick='test.storeSet();' title="Set Store Item")._a3|Set
         button(onclick='test.storeGet();' title="Get Store Item")._a3|Get
         button(onclick='test.storeRemove();' title="Remove Store Item")._a3|Remove
         button(onclick='test.storeClear();' title="Clear Store")._a3|Clear
       ._fit._text_center='|'
       ._fit._no_wrap._indiv
-        button(onclick='theme.change();' title="Change Theme")._a3|Theme
+        button._a3(onclick="test.run()" title="Run Test") Test
+        button._a3(onclick="test.reset()" title="Reset Test") Clear
       ._fit._text_center='|'
       ._fit._no_wrap._indiv
-        button._a3(onclick="test.run()" title="Run Test") Test
-        button._a3(onclick='test.sync();' title="Sync Status")|Sync
-        button._a3(onclick="test.reset()" title="Reset Test") Reset
+        button(onclick='theme.change();' title="Change Theme")._a3|Theme
       ._f
     hr._mb0
     style.

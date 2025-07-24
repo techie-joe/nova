@@ -48,10 +48,22 @@
     TYPE = e => Object.prototype.toString.call(e),
     A = a => typeof a,
     isFUN = a => A(a) === A(() => { }),
-    isOBJ = a => A(a) === A({ }),
+    isOBJ = a => A(a) === A({}),
+    isSTR = a => A(a) === A(''),
     isARR = Array.isArray ? (a => Array.isArray(a)) : (a => TYPE(a) === TYPE([])),
     assign = (target, obj) => Object.assign(target || {}, obj),
-    stringify = (obj) => JSON.stringify(obj, null, 2),
+    jsonparse = a => { try { return JSON.parse(a); } catch (er) { return a; } },
+    stringify = (obj) => {
+      if (isOBJ(obj)) {
+        let o = [];
+        for (i = 0; i < obj.length; i++) {
+          const k = obj.key(i), v = jsonparse(obj[k]);
+          o.push(`  ${k}: ${isSTR(v) ? `"${v}"` : JSON.stringify(v)}`);
+        }
+        return `{\n${o.join(',\n')}\n}`;
+      }
+      else { return JSON.stringify(obj, null, 2); }
+    },
     w = window,
     d = document,
     doc = d.documentElement || d.body, // html or body
@@ -83,7 +95,7 @@
     storage = localStorage,
     stg = eid('storage'),
     ste = eid('sec_storage'),
-    storeAdd = () => {
+    storeSet = () => {
       let
         x = Math.random().toString(36),
         k = x.substring(2, 7),
@@ -99,14 +111,14 @@
       const
         k = key || getRandomStoreKey(),
         v = k ? storage.getItem(k) : null;
-      out(`storage.get "${k}": "${v}"`);
+      out(`storage.get "${k}"`+(v?`: "${v}"`:''));
       scroll(sec);
     },
     storeRemove = (key) => {
       const
         k = key || storage.key(0),
         v = k ? storage.removeItem(k) : null;
-      out(`storage.remove "${k}": "${v}"`);
+      out(`storage.remove "${k}"`+(v?`: "${v}"`:''));
       scroll(sec);
     },
     storeClear = () => {
@@ -115,19 +127,27 @@
       scroll(sec);
     },
     themeCurrent = () => {
-      note(`theme.current is ${theme.current()||'none'}`);
+      note(`theme.current is ${theme.current() || 'none'}`);
       scroll(sec);
     },
     themeChange = () => {
       const previous = theme.current();
       theme.change();
       const current = theme.current();
-      note(`theme.change from ${previous||'none'} to ${current||'none'}`);
+      note(`theme.change from ${previous || 'none'} to ${current || 'none'}`);
       scroll(sec);
     },
     themeReset = () => {
       theme.reset();
-      note(`theme.reset to ${theme.current()||'none'}`);
+      note(`theme.set to ${JSON.stringify(theme.list())} > ${theme.current() || 'none'}`);
+      scroll(sec);
+    },
+    themeSet = (set) => {
+      theme.set(set);
+      if(isSTR(set))
+        note(`theme.set to ${theme.current() || 'none'}`);
+      else
+        note(`theme.set to ${JSON.stringify(theme.list())} > ${theme.current() || 'none'}`);
       scroll(sec);
     },
     reset = () => {
@@ -142,7 +162,7 @@
       o.push(`doc.className: "${doc.className}"`);
 
       if (isFUN(theme.list)) {
-        o.push(`theme.list:    [${theme.list()}]`);
+        o.push(`theme.list:    ${JSON.stringify(theme.list())}`);
       } else { note_err('theme.list'); }
 
       if (isFUN(theme.current)) {
@@ -158,7 +178,6 @@
     TEST_FUN = (what, label) => (isFUN(what) ? note_ok(label) : note_err(label), what),
     TEST_OBJ = (what, label) => (isOBJ(what) ? note_ok(label) : note_err(label), what),
     run = () => {
-      hr();
       TEST_OBJ(theme, 'theme');
       TEST_FUN(theme.list, 'theme.list');
       TEST_FUN(theme.current, 'theme.current');
@@ -193,13 +212,14 @@
       run,
       sync,
       reset,
-      storeAdd,
+      storeSet,
       storeGet,
       storeRemove,
       storeClear,
       themeCurrent,
       themeChange,
       themeReset,
+      themeSet,
     });
 
     jss && (

@@ -59,6 +59,70 @@
         vertical-align: text-top;
       }
     </style>
+    <style>
+      ._pink, ._pink body,
+      ._pink ._color {
+        background-color: ghostwhite;
+        color: #a14e77;
+        border-color: hotpink;
+      }
+      ._pink ._color_1 {
+        background-color: hotpink;
+        color: white;
+        border-color: #c78a8a;
+      }
+      ._pink ._color_2 {     
+        background-color: #ff9fcf;
+        color: #691e4a;
+        border-color: #691e4a;
+      }
+      ._pink ._blockquote {
+        background-color: #ff9fcf44;
+        border-color: #9e4f77ff;
+      }
+      ._pink button,
+      ._pink a[href],
+      ._pink hr { border-color: #ffa1cf }
+      ._pink ._tc_contra,
+      ._pink h6,
+      ._pink h5,
+      ._pink h4,
+      ._pink h3,
+      ._pink h2,
+      ._pink h1 { color: #d7408b; }
+      ._pink ._link { color: #c71d72; }
+      ._pink ._link:hover { color: #ff899e; }
+      
+      ._cream, ._cream body,
+      ._cream ._color {
+        background-color: linen;
+        color: #604429;
+        border-color: #7a7243;
+      }
+      ._cream ._color_1 {
+        background-color: #b2977d;
+        color: white;
+        border-color: #907a5b;
+      }
+      ._cream ._color_2 {     
+        background-color: #fde7d1;
+        border-color: #604429;
+      }
+      ._cream ._blockquote,
+      ._cream button,
+      ._cream a[href],
+      ._cream hr { border-color: #a4937a; }
+      ._cream ._tc_contra,
+      ._cream h6,
+      ._cream h5,
+      ._cream h4,
+      ._cream h3,
+      ._cream h2,
+      ._cream h1 { color: #422c17ff; }
+      ._cream ._link { color: #5a8510; }
+      ._cream ._link:hover { color: #5a8510; }  
+      
+    </style>
   </head>
   <body>
     <template class="_hidden" id="tes"></template>
@@ -99,40 +163,37 @@
             </style>
             <section class="_container btns _flex _mb0">
               <div class="_fit _no_wrap _indiv">
-                <button class="_a3" onclick="test.storeAdd();" title="Add Store Item">Store</button>
+                <button class="_a3" onclick="test.storeSet();" title="Set Store Item">Set</button>
                 <button class="_a3" onclick="test.storeGet();" title="Get Store Item">Get</button>
                 <button class="_a3" onclick="test.storeRemove();" title="Remove Store Item">Remove</button>
                 <button class="_a3" onclick="test.storeClear();" title="Clear Store">Clear</button>
               </div>
               <div class="_fit _text_center">|</div>
               <div class="_fit _no_wrap _indiv">
-                <button class="_a3" onclick="test.themeCurrent();" title="Current Theme">Theme</button>
-                <button class="_a3" onclick="test.themeChange();" title="Change Theme">Change</button>
-                <button class="_a3" onclick="test.themeReset();" title="Reset Theme">Reset</button>
+                <button class="_a3" onclick="test.run()" title="Run Test">Test</button>
+                <button class="_a3" onclick="test.reset()" title="Reset Test">Clear</button>
               </div>
               <div class="_fit _text_center">|</div>
-              <div class="_fit _no_wrap _indiv">
-                <button class="_a3" onclick="test.run()" title="Run Test">Test</button>
-                <button class="_a3" onclick="test.sync();" title="Sync Status">Sync</button>
-                <button class="_a3" onclick="test.reset()" title="Reset Test">Reset</button>
-              </div>
-              <div class="_f"></div>
-            </section>
-            <section class="_container btns _flex _mt0">
               <div class="_fit _no_wrap _indiv monobtn">
                 <button class="_a3" onclick="test.themeSet();" title="theme.set()">()</button>
                 <button class="_a3" onclick="test.themeSet(&quot;&quot;);" title="theme.set(&quot;&quot;)">none</button>
                 <button class="_a3" onclick="test.themeSet(&quot;_dark&quot;);" title="theme.set(&quot;_dark&quot;)">dark</button>
                 <button class="_a3" onclick="test.themeSet(&quot;_pink&quot;);" title="theme.set(&quot;_pink&quot;)">pink</button>
-                <button class="_a3" onclick="test.themeSet(&quot;_tan&quot;);" title="theme.set(&quot;_tan&quot;)">tan</button>
+                <button class="_a3" onclick="test.themeSet(&quot;_cream&quot;);" title="theme.set(&quot;_cream&quot;)">cream</button>
               </div>
               <div class="_fit _text_center">|</div>
               <div class="_fit _no_wrap _indiv">
                 <button class="_a3" onclick="test.themeSet([]);" title="theme.set([])">[]</button>
                 <button class="_a3" onclick="test.themeSet([&quot;&quot;]);" title="theme.set([&quot;&quot;])">S0</button>
-                <button class="_a3" onclick="test.themeSet([&quot;&quot;,&quot;_dark&quot;]);" title="theme.set([&quot;&quot;,&quot;_dark&quot;])">S1</button>
-                <button class="_a3" onclick="test.themeSet([&quot;_pink&quot;,&quot;_tan&quot;]);" title="theme.set([&quot;_pink&quot;,&quot;_tan&quot;])">S2</button>
-                <button class="_a3" onclick="test.themeSet([&quot;&quot;,&quot;_dark&quot;,&quot;_pink&quot;,&quot;_tan&quot;]);" title="theme.set([&quot;&quot;,&quot;_dark&quot;,&quot;_pink&quot;,&quot;_tan&quot;])">S3</button>
+                <button class="_a3" onclick="test.themeSet([&quot;_dark&quot;,&quot;&quot;]);" title="theme.set([&quot;_dark&quot;,&quot;&quot;])">S1</button>
+                <button class="_a3" onclick="test.themeSet([&quot;_pink&quot;,&quot;_cream&quot;]);" title="theme.set([&quot;_pink&quot;,&quot;_cream&quot;])">S2</button>
+                <button class="_a3" onclick="test.themeSet([&quot;_cream&quot;,&quot;&quot;,&quot;_dark&quot;,&quot;_pink&quot;]);" title="theme.set([&quot;_cream&quot;,&quot;&quot;,&quot;_dark&quot;,&quot;_pink&quot;])">S3</button>
+              </div>
+              <div class="_fit _text_center">|</div>
+              <div class="_fit _no_wrap _indiv">
+                <button class="_a3" onclick="test.themeCurrent();" title="Current Theme">Theme</button>
+                <button class="_a3" onclick="test.themeChange();" title="Change Theme">Change</button>
+                <button class="_a3" onclick="test.themeReset();" title="Reset Theme">Reset</button>
               </div>
               <div class="_f"></div>
             </section>
@@ -150,6 +211,46 @@
               <div class="_f">
                 <section class="_scrollable sec" id="sec">
                   <pre class="pre _container" id="pre">// Testing ThemeJS ..</pre>
+                </section>
+              </div>
+              <div class="_f">
+                <section class="_container">
+                  <h2 class="_h5">Page title</h2>
+                  <p>Paragraph texts lorum ipsum dolor set amet.</p>
+                  <div>
+<a href="#" onclick="event.preventDefault();" id="hyperlink">Hyperlink</a>
+<a class="_link" href="#" onclick="event.preventDefault();">Link</a>
+<a class="_visited" href="#" onclick="event.preventDefault();">Visited</a>
+<a class="_hover" href="#" onclick="event.preventDefault();">Hover</a>
+<a class="_active" href="#" onclick="event.preventDefault();">Active</a>
+<a class="_hover_link" href="#" onclick="event.preventDefault();">Hover-Link</a>
+<a class="_no_color" href="#" onclick="event.preventDefault();">No-Color</a>
+                  </div>
+                  <div>
+                    normal
+                    <code>code</code>
+                    <samp>samp</samp>
+                    <kbd>kbd</kbd>
+                  </div>
+                  <div><span>normal</span>
+                    <span class="_tc_contra">contra</span>
+                    <span class="_tc_blue">blue</span>
+                    <span class="_tc_purple">purple</span>
+                    <span class="_tc_orange">orange</span>
+                    <span class="_tc_red">red</span>
+                    <span class="_tc_green">green</span>
+                  </div>
+                  <blockquote class="_blockquote">blockquote._blockquote</blockquote>
+                </section>
+                <style>#indiv > * { padding:.25em .5em }</style>
+                <section class="_indiv _container" id="indiv">
+                  <div class="_inblock _border">border</div>
+                  <div class="_inblock _outline">outline</div>
+                  <div class="_inblock _boxline">boxline</div>
+                  <div class="_inblock _select">select</div><br>
+                  <div class="_inblock _color">color</div>
+                  <div class="_inblock _color_1">color_1</div>
+                  <div class="_inblock _color_2">color_2</div><br>
                 </section>
               </div>
             </div>

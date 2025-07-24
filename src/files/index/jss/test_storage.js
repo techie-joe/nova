@@ -74,11 +74,10 @@
     note_ok = (label) => { note(label + ': ☑', GREEN); },
     note_err = (label) => { note(label + ': ☒', RED); },
     scroll = (e) => { e.scrollTo(0, e.scrollHeight); },
-    hr = () => { pre.append(d.createElement('hr')); },
     storage = localStorage,
     stg = eid('storage'),
     ste = eid('sec_storage'),
-    storeAdd = () => {
+    storeSet = () => {
       let
         x = Math.random().toString(36),
         k = x.substring(2, 7),
@@ -94,14 +93,14 @@
       const
         k = key || getRandomStoreKey(),
         v = k ? storage.getItem(k) : null;
-      out(`storage.get "${k}": "${v}"`);
+      out(`storage.get "${k}"`+(v?`: "${v}"`:''));
       scroll(sec);
     },
     storeRemove = (key) => {
       const
         k = key || storage.key(0),
         v = k ? storage.removeItem(k) : null;
-      out(`storage.remove "${k}": "${v}"`);
+      out(`storage.remove "${k}"`+(v?`: "${v}"`:''));
       scroll(sec);
     },
     storeClear = () => {
@@ -118,7 +117,7 @@
       const o = [];
 
       if (isFUN(theme.list)) {
-        o.push(`theme.list:    [${theme.list()}]`);
+        o.push(`theme.list:    ${JSON.stringify(theme.list())}`);
       } else { note_err('theme.list'); }
 
       if (isFUN(theme.current)) {
@@ -134,7 +133,6 @@
     TEST_FUN = (what, label) => (isFUN(what) ? note_ok(label) : note_err(label), what),
     TEST_OBJ = (what, label) => (isOBJ(what) ? note_ok(label) : note_err(label), what),
     run = () => {
-      hr();
       TEST_OBJ(storage, 'storage');
       TEST_FUN(storage.setItem, 'storage.setItem');
       TEST_FUN(storage.getItem, 'storage.getItem');
@@ -161,7 +159,7 @@
       run,
       sync,
       reset,
-      storeAdd,
+      storeSet,
       storeGet,
       storeRemove,
       storeClear,

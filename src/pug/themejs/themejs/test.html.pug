@@ -27,6 +27,70 @@ block header
   +simplestHeader
   +lab_nav
 
+block append style
+  style.
+    ._pink, ._pink body,
+    ._pink ._color {
+      background-color: ghostwhite;
+      color: #a14e77;
+      border-color: hotpink;
+    }
+    ._pink ._color_1 {
+      background-color: hotpink;
+      color: white;
+      border-color: #c78a8a;
+    }
+    ._pink ._color_2 {     
+      background-color: #ff9fcf;
+      color: #691e4a;
+      border-color: #691e4a;
+    }
+    ._pink ._blockquote {
+      background-color: #ff9fcf44;
+      border-color: #9e4f77ff;
+    }
+    ._pink button,
+    ._pink a[href],
+    ._pink hr { border-color: #ffa1cf }
+    ._pink ._tc_contra,
+    ._pink h6,
+    ._pink h5,
+    ._pink h4,
+    ._pink h3,
+    ._pink h2,
+    ._pink h1 { color: #d7408b; }
+    ._pink ._link { color: #c71d72; }
+    ._pink ._link:hover { color: #ff899e; }
+    
+    ._cream, ._cream body,
+    ._cream ._color {
+      background-color: linen;
+      color: #604429;
+      border-color: #7a7243;
+    }
+    ._cream ._color_1 {
+      background-color: #b2977d;
+      color: white;
+      border-color: #907a5b;
+    }
+    ._cream ._color_2 {     
+      background-color: #fde7d1;
+      border-color: #604429;
+    }
+    ._cream ._blockquote,
+    ._cream button,
+    ._cream a[href],
+    ._cream hr { border-color: #a4937a; }
+    ._cream ._tc_contra,
+    ._cream h6,
+    ._cream h5,
+    ._cream h4,
+    ._cream h3,
+    ._cream h2,
+    ._cream h1 { color: #422c17ff; }
+    ._cream ._link { color: #5a8510; }
+    ._cream ._link:hover { color: #5a8510; }  
+
 block article
   article._article
 
@@ -41,35 +105,33 @@ block article
       .btns .monobtn button { font-family:monospace,monospace; }
     section._container.btns._flex._mb0
       ._fit._no_wrap._indiv
-        button(onclick='test.storeAdd();' title="Add Store Item")._a3|Store
+        button(onclick='test.storeSet();' title="Set Store Item")._a3|Set
         button(onclick='test.storeGet();' title="Get Store Item")._a3|Get
         button(onclick='test.storeRemove();' title="Remove Store Item")._a3|Remove
         button(onclick='test.storeClear();' title="Clear Store")._a3|Clear
       ._fit._text_center='|'
       ._fit._no_wrap._indiv
-        button(onclick='test.themeCurrent();' title="Current Theme")._a3|Theme
-        button(onclick='test.themeChange();' title="Change Theme")._a3|Change
-        button(onclick='test.themeReset();' title="Reset Theme")._a3|Reset
-      ._fit._text_center='|'
-      ._fit._no_wrap._indiv
         button._a3(onclick="test.run()" title="Run Test") Test
-        button._a3(onclick='test.sync();' title="Sync Status")|Sync
-        button._a3(onclick="test.reset()" title="Reset Test") Reset
-      ._f
-    section._container.btns._flex._mt0
+        button._a3(onclick="test.reset()" title="Reset Test") Clear
+      ._fit._text_center='|'
       ._fit._no_wrap._indiv.monobtn
         button(onclick='test.themeSet();' title='theme.set()')._a3='()'
         button(onclick='test.themeSet("");' title='theme.set("")')._a3|none
         button(onclick='test.themeSet("_dark");' title='theme.set("_dark")')._a3|dark
         button(onclick='test.themeSet("_pink");' title='theme.set("_pink")')._a3|pink
-        button(onclick='test.themeSet("_tan");' title='theme.set("_tan")')._a3|tan
+        button(onclick='test.themeSet("_cream");' title='theme.set("_cream")')._a3|cream
       ._fit._text_center='|'
       ._fit._no_wrap._indiv
         button(onclick='test.themeSet([]);' title='theme.set([])')._a3='[]'
         button(onclick='test.themeSet([""]);' title='theme.set([""])')._a3='S0'
-        button(onclick='test.themeSet(["","_dark"]);' title='theme.set(["","_dark"])')._a3='S1'
-        button(onclick='test.themeSet(["_pink","_tan"]);' title='theme.set(["_pink","_tan"])')._a3='S2'
-        button(onclick='test.themeSet(["","_dark","_pink","_tan"]);' title='theme.set(["","_dark","_pink","_tan"])')._a3='S3'
+        button(onclick='test.themeSet(["_dark",""]);' title='theme.set(["_dark",""])')._a3='S1'
+        button(onclick='test.themeSet(["_pink","_cream"]);' title='theme.set(["_pink","_cream"])')._a3='S2'
+        button(onclick='test.themeSet(["_cream","","_dark","_pink"]);' title='theme.set(["_cream","","_dark","_pink"])')._a3='S3'
+      ._fit._text_center='|'
+      ._fit._no_wrap._indiv
+        button(onclick='test.themeCurrent();' title="Current Theme")._a3|Theme
+        button(onclick='test.themeChange();' title="Change Theme")._a3|Change
+        button(onclick='test.themeReset();' title="Reset Theme")._a3|Reset
       ._f
     //- 
       ._fit._text_center='|'
@@ -86,6 +148,49 @@ block article
       ._f
         section._scrollable.sec#sec
           pre.pre#pre._container| // #{description} ..
+      ._f
+        mixin _ax(href,title,cls)
+          +l
+          a(href=href||'#' title=title onclick=onclick())&attributes(attributes): block
+
+        section._container
+          h2._h5 Page title
+          p| Paragraph texts lorum ipsum dolor set amet.
+          div
+            +_ax#hyperlink Hyperlink
+            +_ax._link Link
+            +_ax._visited Visited
+            +_ax._hover Hover
+            +_ax._active Active
+            +_ax._hover_link Hover-Link
+            +_ax._no_color No-Color
+          div
+            | normal
+            | #[code code]
+            | #[samp samp]
+            | #[kbd kbd]
+          div
+            | #[span normal]
+            | #[span._tc_contra contra]
+            | #[span._tc_blue blue]
+            | #[span._tc_purple purple]
+            | #[span._tc_orange orange]
+            | #[span._tc_red red]
+            | #[span._tc_green green]
+          blockquote._blockquote blockquote._blockquote
+
+        style.
+          #indiv > * { padding:.25em .5em }
+        section#indiv._indiv._container
+          ._inblock._border border
+          ._inblock._outline outline
+          ._inblock._boxline boxline
+          ._inblock._select select
+          br
+          ._inblock._color color
+          ._inblock._color_1 color_1
+          ._inblock._color_2 color_2
+          br
     hr._mt0
 
 block prepend views
