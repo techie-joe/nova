@@ -26,12 +26,24 @@
     <meta property="og:image"/>
     <meta property="og:image:alt"/>
     <style id="_coreStyle">
-      html,body { font-family:system-ui,sans-serif }
-      hr { border:0;border-bottom:1px solid #888 }
+      ._invisible { visibility: hidden !important }
+      ._hide, ._hidden, [hidden] { display: none !important }
       ._flex { display:flex }
       ._scrollable { overflow: auto }
+      html,body { font-family:system-ui,sans-serif }
+      hr { border:0;border-bottom:1px solid #888 }
+    </style>
+    <style id="_needjs" onload="this.remove()">
+      ._needjs { display: none !important; }
       
     </style>
+    <script>
+      ((d=document,b=d.documentElement||d.body,c='_invisible')=>{
+        b.classList.add(c);d.addEventListener('DOMContentLoaded',e=>{b.classList.remove(c)});
+      })();
+      
+    </script>
+    <script type="text/javascript" src="/nova/site/js/theme_v2.0.js?v=0.1.0" defer="defer"></script>
     <link rel="stylesheet" media="all" href="/nova/site/css/nova.css?v=0.1.0" id="_style"/>
     <link rel="stylesheet" media="all" href="/nova/site/css/basic.css?v=0.1.0" id="_basicStyle"/>
     <style>
@@ -78,7 +90,7 @@
       }
       ._pink ._blockquote {
         background-color: #ff9fcf44;
-        border-color: #9e4f77ff;
+        border-color: #d7408b;
       }
       ._pink button,
       ._pink a[href],
@@ -125,9 +137,10 @@
     </style>
   </head>
   <body>
-    <template class="_hidden" id="tes"></template>
+    <div class="_hidden" id="tes"></div>
     <div id="_views">
       <div class="_view" id="_main_view">
+        <noscript class="_pa _tc_red _b _mono">// Please enable javascript</noscript>
         <header id="_header">
           <div class="_color_1">
             <div class="_pa_5"><a class="_no_select" href="/nova/site/" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></a><span id="maindesc">Testing ThemeJS</span>
@@ -150,7 +163,7 @@
         </div>
         <hr class="_m0"/>
         <main id="_main">
-          <article class="_article">
+          <article class="_article _needjs">
             <style>
               .btns button {
                 margin: .1em;
@@ -215,8 +228,8 @@
               </div>
               <div class="_f">
                 <section class="_container">
-                  <h2 class="_h5">Page title</h2>
-                  <p>Paragraph texts lorum ipsum dolor set amet.</p>
+                  <h2 class="_h4">Heading</h2>
+                  <p>Paragraph text: lorum ipsum dolor set amet.</p>
                   <div>
 <a href="#" onclick="event.preventDefault();" id="hyperlink">Hyperlink</a>
 <a class="_link" href="#" onclick="event.preventDefault();">Link</a>
@@ -274,12 +287,7 @@
       </div>
     </div>
     <aside id="_widgets"></aside>
-    <script>
-      (()=>{const d=document;(d.documentElement||d.body).classList.add('_hidden');})();
-      
-    </script>
     <script>// your script goes here</script>
     <script type="text/javascript" src="/nova/src/files/index/jss/test_theme_v2.0.js?v=0.1.0"></script>
-    <script type="text/javascript" src="/nova/site/js/theme_v2.0.js?v=0.1.0"></script>
   </body>
 </html>

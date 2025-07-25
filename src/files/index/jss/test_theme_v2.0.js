@@ -197,11 +197,7 @@
 
   d.addEventListener('DOMContentLoaded', () => {
 
-    try { theme } catch (err) {
-      note_err(err);
-      doc.classList.remove('_hidden')
-      return;
-    }
+    try { theme } catch (err) { note_err(err); return; }
 
     w.test = assign(w.test, {
       run,

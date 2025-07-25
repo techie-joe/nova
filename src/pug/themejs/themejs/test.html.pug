@@ -7,11 +7,10 @@ block append vars
     title       = `ThemeJS Test`
     description = 'Testing ThemeJS'
 
-  - INCLUDE_THEMEJS = false;
-
-block prepend script
-  script.
-    (()=>{const d=document;(d.documentElement||d.body).classList.add('_hidden');})();
+block coreScript
+  if INCLUDE_THEMEJS
+    +fouc
+    +jsv(homeUri+'js/theme_v2.0.js')(defer)
 
 mixin lab_nav
   #_main_nav._color_2._flex
@@ -47,7 +46,7 @@ block append style
     }
     ._pink ._blockquote {
       background-color: #ff9fcf44;
-      border-color: #9e4f77ff;
+      border-color: #d7408b;
     }
     ._pink button,
     ._pink a[href],
@@ -92,7 +91,7 @@ block append style
     ._cream ._link:hover { color: #5a8510; }  
 
 block article
-  article._article
+  article._article._needjs
 
     style.
       .btns button {
@@ -154,8 +153,8 @@ block article
           a(href=href||'#' title=title onclick=onclick())&attributes(attributes): block
 
         section._container
-          h2._h5 Page title
-          p| Paragraph texts lorum ipsum dolor set amet.
+          h2._h4 Heading
+          p| Paragraph text: lorum ipsum dolor set amet.
           div
             +_ax#hyperlink Hyperlink
             +_ax._link Link
@@ -194,7 +193,7 @@ block article
     hr._mt0
 
 block prepend views
-  template._hidden#tes
+  ._hidden#tes
 
 block append script
   //- +jsv(src)
@@ -204,6 +203,4 @@ block append script
   //- ------------------------------------------------------------
   +jsv('/nova/src/files/index/'+'jss/test_theme_v2.0.js')
   //- +jsv(homeUri+'jss/test_theme_v2.0.js')
-  //- ------------------------------------------------------------
-  +jsv(homeUri+'js/theme_v2.0.js')
   //- ------------------------------------------------------------

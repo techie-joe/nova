@@ -26,12 +26,24 @@
     <meta property="og:image"/>
     <meta property="og:image:alt"/>
     <style id="_coreStyle">
-      html,body { font-family:system-ui,sans-serif }
-      hr { border:0;border-bottom:1px solid #888 }
+      ._invisible { visibility: hidden !important }
+      ._hide, ._hidden, [hidden] { display: none !important }
       ._flex { display:flex }
       ._scrollable { overflow: auto }
+      html,body { font-family:system-ui,sans-serif }
+      hr { border:0;border-bottom:1px solid #888 }
+    </style>
+    <style id="_needjs" onload="this.remove()">
+      ._needjs { display: none !important; }
       
     </style>
+    <script>
+      ((d=document,b=d.documentElement||d.body,c='_invisible')=>{
+        b.classList.add(c);d.addEventListener('DOMContentLoaded',e=>{b.classList.remove(c)});
+      })();
+      
+    </script>
+    <script type="text/javascript" src="/nova/site/js/theme_v2.0.js?v=0.1.0" defer="defer"></script>
     <link rel="stylesheet" media="all" href="/nova/site/css/nova.css?v=0.1.0" id="_style"/>
     <link rel="stylesheet" media="all" href="/nova/site/css/basic.css?v=0.1.0" id="_basicStyle"/>
     <style>
@@ -63,6 +75,7 @@
   <body>
     <div id="_views">
       <div class="_view" id="_main_view">
+        <noscript class="_pa _tc_red _b _mono">// Please enable javascript</noscript>
         <header id="_header">
           <div class="_color_1">
             <div class="_pa_5"><a class="_no_select" href="/nova/site/" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></a><span id="maindesc">Testing storage</span>
@@ -152,8 +165,6 @@
     </div>
     <aside id="_widgets"></aside>
     <script type="text/javascript" src="/nova/site/jss/test_storage.js?v=0.1.0"></script>
-    <script>(()=>{const d=document;(d.documentElement||d.body).classList.add('_hidden');})();</script>
-    <script type="text/javascript" src="/nova/site/js/theme_v2.0.js?v=0.1.0"></script>
     <script>// your script goes here</script>
   </body>
 </html>

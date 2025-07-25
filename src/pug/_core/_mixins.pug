@@ -64,13 +64,6 @@ mixin backlink(title='Back to previous page')
 mixin changeThemeLink(title='Change Theme (Ctrl+Alt+T)')
   a(href='#' onclick!=onclick(js.themeChange) title=title)._needjs&attributes(attributes): block
 
-//- use ._needjs on elements that need js enabled
-mixin needjs
-  style#_needjs.
-    ._needjs { display: none !important; }
-  script.
-    document.getElementById('_needjs').remove();
-
 //- ==============================================================
 //- navigations
 //- ==============================================================

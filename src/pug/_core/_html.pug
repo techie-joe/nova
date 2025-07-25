@@ -15,6 +15,12 @@ block updatePageData
     og_description = description
     og_url  = pageUrl? pageUrl + '?utm_source=homescreen' : undefined;
 
+mixin fouc
+  script.
+    ((d=document,b=d.documentElement||d.body,c='_invisible')=>{
+      b.classList.add(c);d.addEventListener('DOMContentLoaded',e=>{b.classList.remove(c)});
+    })();
+
 mixin helloWorld
   pre.
     &nbsp;
@@ -40,10 +46,20 @@ html(lang=lang class=htmlClass.join(' '))
 
       block coreStyle
         style#_coreStyle.
-          html,body { font-family:system-ui,sans-serif }
-          hr { border:0;border-bottom:1px solid #888 }
+          ._invisible { visibility: hidden !important }
+          ._hide, ._hidden, [hidden] { display: none !important }
           ._flex { display:flex }
           ._scrollable { overflow: auto }
+          html,body { font-family:system-ui,sans-serif }
+          hr { border:0;border-bottom:1px solid #888 }
+        //- use ._needjs on elements that need js enabled
+        style#_needjs(onload="this.remove()").
+          ._needjs { display: none !important; }
+      
+      block coreScript
+        if INCLUDE_THEMEJS
+          +fouc
+          +jsv(homeUri+'js/theme_v2.0.js')(defer)
 
       block stylesheet
 
@@ -60,6 +76,9 @@ html(lang=lang class=htmlClass.join(' '))
 
           block view
             div#_main_view._view
+
+              block noscript
+                noscript._pa._tc_red._b._mono| // Please enable javascript
 
               block header
                 header#_header
@@ -88,13 +107,6 @@ html(lang=lang class=htmlClass.join(' '))
         aside#_widgets
       
       block script
-        //- +jsv(src)
-
-        if INCLUDE_THEMEJS
-          script.
-            (()=>{const d=document;(d.documentElement||d.body).classList.add('_hidden');})();
-          +jsv(homeUri+'js/theme_v2.0.js')
-
         if INCLUDE_SERVICE_WORKERS
           +jsv(homeUri+'sw/sw.j')(defer)
 
