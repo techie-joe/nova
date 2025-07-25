@@ -94,7 +94,7 @@ mixin svgi(d,viewBox,opacity,fill)
 //- ==============================================================
 
 mixin isvg(d,cls)
-  i._icon(class=cls): i.isvg&attributes(attributes): +svgi(d)(style="max-width:1em;max-height:1em;")
+  i._icon(class=cls): i.isvg&attributes(attributes): +svgi(d)
 
 mixin fa(cls)
   i._icon(class=cls): i.fa&attributes(attributes): block

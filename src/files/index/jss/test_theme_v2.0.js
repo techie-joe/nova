@@ -111,14 +111,14 @@
       const
         k = key || getRandomStoreKey(),
         v = k ? storage.getItem(k) : null;
-      out(`storage.get "${k}"`+(v?`: "${v}"`:''));
+      out(`storage.get "${k}"` + (v ? `: "${v}"` : ''));
       scroll(sec);
     },
     storeRemove = (key) => {
       const
         k = key || storage.key(0),
         v = k ? storage.removeItem(k) : null;
-      out(`storage.remove "${k}"`+(v?`: "${v}"`:''));
+      out(`storage.remove "${k}"` + (v ? `: "${v}"` : ''));
       scroll(sec);
     },
     storeClear = () => {
@@ -144,7 +144,7 @@
     },
     themeSet = (set) => {
       theme.set(set);
-      if(isSTR(set))
+      if (isSTR(set))
         note(`theme.set to ${theme.current() || 'none'}`);
       else
         note(`theme.set to ${JSON.stringify(theme.list())} > ${theme.current() || 'none'}`);
@@ -177,9 +177,12 @@
     },
     TEST_FUN = (what, label) => (isFUN(what) ? note_ok(label) : note_err(label), what),
     TEST_OBJ = (what, label) => (isOBJ(what) ? note_ok(label) : note_err(label), what),
+    dev_updateClass = (element, del, add) => {
+    },
     run = () => {
       sync();
       note(`doc.className: "${doc.className}"`);
+      note('testing logic for dev_updateClass', ORANGE);
       scroll(sec);
     };
 
@@ -225,7 +228,10 @@
     TEST_FUN(theme.change, 'theme.change');
     TEST_FUN(theme.reset, 'theme.reset');
     run();
-    setTimeout(run, 500);
+    setTimeout(() => {
+      note(`doc.className: "${doc.className}"`);
+      scroll(sec);
+    }, 500);
 
   });
 
