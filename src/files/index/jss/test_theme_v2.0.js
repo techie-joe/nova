@@ -71,7 +71,6 @@
     cog = (v, style) => { log('%c' + v, style); },
     eid = e => d.getElementById(e),
     hid = (id, html) => eid(id).innerHTML += html,
-    tes = eid('tes'),
     jss = eid('jss'),
     sec = eid('sec'),
     pre = eid('pre'),
@@ -177,13 +176,78 @@
     },
     TEST_FUN = (what, label) => (isFUN(what) ? note_ok(label) : note_err(label), what),
     TEST_OBJ = (what, label) => (isOBJ(what) ? note_ok(label) : note_err(label), what),
-    dev_updateClass = (element, del, add) => {
+    dev_updateClass = (e, del, add) => {
+      
+      try {
+        const
+          old = e.className,
+          newRegex = (pattern, flags) => new RegExp(pattern, flags),
+          _ = '',
+          P = ' ',
+          I = '|',
+          X = 'g',
+          SEP = newRegex('[\\.\\|\\s]+', X),
+          TRIM = (s, sep = I) => s.trim().replace(SEP, sep).trim(),
+          NEW = add ? TRIM(add, P) : _,
+          DEL = del ? TRIM([del, NEW].join(P)).trim() : _,
+          SEL = newRegex('(^|\\s+)(' + DEL + ')(\\s*(' + DEL + '))*(\\s+|$)', X),
+          RES = [e.className.replace(SEL, P).trim(),NEW].join(' ');
+
+        // (^|\s+)(DEL)(\s*(DEL))*(\s+|$)
+        log([
+          `TRY =.${e.className.replace(SEL, P)}.`,
+          `NEW =.${NEW}.`,
+          `DEL =.${DEL}.`,
+          `SEL =.${SEL}.`,
+          `RES =.${RES}.`,
+        ].join("\n"));
+
+        e.className = RES;
+
+        note([
+          `old = "${old}"`,
+          `del = "${del}"`,
+          `add = "${add}"`,
+          `new = "${e.className}"`,
+        ].join("\n"));
+
+        return e;
+      } catch (e) { error('Error while executing dev_updateClass : ' + e); }
+
     },
     run = () => {
+
       sync();
       note(`doc.className: "${doc.className}"`);
+
       note('testing logic for dev_updateClass', ORANGE);
+      const THEN = now(), e = eid('test_element');
+
+      hr();
+      e.className = '';
+      dev_updateClass( e,
+        '  a  b  c  d  ',
+        '  e  f  '
+      );
+
+      hr();
+      e.className = '  a  x  b  c  x  d  ';
+      dev_updateClass( e,
+        '  a  b  c  d  ',
+        '  e  f  '
+      );
+
+      hr();
+      e.className = 'A x B C x D';
+      dev_updateClass( e,
+        'A B C D',
+        'E F'
+      );
+
+      hr();
+      note(`Finished in ${now() - THEN}ms`, ORANGE);
       scroll(sec);
+
     };
 
   // ================================================ add listener
