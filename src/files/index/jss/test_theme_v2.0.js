@@ -176,79 +176,85 @@
     },
     TEST_FUN = (what, label) => (isFUN(what) ? note_ok(label) : note_err(label), what),
     TEST_OBJ = (what, label) => (isOBJ(what) ? note_ok(label) : note_err(label), what),
-    uc01 = (e, del, add) => {
+    dev_updateClass = (e, rem, add) => {
+
+      note('testing dev_updateClass', ORANGE);
       try {
         const
           old = e.className,
-          P = ' ',
           S = /\s+/,
-          // X = 'g',
-          getTokens = a => [...new Set(a.join(P).trim().split(S).filter(Boolean))],
-          ADD = getTokens([add]),
-          DEL = getTokens([del, add]),
-          // newRegex = (p, f) => new RegExp(p, f),
-          // (^|\s+)(DEL)(\s+|$)
-          // SEL = newRegex(`(^|\\s+)(${DEL.join('|')})(\\s+|$)`, X),
-          TRY = [old.trim().split(S).filter(x=>!new Set(DEL).has(x)).join(P), ADD.join(P)].filter(Boolean).join(P);
-        e.className = TRY;
+          getTokens = s => new Set((s || '').split(S).filter(Boolean)),
+          REM = getTokens(rem),
+          ADD = getTokens(add);
+        for (const cls of REM) e.classList.remove(cls);
+        for (const cls of ADD) e.classList.add(cls);
 
-        log([
-          `DEL = "${DEL}"`,
-          `ADD = "${ADD}"`,
-          // `SEL = "${SEL}"`,
-          `TRY = "${TRY}"`,
-          `NEW = "${e.className}"`,
+        note([
+          `old = "${old}"`,
+          `rem = "${rem}"`,
+          `add = "${add}"`,
+          `REM = "${[...REM]}"`,
+          `ADD = "${[...ADD]}"`,
+          `new = "${e.className}"`,
         ].join("\n"));
 
-      } catch (e) { note_err('Error while executing _uc_1 : ' + e); }
-    },
-    dev_updateClass = (e, del, add) => {
-
-      const old = e.className;
-
-      uc01(e, del, add);
-
-      note([
-        `old = "${old}"`,
-        `del = "${del}"`,
-        `add = "${add}"`,
-        `new = "${e.className}"`,
-      ].join("\n"));
+      } catch (e) { note_err('Error while executing dev_updateClass : ' + e); }
 
     },
-    run = () => {
+    thm_updateClass = (e, rem, add) => {
 
-      sync();
-      note(`doc.className: "${doc.className}"`);
+      note('testing thm_updateClass', ORANGE);
+      try {
+        const
+          old = e.className;
+        theme.fn.updateClass(e, rem, add);
 
-      // hr();
-      note('testing dev_updateClass', ORANGE);
+        note([
+          `old = "${old}"`,
+          `rem = "${rem}"`,
+          `add = "${add}"`,
+          `new = "${e.className}"`,
+        ].join("\n"));
+
+      } catch (e) { note_err('Error while executing thm_updateClass : ' + e); }
+
+    },
+    test_1 = (fn) => {
+
       const e = eid('test_element'), THEN = now();
 
       e.removeAttribute('class');
-      dev_updateClass(e,
-        '   a b b   c d   ',
-        '   e e  f   '
+      fn(e,
+        '   a a b b   c c d d   ',
+        '   e e  f f   '
       );
       hr();
 
-      e.className = '   a a x b b   c y d   ';
-      dev_updateClass(e,
-        '   a b b   c d   ',
-        '   e e   f   '
+      e.className = '   a a x b b   c c y d d   ';
+      fn(e,
+        '   a a b b   c c d d   ',
+        '   e e   f f   '
       );
       hr();
 
-      e.className = 'A A X B B   C Y D';
-      dev_updateClass(e,
-        'A B B   C D',
-        'E E   F'
+      e.className = 'A A X B B   C C Y D D';
+      fn(e,
+        'A A B B   C C D D',
+        'E E   F F'
       );
       hr();
 
       // hr();
       note(`Finished in ${now() - THEN}ms`, ORANGE);
       scroll(sec);
+
+    },
+    run = () => {
+
+      sync();
+      note(`initial doc.className: "${doc.className}"`);
+      // test_1(dev_updateClass);
+      // test_1(thm_updateClass);
 
     };
 
@@ -280,6 +286,8 @@
       themeChange,
       themeReset,
       themeSet,
+      test_1: () => { hr(); test_1(dev_updateClass) },
+      test_2: () => { hr(); test_1(thm_updateClass) },
     });
 
     jss && (
@@ -296,7 +304,7 @@
     run();
     setTimeout(() => {
       // hr();
-      note(`doc.className: "${doc.className}"`);
+      note(`themed doc.className: "${doc.className}"`);
       scroll(sec);
     }, 500);
 

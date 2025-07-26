@@ -71,7 +71,6 @@
     cog = (v, style) => { log('%c' + v, style); },
     eid = e => d.getElementById(e),
     hid = (id, html) => eid(id).innerHTML += html,
-    tes = eid('tes'),
     jss = eid('jss'),
     sec = eid('sec'),
     pre = eid('pre'),
@@ -111,14 +110,14 @@
       const
         k = key || getRandomStoreKey(),
         v = k ? storage.getItem(k) : null;
-      out(`storage.get "${k}"`+(v?`: "${v}"`:''));
+      out(`storage.get "${k}"` + (v ? `: "${v}"` : ''));
       scroll(sec);
     },
     storeRemove = (key) => {
       const
         k = key || storage.key(0),
         v = k ? storage.removeItem(k) : null;
-      out(`storage.remove "${k}"`+(v?`: "${v}"`:''));
+      out(`storage.remove "${k}"` + (v ? `: "${v}"` : ''));
       scroll(sec);
     },
     storeClear = () => {
@@ -144,7 +143,7 @@
     },
     themeSet = (set) => {
       theme.set(set);
-      if(isSTR(set))
+      if (isSTR(set))
         note(`theme.set to ${theme.current() || 'none'}`);
       else
         note(`theme.set to ${JSON.stringify(theme.list())} > ${theme.current() || 'none'}`);
@@ -177,15 +176,86 @@
     },
     TEST_FUN = (what, label) => (isFUN(what) ? note_ok(label) : note_err(label), what),
     TEST_OBJ = (what, label) => (isOBJ(what) ? note_ok(label) : note_err(label), what),
-    run = () => {
-      TEST_OBJ(theme, 'theme');
-      TEST_FUN(theme.list, 'theme.list');
-      TEST_FUN(theme.current, 'theme.current');
-      TEST_FUN(theme.set, 'theme.set');
-      TEST_FUN(theme.change, 'theme.change');
-      TEST_FUN(theme.reset, 'theme.reset');
+    dev_updateClass = (e, rem, add) => {
+
+      note('testing dev_updateClass', ORANGE);
+      try {
+        const
+          old = e.className,
+          S = /\s+/,
+          getTokens = s => new Set((s || '').split(S).filter(Boolean)),
+          REM = getTokens(rem),
+          ADD = getTokens(add);
+        for (const cls of REM) e.classList.remove(cls);
+        for (const cls of ADD) e.classList.add(cls);
+
+        note([
+          `old = "${old}"`,
+          `rem = "${rem}"`,
+          `add = "${add}"`,
+          `REM = "${[...REM]}"`,
+          `ADD = "${[...ADD]}"`,
+          `new = "${e.className}"`,
+        ].join("\n"));
+
+      } catch (e) { note_err('Error while executing dev_updateClass : ' + e); }
+
+    },
+    thm_updateClass = (e, rem, add) => {
+
+      note('testing thm_updateClass', ORANGE);
+      try {
+        const
+          old = e.className;
+        theme.fn.updateClass(e, rem, add);
+
+        note([
+          `old = "${old}"`,
+          `rem = "${rem}"`,
+          `add = "${add}"`,
+          `new = "${e.className}"`,
+        ].join("\n"));
+
+      } catch (e) { note_err('Error while executing thm_updateClass : ' + e); }
+
+    },
+    test_1 = (fn) => {
+
+      const e = eid('test_element'), THEN = now();
+
+      e.removeAttribute('class');
+      fn(e,
+        '   a a b b   c c d d   ',
+        '   e e  f f   '
+      );
+      hr();
+
+      e.className = '   a a x b b   c c y d d   ';
+      fn(e,
+        '   a a b b   c c d d   ',
+        '   e e   f f   '
+      );
+      hr();
+
+      e.className = 'A A X B B   C C Y D D';
+      fn(e,
+        'A A B B   C C D D',
+        'E E   F F'
+      );
+      hr();
+
+      // hr();
+      note(`Finished in ${now() - THEN}ms`, ORANGE);
       scroll(sec);
+
+    },
+    run = () => {
+
       sync();
+      note(`initial doc.className: "${doc.className}"`);
+      // test_1(dev_updateClass);
+      // test_1(thm_updateClass);
+
     };
 
   // ================================================ add listener
@@ -202,11 +272,7 @@
 
   d.addEventListener('DOMContentLoaded', () => {
 
-    try { theme } catch (err) {
-      note_err(err);
-      doc.classList.remove('_hidden')
-      return;
-    }
+    try { theme } catch (err) { note_err(err); return; }
 
     w.test = assign(w.test, {
       run,
@@ -220,6 +286,8 @@
       themeChange,
       themeReset,
       themeSet,
+      test_1: () => { hr(); test_1(dev_updateClass) },
+      test_2: () => { hr(); test_1(thm_updateClass) },
     });
 
     jss && (
@@ -227,7 +295,18 @@
       jss.innerHTML = '[JS:OK]'
     );
 
+    TEST_OBJ(theme, 'theme');
+    TEST_FUN(theme.list, 'theme.list');
+    TEST_FUN(theme.current, 'theme.current');
+    TEST_FUN(theme.set, 'theme.set');
+    TEST_FUN(theme.change, 'theme.change');
+    TEST_FUN(theme.reset, 'theme.reset');
     run();
+    setTimeout(() => {
+      // hr();
+      note(`themed doc.className: "${doc.className}"`);
+      scroll(sec);
+    }, 500);
 
   });
 

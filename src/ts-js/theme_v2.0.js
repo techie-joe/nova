@@ -10,11 +10,13 @@
     }
     const W = window, D = document, DOC = D.documentElement || D.body, A = (a) => typeof a, TYPE = (e) => Object.prototype.toString.call(e), NULL = null, _ = '', STR = A(_), ARR = TYPE([]), isSTR = (v) => A(v) === STR, isARR = Array.isArray || (e => TYPE(e) === ARR), failTo = (e) => {
         throw ('Fail to ' + e);
-    }, nodeId = (id) => D.getElementById(id), listenTo = (what, type, listener, options) => { what.addEventListener(type, listener, options); }, newRegex = (pattern, flags) => new RegExp(pattern, flags), updateClass = (element, del, add) => {
+    }, nodeId = (id) => D.getElementById(id), listenTo = (what, type, listener, options) => { what.addEventListener(type, listener, options); }, updateClass = (e, rem, add) => {
         try {
-            const P = ' ', I = '|', X = 'g', SEP = newRegex('[\\.\\|\\s]+', X), TRIM = (s, sep = I) => s.trim().replace(SEP, sep).trim(), NEW = add ? TRIM(add, P) : _, DEL = del ? TRIM([del, NEW].join(P)).trim() : _, SEL = newRegex('(^|\\s+)(' + DEL + ')(\\s*(' + DEL + '))*(\\s+|$)', X), RES = element.className.replace(SEL, P).trim() + (NEW.length ? P + NEW : _);
-            element.className = RES;
-            return element;
+            const getTokens = (s) => new Set((s || '').split(/\s+/).filter(Boolean)), REM = getTokens(rem), ADD = getTokens(add);
+            for (const cls of REM)
+                e.classList.remove(cls);
+            for (const cls of ADD)
+                e.classList.add(cls);
         }
         catch (e) {
             failTo('updateClass');

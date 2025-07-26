@@ -1,21 +1,19 @@
-/* ===============================================================
 /*! ThemeJs | v2.0.1 | Copyright 2025 - Techie Joe | https://themejs.pages.dev */
 /* ===============================================================
-// 1.Set removeComments to false in tsconfig.json.
-// 2.Move the ! tag to the first line to include it output folder.
-// Try not to use the tag to improve chances of passing Envato QC.
+// To include the above copyright tag in the  output:
+// 1. Set tsconfig.json > removeComments to false.
+// 2. The *! tag must be on the first line.
+// 3. Avoid using the tag to pass Envato Check.
 /* ===============================================================
 // IMPORTANT: must compile to ES5 or above.
+// TARGET: compile to ES6.
 // ECMAScript 5 (ES5) aka ECMAScript 2009,
-// See tsconfig.json > compilerOptions.target = 'ES5';
-// USING: "use strict", Array.isArray, JSON, get and set keywords,
-// Date.now(), String.trim(), Number.
-// 
-// ADVANCE: compile to ES6.
+// - See tsconfig.json > compilerOptions.target = 'ES5';
+// - "use strict", Array.isArray, JSON, get and set keywords,
+// - Date.now(), String.trim(), Number.
 // ECMAScript 6 (ES6), also known as ECMAScript 2015.
-// PAY ATTENTION TO: Template literals and regex.
-// USING:
-// - Template literals: embedded expression and backticks `${v}`.
+// - Template literals and regex.
+// - Embedded expression and backticks `${v}`.
 // - Rest and Spread Operators: fn(...args).
 // - Destructuring Assignment: { var } = obj, [a,b] = [b,a].
 // - Classes: Introduces class syntax for constructors.
@@ -58,31 +56,24 @@ interface Window {
       listener: (e: any) => any,
       options?: boolean | AddEventListenerOptions
     ): void => { what.addEventListener(type, listener, options) },
-    newRegex = (pattern: RegExp | string, flags?: string) => new RegExp(pattern, flags),
-    updateClass = (element: HTMLElement, del?: string | null, add?: string | null) => {
+    updateClass = (e: HTMLElement, rem?: string | null, add?: string | null) => {
       try {
         const
-          P = ' ',
-          I = '|',
-          X = 'g',
-          SEP = newRegex('[\\.\\|\\s]+', X),
-          TRIM = (s: string, sep = I) => s.trim().replace(SEP, sep).trim(),
-          NEW = add ? TRIM(add, P) : _,
-          DEL = del ? TRIM([del, NEW].join(P)).trim() : _,
-          SEL = newRegex('(^|\\s+)(' + DEL + ')(\\s*(' + DEL + '))*(\\s+|$)', X),
-          RES = element.className.replace(SEL, P).trim() + (NEW.length ? P + NEW : _);
+          getTokens = (s: string | null | undefined) => new Set((s||'').split(/\s+/).filter(Boolean)),
+          REM = getTokens(rem),
+          ADD = getTokens(add);
+        for (const cls of REM) e.classList.remove(cls);
+        for (const cls of ADD) e.classList.add(cls);
 
-        // (^|\s+)(DEL)(\s*(DEL))*(\s+|$)
-        // log([
-        //   `TRY =.${element.className.replace(SEL, P)}.`,
-        //   `NEW =.${NEW}.`,
-        //   `DEL =.${DEL}.`,
-        //   `SEL =.${SEL}.`,
-        //   `RES =.${RES}.`,
+        // console.log([
+        //   `old = "${old}"`,
+        //   `rem = "${rem}"`,
+        //   `add = "${add}"`,
+        //   `REM = "${[...REM]}"`,
+        //   `ADD = "${[...ADD]}"`,
+        //   `new = "${e.className}"`,
         // ].join("\n"));
 
-        element.className = RES;
-        return element;
       } catch (e) { failTo('updateClass'); }
     },
     setAttribute = (e: HTMLElement, attr: string, value: string) => { e.setAttribute(attr, value) },
