@@ -176,43 +176,44 @@
     },
     TEST_FUN = (what, label) => (isFUN(what) ? note_ok(label) : note_err(label), what),
     TEST_OBJ = (what, label) => (isOBJ(what) ? note_ok(label) : note_err(label), what),
-    dev_updateClass = (e, del, add) => {
-      
+    uc01 = (e, del, add) => {
       try {
         const
           old = e.className,
-          newRegex = (pattern, flags) => new RegExp(pattern, flags),
-          _ = '',
           P = ' ',
-          I = '|',
-          X = 'g',
-          SEP = newRegex('[\\.\\|\\s]+', X),
-          TRIM = (s, sep = I) => s.trim().replace(SEP, sep).trim(),
-          NEW = add ? TRIM(add, P) : _,
-          DEL = del ? TRIM([del, NEW].join(P)).trim() : _,
-          SEL = newRegex('(^|\\s+)(' + DEL + ')(\\s*(' + DEL + '))*(\\s+|$)', X),
-          RES = [e.className.replace(SEL, P).trim(),NEW].join(' ');
+          S = /\s+/,
+          // X = 'g',
+          getTokens = a => [...new Set(a.join(P).trim().split(S).filter(Boolean))],
+          ADD = getTokens([add]),
+          DEL = getTokens([del, add]),
+          // newRegex = (p, f) => new RegExp(p, f),
+          // (^|\s+)(DEL)(\s+|$)
+          // SEL = newRegex(`(^|\\s+)(${DEL.join('|')})(\\s+|$)`, X),
+          TRY = [old.trim().split(S).filter(x=>!new Set(DEL).has(x)).join(P), ADD.join(P)].filter(Boolean).join(P);
+        e.className = TRY;
 
-        // (^|\s+)(DEL)(\s*(DEL))*(\s+|$)
         log([
-          `TRY =.${e.className.replace(SEL, P)}.`,
-          `NEW =.${NEW}.`,
-          `DEL =.${DEL}.`,
-          `SEL =.${SEL}.`,
-          `RES =.${RES}.`,
+          `DEL = "${DEL}"`,
+          `ADD = "${ADD}"`,
+          // `SEL = "${SEL}"`,
+          `TRY = "${TRY}"`,
+          `NEW = "${e.className}"`,
         ].join("\n"));
 
-        e.className = RES;
+      } catch (e) { note_err('Error while executing _uc_1 : ' + e); }
+    },
+    dev_updateClass = (e, del, add) => {
 
-        note([
-          `old = "${old}"`,
-          `del = "${del}"`,
-          `add = "${add}"`,
-          `new = "${e.className}"`,
-        ].join("\n"));
+      const old = e.className;
 
-        return e;
-      } catch (e) { error('Error while executing dev_updateClass : ' + e); }
+      uc01(e, del, add);
+
+      note([
+        `old = "${old}"`,
+        `del = "${del}"`,
+        `add = "${add}"`,
+        `new = "${e.className}"`,
+      ].join("\n"));
 
     },
     run = () => {
@@ -220,31 +221,32 @@
       sync();
       note(`doc.className: "${doc.className}"`);
 
-      note('testing logic for dev_updateClass', ORANGE);
-      const THEN = now(), e = eid('test_element');
+      // hr();
+      note('testing dev_updateClass', ORANGE);
+      const e = eid('test_element'), THEN = now();
 
-      hr();
-      e.className = '';
-      dev_updateClass( e,
-        '  a  b  c  d  ',
-        '  e  f  '
+      e.removeAttribute('class');
+      dev_updateClass(e,
+        '   a b b   c d   ',
+        '   e e  f   '
       );
-
       hr();
-      e.className = '  a  x  b  c  x  d  ';
-      dev_updateClass( e,
-        '  a  b  c  d  ',
-        '  e  f  '
+
+      e.className = '   a a x b b   c y d   ';
+      dev_updateClass(e,
+        '   a b b   c d   ',
+        '   e e   f   '
       );
-
       hr();
-      e.className = 'A x B C x D';
-      dev_updateClass( e,
-        'A B C D',
-        'E F'
+
+      e.className = 'A A X B B   C Y D';
+      dev_updateClass(e,
+        'A B B   C D',
+        'E E   F'
       );
-
       hr();
+
+      // hr();
       note(`Finished in ${now() - THEN}ms`, ORANGE);
       scroll(sec);
 
@@ -293,6 +295,7 @@
     TEST_FUN(theme.reset, 'theme.reset');
     run();
     setTimeout(() => {
+      // hr();
       note(`doc.className: "${doc.className}"`);
       scroll(sec);
     }, 500);
