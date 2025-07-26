@@ -16,7 +16,7 @@ mixin lab_nav
   #_main_nav._color_2._flex
     ._fit: +a(homeUri+'lab')._a11|#[+isvg(svgi.angle,'_licon')._rotate_180]Back
     ._f
-      span(style="padding:0 .5em;line-height:1.8em;"): span#jss._b._small._mono='[JS:--]'
+      span(style="padding:0 .5em;line-height:1.8em;"): span#jss._b._small._mono='[JS:--]' 
       +menu_a11([
       ])
     ._fit: +changeThemeLink._a11: +itext('_cicon')|☀
@@ -60,7 +60,7 @@ block append style
     ._pink h1 { color: #d7408b; }
     ._pink ._link { color: #c71d72; }
     ._pink ._link:hover { color: #ff899e; }
-    
+
     ._cream, ._cream body,
     ._cream ._color {
       background-color: linen;
@@ -116,18 +116,18 @@ block article
         button._a3(onclick="test.reset()" title="Reset Test") Clear
       ._fit._text_center='|'
       ._fit._no_wrap._indiv.monobtn
-        button(onclick='test.themeSet();' title='theme.set()')._a3='()'
+        button(onclick='test.themeSet();' title='theme.set()')._a3='()' 
         button(onclick='test.themeSet("");' title='theme.set("")')._a3|none
         button(onclick='test.themeSet("_dark");' title='theme.set("_dark")')._a3|dark
         button(onclick='test.themeSet("_pink");' title='theme.set("_pink")')._a3|pink
         button(onclick='test.themeSet("_cream");' title='theme.set("_cream")')._a3|cream
       ._fit._text_center='|'
       ._fit._no_wrap._indiv
-        button(onclick='test.themeSet([]);' title='theme.set([])')._a3='[]'
-        button(onclick='test.themeSet([""]);' title='theme.set([""])')._a3='S0'
-        button(onclick='test.themeSet(["_dark",""]);' title='theme.set(["_dark",""])')._a3='S1'
-        button(onclick='test.themeSet(["_pink","_cream"]);' title='theme.set(["_pink","_cream"])')._a3='S2'
-        button(onclick='test.themeSet(["_cream","","_dark","_pink"]);' title='theme.set(["_cream","","_dark","_pink"])')._a3='S3'
+        button(onclick='test.themeSet([]);' title='theme.set([])')._a3='[]' 
+        button(onclick='test.themeSet([""]);' title='theme.set([""])')._a3='S0' 
+        button(onclick='test.themeSet(["_dark",""]);' title='theme.set(["_dark",""])')._a3='S1' 
+        button(onclick='test.themeSet(["_pink","_cream"]);' title='theme.set(["_pink","_cream"])')._a3='S2' 
+        button(onclick='test.themeSet(["_cream","","_dark","_pink"]);' title='theme.set(["_cream","","_dark","_pink"])')._a3='S3' 
       ._fit._text_center='|'
       ._fit._no_wrap._indiv
         button(onclick='test.themeCurrent();' title="Current Theme")._a3|Theme
@@ -203,6 +203,6 @@ block append script
   //- +jsv('/_ace/scripts/ts_js/theme_v1.0.js')(defer)
   //- +jsv('/_ace/scripts/gulp_js/test_theme_v1.0.js')(defer)
   //- ------------------------------------------------------------
-  +jsv('/nova/src/files/index/'+'jss/test_theme_v2.0.js')
-  //- +jsv(homeUri+'jss/test_theme_v2.0.js')
+  //- +jsv('/nova/src/files/index/'+'jss/test_theme_v2.0.js')
+  +jsv(homeUri+'jss/test_theme_v2.0.js')
   //- ------------------------------------------------------------

@@ -49,7 +49,17 @@
     isFUN = a => A(a) === A(() => { }),
     isOBJ = a => A(a) === A({ }),
     assign = (target, obj) => Object.assign(target || {}, obj),
-    stringify = (obj) => JSON.stringify(obj, null, 2),
+    stringify = (obj) => {
+      if (isOBJ(obj)) {
+        let o = [];
+        for (i = 0; i < obj.length; i++) {
+          const k = obj.key(i), v = jsonparse(obj[k]);
+          o.push(`  ${k}: ${isSTR(v) ? `"${v}"` : JSON.stringify(v)}`);
+        }
+        return `{\n${o.join(',\n')}\n}`;
+      }
+      else { return JSON.stringify(obj, null, 2); }
+    },
     w = window,
     d = document,
     { log } = console,

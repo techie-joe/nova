@@ -51,7 +51,6 @@
     isOBJ = a => A(a) === A({}),
     isSTR = a => A(a) === A(''),
     isARR = Array.isArray ? (a => Array.isArray(a)) : (a => TYPE(a) === TYPE([])),
-    assign = (target, obj) => Object.assign(target || {}, obj),
     jsonparse = a => { try { return JSON.parse(a); } catch (er) { return a; } },
     stringify = (obj) => {
       if (isOBJ(obj)) {
@@ -274,7 +273,7 @@
 
     try { theme } catch (err) { note_err(err); return; }
 
-    w.test = assign(w.test, {
+    w.test = Object.assign(w.test || {}, {
       run,
       sync,
       reset,
