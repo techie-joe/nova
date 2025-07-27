@@ -20,7 +20,17 @@ block coreScript
   if INCLUDE_THEMEJS
     +fouc
     +_host
-    +jsv(homeUri+'js/theme_v2.0.js')(defer)
+    +jsv('/nova/src/ts-js/theme_v2.0.js')(defer)
+    //- +jsv(homeUri+'js/theme_v2.0.js')(defer)
+
+block append script
+  //- +jsv(src)
+  //- ------------------------------------------------------------
+  //- +jsv('/_ace/scripts/ts_js/theme_v1.0.js')(defer)
+  //- +jsv('/_ace/scripts/gulp_js/test_theme_v1.0.js')(defer)
+  //- ------------------------------------------------------------
+  +jsv('/nova/src/test_js/test_theme_v2.0.js')
+  //- ------------------------------------------------------------
 
 mixin lab_nav
   #_main_nav._color_2._flex
@@ -143,14 +153,3 @@ block article
 
 block prepend views
   ._hidden#test_element
-
-block append script
-  //- +jsv(src)
-  //- ------------------------------------------------------------
-  //- +jsv('/_ace/scripts/ts_js/theme_v1.0.js')(defer)
-  //- +jsv('/_ace/scripts/gulp_js/test_theme_v1.0.js')(defer)
-  //- ------------------------------------------------------------
-  //- +jsv('/nova/src/files/index/jss/test_theme_v2.0.js')
-  //- +jsv('/nova/src/ts-js/test.js')(defer)
-  +jsv(homeUri+'jss/test_theme_v2.0.js')
-  //- ------------------------------------------------------------

@@ -24,16 +24,14 @@
 interface Window { _host: string | null | undefined, theme: {} }
 (() => {
 
-  // console.log(`_host: ${window._host}`);
-
   const
+    { log, error } = console,
     _ = '',
     w = window,
-    { log, error } = console,
     ALLOWED = atob(w._host || _).split(',');
+  // log(`_host: ${window._host}`);
+  // log(`ALLOWED: ${ALLOWED}`);
   if (ALLOWED.indexOf(w.location.host) < 0) { return }
-
-  // console.log(`ALLOWED: ${ALLOWED}`);
 
   const
     d = document,
@@ -50,7 +48,7 @@ interface Window { _host: string | null | undefined, theme: {} }
     updateClass = (e: HTMLElement, rem?: string | null, add?: string | null) => {
       for (const cls of getTokens(rem)) e.classList.remove(cls);
       for (const cls of getTokens(add)) e.classList.add(cls);
-      // console.log([
+      // log([
       //   `old = "${old}"`,
       //   `rem = "${rem}"`,
       //   `add = "${add}"`,
@@ -66,14 +64,14 @@ interface Window { _host: string | null | undefined, theme: {} }
       options?: boolean | AddEventListenerOptions
     ): void => { what.addEventListener(type, listener, options) },
     assign = (target: object, obj: object) => Object.assign(target || {}, obj),
-    THEME_KEY = 'theme', // storage key to store current theme
-    LIST_KEY = 'themes', // storage key to store current list
-    DARK_THEME = '_dark',
-    DEFAULT_LIST = [_, DARK_THEME],
     parse = (v: string) => {
       if (!isSTR(v)) { return }
       try { return JSON.parse(v) } catch { }
     },
+    THEME_KEY = 'theme', // storage key to store current theme
+    LIST_KEY = 'themes', // storage key to store current list
+    DARK_THEME = '_dark',
+    DEFAULT_LIST = [_, DARK_THEME],
     getList = () => {
       var stored = storage.getItem(LIST_KEY);
       return isSTR(stored) ? parse(stored || _) || DEFAULT_LIST : DEFAULT_LIST;
@@ -110,6 +108,10 @@ interface Window { _host: string | null | undefined, theme: {} }
         };
       return { set, sync }
     })(),
+    updateTheme = (old?: string | null) => {
+      updateClass(doc, old, current);
+      scheme.sync(current);
+    },
     set = (v?: string | string[], beginWith?: string) => {
       // set & store current theme and list
       var oldTheme = current;
@@ -120,8 +122,7 @@ interface Window { _host: string | null | undefined, theme: {} }
         current = list[(beginWith && isSTR(beginWith)) ? list.indexOf(beginWith) : 0] || _;
       }
       if (oldTheme != current) {
-        updateClass(doc, oldTheme, current);
-        scheme.sync(current);
+        updateTheme(oldTheme);
         storage.setItem(THEME_KEY, current || _);
       }
     },
@@ -133,8 +134,7 @@ interface Window { _host: string | null | undefined, theme: {} }
       list = DEFAULT_LIST;
       var oldTheme = current;
       current = darkMedia.matches ? DARK_THEME : _;
-      updateClass(doc, oldTheme, current);
-      scheme.sync(current);
+      updateTheme(oldTheme);
       storage.removeItem(THEME_KEY);
       storage.removeItem(LIST_KEY);
     };
@@ -144,8 +144,7 @@ interface Window { _host: string | null | undefined, theme: {} }
 
   // sync with DOM
   d.addEventListener('DOMContentLoaded', () => {
-    updateClass(doc, null, current);
-    scheme.sync(current);
+    updateTheme();
   });
 
   // sync with bf/cache navigation
@@ -154,8 +153,7 @@ interface Window { _host: string | null | undefined, theme: {} }
       var oldTheme = current;
       list = getList();
       current = getTheme();
-      updateClass(doc, oldTheme, current);
-      scheme.sync(current);
+      if (oldTheme != current) { updateTheme(oldTheme); }
     }
   });
 

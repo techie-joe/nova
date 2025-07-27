@@ -1,6 +1,6 @@
 "use strict";
 (() => {
-    const _ = '', w = window, { log, error } = console, ALLOWED = atob(w._host || _).split(',');
+    const { log, error } = console, _ = '', w = window, ALLOWED = atob(w._host || _).split(',');
     if (ALLOWED.indexOf(w.location.host) < 0) {
         return;
     }
@@ -9,7 +9,7 @@
             e.classList.remove(cls);
         for (const cls of getTokens(add))
             e.classList.add(cls);
-    }, listenTo = (what, type, listener, options) => { what.addEventListener(type, listener, options); }, assign = (target, obj) => Object.assign(target || {}, obj), THEME_KEY = 'theme', LIST_KEY = 'themes', DARK_THEME = '_dark', DEFAULT_LIST = [_, DARK_THEME], parse = (v) => {
+    }, listenTo = (what, type, listener, options) => { what.addEventListener(type, listener, options); }, assign = (target, obj) => Object.assign(target || {}, obj), parse = (v) => {
         if (!isSTR(v)) {
             return;
         }
@@ -17,7 +17,7 @@
             return JSON.parse(v);
         }
         catch (_a) { }
-    }, getList = () => {
+    }, THEME_KEY = 'theme', LIST_KEY = 'themes', DARK_THEME = '_dark', DEFAULT_LIST = [_, DARK_THEME], getList = () => {
         var stored = storage.getItem(LIST_KEY);
         return isSTR(stored) ? parse(stored || _) || DEFAULT_LIST : DEFAULT_LIST;
     }, getTheme = () => {
@@ -42,7 +42,10 @@
             set((v && isSTR(v) && v.startsWith(DARK_THEME)) ? 'dark' : 'light');
         };
         return { set, sync };
-    })(), set = (v, beginWith) => {
+    })(), updateTheme = (old) => {
+        updateClass(doc, old, current);
+        scheme.sync(current);
+    }, set = (v, beginWith) => {
         var oldTheme = current;
         if (isSTR(v)) {
             current = v;
@@ -53,8 +56,7 @@
             current = list[(beginWith && isSTR(beginWith)) ? list.indexOf(beginWith) : 0] || _;
         }
         if (oldTheme != current) {
-            updateClass(doc, oldTheme, current);
-            scheme.sync(current);
+            updateTheme(oldTheme);
             storage.setItem(THEME_KEY, current || _);
         }
     }, change = () => {
@@ -64,22 +66,21 @@
         list = DEFAULT_LIST;
         var oldTheme = current;
         current = darkMedia.matches ? DARK_THEME : _;
-        updateClass(doc, oldTheme, current);
-        scheme.sync(current);
+        updateTheme(oldTheme);
         storage.removeItem(THEME_KEY);
         storage.removeItem(LIST_KEY);
     };
     d.addEventListener('DOMContentLoaded', () => {
-        updateClass(doc, null, current);
-        scheme.sync(current);
+        updateTheme();
     });
     w.addEventListener('pageshow', (event) => {
         if (event.persisted) {
             var oldTheme = current;
             list = getList();
             current = getTheme();
-            updateClass(doc, oldTheme, current);
-            scheme.sync(current);
+            if (oldTheme != current) {
+                updateTheme(oldTheme);
+            }
         }
     });
     listenTo(w, 'keyup', e => { if (e.altKey && e.code === 'KeyT')
