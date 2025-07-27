@@ -32,10 +32,6 @@ mixin lab_nav
     ._fit: +changeThemeLink._a11: +itext('_cicon')|☀
   hr._m0
 
-block header
-  +simplestHeader
-  +lab_nav
-
 block append style
   style.
     ._pink, ._pink body,
@@ -99,6 +95,10 @@ block append style
     ._cream h1 { color: #422c17ff; }
     ._cream ._link { color: #5a8510; }
     ._cream ._link:hover { color: #5a8510; }  
+
+block header
+  +simplestHeader
+  +lab_nav
 
 block article
   article._article._needjs
