@@ -21,6 +21,15 @@ mixin fouc
       b.classList.add(c);d.addEventListener('DOMContentLoaded',e=>{b.classList.remove(c)});
     })();
 
+mixin _host
+  -
+    _host = btoa([
+      "localhost",
+      "techie-joe.github.io",
+      "themejs.pages.dev",
+    ]);
+  script| window._host = '!{_host}';
+
 mixin helloWorld
   pre.
     &nbsp;
@@ -60,6 +69,7 @@ html(lang=lang class=htmlClass.join(' '))
       block coreScript
         if INCLUDE_THEMEJS
           +fouc
+          +_host    
           +jsv(homeUri+'js/theme_v2.0.js')(defer)
 
       block stylesheet
