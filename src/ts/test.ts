@@ -1,25 +1,3 @@
-/*! ThemeJs | v2.0.1 | Copyright 2025 - Techie Joe | https://themejs.pages.dev */
-/* ===============================================================
-// To include the above copyright tag in the  output:
-// 1. Set tsconfig.json > removeComments to false.
-// 2. The *! tag must be on the first line.
-// 3. Avoid using the tag to pass Envato Check.
-/* ===============================================================
-// IMPORTANT: must compile to ES5 or above.
-// TARGET: compile to ES6.
-// ECMAScript 5 (ES5) aka ECMAScript 2009,
-// - See tsconfig.json > compilerOptions.target = 'ES5';
-// - "use strict", Array.isArray, JSON, get and set keywords,
-// - Date.now(), String.trim(), Number.
-// ECMAScript 6 (ES6), also known as ECMAScript 2015.
-// - Template literals and regex.
-// - Embedded expression and backticks `${v}`.
-// - Rest and Spread Operators: fn(...args).
-// - Destructuring Assignment: { var } = obj, [a,b] = [b,a].
-// - Classes: Introduces class syntax for constructors.
-// - Modules: support for using import and export statements.
-// - Promises: new Promise().
-// ============================================================ */
 "use strict";
 interface Window { _host: string | null | undefined, theme: {} }
 (() => {

@@ -51,12 +51,13 @@
     isOBJ = a => A(a) === A({}),
     isSTR = a => A(a) === A(''),
     isARR = Array.isArray ? (a => Array.isArray(a)) : (a => TYPE(a) === TYPE([])),
-    jsonparse = a => { try { return JSON.parse(a); } catch (er) { return a; } },
+    assign = (target, obj) => Object.assign(target || {}, obj),
+    parse = a => { try { return JSON.parse(a); } catch { } },
     stringify = (obj) => {
       if (isOBJ(obj)) {
         let o = [];
         for (i = 0; i < obj.length; i++) {
-          const k = obj.key(i), v = jsonparse(obj[k]);
+          const k = obj.key(i), v = parse(obj[k]) || obj[k];
           o.push(`  ${k}: ${isSTR(v) ? `"${v}"` : JSON.stringify(v)}`);
         }
         return `{\n${o.join(',\n')}\n}`;
@@ -206,7 +207,7 @@
       try {
         const
           old = e.className;
-        theme.fn.updateClass(e, rem, add);
+        theme.updateClass(e, rem, add);
 
         note([
           `old = "${old}"`,
@@ -254,6 +255,7 @@
       note(`initial doc.className: "${doc.className}"`);
       // test_1(dev_updateClass);
       // test_1(thm_updateClass);
+      scroll(sec);
 
     };
 
@@ -273,7 +275,7 @@
 
     try { theme } catch (err) { note_err(err); return; }
 
-    w.test = Object.assign(w.test || {}, {
+    w.test = assign(w.test, {
       run,
       sync,
       reset,
@@ -300,12 +302,8 @@
     TEST_FUN(theme.set, 'theme.set');
     TEST_FUN(theme.change, 'theme.change');
     TEST_FUN(theme.reset, 'theme.reset');
-    run();
-    setTimeout(() => {
-      // hr();
-      note(`themed doc.className: "${doc.className}"`);
-      scroll(sec);
-    }, 500);
+    note(`initial doc.className: "${doc.className}"`);
+    setTimeout(run, 500);
 
   });
 

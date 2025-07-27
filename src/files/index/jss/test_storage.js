@@ -48,12 +48,14 @@
     A = a => typeof a,
     isFUN = a => A(a) === A(() => { }),
     isOBJ = a => A(a) === A({ }),
+    isSTR = a => A(a) === A(''),
     assign = (target, obj) => Object.assign(target || {}, obj),
+    parse = a => { try { return JSON.parse(a); } catch { } },
     stringify = (obj) => {
       if (isOBJ(obj)) {
         let o = [];
         for (i = 0; i < obj.length; i++) {
-          const k = obj.key(i), v = jsonparse(obj[k]);
+          const k = obj.key(i), v = parse(obj[k]) || obj[k];
           o.push(`  ${k}: ${isSTR(v) ? `"${v}"` : JSON.stringify(v)}`);
         }
         return `{\n${o.join(',\n')}\n}`;
@@ -92,7 +94,7 @@
         x = Math.random().toString(36),
         k = x.substring(2, 7),
         v = x.substring(2, 10);
-      localStorage.setItem(k, v);
+      storage.setItem(k, v);
       out(`storage.set "${k}": "${v}"`);
       scroll(sec);
     },

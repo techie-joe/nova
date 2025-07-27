@@ -7,9 +7,19 @@ block append vars
     title       = `ThemeJS Test`
     description = 'Testing ThemeJS'
 
+mixin _host
+  -
+    _host = btoa([
+      "localhost",
+      "techie-joe.github.io",
+      "themejs.pages.dev",
+    ]);
+  script| window._host = '!{_host}';
+
 block coreScript
   if INCLUDE_THEMEJS
     +fouc
+    +_host
     +jsv(homeUri+'js/theme_v2.0.js')(defer)
 
 mixin lab_nav
@@ -123,11 +133,12 @@ block article
         button(onclick='test.themeSet("_cream");' title='theme.set("_cream")')._a3|cream
       ._fit._text_center='|'
       ._fit._no_wrap._indiv
-        button(onclick='test.themeSet([]);' title='theme.set([])')._a3='[]' 
-        button(onclick='test.themeSet([""]);' title='theme.set([""])')._a3='S0' 
-        button(onclick='test.themeSet(["_dark",""]);' title='theme.set(["_dark",""])')._a3='S1' 
-        button(onclick='test.themeSet(["_pink","_cream"]);' title='theme.set(["_pink","_cream"])')._a3='S2' 
-        button(onclick='test.themeSet(["_cream","","_dark","_pink"]);' title='theme.set(["_cream","","_dark","_pink"])')._a3='S3' 
+        button(onclick='test.themeSet([]);' title='theme.set([])')._a3='[]'
+        button(onclick='test.themeSet([""]);' title='theme.set([""])')._a3='S0'
+        button(onclick='test.themeSet(["_cream"]);' title='theme.set(["_cream"])')._a3='S1'
+        button(onclick='test.themeSet(["_pink",""]);' title='theme.set(["_pink",""])')._a3='S2'
+        button(onclick='test.themeSet(["_pink","_cream"]);' title='theme.set(["_pink","_cream"])')._a3='S3'
+        button(onclick='test.themeSet(["_cream","","_pink","_dark"]);' title='theme.set(["_cream","","_pink","_dark"])')._a3='S4'
       ._fit._text_center='|'
       ._fit._no_wrap._indiv
         button(onclick='test.themeCurrent();' title="Current Theme")._a3|Theme
@@ -203,6 +214,7 @@ block append script
   //- +jsv('/_ace/scripts/ts_js/theme_v1.0.js')(defer)
   //- +jsv('/_ace/scripts/gulp_js/test_theme_v1.0.js')(defer)
   //- ------------------------------------------------------------
-  //- +jsv('/nova/src/files/index/'+'jss/test_theme_v2.0.js')
+  //- +jsv('/nova/src/files/index/jss/test_theme_v2.0.js')
+  //- +jsv('/nova/src/ts-js/test.js')(defer)
   +jsv(homeUri+'jss/test_theme_v2.0.js')
   //- ------------------------------------------------------------
