@@ -1,23 +1,19 @@
 "use strict";
 (() => {
-    const { log, error } = console, _ = '', w = window, ALLOWED = atob(w._host || _).split(',');
+    const { log, error } = console, _ = '', w = window, d = document, ALLOWED = atob(w._host || _).split(',');
     if (ALLOWED.indexOf(w.location.host) < 0) {
         return;
     }
-    const d = document, doc = d.documentElement || d.body, darkMedia = w.matchMedia('(prefers-color-scheme: dark)'), storage = localStorage, TYPE = (a) => Object.prototype.toString.call(a), A = (a) => typeof a, isSTR = (a) => A(a) === A(''), isARR = Array.isArray ? ((a) => Array.isArray(a)) : ((a) => TYPE(a) === TYPE([])), nodeId = (id) => d.getElementById(id), nodeAttribute = (e, attr, value) => { e.setAttribute(attr, value); }, getTokens = (s) => new Set((s || '').split(/\s+/).filter(Boolean)), updateClass = (e, rem, add) => {
+    const TYPE = (a) => Object.prototype.toString.call(a), A = (a) => typeof a, isSTR = (a) => A(a) === A(''), isARR = Array.isArray ? ((a) => Array.isArray(a)) : ((a) => TYPE(a) === TYPE([])), nodeId = (id) => d.getElementById(id), nodeAttribute = (e, attr, value) => { e.setAttribute(attr, value); }, getTokens = (s) => new Set((s || '').split(/\s+/).filter(Boolean)), updateClass = (e, rem, add) => {
         for (const cls of getTokens(rem))
             e.classList.remove(cls);
         for (const cls of getTokens(add))
             e.classList.add(cls);
-    }, listenTo = (what, type, listener, options) => { what.addEventListener(type, listener, options); }, assign = (target, obj) => Object.assign(target || {}, obj), parse = (v) => {
-        if (!isSTR(v)) {
-            return;
-        }
+    }, assign = (target, obj) => Object.assign(target || {}, obj), parse = (a) => { if (isSTR(a))
         try {
-            return JSON.parse(v);
+            return JSON.parse(a);
         }
-        catch (_a) { }
-    }, THEME_KEY = 'theme', LIST_KEY = 'themes', DARK_THEME = '_dark', DEFAULT_LIST = [_, DARK_THEME], getList = () => {
+        catch (_a) { } }, doc = d.documentElement || d.body, darkMedia = w.matchMedia('(prefers-color-scheme: dark)'), storage = localStorage, THEME_KEY = 'theme', LIST_KEY = 'themes', DARK_THEME = '_dark', DEFAULT_LIST = [_, DARK_THEME], getList = () => {
         var stored = storage.getItem(LIST_KEY);
         return isSTR(stored) ? parse(stored || _) || DEFAULT_LIST : DEFAULT_LIST;
     }, getTheme = () => {
@@ -73,8 +69,8 @@
     d.addEventListener('DOMContentLoaded', () => {
         updateTheme();
     });
-    w.addEventListener('pageshow', (event) => {
-        if (event.persisted) {
+    w.addEventListener('pageshow', e => {
+        if (e.persisted) {
             var oldTheme = current;
             list = getList();
             current = getTheme();
@@ -83,7 +79,7 @@
             }
         }
     });
-    listenTo(w, 'keyup', e => { if (e.altKey && e.code === 'KeyT')
+    w.addEventListener('keyup', e => { if (e.altKey && e.code === 'KeyT')
         change(); });
     w.theme = assign(w.theme, {
         reset,

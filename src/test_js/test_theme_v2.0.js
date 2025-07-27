@@ -52,7 +52,7 @@
     isSTR = a => A(a) === A(''),
     isARR = Array.isArray ? (a => Array.isArray(a)) : (a => TYPE(a) === TYPE([])),
     assign = (target, obj) => Object.assign(target || {}, obj),
-    parse = a => { try { return JSON.parse(a); } catch { } },
+    parse = a => { if (isSTR(a)) try { return JSON.parse(a); } catch { } },
     stringify = (obj) => {
       if (isOBJ(obj)) {
         let o = [];

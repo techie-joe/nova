@@ -28,16 +28,14 @@ interface Window { _host: string | null | undefined, theme: {} }
     { log, error } = console,
     _ = '',
     w = window,
+    d = document,
     ALLOWED = atob(w._host || _).split(',');
+
   // log(`_host: ${window._host}`);
   // log(`ALLOWED: ${ALLOWED}`);
   if (ALLOWED.indexOf(w.location.host) < 0) { return }
 
   const
-    d = document,
-    doc = d.documentElement || d.body, // html or body
-    darkMedia = w.matchMedia('(prefers-color-scheme: dark)'),
-    storage = localStorage,
     TYPE = (a: any) => Object.prototype.toString.call(a),
     A = (a: any) => typeof a,
     isSTR = (a: any) => A(a) === A(''),
@@ -57,17 +55,11 @@ interface Window { _host: string | null | undefined, theme: {} }
       //   `new = "${e.className}"`,
       // ].join("\n"));
     },
-    listenTo = <K extends keyof HTMLElementEventMap>(
-      what: HTMLElement | MediaQueryList | Window | Document,
-      type: K,
-      listener: (e: any) => any,
-      options?: boolean | AddEventListenerOptions
-    ): void => { what.addEventListener(type, listener, options) },
     assign = (target: object, obj: object) => Object.assign(target || {}, obj),
-    parse = (v: string) => {
-      if (!isSTR(v)) { return }
-      try { return JSON.parse(v) } catch { }
-    },
+    parse = (a: string) => { if (isSTR(a)) try { return JSON.parse(a) } catch { } },
+    doc = d.documentElement || d.body, // html or body
+    darkMedia = w.matchMedia('(prefers-color-scheme: dark)'),
+    storage = localStorage,
     THEME_KEY = 'theme', // storage key to store current theme
     LIST_KEY = 'themes', // storage key to store current list
     DARK_THEME = '_dark',
@@ -148,8 +140,8 @@ interface Window { _host: string | null | undefined, theme: {} }
   });
 
   // sync with bf/cache navigation
-  w.addEventListener('pageshow', (event) => {
-    if (event.persisted) { // Page was restored from bf/cache
+  w.addEventListener('pageshow', e => {
+    if (e.persisted) { // Page was restored from bf/cache
       var oldTheme = current;
       list = getList();
       current = getTheme();
@@ -158,7 +150,7 @@ interface Window { _host: string | null | undefined, theme: {} }
   });
 
   // listen to changes
-  listenTo(w, 'keyup', e => { if (e.altKey && e.code === 'KeyT') change(); });
+  w.addEventListener('keyup', e => { if (e.altKey && e.code === 'KeyT') change(); });
 
   // export
   w.theme = assign(w.theme, {
