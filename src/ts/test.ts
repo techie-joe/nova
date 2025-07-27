@@ -1,5 +1,5 @@
 "use strict";
-interface Window { _host: string | null | undefined, theme: {} }
+interface Window { _host: string | null | undefined, test: {} }
 (() => {
 
   // console.log(`_host: ${window._host}`);
@@ -44,75 +44,11 @@ interface Window { _host: string | null | undefined, theme: {} }
       options?: boolean | AddEventListenerOptions
     ): void => { what.addEventListener(type, listener, options) },
     assign = (target: object, obj: object) => Object.assign(target || {}, obj),
-    THEME_KEY = 'theme', // storage key to store current theme
-    LIST_KEY = 'themes', // storage key to store current list
-    DARK_THEME = '_dark',
-    DEFAULT_LIST = [_, DARK_THEME],
     parse = (v: string) => {
       if (!isSTR(v)) { return }
       try { return JSON.parse(v) } catch { }
-    };
-
-  let
-    list: string[] = (() => {
-      var stored = storage.getItem(LIST_KEY);
-      return isSTR(stored) ? parse(stored || _) || DEFAULT_LIST : DEFAULT_LIST;
-    })(),
-    current: string = (() => {
-      var stored = storage.getItem(THEME_KEY);
-      return isSTR(stored) ? stored || _ : darkMedia.matches ? DARK_THEME : _;
-    })();
-
-  const
-    scheme = (() => {
-      const
-        COLOR_SCHEME = 'color-scheme',
-        e: HTMLElement = (() => {
-          var e = nodeId('_color_scheme');
-          if (!e) { // find existing element
-            var a = d.getElementsByName(COLOR_SCHEME);
-            e = a[a.length - 1];
-          }
-          if (!e) { // create new element
-            e = d.createElement('meta');
-            nodeAttribute(e, 'name', COLOR_SCHEME);
-            d.head && d.head.appendChild(e);
-          }
-          return e;
-        })(),
-        set = (v: string) => { nodeAttribute(e, 'content', v) },
-        sync = (v: string | undefined | null) => {
-          set((v && isSTR(v) && v.startsWith(DARK_THEME)) ? 'dark' : 'light');
-        };
-      return { set, sync }
-    })(),
-    set = (v?: string | string[], beginWith?: string) => {
-      // set & store current theme and list
-      var oldTheme = current;
-      if (isSTR(v)) { current = v as string; }
-      else if (isARR(v)) {
-        list = v as string[];
-        storage.setItem(LIST_KEY, JSON.stringify(list));
-        current = list[(beginWith && isSTR(beginWith)) ? list.indexOf(beginWith) : 0] || _;
-      }
-      if (oldTheme != current) {
-        updateClass(doc, oldTheme, current);
-        scheme.sync(current);
-        storage.setItem(THEME_KEY, current || _);
-      }
-    },
-    change = () => { // swap from one theme to another
-      var next = list[list.indexOf(current) + 1];
-      set(isSTR(next) ? next : list[0] || _);
     },
     reset = () => {
-      list = DEFAULT_LIST;
-      var oldTheme = current;
-      current = darkMedia.matches ? DARK_THEME : _;
-      updateClass(doc, oldTheme, current);
-      scheme.sync(current);
-      storage.removeItem(THEME_KEY);
-      storage.removeItem(LIST_KEY);
     };
 
   // log(list);
@@ -120,21 +56,10 @@ interface Window { _host: string | null | undefined, theme: {} }
 
   // sync with DOM
   d.addEventListener('DOMContentLoaded', () => {
-    scheme.sync(current);
-    updateClass(doc, null, current);
   });
 
-  // listen to changes
-  listenTo(w, 'keyup', e => { if (e.altKey && e.code === 'KeyT') change(); });
-
   // export
-  w.theme = assign(w.theme, {
-    reset,
-    set,
-    change,
-    updateClass,
-    list: () => list,
-    current: () => current,
+  w.test = assign(w.test, {
   });
 
 })();

@@ -73,17 +73,19 @@ interface Window { _host: string | null | undefined, theme: {} }
     parse = (v: string) => {
       if (!isSTR(v)) { return }
       try { return JSON.parse(v) } catch { }
+    },
+    getList = () => {
+      var stored = storage.getItem(LIST_KEY);
+      return isSTR(stored) ? parse(stored || _) || DEFAULT_LIST : DEFAULT_LIST;
+    },
+    getTheme = () => {
+      var stored = storage.getItem(THEME_KEY);
+      return isSTR(stored) ? stored || _ : darkMedia.matches ? DARK_THEME : _;
     };
 
   let
-    list: string[] = (() => {
-      var stored = storage.getItem(LIST_KEY);
-      return isSTR(stored) ? parse(stored || _) || DEFAULT_LIST : DEFAULT_LIST;
-    })(),
-    current: string = (() => {
-      var stored = storage.getItem(THEME_KEY);
-      return isSTR(stored) ? stored || _ : darkMedia.matches ? DARK_THEME : _;
-    })();
+    list: string[] = getList(),
+    current: string = getTheme();
 
   const
     scheme = (() => {
@@ -142,8 +144,19 @@ interface Window { _host: string | null | undefined, theme: {} }
 
   // sync with DOM
   d.addEventListener('DOMContentLoaded', () => {
-    scheme.sync(current);
     updateClass(doc, null, current);
+    scheme.sync(current);
+  });
+
+  // sync with bf/cache navigation
+  w.addEventListener('pageshow', (event) => {
+    if (event.persisted) { // Page was restored from bf/cache
+      var oldTheme = current;
+      list = getList();
+      current = getTheme();
+      updateClass(doc, oldTheme, current);
+      scheme.sync(current);
+    }
   });
 
   // listen to changes

@@ -17,14 +17,14 @@
             return JSON.parse(v);
         }
         catch (_a) { }
-    };
-    let list = (() => {
+    }, getList = () => {
         var stored = storage.getItem(LIST_KEY);
         return isSTR(stored) ? parse(stored || _) || DEFAULT_LIST : DEFAULT_LIST;
-    })(), current = (() => {
+    }, getTheme = () => {
         var stored = storage.getItem(THEME_KEY);
         return isSTR(stored) ? stored || _ : darkMedia.matches ? DARK_THEME : _;
-    })();
+    };
+    let list = getList(), current = getTheme();
     const scheme = (() => {
         const COLOR_SCHEME = 'color-scheme', e = (() => {
             var e = nodeId('_color_scheme');
@@ -70,8 +70,17 @@
         storage.removeItem(LIST_KEY);
     };
     d.addEventListener('DOMContentLoaded', () => {
-        scheme.sync(current);
         updateClass(doc, null, current);
+        scheme.sync(current);
+    });
+    w.addEventListener('pageshow', (event) => {
+        if (event.persisted) {
+            var oldTheme = current;
+            list = getList();
+            current = getTheme();
+            updateClass(doc, oldTheme, current);
+            scheme.sync(current);
+        }
     });
     listenTo(w, 'keyup', e => { if (e.altKey && e.code === 'KeyT')
         change(); });
