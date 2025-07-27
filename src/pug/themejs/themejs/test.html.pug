@@ -32,70 +32,6 @@ mixin lab_nav
     ._fit: +changeThemeLink._a11: +itext('_cicon')|☀
   hr._m0
 
-block append style
-  style.
-    ._pink, ._pink body,
-    ._pink ._color {
-      background-color: ghostwhite;
-      color: #a14e77;
-      border-color: hotpink;
-    }
-    ._pink ._color_1 {
-      background-color: hotpink;
-      color: white;
-      border-color: #c78a8a;
-    }
-    ._pink ._color_2 {     
-      background-color: #ff9fcf;
-      color: #691e4a;
-      border-color: #691e4a;
-    }
-    ._pink ._blockquote {
-      background-color: #ff9fcf44;
-      border-color: #d7408b;
-    }
-    ._pink button,
-    ._pink a[href],
-    ._pink hr { border-color: #ffa1cf }
-    ._pink ._tc_contra,
-    ._pink h6,
-    ._pink h5,
-    ._pink h4,
-    ._pink h3,
-    ._pink h2,
-    ._pink h1 { color: #d7408b; }
-    ._pink ._link { color: #c71d72; }
-    ._pink ._link:hover { color: #ff899e; }
-
-    ._cream, ._cream body,
-    ._cream ._color {
-      background-color: linen;
-      color: #604429;
-      border-color: #7a7243;
-    }
-    ._cream ._color_1 {
-      background-color: #b2977d;
-      color: white;
-      border-color: #907a5b;
-    }
-    ._cream ._color_2 {     
-      background-color: #fde7d1;
-      border-color: #604429;
-    }
-    ._cream ._blockquote,
-    ._cream button,
-    ._cream a[href],
-    ._cream hr { border-color: #a4937a; }
-    ._cream ._tc_contra,
-    ._cream h6,
-    ._cream h5,
-    ._cream h4,
-    ._cream h3,
-    ._cream h2,
-    ._cream h1 { color: #422c17ff; }
-    ._cream ._link { color: #5a8510; }
-    ._cream ._link:hover { color: #5a8510; }  
-
 block header
   +simplestHeader
   +lab_nav
@@ -125,6 +61,11 @@ block article
         button._a3(onclick="test.test_2()" title="Run Test") T2
         button._a3(onclick="test.reset()" title="Reset Test") Clear
       ._fit._text_center='|'
+      ._fit._no_wrap._indiv
+        button(onclick='test.themeChange();' title="Change Theme")._a3|Theme
+        button(onclick='test.themeCurrent();' title="Current Theme")._a3|Current
+        button(onclick='test.themeReset();' title="Reset Theme")._a3|Reset
+      ._fit._text_center='|'
       ._fit._no_wrap._indiv.monobtn
         button(onclick='test.themeSet();' title='theme.set()')._a3='()' 
         button(onclick='test.themeSet("");' title='theme.set("")')._a3|none
@@ -139,11 +80,6 @@ block article
         button(onclick='test.themeSet(["_pink",""]);' title='theme.set(["_pink",""])')._a3='S2'
         button(onclick='test.themeSet(["_pink","_cream"]);' title='theme.set(["_pink","_cream"])')._a3='S3'
         button(onclick='test.themeSet(["_cream","","_pink","_dark"]);' title='theme.set(["_cream","","_pink","_dark"])')._a3='S4'
-      ._fit._text_center='|'
-      ._fit._no_wrap._indiv
-        button(onclick='test.themeCurrent();' title="Current Theme")._a3|Theme
-        button(onclick='test.themeChange();' title="Change Theme")._a3|Change
-        button(onclick='test.themeReset();' title="Reset Theme")._a3|Reset
       ._f
     //- 
       ._fit._text_center='|'
