@@ -81,12 +81,17 @@ hr {
   border:0;border-top:1px solid rgba($border_color,.4);
 }
 
+// fix the odd em font sizing and scaling.
 // improve readability and correct scrollbar behavior
-pre,._pre { @extend ._mono; }
+pre,._pre {
+  @extend ._reset_fontsize;
+  font-family: $monospace;
+  line-height: 1.2;
+}
 
 // standardize paragraphs spacing.
 h1,._h1,h2,._h2,h3,._h3,h4,._h4,h5,._h5,h6,._h6,
-._h7,._h8,._h9,._h10,
+._h7,._hx1,._hx2,._hx3,
 ul,ol,dl,
 blockquote,._blockquote,
 pre,._pre,
@@ -97,11 +102,11 @@ p,._p { margin: .5rem 0 }
 // standardize line height for paragraphs.
 p,._p,._p1 { @extend ._reset_lineheight; }
 h1,._h1,h2,._h2,h3,._h3,h4,._h4,h5,._h5,h6,._h6,
-._h7,._h8,._h9,._h10 { line-height: 1.25 }
+._h7,._hx1,._hx2,._hx3 { line-height: 1.25 }
 
 // standardize font size for headings.
 h1,._h1,h2,._h2,h3,._h3,h4,._h4,h5,._h5,h6,._h6,
-._h7,._h8,._h9,._h10 { @extend ._b; @extend ._tc_contra; }
+._h7,._hx1,._hx2,._hx3 { @extend ._b; @extend ._tc_contra; }
 
 // fix display in all browsers.
 summary { @extend ._cursor_pointer; display: list-item; /* 2 */ }
@@ -449,9 +454,9 @@ a._a1,._a1 {
 ._h3,._t5   { font-size: 1.445rem }
 ._h2,._t6   { font-size: 1.625rem }
 ._h1,._t7   { font-size: 1.857rem }
-._h8,._t8   { font-size: 2rem     }
-._h9,._t9   { font-size: 2.25rem  }
-._h10,._t10 { font-size: 2.5rem   }
+._hx1,._t8  { font-size: 2rem     }
+._hx2,._t9  { font-size: 2.25rem  }
+._hx3,._t10 { font-size: 2.5rem   }
 ._small     { font-size: 86% }
 ._smaller   { font-size: 73% }
 ._smallest  { font-size: 60% }
@@ -476,13 +481,11 @@ a._a1,._a1 {
 ._sans { font-family: $sans }
 ._serif { font-family: $serif }
 
-// 1. Fix the odd em font sizing.
-// 2. Fix font size inheritance and scaling.
-// 3. Fix line height.
+// Fix the odd em font sizing and scaling.
 ._mono {
-  @extend ._reset_fontsize; /* 1 */
-  font-family: $monospace; /* 2 */
-  line-height: 1.2; /* 3 */
+  @extend ._reset_fontsize;
+  font-family: $monospace;
+  line-height: 1.4;
 }
 
 ._bold,._b { font-weight: bold }
@@ -704,15 +707,13 @@ a,._a {
 
 @media print {
 
-._view,
-._views,
 ._scroll,
 ._scroll_x,
 ._scroll_y,
 ._scrollable { overflow: visible !important }
 
+#_views,
 ._view,
-._views,
 ._print_reset {
   position: relative !important;
   top: auto !important;
@@ -728,8 +729,7 @@ a,._a {
 *::before,
 *::after {
   background: #fff !important;
-  color: #000 !important;
-  /* Black prints faster */
+  color: #000 !important; /* black prints faster */
   box-shadow: none !important;
   text-shadow: none !important;
 }
@@ -755,7 +755,7 @@ pre,._pre {
 pre,._pre,
 blockquote,._blockquote {
   padding: 1em !important;
-  border: 1px solid #999;
+  border: 1px solid #888;
   page-break-inside: avoid;
 }
 

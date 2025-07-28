@@ -5,3 +5,4 @@
 @use "vars" as *;
 @use "colors" as *;
 
+pre,._pre { &,&._mono { line-height: 1.25 } }

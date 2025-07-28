@@ -36,30 +36,42 @@ block article
       ._f(style="flex-basis: 220px;")
         h2._mono._h4 Monospace
         p._mono._text_justify.
-          Monospace fonts, such as Courier New and Consolas, have characters that occupy the same horizontal space. This uniform spacing makes them ideal for displaying scripts and source codes. They align text neatly, thus enhance readability.
+          Monospace fonts, such as Courier New and Consolas, have characters that occupy the same horizontal space. This uniform spacing makes them ideal for displaying scripts and source codes.
     //- section
 
   hr
 
   section._ma: ._960
 
-    p(style="max-width: 36rem;") Use helper class to customize the visual appearance of headings and texts. They helps separate visual appearance from semantics, giving you better control over both. Use #[code._code _h1] to #[code._code _h7] for headings, and #[code._code _t1] to #[code._code _t12] for other texts.
+    p(style="max-width: 36rem;") Use helper class to customize the visual appearance of headings and texts. They helps separate visual appearance from semantics, giving you better control over both. Use #[code._code _h1] to #[code._code _h10] for headings, and #[code._code _t1] to #[code._code _t10] for other texts.
 
-    - var heros     = 'Text Sample';
-    - var headings  = 'Text Sample';
-
-    ._text_centerx
-      p._t10 #{heros} 3
-      p._t9 #{heros} 2
-      p._t8 #{heros} 1
-      h1._h1 #{headings} 1
-      h2._h2 #{headings} 2
-      h3._h3 #{headings} 3
-      h4._h4 #{headings} 4
-      h5._h5 #{headings} 5
-      h6._h6 #{headings} 6
-      div._h7 #{headings} 7
-      p Normal Text
+    - sample  = 'Text';
+    - headings  = 'Heading';
+    ._flex._gap2
+      ._f
+        p._hx3 #{headings} x3
+        p._hx2 #{headings} x2
+        p._hx1 #{headings} x1
+        h1._h1 #{headings} 1
+        h2._h2 #{headings} 2
+        h3._h3 #{headings} 3
+        h4._h4 #{headings} 4
+        h5._h5 #{headings} 5
+        h6._h6 #{headings} 6
+        div._h7 #{headings} 7
+        p Normal Text
+      ._f
+        p._t10 #{sample} 10
+        p._t9 #{sample} 9
+        p._t8 #{sample} 8
+        p._t7 #{sample} 7
+        p._t6 #{sample} 6
+        p._t5 #{sample} 5
+        p._t4 #{sample} 4
+        p._t3 #{sample} 3
+        p._t2 #{sample} 2
+        p._t1 #{sample} 1
+        p Normal Text
 
   hr
 
