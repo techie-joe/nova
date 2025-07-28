@@ -40,7 +40,7 @@
 // time, mark, audio, video,
 
 // reset these elements: for older browsers.
-nav, main, article, section, header, footer, aside,
+nav, main, article, section, header, footer, aside, picture,
 figure, details, figcaption, hgroup, menu { display: block }
 
 // 1. standardize line height for html in all browsers.
@@ -78,7 +78,7 @@ hr {
   @extend ._reset_padding;
   box-sizing: content-box; height:0; /* 1 */
   overflow: visible; /* 2 */
-  border:0;border-top:1px solid $Bc;
+  border:0;border-top:1px solid rgba($border_color,.4);
 }
 
 // improve readability and correct scrollbar behavior
@@ -141,12 +141,12 @@ code, kbd, samp { @extend ._mono; @extend ._tc_purple; }
 // fix font size.
 small { @extend ._small; }
 
-button {
+._button {
   @extend ._cursor_pointer;
   @extend ._reset_bg;
-  padding: .2em .5em;
-  border: 1px solid $Bc;
+  border: 1px solid $border_color;
   border-radius: .25em;
+  padding: .2em .5em;
 }
 
 // icons
@@ -178,7 +178,7 @@ img { border-style: none }
 audio, canvas, iframe, img, svg, video { vertical-align:middle }
 
 // modern media defaults
-picture { @extend ._block; max-width:100%; height:auto }
+picture { max-width:100%; height:auto }
 
 table {
 
@@ -198,7 +198,7 @@ fieldset,._fieldset {
   @extend ._reset_margin;
   @extend ._reset_padding;
 }
-._fieldset { border: 1px solid $Bc; }
+._fieldset { border: 1px solid $border_color; }
 
 // Allow only vertical resizing of textareas.
 textarea { resize: vertical }
@@ -227,49 +227,69 @@ html,body { @extend ._scrollable; }
 
 ._container { margin: .5rem }
 
-blockquote,
-._blockquote { padding: .5em 1em; border-left: .25rem solid transparent; }
-._blockquote { border-left-color:#888; }
+blockquote,._blockquote {
+  padding: .5em 1em;
+  border-left: .25rem solid transparent;
+}
 
 dd { display: list-item; margin-inline-start: 2em }
-dd._no_bullet { display: block }
+dd._no_bullet { @extend ._block }
 
 ol,ul { padding-left: 2em; padding-inline-start: 2em }
 
-details { box-sizing:border-box; }
+details { box-sizing: border-box; }
 summary {
   & { padding:.25em .5em }
   &._no_marker { list-style: none }
-  &._no_marker::-webkit-details-marker { display:none }
+  &._no_marker::-webkit-details-marker { @extend ._hidden; }
   ._arrow {
-    display: inline-block;
-    width: 0;
-    height: 0;
+    @extend ._inblock;
     margin-right: .25rem;
-    border-top: 6px solid transparent;
-    border-bottom: 6px solid transparent;
-    border-left: 10px solid $baseBc;
     transition: transform 0.3s ease;
-    ._dark & { border-left-color: $dark_baseBc; }
   }
-  &:hover {
-    @include color( $baseHc, $baseHg );
-    ._dark & { @include color( $dark_baseHc, $dark_baseHg ); }
-  }
-  &:active { opacity:.3 }
 }
-details[open] ._arrow { transform: rotate(90deg) }
+details[open] summary ._arrow { transform: rotate(90deg) }
 
 // ---------------------------------------------------------------
 // theme basics
 // ---------------------------------------------------------------
 
 html,body { font-family: $baseFont; }
-blockquote { background-color: #8882 }
 
-// ---------------------------------------------------------------
-// theme color
-// ---------------------------------------------------------------
+// hr { border-color: rgba($border_color,.4) }
+
+// ._fieldset
+// ._button,
+// ._border { border-color: $border-color; }
+
+._blockquote {
+  & {
+    border-left-color: $baseBc;
+    background-color: rgba($baseBc,.1);
+  }
+  ._dark & {
+    border-left-color: $dark_baseBc;
+    background-color: rgba($dark_baseBc,.1);
+  }
+}
+
+summary {
+  &:hover {
+    @include color( $baseHc, $baseHg );
+    ._dark & { @include color( $dark_baseHc, $dark_baseHg ); }
+  }
+  &:active { opacity:.3 }
+  ._arrow {
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 10px solid $baseBc;
+    ._dark & { border-left-color: $dark_baseBc; }
+  }
+}
+
+/** continue housekeep here 28/7/2025 **/
 
 // ::selection : -------------------------------------------------
 // - must follow this format. - will not work otherwise.
@@ -293,7 +313,7 @@ $select_tc    : #000;
 // ---------------------------------------------------------------
 
 // set simple initial border
-._border { border: 1px solid #888 }
+._border { border: 1px solid $border_color }
 
 // set simple boxline
 ._boxline { box-shadow: 0 0 0 1px #ffa20088 inset }
