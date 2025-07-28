@@ -1,3 +1,6 @@
+// __TLDR : Core Nova Styles.
+
+@use "copyright";
 
 @use "sass:math";
 
@@ -5,22 +8,23 @@
 @use "vars" as *;
 @use "colors" as *;
 
-@use "copyright";
+// ---------------------------------------------------------------
+// standardize
+// ---------------------------------------------------------------
+
 @use "normalize";
 
-// ---------------------------------------------------------------
-// standardizations
-// ---------------------------------------------------------------
-
-._reset_font { font: inherit }
-._reset_color { color: inherit }
+// ._reset_font { font: inherit }
+// ._reset_color { color: inherit }
 ._reset_border { border: 0 }
 ._reset_margin { margin: 0 }
 ._reset_padding { padding: 0 }
 ._reset_fontsize { font-size: 1rem }
 ._reset_lineheight { line-height: 1.5 }
 ._reset_baseline { vertical-align: baseline }
-// ._reset can be used on these elements:
+._reset_bg { background-color: transparent }
+
+// _reset these elements:
 // html, body, div, span, applet, object, iframe,
 // h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 // a, abbr, acronym, address, big, cite, code,
@@ -34,20 +38,10 @@
 // figure, figcaption, footer, header, hgroup, 
 // menu, nav, output, ruby, section, summary,
 // time, mark, audio, video,
-._reset {
-  @extend ._reset_font;
-  @extend ._reset_color;
-	@extend ._reset_border;
-	@extend ._reset_margin;
-  @extend ._reset_padding;
-	@extend ._reset_fontsize;
-  @extend ._reset_lineheight;
-  @extend ._reset_baseline;
-}
 
-// reset these elements for older browsers.
+// reset these elements: for older browsers.
 nav, main, article, section, header, footer, aside,
-figure, details, figcaption, hgroup, menu { display:block }
+figure, details, figcaption, hgroup, menu { display: block }
 
 // 1. standardize line height for html in all browsers.
 // 2. prevent iOS adjustments after orientation changes.
@@ -66,54 +60,7 @@ body {
   @extend ._clearfix;
 }
 
-// 1. Fix font size inheritance and scaling in all browsers.
-// 2. Fix the odd em font sizing in all browsers.
-// 3. Fix line height in all browsers.
-._mono {
-  // font-family: $monospace; /* 1 */
-  @extend ._reset_fontsize; /* 2 */
-  line-height: 1.2; /* 3 */
-}
-
-// improve readability and correct scrollbar behavior
-pre,._pre { @extend ._mono; }
-
-// standardize line height for paragraphs in all browsers.
-p,._p,._p1 { @extend ._reset_lineheight; }
-._t8,._t9,._t10,
-._h1,._h2,._h3,._h4,._h5,._h6,._h7,
-h1,h2,h3,h4,h5,h6 { line-height:1.25 }
-
-// standardize paragraphs spacing in all browsers.
-._h1,._h2,._h3,._h4,._h5,._h6,._h7,
-h1,h2,h3,h4,h5,h6,
-ul,ol,dl,
-blockquote,
-pre,._pre,
-p,._p { margin:.5rem 0 }
-._p1  { margin:1rem 0}
-
-// standardize font size for headings in all browsers.
-h1 { @extend ._h1; }
-._t8,._t9,._t10 { @extend ._b; }
-._h1,._h2,._h3,._h4,._h5,._h6,._h7 { @extend ._b; @extend ._tc_contra; }
-._h7,._t1 { font-size: 1rem     }
-._h6,._t2 { font-size: 1.083rem }
-._h5,._t3 { font-size: 1.182rem }
-._h4,._t4 { font-size: 1.300rem }
-._h3,._t5 { font-size: 1.445rem }
-._h2,._t6 { font-size: 1.625rem }
-._h1,._t7 { font-size: 1.857rem }
-._t8      { font-size: 2rem     }
-._t9      { font-size: 2.25rem  }
-._t10     { font-size: 2.5rem   }
-
-// 1. fix display in Edge, IE 10+, and Firefox.
-// 2. fix display in all browsers.
-details { @extend ._block; } /* 1 */
-summary { cursor:pointer;display: list-item; /* 2 */ }
-
-// clearfix : ----------------------------------------------------
+// _clearfix
 // to clear pass floating elements.
 // to contain marginal elements.
 // The use of 'table' rather than 'block' is only necessary if
@@ -123,22 +70,46 @@ summary { cursor:pointer;display: list-item; /* 2 */ }
   &::before, &::after { content: ""; display: table; clear: both }  
 }
 
-// better looking default horizontal rule.
+// better looking horizontal rule.
 // 1. Fix box sizing in Firefox.
 // 2. Show overflow in Edge and IE.
 hr {
-  box-sizing: content-box; height:0; /* 1 */
-  overflow: visible; /* 2 */
   @extend ._block;
   @extend ._reset_padding;
-  border:0;border-top:1px solid #8886;
-  margin: .5rem 0;
+  box-sizing: content-box; height:0; /* 1 */
+  overflow: visible; /* 2 */
+  border:0;border-top:1px solid $Bc;
 }
+
+// improve readability and correct scrollbar behavior
+pre,._pre { @extend ._mono; }
+
+// standardize paragraphs spacing.
+h1,._h1,h2,._h2,h3,._h3,h4,._h4,h5,._h5,h6,._h6,
+._h7,._h8,._h9,._h10,
+ul,ol,dl,
+blockquote,._blockquote,
+pre,._pre,
+hr,
+p,._p { margin: .5rem 0 }
+._p1  { margin: 1rem 0 }
+
+// standardize line height for paragraphs.
+p,._p,._p1 { @extend ._reset_lineheight; }
+h1,._h1,h2,._h2,h3,._h3,h4,._h4,h5,._h5,h6,._h6,
+._h7,._h8,._h9,._h10 { line-height: 1.25 }
+
+// standardize font size for headings.
+h1,._h1,h2,._h2,h3,._h3,h4,._h4,h5,._h5,h6,._h6,
+._h7,._h8,._h9,._h10 { @extend ._b; @extend ._tc_contra; }
+
+// fix display in all browsers.
+summary { @extend ._cursor_pointer; display: list-item; /* 2 */ }
 
 // sub, sup
 sub, sup {
   @extend ._reset_baseline;
-  font-size: 75%;
+  @extend ._smaller;
   position: relative;
 }
 sub { bottom:-.25em }
@@ -153,7 +124,7 @@ a[href],._a { @extend ._u; }
 u { @extend ._u; }
 
 // remove gray background on active links in IE 10.
-a { background-color: transparent }
+a { @extend ._reset_bg; }
 
 // 1. remove the bottom border in Chrome 57-
 // 2. fix underline in Chrome, Edge, IE, Opera, and Safari.
@@ -167,29 +138,27 @@ abbr[title] {
 // fix fonts
 code, kbd, samp { @extend ._mono; @extend ._tc_purple; }
 
-// fix font size in all browsers.
-small,
-._small    { font-size: 86% }
-._smaller  { font-size: 73% }
-._smallest { font-size: 60% }
+// fix font size.
+small { @extend ._small; }
 
 button {
   @extend ._cursor_pointer;
-  padding:.2em .5em;
-  border:1px solid #8884;
-  border-radius:.25em;
+  @extend ._reset_bg;
+  padding: .2em .5em;
+  border: 1px solid $Bc;
+  border-radius: .25em;
 }
 
 // icons
 ._icon {
   @extend ._no_i;
   @extend ._inblock;
-  line-height:1;
+  line-height:1em;
   i { @extend ._no_i; }
 }
 .itext,
 .isvg,
-.fa, .fab, .far, .fas, .fa-brands, .fa-regular, .fa-solid {
+.fa,.fab,.fa-brands,.far,.fa-regular,.fas,.fa-solid {
   @extend ._inblock;
   @extend ._text_center;
   line-height:1em;
@@ -216,19 +185,20 @@ table {
   // set default table
   & { border-collapse: collapse; border-spacing: 0 }
   th,td { @extend ._reset_padding; }
+  th { @extend ._tc_contra; }
 
   // set basic table
-  &._table { th,td { @extend ._border; padding: .25em } }
+  &._table { th,td { @extend ._border; padding: .2em .5em } }
 
 }
 
 // reset fieldset in all browsers.
-fieldset {
+fieldset,._fieldset {
   @extend ._reset_border;
   @extend ._reset_margin;
   @extend ._reset_padding;
 }
-._fieldset { @extend ._border; }
+._fieldset { border: 1px solid $Bc; }
 
 // Allow only vertical resizing of textareas.
 textarea { resize: vertical }
@@ -253,11 +223,12 @@ html,body { @extend ._scrollable; }
   min-height: 100%;
 }
 
-._960 { max-width:60em;margin:auto }
+._960 { max-width: 60em; margin: auto }
 
-._container { margin:.5rem }
+._container { margin: .5rem }
 
-._blockquote,blockquote { padding: .5em 1em; border-left: .25rem solid transparent; }
+blockquote,
+._blockquote { padding: .5em 1em; border-left: .25rem solid transparent; }
 ._blockquote { border-left-color:#888; }
 
 dd { display: list-item; margin-inline-start: 2em }
@@ -433,6 +404,7 @@ a._a1,._a1 {
 // helpers
 // ---------------------------------------------------------------
 
+// text colors
 ._tc_blue   { color: $blue   }
 ._tc_purple { color: $purple }
 ._tc_orange { color: $orange }
@@ -449,11 +421,29 @@ a._a1,._a1 {
   ._tc_contra { color: $dark_contra }
 }
 
+// text size
+._h7,._t1   { font-size: 1rem     }
+._h6,._t2   { font-size: 1.083rem }
+._h5,._t3   { font-size: 1.182rem }
+._h4,._t4   { font-size: 1.300rem }
+._h3,._t5   { font-size: 1.445rem }
+._h2,._t6   { font-size: 1.625rem }
+._h1,._t7   { font-size: 1.857rem }
+._h8,._t8   { font-size: 2rem     }
+._h9,._t9   { font-size: 2.25rem  }
+._h10,._t10 { font-size: 2.5rem   }
+._small     { font-size: 86% }
+._smaller   { font-size: 73% }
+._smallest  { font-size: 60% }
+
 // cursors
 ._cursor_reset { cursor: initial }
 ._cursor_default { cursor: default }
 ._cursor_help { cursor: help }
 ._cursor_pointer { cursor: pointer }
+
+// backgrounds
+._no_bg { background-color: transparent !important }
 
 // borders
 ._no_border { border: 0 !important }
@@ -465,7 +455,15 @@ a._a1,._a1 {
 ._system { font-family: $system }
 ._sans { font-family: $sans }
 ._serif { font-family: $serif }
-._mono { font-family: $monospace }
+
+// 1. Fix the odd em font sizing.
+// 2. Fix font size inheritance and scaling.
+// 3. Fix line height.
+._mono {
+  @extend ._reset_fontsize; /* 1 */
+  font-family: $monospace; /* 2 */
+  line-height: 1.2; /* 3 */
+}
 
 ._bold,._b { font-weight: bold }
 @for $i from 1 through 9 { ._b#{$i} { font-weight: $i * 100; } }

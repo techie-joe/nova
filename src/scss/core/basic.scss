@@ -1,12 +1,11 @@
+// __TLDR : Styles for basic page templates.
+
+@use "copyright";
 
 @use "mixins" as *;
 @use "vars" as *;
 @use "colors" as *;
 
-@use "copyright";
-
-// ---------------------------------------------------------------
-// custom
 // ---------------------------------------------------------------
 
 #logo { margin-right: .5rem }

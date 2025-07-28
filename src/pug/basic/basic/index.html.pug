@@ -17,11 +17,19 @@ block article
 
     section._p1
       h3._h7| Templates
-      +boxap([
-        ['template/core','template/core','Core'],
-        ['template/basic','template/basic','Basic'],
-        ['template/one','template/one','One'],
-      ])
+      ._flex._gap_5._p
+        +boxaf([
+          ['template/one','template/one','One'],
+          ['template/one/index_','template/one/index_.html','&middot;&middot;','Info'],
+        ])
+        +boxaf([
+          ['template/basic','template/basic','Basic'],
+          ['template/basic/index_','template/basic/index_.html','&middot;&middot;','Info'],
+        ])
+        +boxaf([
+          ['template/core','template/core','Core'],
+          ['template/core/index_','template/core/index_.html','&middot;&middot;','Info'],
+        ])
       +boxap([
         ['basic/error','basic/error.html','Error'],
         ['basic/400','basic/e400.html','400'],
@@ -35,7 +43,7 @@ block article
     section._p1
       h3._h7| Components
       +boxap: +basic_nav_
-      +boxap: +icons_nav_
       +boxap([
         ['basic/multiview','basic/multiview.html','Multi View'],
       ])
+      +boxap: +icons_nav_

@@ -61,7 +61,7 @@ mixin jsv(src)
 mixin backlink(title='Back to previous page')
   a(href='#' onclick!=onclick(js.goBack) title=title)._needjs&attributes(attributes): block
 
-mixin changeThemeLink(title='Change Theme (Ctrl+Alt+T)')
+mixin changeThemeLink(title='Change Theme (Alt+T)')
   a(href='#' onclick!=onclick(js.themeChange) title=title)._needjs&attributes(attributes): block
 
 //- ==============================================================
