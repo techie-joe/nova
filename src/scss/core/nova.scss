@@ -124,12 +124,17 @@ sup { top:-.55em }
 // fix font weight in Chrome, Edge, and Safari.
 b, strong { @extend ._b; }
 
+// do not enforce italic on i tag, being used as icon tag also
+// i { @extend ._i }
+
+// enforce strike
+s { @extend ._s; }
+
 // enforce underline and improve readability.
-a[href],._a { @extend ._u; }
 u { @extend ._u; }
 
 // remove gray background on active links in IE 10.
-a { @extend ._reset_bg; }
+a,._a { @extend ._reset_bg; }
 
 // 1. remove the bottom border in Chrome 57-
 // 2. fix underline in Chrome, Edge, IE, Opera, and Safari.
@@ -215,7 +220,35 @@ template { @extend ._hidden; }
 // base
 // ---------------------------------------------------------------
 
-html,body { @extend ._scrollable; }
+// ::selection
+// - must follow this format. - will not work otherwise.
+// - each vendor specific must be seperately declared.
+// - cant combine. so dont use entend.
+// - use background-color not background.
+// - dont append or include other class.
+
+@mixin selection {
+  background-color: $select_bg !important;
+  color: $select_tc !important;
+  text-shadow: none !important;
+}
+
+::-moz-selection { @include selection; }
+::selection      { @include selection; }
+._select         { @include selection; }
+._no_select {
+  -webkit-user-select:none;
+  -khtml-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+}
+
+html,body {
+  @extend ._scrollable;
+  @extend ._color;
+  font-family: $baseFont;
+}
 
 #_views {
   @extend ._scrollable;
@@ -232,59 +265,38 @@ html,body { @extend ._scrollable; }
 
 ._container { margin: .5rem }
 
-blockquote,._blockquote {
-  padding: .5em 1em;
-  border-left: .25rem solid transparent;
-}
-
 dd { display: list-item; margin-inline-start: 2em }
 dd._no_bullet { @extend ._block }
 
 ol,ul { padding-left: 2em; padding-inline-start: 2em }
 
+blockquote,._blockquote {
+  & {
+    padding: .5em 1em;
+    border-left: .25rem solid transparent;
+    border-left-color: rgba($baseBc,.4);
+    background-color: rgba($baseBc,.1);
+  }
+  ._dark & {
+    border-left-color: rgba($dark_baseBc,.4);
+    background-color: rgba($dark_baseBc,.1);
+  }
+}
+
 details { box-sizing: border-box; }
 summary {
   & { padding:.25em .5em }
+  &:hover {
+    @include color( $baseHc, $baseHg );
+    ._dark & { @include color( $dark_baseHc, $dark_baseHg ); }
+  }
+  &:active { opacity:.3 }
   &._no_marker { list-style: none }
   &._no_marker::-webkit-details-marker { @extend ._hidden; }
   ._arrow {
     @extend ._inblock;
     margin-right: .25rem;
     transition: transform 0.3s ease;
-  }
-}
-details[open] summary ._arrow { transform: rotate(90deg) }
-
-// ---------------------------------------------------------------
-// theme basics
-// ---------------------------------------------------------------
-
-html,body { font-family: $baseFont; }
-
-// hr { border-color: rgba($border_color,.4) }
-
-// ._fieldset
-// ._button,
-// ._border { border-color: $border-color; }
-
-._blockquote {
-  & {
-    border-left-color: $baseBc;
-    background-color: rgba($baseBc,.1);
-  }
-  ._dark & {
-    border-left-color: $dark_baseBc;
-    background-color: rgba($dark_baseBc,.1);
-  }
-}
-
-summary {
-  &:hover {
-    @include color( $baseHc, $baseHg );
-    ._dark & { @include color( $dark_baseHc, $dark_baseHg ); }
-  }
-  &:active { opacity:.3 }
-  ._arrow {
     width: 0;
     height: 0;
     border-top: 6px solid transparent;
@@ -293,38 +305,7 @@ summary {
     ._dark & { border-left-color: $dark_baseBc; }
   }
 }
-
-/** continue housekeep here 28/7/2025 **/
-
-// ::selection : -------------------------------------------------
-// - must follow this format. - will not work otherwise.
-// - each vendor specific must be seperately declared.
-// - cant combine. so dont use entend.
-// - use background-color not background.
-// - dont append or include other class.
-// ---------------------------------------------------------------
-
-$select_bg    : #FFFF00AA;
-$select_tc    : #000;
-@mixin selection {
-  background-color: $select_bg !important;
-  color: $select_tc !important;
-  text-shadow: none !important;
-}
-::-moz-selection { @include selection; }
-::selection      { @include selection; }
-._select         { @include selection; }
-
-// ---------------------------------------------------------------
-
-// set simple initial border
-._border { border: 1px solid $border_color }
-
-// set simple boxline
-._boxline { box-shadow: 0 0 0 1px #ffa20088 inset }
-
-// set simple outline
-._outline { outline: 1px solid #ff00b788 }
+details[open] summary ._arrow { transform: rotate(90deg) }
 
 ._color {
   & { @include color( $baseBc, $baseBg ); }
@@ -341,43 +322,59 @@ $select_tc    : #000;
   &._dark,._dark & { @include color( $dark_baseBc, #333 ); }
 }
 
-html,body { @extend ._color; }
-
 // ---------------------------------------------------------------
 // links
 // ---------------------------------------------------------------
+
+._cicon { margin:0 -.3em }
+._licon { margin:0 .25em 0 -.1em }
+
+a,._a {
+  & { text-decoration: underline }
+  & {
+    &:visited,&._visited { color: $linkBc_visited }
+    &,&._link            { color: $linkBc }
+    &._hover_link        { color: inherit }
+    &:hover,&._hover     { color: $linkBc_hover }
+    &:active,&._active   { color: $linkBc_active }
+  }
+  ._dark & {
+    &:visited,&._visited { color: $dark_linkBc_visited }
+    &,&._link            { color: $dark_linkBc }
+    &._hover_link        { color: inherit }
+    &:hover,&._hover     { color: $dark_linkBc_hover }
+    &:active,&._active   { color: $dark_linkBc_active }
+  }
+}
 
 ._a31,
 ._a3,
 ._a2,
 ._a11,
 ._a1 {
-  @extend ._inblock;
-  @extend ._no_select;
-  @extend ._no_deco;
-  cursor: pointer;
-  text-align: center;
-  padding: 0 .5em;
-  white-space: nowrap;
-  box-sizing: border-box;
-  &:active { opacity:.3 }
-  &.__disabled { background:none !important;color:inherit !important;opacity:.3;cursor:default }
-}
-
-button {
-  &._a31,
-  &._a3,
-  &._a2,
-  &._a11,
-  &._a1 {
+  & {
+    @extend ._inblock;
+    @extend ._no_select;
+    cursor: pointer;
+    text-align: center;
+    padding: 0 .5em;
+    white-space: nowrap;
+    box-sizing: border-box;
+    text-decoration: none;
+  }
+  button & {
     font-family: $sans;
     line-height: inherit;
     background: none;
   }
+  &:active { opacity:.3 }
+  &.__disabled {
+    cursor:default;
+    background:none !important;
+    color:inherit !important;
+    opacity:.3;
+  }
 }
-
-._cicon { margin:0 -.3em }
-._licon { margin:0 .25em 0 -.1em }
 
 ._a11 { padding:.25em .75em; }
 
@@ -391,22 +388,10 @@ button {
   border-radius:.25em;
   margin:.1em;
 }
-._a31  { @extend ._a3; padding:.25em .75em; }
 
-a,._a {
-  &:visited,&._visited { color: $linkBc_visited }
-  &,&._link            { color: $linkBc }
-  &._hover_link        { color: inherit }
-  &:hover,&._hover     { color: $linkBc_hover }
-  &:active,&._active   { color: $linkBc_active }
-
-  ._dark & {
-    &:visited,&._visited { color: $dark_linkBc_visited }
-    &,&._link            { color: $dark_linkBc }
-    &._hover_link        { color: inherit }
-    &:hover,&._hover     { color: $dark_linkBc_hover }
-    &:active,&._active   { color: $dark_linkBc_active }
-  }
+._a31  {
+  @extend ._a3;
+  padding:.25em .75em;
 }
 
 a._a31,._a31,
@@ -414,10 +399,11 @@ a._a3,._a3,
 a._a2,._a2,
 a._a11,._a11,
 a._a1,._a1 {
-  & { color: inherit }
-  &:hover,&._hover { @include color( $baseHc, $baseHg ); }
-  &._active { @include color( $baseAc, $baseAg ); }
-
+  & {
+    & { color: inherit }
+    &:hover,&._hover { @include color( $baseHc, $baseHg ); }
+    &._active { @include color( $baseAc, $baseAg ); }
+  }
   ._dark & {
     & { color: inherit }
     &:hover,&._hover { @include color( $dark_baseHc, $dark_baseHg ); }
@@ -429,22 +415,17 @@ a._a1,._a1 {
 // helpers
 // ---------------------------------------------------------------
 
-// text colors
-._tc_blue   { color: $blue   }
-._tc_purple { color: $purple }
-._tc_orange { color: $orange }
-._tc_red    { color: $red    }
-._tc_green  { color: $green  }
-._tc_contra { color: $contra }
+// use box-sizing model
+._borderbox { &, &::before, &::after { box-sizing: border-box }}
 
-._dark {
-  ._tc_blue   { color: $dark_blue   }
-  ._tc_purple { color: $dark_purple }
-  ._tc_orange { color: $dark_orange }
-  ._tc_red    { color: $dark_red    }
-  ._tc_green  { color: $dark_green  }
-  ._tc_contra { color: $dark_contra }
-}
+// set simple initial border
+._border { border: 1px solid $border_color }
+
+// set simple boxline
+._boxline { box-shadow: 0 0 0 1px #ffa20088 inset }
+
+// set simple outline
+._outline { outline: 1px solid #ff00b788 }
 
 // text size
 ._h7,._t1   { font-size: 1rem     }
@@ -460,6 +441,80 @@ a._a1,._a1 {
 ._small     { font-size: 86% }
 ._smaller   { font-size: 73% }
 ._smallest  { font-size: 60% }
+._indiv     { font-size:0; > * { @extend ._reset_fontsize; } }
+
+// text colors
+._tc_blue   { color: $blue   }
+._tc_purple { color: $purple }
+._tc_orange { color: $orange }
+._tc_red    { color: $red    }
+._tc_green  { color: $green  }
+._tc_contra { color: $contra }
+._dark {
+  ._tc_blue   { color: $dark_blue   }
+  ._tc_purple { color: $dark_purple }
+  ._tc_orange { color: $dark_orange }
+  ._tc_red    { color: $dark_red    }
+  ._tc_green  { color: $dark_green  }
+  ._tc_contra { color: $dark_contra }
+}
+._no_color { color: inherit !important }
+
+// fonts & texts
+._system { font-family: $system }
+._sans { font-family: $sans }
+._serif { font-family: $serif }
+._mono {
+  // Fix the odd em font sizing and scaling.
+  font-family: $monospace;
+  @extend ._reset_fontsize;
+  line-height: 1.4;
+}
+
+// font-weight
+._b { font-weight: bold !important }
+@for $i from 1 through 9 { ._b#{$i} { font-weight: $i * 100 !important; } }
+._no_b { font-weight: normal !important }
+
+// underlines
+._u {
+  text-decoration: underline !important;
+  text-underline-offset: .12em; // improve readability
+}
+._u_dotted { @extend ._u; text-decoration-style: dotted !important }
+._u_dashed { @extend ._u; text-decoration-style: dashed !important }
+._u_double { @extend ._u; text-decoration-style: double !important }
+._u_wavy   { @extend ._u; text-decoration-style: wavy   !important }
+._no_u, ._no_deco { text-decoration: none !important }
+a[href]._hover_u,._hover_u {
+  @extend ._no_u; &:hover { text-decoration-line: underline !important }
+}
+
+// italic
+._i { font-style: italic !important }
+._no_i { font-style: normal !important }
+
+// strike
+._s { text-decoration: line-through !important }
+
+// borders
+._no_border { border: 0 !important }
+
+// backgrounds
+._no_bg { background-color: transparent !important }
+
+// for ul and ol
+ul,ol {
+  &._no_bullet,
+  &._plain { list-style-type: none !important }
+  &._plain { padding-left: 0 !important; padding-inline-start: 0 !important }
+  &._no_pad { padding-left: 1em !important; padding-inline-start: 1em !important }
+}
+
+// transforms
+._uppercase { text-transform: uppercase }
+._lowercase { text-transform: lowercase }
+._capitalize { text-transform: capitalize }
 
 // cursors
 ._cursor_reset { cursor: initial }
@@ -467,98 +522,14 @@ a._a1,._a1 {
 ._cursor_help { cursor: help }
 ._cursor_pointer { cursor: pointer }
 
-// backgrounds
-._no_bg { background-color: transparent !important }
-
-// borders
-._no_border { border: 0 !important }
-
-// use box-sizing model
-._borderbox { &, &::before, &::after { box-sizing: border-box }}
-
-// fonts & texts
-._system { font-family: $system }
-._sans { font-family: $sans }
-._serif { font-family: $serif }
-
-// Fix the odd em font sizing and scaling.
-._mono {
-  @extend ._reset_fontsize;
-  font-family: $monospace;
-  line-height: 1.4;
-}
-
-._bold,._b { font-weight: bold }
-@for $i from 1 through 9 { ._b#{$i} { font-weight: $i * 100; } }
-._no_b { font-weight: normal !important }
-
-u,._u {
-  text-decoration: underline;
-  text-underline-offset: .12em; // improve readability
-}
-a[href]._hover_u,._hover_u {
-  & { text-decoration: none }
-  &:hover { text-decoration-line: underline }
-}
-._u_dotted { @extend ._u; text-decoration-style: dotted !important }
-._u_dashed { @extend ._u; text-decoration-style: dashed !important }
-._u_double { @extend ._u; text-decoration-style: double !important }
-._u_wavy   { @extend ._u; text-decoration-style: wavy   !important }
-._no_u, ._no_deco { text-decoration: none !important }
-
-._i { font-style: italic !important }
-._no_i { font-style: normal !important }
-
-._striked { text-decoration: line-through }
-
-._uppercase { text-transform: uppercase }
-._lowercase { text-transform: lowercase }
-._capitalize { text-transform: capitalize }
-
-._float_start { float:left;float:inline-start }
-._float_end   { float:right;float:inline-end  }
-
-._no_color { color: inherit !important }
-
-._no_select {
-  -webkit-user-select:none;
-  -khtml-user-select:none;
-  -moz-user-select:none;
-  -ms-user-select:none;
-  user-select:none;
-}
-
-._indiv { font-size:0; > * { @extend ._reset_fontsize; } }
-
+// containers
 ._block { display:block }
 ._table { display:table }
 ._inline { display:inline }
 ._inblock { display:inline-block }
 ._cell { display:table-cell }
 
-._relative { position:relative }
-._absolute { position:absolute; @include position(0,0) }
-._fixed    { position:fixed; @include position(0,0) }
-._sticky   { position:sticky; @include position(0,0) }
-._fullview { position:absolute; @include position(0,0,0,0) }
-
-._absolute_right { position:absolute;right:0;left:auto; }
-
-._scrollable { overflow:auto; scroll-behavior: smooth; }
-
-._indent { text-indent: 2em }
-
-._text_left    { text-align: left    }
-._text_right   { text-align: right   }
-._text_center  { text-align: center  }
-._text_justify { text-align: justify }
-
-._center_m { margin-left: auto; margin-right: auto; }
-
-._valign_top    { vertical-align: top }
-._valign_middle { vertical-align: middle }
-._valign_bottom { vertical-align: bottom }
-
+// flex
 ._flex { display:flex; flex-wrap:wrap; }
 ._flex_row { @extend ._flex; flex-direction:row }
 ._flex_column { @extend ._flex; flex-direction:column }
@@ -597,14 +568,6 @@ $radiuses: (
 // ._rotate
 $angles : 45, 90, 135, 180, 225, 270, 315;
 @each $angle in $angles { ._rotate_#{$angle} { transform: rotate(#{$angle}deg); } }
-    
-// for ul and ol
-ul,ol {
-  &._no_bullet,
-  &._plain { list-style-type: none !important }
-  &._plain { padding-left: 0 !important; padding-inline-start: 0 !important }
-  &._no_pad { padding-left: 1em !important; padding-inline-start: 1em !important }
-}
 
 // margins
 $margins: (
@@ -652,8 +615,39 @@ $paddings: (
 }
 ._pad { @extend ._no_overflow; padding:.1px }
 
+// positions
+._relative { position:relative }
+._fixed    { position:fixed; @include position(0,0) }
+._sticky   { position:sticky; @include position(0,0) }
+._absolute { position:absolute; @include position(0,0) }
+._absolute_right { position:absolute;@include position(0,auto,0) }
+._fullview { position:absolute; @include position(0,0,0,0) }
+
+// alignments
+._float_start { float:left;float:inline-start }
+._float_end   { float:right;float:inline-end  }
+
+._text_left    { text-align: left    }
+._text_right   { text-align: right   }
+._text_center  { text-align: center  }
+._text_justify { text-align: justify }
+
+._indent { text-indent: 2em }
+
+._m_center { margin-left: auto; margin-right: auto; }
+
+._v_top    { vertical-align: top }
+._v_middle { vertical-align: middle }
+._v_bottom { vertical-align: bottom }
+
 // for blockquote and q
-._no_quote { quotes: none; &:before, &:after { content: ''; content: none; }}
+._no_quote {
+  quotes: none;
+  &:before, &:after { content: ''; content: none; }
+}
+
+// behaviors
+._scrollable { overflow:auto; scroll-behavior: smooth; }
 
 // control overflow
 ._no_overflow,

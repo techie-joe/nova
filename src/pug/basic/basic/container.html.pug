@@ -7,24 +7,20 @@ block append vars
     title       = `Container`
     description = 'Group contents together'
 
+block append style
+  style.
+    .o {
+      height:12rem;height:15vw;
+      padding:.25em .5em;
+      font-size:.8em;
+    }
+  //- style.
+
 block article
-  article._article
+  article._article._container
 
-    style.
-      .o {
-        height:12rem;height:15vw;
-        padding:.25em .5em;
-        font-size:.8em;
-      }
-    //- style.
-
-    section._container
-      ._flex._gap_5
-        ._f3: .o._border border
-        ._f3: .o._outline outline
-        ._f3: .o._boxline boxline
-        ._f3: .o._radius_x25r._color_1 color_1
-        ._f3: .o._radius_x25r._color color
-        ._f3: .o._radius_x25r._color_2 color_2
-      //- flex
-    //- section
+    section._flex._gap_5
+      ._f3: .o._radius_x25r._color color
+      ._f3: .o._radius_x25r._color_1 color_1
+      ._f3: .o._radius_x25r._color_2 color_2
+    //- flex
