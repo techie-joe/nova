@@ -19,7 +19,6 @@ mixin logo_bar
   ._color_1: ._pa_5
     +logo
     span#maindesc!=description
-  hr._m0
 
 mixin simplestHeader
   header#_header
@@ -48,7 +47,6 @@ mixin bottomRightLinks(href,text)
   ._small: +a(href||homeUri)._a2._hover_link!=text||'Home'
 block footer
   footer#_footer._color
-    hr._m0
     ._relative: ._absolute(style="top:.1rem;left:auto;right:0"): ._container
       block bottomRightLinks
         +bottomRightLinks

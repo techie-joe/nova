@@ -24,12 +24,9 @@
 ._pink {
   &,& body,& ._color {
     background-color: ghostwhite;
-    color: #8d2e5d;
     border-color: hotpink;
   }
   & {
-    button,
-    a[href] { border-color: #8d2e5d }
     hr { border-color: #ffa1cf }
     ._tc_contra,
     h6,
@@ -38,8 +35,6 @@
     h3,
     h2,
     h1 { color: #d7408b; }
-    ._link { color: #c71d72; }
-    ._link:hover { color: hotpink; }
     ._blockquote {
       background-color: #ff9fcf44;
       border-color: #d7408b;
@@ -48,7 +43,7 @@
   ._color_1 {
     background-color: hotpink;
     color: white;
-    border-color: #c78a8a;
+    border-color: #8d2e5d;
     ._tc_contra,
     h6,
     h5,
@@ -72,8 +67,6 @@
   }
   & {
     ._blockquote,
-    button,
-    a[href],
     hr { border-color: #a4937a; }
     ._tc_contra,
     h6,
@@ -82,8 +75,6 @@
     h3,
     h2,
     h1 { color: #422c17ff; }
-    ._link { color: #5a8510; }
-    ._link:hover { color: #5a8510; }
   }
   ._color_1 {
     background-color: #b2977d;

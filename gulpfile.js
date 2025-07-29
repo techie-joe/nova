@@ -24,8 +24,9 @@ const
 // isString = (...ss) => ss.every(s => typeof s === 'string' && s.length > 0);
 
 const main = (() => {
-  const { buildList, watchList, copyList, _dest } = require('./gulplist');
-  if (!buildList || !watchList || !copyList || !_dest) {
+  const
+    { buildList, watchList, copyList, destination: _d } = require('./gulplist');
+  if (!buildList || !watchList || !copyList || !_d) {
     throw new Error('Error reading gulplist.js');
   }
   const
@@ -35,7 +36,7 @@ const main = (() => {
         { message, msg, code, fileName, line, column } = error,
         logs = [redMessage('Error: ') + (message || (code + ' : ' + msg))];
       if (fileName) logs.push(fileName + ((line && column) ? ` [${line}${column ? '|' + column : ''}]` : ''));
-      log(logs.join('\n'));
+      log(logs?logs.join('\n'):'Error');
       this.emit('end');
     },
     // copier
@@ -44,7 +45,7 @@ const main = (() => {
       return src(source, { dot: true })
       .on('error', onError)
       .pipe(dest(destination));
-    })(copyList.files,_dest.pages),
+    })(copyList.files,_d.pages),
     slog = (what, source) => log(`Transpiling ${what} from: \n${source.join('\n')}`),
     html = (source, destination) => async function html_transpiler() {
       slog('HTML', source);
@@ -101,27 +102,30 @@ const main = (() => {
     },
     // builders
     pages = parallel(
-      html(buildList.html, _dest.pages),
-      php(buildList.php, _dest.pages),
-      txt(buildList.txt, _dest.pages),
-      md(buildList.md, _dest.pages),
+      html(buildList.html, _d.pages),
+      php(buildList.php, _d.pages),
+      txt(buildList.txt, _d.pages),
+      md(buildList.md, _d.pages),
     ),
-    styles = scss(buildList.css, _dest.css),
+    styles = parallel(
+      scss(buildList.css, _d.css),
+      scss(buildList.dev_scss, _d.dev_css),
+    ),
     // watchers
     pagesw = parallel(
-      _watch(html, watchList.html, _dest.pages),
-      _watch(php, watchList.php, _dest.pages),
-      _watch(txt, watchList.txt, _dest.pages),
-      _watch(md, watchList.md, _dest.pages),
+      _watch(html, watchList.html, _d.pages),
+      _watch(php, watchList.php, _d.pages),
+      _watch(txt, watchList.txt, _d.pages),
+      _watch(md, watchList.md, _d.pages),
     ),
-    stylesw = _watch(scss, watchList.css, _dest.css);
+    stylesw = _watch(scss, watchList.css, _d.css);
 
   return {
     test: async () => {
       log('Gulp is working!');
       log('Build List:', buildList);
       log('Watch List:', watchList);
-      log('Destination:', _dest);
+      log('Destination:', _d);
     },
     html,
     php,

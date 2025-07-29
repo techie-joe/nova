@@ -16,17 +16,17 @@ block article
   article._article
 
     style.
-      #sum1 ._case { max-height:300px }
+      #sum1 ._case { max-height:300px;z-index:1 }
       #sum2 ._content { top: 100%; right: 0; left: 100%; bottom: 2.2em; }
-      #sum2 ._case { max-width:300px;max-height:300px }
+      #sum2 ._case { max-width:300px;max-height:300px;z-index:1 }
     section._container
       details._inblock#sum1
         summary._a31._no_select._no_marker #[span._arrow] Summary #[small._i (marker, _a3)]
-        ._content._relative: ._case._absolute._border._color_1._pa_5._scrollable: pre.pre: +pageData
+        ._content._relative: ._case._absolute._border._color_1._pa_5._scrollable: pre.pre._mv0: +pageData
       //- details
       details._inblock#sum2
         summary._a31._no_select._no_marker #[span._arrow] Summary #[small._i (marker, _a3)]
-        ._content._relative: ._case._absolute._border._color_1._pa_5._scrollable: pre.pre: +pageData
+        ._content._relative: ._case._absolute._border._color_1._pa_5._scrollable: pre.pre._mv0: +pageData
       //- details
       +_a._a31(href="#" onclick=onclick()) Button
     hr._m0

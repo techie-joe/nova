@@ -47,8 +47,10 @@ block article
 
     - sample  = 'Text';
     - headings  = 'Heading';
+    style.
+      .samples > * { white-space:nowrap }
     ._flex._gap2
-      ._f
+      ._f.samples
         p._hx3 #{headings} x3
         p._hx2 #{headings} x2
         p._hx1 #{headings} x1
@@ -58,9 +60,9 @@ block article
         h4._h4 #{headings} 4
         h5._h5 #{headings} 5
         h6._h6 #{headings} 6
-        div._h7 #{headings} 7
+        p._h7 #{headings} 7
         p Normal Text
-      ._f
+      ._f.samples
         p._t10 #{sample} 10
         p._t9 #{sample} 9
         p._t8 #{sample} 8

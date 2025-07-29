@@ -270,10 +270,15 @@ dd._no_bullet { @extend ._block }
 
 ol,ul { padding-left: 2em; padding-inline-start: 2em }
 
-blockquote,._blockquote {
+blockquote,
+._blockquote {
   & {
     padding: .5em 1em;
     border-left: .25rem solid transparent;
+  }
+}
+._blockquote {
+  & {
     border-left-color: rgba($baseBc,.4);
     background-color: rgba($baseBc,.1);
   }
