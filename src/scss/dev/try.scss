@@ -4,9 +4,9 @@
 @use "vars" as *;
 @use "colors" as *;
 
-._B,._A { @at-root a#{&} { 
-  &{ text-decoration: none }
-}}
+// ._B,._A { @at-root a#{&} { 
+//   &{ text-decoration: none }
+// }}
 // ._A,a._B{text-decoration:none}
 
 // "&" may only used at the beginning of a compound selector.

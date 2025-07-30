@@ -3,13 +3,7 @@ const
     pages: 'site',
     css: 'site/css',
     scripts: 'site/js',
-    dev_css: 'src/scss',
-  },
-  copy = {
-    _files: 'src/files',
-    files: [
-      'index'
-    ]
+    css_dev: 'src/scss/dev_css',
   },
   build = {
     _pug: 'src/pug',
@@ -26,23 +20,32 @@ const
     scss: [
       'core'
     ],
-    dev_scss: ['src/scss/dev'],
+    scss_dev: [
+      'dev'
+    ],
+  },
+  copy = {
+    _files: 'src/files',
+    files: [
+      'index'
+    ]
   };
 
 const
-  copyList = copy,
-  buildList = build,
-  watchList = build;
+  copyList = {},
+  buildList = {},
+  watchList = {};
 
 // map source lists
 [buildList, watchList].forEach(list => {
   ['html', 'php', 'txt', 'md'].forEach(type => {
-    list[type] = list.pug.map(item => `${list._pug}/${item}/**/*.${type}.pug`);
+    list[type] = build.pug.map(item => `${build._pug}/${item}/**/*.${type}.pug`);
   });
-  list['css'] = list.scss.map(item => `${list._scss}/${item}/**/*.scss`);
+  list.scss = build.scss.map(item => `${build._scss}/${item}/**/*.scss`);
+  list.scss_dev = build.scss_dev.map(item => `${build._scss}/${item}/**/*.scss`);
 });
 [copyList].forEach(list => {
-  list.files = list.files.map(item => `${list._files}/${item}/**/*`);
+  list.files = copy.files.map(item => `${copy._files}/${item}/**/*`);
 });
 
 module.exports = { buildList, watchList, copyList, destination };

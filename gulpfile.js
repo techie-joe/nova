@@ -36,16 +36,16 @@ const main = (() => {
         { message, msg, code, fileName, line, column } = error,
         logs = [redMessage('Error: ') + (message || (code + ' : ' + msg))];
       if (fileName) logs.push(fileName + ((line && column) ? ` [${line}${column ? '|' + column : ''}]` : ''));
-      log(logs?logs.join('\n'):'Error');
+      log(logs ? logs.join('\n') : 'Error');
       this.emit('end');
     },
     // copier
     files = ((source, destination) => async function file_copier() {
       log(`Copying files from: \n${source.join('\n')}`)
       return src(source, { dot: true })
-      .on('error', onError)
-      .pipe(dest(destination));
-    })(copyList.files,_d.pages),
+        .on('error', onError)
+        .pipe(dest(destination));
+    })(copyList.files, _d.pages),
     slog = (what, source) => log(`Transpiling ${what} from: \n${source.join('\n')}`),
     html = (source, destination) => async function html_transpiler() {
       slog('HTML', source);
@@ -108,8 +108,8 @@ const main = (() => {
       md(buildList.md, _d.pages),
     ),
     styles = parallel(
-      scss(buildList.css, _d.css),
-      scss(buildList.dev_scss, _d.dev_css),
+      scss(buildList.scss, _d.css),
+      scss(buildList.scss_dev, _d.css_dev),
     ),
     // watchers
     pagesw = parallel(
@@ -118,7 +118,10 @@ const main = (() => {
       _watch(txt, watchList.txt, _d.pages),
       _watch(md, watchList.md, _d.pages),
     ),
-    stylesw = _watch(scss, watchList.css, _d.css);
+    stylesw = parallel(
+      _watch(scss, watchList.scss, _d.css),
+      _watch(scss, watchList.scss_dev, _d.css_dev),
+    );
 
   return {
     test: async () => {

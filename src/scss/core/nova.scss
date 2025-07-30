@@ -145,19 +145,14 @@ abbr[title] {
   @extend ._cursor_help; /* 3 */
 }
 
+// buttons
+button { @extend ._cursor_pointer; }
+
 // fix fonts
 code, kbd, samp { @extend ._mono; @extend ._tc_purple; }
 
 // fix font size.
 small { @extend ._small; }
-
-._button {
-  @extend ._cursor_pointer;
-  @extend ._reset_bg;
-  border: 1px solid $border_color;
-  border-radius: .25em;
-  padding: .2em .5em;
-}
 
 // icons
 ._icon {
@@ -367,17 +362,26 @@ a,._a {
     box-sizing: border-box;
     text-decoration: none;
   }
-  button & {
-    font-family: $sans;
-    line-height: inherit;
-    background: none;
-  }
   &:active { opacity:.3 }
   &.__disabled {
     cursor:default;
     background:none !important;
     color:inherit !important;
     opacity:.3;
+  }
+}
+
+button {
+  &._a31,
+  &._a3,
+  &._a2,
+  &._a11,
+  &._a1 {
+    font-family: $sans;
+    line-height: inherit;
+    background: none;
+    border: 1px solid $border_color;
+    border-radius: .25em;
   }
 }
 
