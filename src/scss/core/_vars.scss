@@ -6,9 +6,8 @@
 $system: system-ui,sans-serif; // fallback
 $sans: "Roboto","Verdana",sans-serif; // Google // All major platforms
 $serif: "Georgia",serif; // Windows, macOS, iOS
-$itext: "Roboto","Verdana",sans-serif;
-
-$monospace: "Lucida Console","Courier New",monospace,monospace; // Windows, older macOS // All major platforms
+$monospace: "Courier Prime","Courier New",monospace,monospace; // Windows, older macOS // All major platforms
 // the double monospace is to Fix font size inheritance and scaling in all browsers.
 
+$itext: "Roboto","Verdana",sans-serif;
 $baseFont: $sans;
