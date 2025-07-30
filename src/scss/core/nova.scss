@@ -170,7 +170,7 @@ small { @extend ._small; }
   min-width:1em;
   min-height:1em;
 }
-.itext { font-family: "Verdana",sans-serif; line-height: .9em; }
+.itext { font-family: $itext; }
 .isvg svg { vertical-align:top }
 
 // remove border on images inside <a> links in IE 10.
