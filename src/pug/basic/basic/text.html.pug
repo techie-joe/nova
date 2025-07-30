@@ -7,7 +7,7 @@ block append vars
     title       = `Text`
     description = 'Keep texts neat and tidy'
   -
-    cssi.gridlines = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1px" height="10px"><rect width="1" height="1" fill="%23A9790688" /></svg>';
+    cssi.gridlines = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1px" height="12px"><rect width="1" height="1" fill="%23A9790688" /></svg>';
 
 block append style
   style.
@@ -18,7 +18,7 @@ block article
   article._article
   
     section._ma: ._960: ._flex(style="gap:2rem")#info
-      ._fit(style="flex-basis: 32rem;")
+      ._fit(style="flex-basis: 38rem;")
         h2._sans._h4 System Font
         p._system._text_justify.
           System font is the default set of fonts used by an operating system for displaying text across the user interface. The primary goal is to provide a seamless experience for users as they interact with different applications and system elements. Common examples includes "Segoe UI" on Windows, "San Francisco" on macOS, and "Roboto" on Android. They are an integral part of the overall design language and contribute to the visual identity of the operating system.
@@ -26,7 +26,7 @@ block article
       ._f(style="flex-basis: 220px;")
         h2._sans._h4 Sans
         p._sans._text_justify.
-          Sans fonts, such as Arial and Helvetica, are known for their clean and modern look, lacking the small decorative strokes at the ends of letters. They are widely used for digital media due to their readability on screens.
+          Sans fonts such as Arial, are known for their clean and modern look, lacking the small decorative strokes at the ends of letters. They are widely used for digital media.
 
       ._f(style="flex-basis: 220px;")
         h2._serif._h4 Serif
@@ -36,14 +36,14 @@ block article
       ._f(style="flex-basis: 220px;")
         h2._mono._h4 Monospace
         p._mono._text_justify.
-          Monospace fonts, such as Courier New and Consolas, have characters that occupy the same horizontal space. This uniform spacing makes them ideal for displaying scripts and source codes.
+          Monospace fonts, such as Courier New, have characters that occupy the same horizontal space. This uniform spacing makes them ideal for displaying scripts and source codes.
     //- section
 
   hr
 
   section._ma: ._960
 
-    p(style="max-width: 36rem;") Use helper class to customize the visual appearance of headings and texts. They helps separate visual appearance from semantics, giving you better control over both. Use #[code._code _h1] to #[code._code _hx3] for headings, and #[code._code _t1] to #[code._code _t10] for other texts.
+    p Use helper class to customize the visual appearance of headings and texts. They helps separate visual appearance from semantics, giving you better control over both. Use #[code._code _h1] to #[code._code _hx3] for headings, and #[code._code _t1] to #[code._code _t10] for other texts.
 
     - sample  = 'Text';
     - headings  = 'Heading';

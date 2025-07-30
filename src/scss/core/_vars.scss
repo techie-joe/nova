@@ -3,11 +3,11 @@
 // ---------------------------------------------------------------
 
 // fonts
-$system: system-ui,sans-serif;
-$sans: "Arial",sans-serif;
-$serif: "Georgia",serif;
+$system: system-ui,sans-serif; // fallback
+$sans: "Roboto","Verdana",sans-serif; // Google // All major platforms
+$serif: "Georgia",serif; // Windows, macOS, iOS
 
-$monospace: "Consolas",monospace,monospace;
+$monospace: "Lucida Console","Courier New",monospace,monospace; // Windows, older macOS // All major platforms
 // the double monospace is to Fix font size inheritance and scaling in all browsers.
 
 $baseFont: $sans;

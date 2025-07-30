@@ -170,7 +170,7 @@ small { @extend ._small; }
   min-width:1em;
   min-height:1em;
 }
-.itext { @extend ._sans; }
+.itext { font-family: "Verdana",sans-serif; line-height: .9em; }
 .isvg svg { vertical-align:top }
 
 // remove border on images inside <a> links in IE 10.
@@ -477,7 +477,7 @@ a._a1,._a1 {
   // Fix the odd em font sizing and scaling.
   font-family: $monospace;
   @extend ._reset_fontsize;
-  line-height: 1.4;
+  line-height: 1.2;
 }
 
 // font-weight
