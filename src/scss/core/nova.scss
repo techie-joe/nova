@@ -86,7 +86,7 @@ hr {
 pre,._pre {
   @extend ._reset_fontsize;
   font-family: $monospace;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
 // standardize paragraphs spacing.
@@ -290,12 +290,12 @@ summary {
     @include color( $baseHc, $baseHg );
     ._dark & { @include color( $dark_baseHc, $dark_baseHg ); }
   }
-  &:active { opacity:.3 }
+  &:active { opacity: .3 }
   &._no_marker { list-style: none }
-  &._no_marker::-webkit-details-marker { @extend ._hidden; }
-  ._arrow {
+  &._no_marker::-webkit-details-marker { display: none }
+  ._marker {
     @extend ._inblock;
-    margin-right: .25rem;
+    margin-right: .25em;
     transition: transform 0.3s ease;
     width: 0;
     height: 0;
@@ -305,7 +305,7 @@ summary {
     ._dark & { border-left-color: $dark_baseBc; }
   }
 }
-details[open] summary ._arrow { transform: rotate(90deg) }
+details[open] summary ._marker { transform: rotate(90deg) }
 
 ._color {
   & { @include color( $baseBc, $baseBg ); }
@@ -473,11 +473,12 @@ a._a1,._a1 {
 ._system { font-family: $system }
 ._sans { font-family: $sans }
 ._serif { font-family: $serif }
+._cursive { font-family: $cursive }
+._fantasy { font-family: $fantasy }
 ._mono {
   // Fix the odd em font sizing and scaling.
-  font-family: $monospace;
   @extend ._reset_fontsize;
-  line-height: 1.2;
+  font-family: $monospace;
 }
 
 // font-weight
@@ -656,13 +657,16 @@ $paddings: (
 }
 
 // behaviors
-._scrollable { overflow:auto; scroll-behavior: smooth; }
+._scroll,._scroll_x { overflow-x: scroll; scroll-behavior: smooth }
+._scroll,._scroll_y { overflow-y: scroll; scroll-behavior: smooth }
+._scrollable { overflow: auto; scroll-behavior: smooth }
 
 // control overflow
-._no_overflow,
-._no_scroll { overflow: hidden !important }
-._no_scroll_x { overflow-x: hidden !important; }
-._no_scroll_y { overflow-y: hidden !important; }
+._no_scroll,._no_scroll_x { overflow-x: hidden !important; }
+._no_scroll,._no_scroll_y { overflow-y: hidden !important; }
+._no_overflow { @extend ._no_scroll; }
+
+// wrap control
 ._no_wrap { white-space: nowrap !important }
 
 // hide from screen readers, but maintain visual layout

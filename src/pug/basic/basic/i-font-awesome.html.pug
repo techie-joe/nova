@@ -13,9 +13,8 @@ block append stylesheet
 mixin section_icons
   style.
     .icons ._icon {
-      margin-right:.5em;
+      margin:.15em;
       font-size: 1.5em; /* 1.5em = 36px | 1em = 24px */
-      line-height:1.5;
     }
   section._p.icons
     +fas.fa-bars
@@ -83,7 +82,7 @@ mixin section_icons
 
 mixin section_textIcons
   style.
-    .textIcons ._icon { font-size:1.5em;letter-spacing: 0.2em; }
+    .textIcons ._icon { font-size:1.5em;letter-spacing:.2em; }
     .textIcons .fas { line-height:1.25;text-align:left; }
   //- 1.5em : based on the size of + sign
   section.textIcons._p.selectable: i._icon: i.fas: +textIcons

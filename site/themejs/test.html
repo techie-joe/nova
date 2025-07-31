@@ -48,7 +48,7 @@
     <script type="text/javascript" src="/nova/src/ts-js/theme_v2.0.js?v=0.1.0" defer="defer"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link href="https://fonts.googleapis.com/css2?&amp;family=Roboto:ital,wght@0,100..900;1,100..900&amp;family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet" id="_fonts"/>
+    <link href="https://fonts.googleapis.com/css2?&amp;family=Roboto:ital,wght@0,100..900;1,100..900&amp;family=Source+Code+Pro:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet" id="_fonts"/>
     <link rel="stylesheet" media="all" href="/nova/site/css/nova.css?v=0.1.0" id="_style"/>
     <link rel="stylesheet" media="all" href="/nova/site/css/basic.css?v=0.1.0" id="_basicStyle"/>
     <style>/* your style goes here */</style>
@@ -145,16 +145,34 @@
                   <pre class="pre _container" id="pre">// Testing ThemeJS ..</pre>
                 </section>
               </div>
-              <div class="_f">
+            </div>
+            <hr>
+            <div class="_flex" id="theme">
+              <div class="_fit" style="flex-basis:350px">
                 <section class="_container">
                   <h2 class="_h4">Heading</h2>
-                  <p>Paragraph text: lorum ipsum dolor set amet.</p>
+                  <p>Paragraph text ..</p>
+                  <blockquote class="_blockquote">blockquote._blockquote</blockquote>
+                  <details class="_border">
+                    <summary class="_no_select">Summary</summary>
+                    <div class="_pa_5">Details</div>
+                  </details>
+                  <section class="_container"><a class="_a3">Link</a>
+                    <button class="_a3">Button</button>
+                    <details class="_inblock">
+                      <summary class="_a3">Summary</summary>
+                      <div class="_relative">
+                        <div class="_absolute _color_1 _border _pa_5">Details</div>
+                      </div>
+                    </details>
+                  </section>
+                  <hr>
                   <div>
 <a href="#" onclick="event.preventDefault();" id="hyperlink">Hyperlink</a>
 <a class="_link" href="#" onclick="event.preventDefault();">Link</a>
 <a class="_visited" href="#" onclick="event.preventDefault();">Visited</a>
 <a class="_hover" href="#" onclick="event.preventDefault();">Hover</a>
-<a class="_active" href="#" onclick="event.preventDefault();">Active</a>
+<a class="_active" href="#" onclick="event.preventDefault();">Active</a><br>
 <a class="_hover_link" href="#" onclick="event.preventDefault();">Hover-Link</a>
 <a class="_no_color" href="#" onclick="event.preventDefault();">No-Color</a>
                   </div>
@@ -172,21 +190,18 @@
                     <span class="_tc_red">red</span>
                     <span class="_tc_green">green</span>
                   </div>
-                  <blockquote class="_blockquote">blockquote._blockquote</blockquote>
                 </section>
-                <style>#indiv > * { padding:.25em .5em }</style>
-                <section class="_indiv _container" id="indiv">
-                  <div class="_inblock _border">border</div>
-                  <div class="_inblock _outline">outline</div>
-                  <div class="_inblock _boxline">boxline</div>
-                  <div class="_inblock _select">select</div><br>
+                <hr>
+                <style>.c > * { padding:.25em .5em }</style>
+                <section class="c _container">
                   <div class="_inblock _color">color</div>
                   <div class="_inblock _color_1">color_1</div>
-                  <div class="_inblock _color_2">color_2</div><br>
+                  <div class="_inblock _color_2">color_2</div>
                 </section>
+                <hr class="_mt0">
               </div>
+              <div class="_f"></div>
             </div>
-            <hr class="_mt0">
           </article>
           <aside class="_side_article"></aside>
         </main>

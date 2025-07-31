@@ -1,0 +1,17 @@
+extends _html
+
+block append vars
+  -
+    pageid      = 'lab/menu'
+    pageUrl     = siteUrl + '/lab/menu.html'
+    title       = `Menu`
+    description = 'Menu developments'
+
+block header
+  +simpleHeader
+
+block article
+  article._article._container
+
+    section._p1
+      h3._h7| !{description}

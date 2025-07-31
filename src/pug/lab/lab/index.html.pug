@@ -21,11 +21,17 @@ block article
           ['lab/storage','lab/storage.html','Storage'],
           ['themejs','themejs','ThemeJS'],
         ])
+        +boxaf([
+          ['404','-404','404','Simulate real 404'],
+        ])._fit
       ._flex._gap_5._p
         +boxaf([
           ['lab/text','lab/text.html','Text'],
           ['lab/button','lab/button.html','Button'],
           ['lab/overflow','lab/overflow.html','Overflow'],
+          ['lab/color','lab/color.html','Color'],
+          ['lab/image','lab/image.html','Image'],
+          ['lab/menu','lab/menu.html','Menu'],
         ])
       ._flex._gap_5._p
         +boxaf([
@@ -38,16 +44,25 @@ block article
         ])
 
     section._p1
+      h3._h7| Templates
+      ._flex._gap_5._p
+        +boxaf([
+          ['template/core','template/core','Core'],
+          ['template/core/index_','template/core/index_.html','&middot;&middot;','Info'],
+        ])._fit._no_wrap
+        +boxaf([
+          ['template/one','template/one','One'],
+          ['template/one/index_','template/one/index_.html','&middot;&middot;','Info'],
+        ])
+
+    section._p1
       h3._h7| Upcoming features
       ._scrollable._container: pre.pre.
 
         ['logo','logo','Logo'],
-        ['menu','menu','Menu'],
-        ['color','color','Color'],
-        ['basic/image','basic/image.html','Image'],
+        ['headers','headers','Headers'],
         ['basic/i-flat','basic/i-flat.html','Flat Icons'],
         ['basic/i-emoji','basic/i-emoji.html','Emoji Icons'],
-        ['themejs','themejs','ThemeJS'],
         ['json','json','JSON'],
         ['vanamir','vanamir','Vanamir'],
 

@@ -13,32 +13,21 @@ block header
 block article
   article._article._container
 
-    h1._h5._p1(style="color:inherit") Let's explore the fundemental elements of our templates
-
     section._p1
       h3._h7| Templates
       ._flex._gap_5._p
         +boxaf([
-          ['template/one','template/one','One'],
-          ['template/one/index_','template/one/index_.html','&middot;&middot;','Info'],
-        ])
-        +boxaf([
           ['template/basic','template/basic','Basic'],
           ['template/basic/index_','template/basic/index_.html','&middot;&middot;','Info'],
-        ])
+        ])._fit._no_wrap
         +boxaf([
-          ['template/core','template/core','Core'],
-          ['template/core/index_','template/core/index_.html','&middot;&middot;','Info'],
+          ['basic/error','basic/error.html','Error','Error page'],
+          ['basic/400','basic/e400.html','400','Bad request'],
+          ['basic/401','basic/e401.html','401','Unauthorized'],
+          ['basic/403','basic/e403.html','403','Forbidden'],
+          ['basic/404','basic/e404.html','404','Not found'],
+          ['basic/500','basic/e500.html','500','Server Error'],
         ])
-      +boxap([
-        ['basic/error','basic/error.html','Error'],
-        ['basic/400','basic/e400.html','400'],
-        ['basic/401','basic/e401.html','401'],
-        ['basic/403','basic/e403.html','403'],
-        ['basic/404','basic/e404.html','404'],
-        ['404','-404-','&middot;&middot;','Simulate real 404'],
-        ['basic/500','basic/e500.html','500'],
-      ])
 
     section._p1
       h3._h7| Components

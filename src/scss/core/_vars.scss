@@ -3,12 +3,29 @@
 // ---------------------------------------------------------------
 
 // fonts
-$system: system-ui,sans-serif; // fallback
-$sans: "Roboto","Verdana",sans-serif; // Google // All major platforms
-$serif: "Georgia",serif; // Windows, macOS, iOS
+// ---------------------------------------------------------------
+// "Roboto" - Google
+// "Verdana" - All major platforms
+// ---------------------------------------------------------------
+// "Georgia" - Windows, macOS, iOS
+// "Times New Roman" - Windows, macOS
+// "Palatino Linotype","Book Antiqua" - Windows, some macOS
+// ---------------------------------------------------------------
+// "Source Code Pro","Courier Prime" - Google
+// "Courier New" - All major platforms
+// "Lucida Console" - Windows, older macOS
+// ---------------------------------------------------------------
 
-$monospace: "Courier Prime","Courier New",monospace,monospace; // Windows, older macOS // All major platforms
+$system: system-ui,sans-serif; // fallback
+$sans: "Roboto","Verdana",sans-serif;
+$serif: "Georgia",serif;
+$cursive: "Comic Sans MS",cursive,sans-serif;
+$fantasy: "Impact",fantasy,sans-serif;
+
 // the double monospace is to Fix font size inheritance and scaling in all browsers.
+$monospace: "Source Code Pro","Courier Prime","Courier New",monospace,monospace;
 
 $itext: "Roboto","Verdana",sans-serif;
 $baseFont: $sans;
+
+// fine adjustments

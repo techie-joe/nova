@@ -42,6 +42,10 @@ mixin lab_nav
     ._fit: +changeThemeLink._a11: +itext('_cicon')|☀
   hr._m0
 
+mixin _ax(href,title,cls)
+  +l
+  a(href=href||'#' title=title onclick=onclick())&attributes(attributes): block
+
 block header
   +simplestHeader
   +lab_nav
@@ -106,20 +110,32 @@ block article
       ._f
         section._scrollable.sec#sec
           pre.pre#pre._container| // #{description} ..
-      ._f
-        mixin _ax(href,title,cls)
-          +l
-          a(href=href||'#' title=title onclick=onclick())&attributes(attributes): block
 
+    hr
+
+    #theme._flex
+      ._fit(style="flex-basis:350px")
         section._container
           h2._h4 Heading
-          p| Paragraph text: lorum ipsum dolor set amet.
+          p| Paragraph text ..
+          blockquote._blockquote blockquote._blockquote
+          details._border
+            summary._no_select Summary
+            div._pa_5 Details
+          section._container
+            a._a3 Link
+            button._a3 Button
+            details._inblock
+              summary._a3 Summary
+              div._relative: ._absolute._color_1._border._pa_5 Details
+          hr
           div
             +_ax#hyperlink Hyperlink
             +_ax._link Link
             +_ax._visited Visited
             +_ax._hover Hover
             +_ax._active Active
+            br
             +_ax._hover_link Hover-Link
             +_ax._no_color No-Color
           div
@@ -135,21 +151,23 @@ block article
             | #[span._tc_orange orange]
             | #[span._tc_red red]
             | #[span._tc_green green]
-          blockquote._blockquote blockquote._blockquote
+
+        hr
 
         style.
-          #indiv > * { padding:.25em .5em }
-        section#indiv._indiv._container
+          .c > * { padding:.25em .5em }
+        //- section.c._container._indiv
           ._inblock._border border
           ._inblock._outline outline
           ._inblock._boxline boxline
           ._inblock._select select
-          br
+        section.c._container
           ._inblock._color color
           ._inblock._color_1 color_1
           ._inblock._color_2 color_2
-          br
-    hr._mt0
+        hr._mt0
+
+      ._f
 
 block prepend views
   ._hidden#test_element
