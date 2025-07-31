@@ -385,22 +385,21 @@ button {
   }
 }
 
-._a11 { padding:.25em .75em; }
+._a11 { padding: .25em .75em; min-width: 2em }
 
-._a2 {
-  border-radius:.25em;
-  margin:.1em;
-}
+._a2 { border-radius: .25em; margin: .1em; min-width: 1.5em }
 
 ._a3 {
-  border:1px solid #888;
-  border-radius:.25em;
-  margin:.1em;
+  border: 1px solid #888;
+  border-radius: .25em;
+  margin: .1em;
+  min-width: 1.6em;
 }
 
 ._a31  {
   @extend ._a3;
-  padding:.25em .75em;
+  padding: .25em .75em;
+  min-width: 2.1em;
 }
 
 a._a31,._a31,
