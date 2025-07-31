@@ -7,11 +7,108 @@ block append vars
     title       = `Menu`
     description = 'Menu developments'
 
+mixin ax(href,title,cls)
+  a(href=href||'#' title=title onclick=onclick())._no_wrap&attributes(attributes): block
+
+mixin _ax(href,title,cls)
+  +l
+  a(href=href||'#' title=title onclick=onclick())._no_wrap&attributes(attributes): block
+
+mixin menu_sample
+  -
+    temp = [
+      ['','About'],
+      ['','Services'],
+      ['','Gallery'],
+      ['','Contact'],
+    ];
+  each v in temp
+    +a._btnlink._l.btn(href=v[0] onclick=onclick()) #{v[1]}
+
+mixin mainmenu
+  ._color_2._pa_5(style="min-height:400px")
+    p._small| // your menu goes here
+
+block append style
+  +css('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css')
+  style.
+    ._hover_show { display:block;margin:1px }
+    ._hover_show.__active ._trigger,
+    ._hover_show ._trigger {
+      cursor:pointer;
+      transition: background-color .2s;
+    }
+    ._hover_show ._item { position:relative }
+    ._hover_show.__absolute ._content { position:absolute }
+    ._hover_show ._content {
+      overflow:hidden;
+      transition:max-height .2s ease .4s;
+      max-height:0px;
+    }
+    ._hover_show.__active ._trigger,
+    ._hover_show:hover ._trigger { background-color:#8883 }
+    ._hover_show.__active ._content,
+    ._hover_show:hover ._content { max-height:100px }
+
+    ._a a._hover_show:visited,
+    ._a a._hover_show:hover,
+    ._a a._hover_show { color:inherit;text-decoration:none }
+  //- style.
+    .flatmenu .btn { border-radius:0;margin:0;vertical-align:top;line-height:2 }
+    .flatmenu .btn.__icon { padding:0 .5em; font-size:1.25em }
+    .flatmenu ._btnlink ._fa { margin-right:0 }
+  style.
+
+    .btn { border:0 }
+    .flatmenu ._nav_layout { margin:.5rem 0 }
+    .flatmenu ._hover_show__on_focus,
+    .flatmenu ._hover_show { display:inline-block; margin:0 }
+
+    #mainmenu {
+      overflow:hidden;width:0;max-height:0px;
+      transition:width .2s ease, max-height .2s ease;
+    }
+    #mainmenu.open { width:100%;max-height:100px; }
+
+  //- style.
+
+block append script
+  script.
+    (()=>{
+      const
+        w = window,
+        d = document;
+      var mainMenuIs = 'closed';
+      w.toggleMainMenu = ()=>{
+        mainMenuIs = mainMenuIs=='closed'?'open':'closed';
+        var e = d.getElementById('mainmenu');
+        if(e){ e.className = mainMenuIs }
+      }
+    })();
+  //- script.
+
+mixin axm(label)
+  span._hover_show.__absolute&attributes(attributes)
+    +a(href='#' onclick=onclick())._a11|!{label} #[+fas.fa-caret-down._small]
+    ._item: ._content: ._color_1._pa_5(style="width:300px;"): block
+
 block header
   +simpleHeader
 
 block article
   article._article._container
 
-    section._p1
+    section
+
       h3._h7| !{description}
+
+      nav._color_1.flatmenu
+        +ax._a11(onclick=onclick('toggleMainMenu();') title="Open main menu")| #[+isvg(svgi.bars,'_cicon')]
+        +ax._a11(title="Go to homepage")| #[+isvg(svgi.home,'_licon')]Home
+        +axm('Menu')#m2: p._small| // more menues ...
+        +ax._a11(title="More ..")| #[+isvg(svgi.ellipsis,'_cicon')]
+      #mainmenu: +mainmenu
+
+      nav._color_1.flatmenu
+        //- +m2
+        //- +menu_sample

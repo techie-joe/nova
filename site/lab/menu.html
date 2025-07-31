@@ -52,6 +52,43 @@
     <link rel="stylesheet" media="all" href="/nova/site/css/nova.css?v=0.1.0" id="_style"/>
     <link rel="stylesheet" media="all" href="/nova/site/css/basic.css?v=0.1.0" id="_basicStyle"/>
     <style>/* your style goes here */</style>
+    <link rel="stylesheet" media="all" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+    <style>
+      ._hover_show { display:block;margin:1px }
+      ._hover_show.__active ._trigger,
+      ._hover_show ._trigger {
+        cursor:pointer;
+        transition: background-color .2s;
+      }
+      ._hover_show ._item { position:relative }
+      ._hover_show.__absolute ._content { position:absolute }
+      ._hover_show ._content {
+        overflow:hidden;
+        transition:max-height .2s ease .4s;
+        max-height:0px;
+      }
+      ._hover_show.__active ._trigger,
+      ._hover_show:hover ._trigger { background-color:#8883 }
+      ._hover_show.__active ._content,
+      ._hover_show:hover ._content { max-height:100px }
+      
+      ._a a._hover_show:visited,
+      ._a a._hover_show:hover,
+      ._a a._hover_show { color:inherit;text-decoration:none }
+    </style>
+    <style>
+      .btn { border:0 }
+      .flatmenu ._nav_layout { margin:.5rem 0 }
+      .flatmenu ._hover_show__on_focus,
+      .flatmenu ._hover_show { display:inline-block; margin:0 }
+      
+      #mainmenu {
+        overflow:hidden;width:0;max-height:0px;
+        transition:width .2s ease, max-height .2s ease;
+      }
+      #mainmenu.open { width:100%;max-height:100px; }
+      
+    </style>
   </head>
   <body>
     <div id="_views">
@@ -73,8 +110,32 @@
         </header>
         <main id="_main">
           <article class="_article _container">
-            <section class="_p1">
+            <section>
               <h3 class="_h7">Menu developments</h3>
+              <nav class="_color_1 flatmenu"><a class="_no_wrap _a11" href="#" title="Open main menu" onclick="event.preventDefault();toggleMainMenu();"><i class="_icon _cicon"><i class="isvg">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M5,6H19V8H5V6M5,11H19V13H5V11M5,16H19V18H5V16Z" fill="currentColor" fill-opacity="1"></path>
+                      </svg></i></i></a><a class="_no_wrap _a11" href="#" title="Go to homepage" onclick="event.preventDefault();"><i class="_icon _licon"><i class="isvg">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" fill="currentColor" fill-opacity="1"></path>
+                      </svg></i></i>Home</a><span class="_hover_show __absolute" id="m2"><a class="_a11" href="#" onclick="event.preventDefault();">Menu <i class="_icon"><i class="fas fa-caret-down _small"></i></i></a>
+                  <div class="_item">
+                    <div class="_content">
+                      <div class="_color_1 _pa_5" style="width:300px;">
+                        <p class="_small">// more menues ...</p>
+                      </div>
+                    </div>
+                  </div></span><a class="_no_wrap _a11" href="#" title="More .." onclick="event.preventDefault();"><i class="_icon _cicon"><i class="isvg">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z" fill="currentColor" fill-opacity="1"></path>
+                      </svg></i></i></a>
+              </nav>
+              <div id="mainmenu">
+                <div class="_color_2 _pa_5" style="min-height:400px">
+                  <p class="_small">// your menu goes here</p>
+                </div>
+              </div>
+              <nav class="_color_1 flatmenu"></nav>
             </section>
           </article>
           <aside class="_side_article"></aside>
@@ -95,5 +156,18 @@
     </div>
     <aside id="_widgets"></aside>
     <script>// your script goes here</script>
+    <script>
+      (()=>{
+        const
+          w = window,
+          d = document;
+        var mainMenuIs = 'closed';
+        w.toggleMainMenu = ()=>{
+          mainMenuIs = mainMenuIs=='closed'?'open':'closed';
+          var e = d.getElementById('mainmenu');
+          if(e){ e.className = mainMenuIs }
+        }
+      })();
+    </script>
   </body>
 </html>
