@@ -334,14 +334,14 @@ a,._a {
   & {
     &:visited,&._visited { color: $linkBc_visited }
     &,&._link            { color: $linkBc }
-    &._hover_link        { color: inherit }
+    &._hover_color        { color: inherit }
     &:hover,&._hover     { color: $linkBc_hover }
     &:active,&._active   { color: $linkBc_active }
   }
   ._dark & {
     &:visited,&._visited { color: $dark_linkBc_visited }
     &,&._link            { color: $dark_linkBc }
-    &._hover_link        { color: inherit }
+    &._hover_color        { color: inherit }
     &:hover,&._hover     { color: $dark_linkBc_hover }
     &:active,&._active   { color: $dark_linkBc_active }
   }
@@ -362,12 +362,12 @@ a,._a {
     box-sizing: border-box;
     text-decoration: none;
   }
-  &:active { opacity:.3 }
+  &:active { opacity: .3 }
   &.__disabled {
     cursor:default;
     background:none !important;
     color:inherit !important;
-    opacity:.3;
+    opacity: .3;
   }
 }
 
@@ -385,23 +385,6 @@ button {
   }
 }
 
-._a11 { padding: .25em .75em; min-width: 2em }
-
-._a2 { border-radius: .25em; margin: .1em; min-width: 1.5em }
-
-._a3 {
-  border: 1px solid #888;
-  border-radius: .25em;
-  margin: .1em;
-  min-width: 1.6em;
-}
-
-._a31  {
-  @extend ._a3;
-  padding: .25em .75em;
-  min-width: 2.1em;
-}
-
 a._a31,._a31,
 a._a3,._a3,
 a._a2,._a2,
@@ -417,6 +400,23 @@ a._a1,._a1 {
     &:hover,&._hover { @include color( $dark_baseHc, $dark_baseHg ); }
     &._active { @include color( $dark_baseAc, $dark_baseAg ); }
   }
+}
+
+._a11 { padding: .25em .75em; min-width: 2em }
+
+._a2 { border-radius: .25em; margin: .1em; min-width: 1.5em }
+
+._a31,
+._a3 {
+  border: 1px solid #888;
+  border-radius: .25em;
+  margin: .1em;
+  min-width: 1.6em;
+}
+
+._a31  {
+  padding: .25em .75em;
+  min-width: 2.1em;
 }
 
 // ---------------------------------------------------------------
@@ -494,7 +494,7 @@ a._a1,._a1 {
 ._u_dashed { @extend ._u; text-decoration-style: dashed !important }
 ._u_double { @extend ._u; text-decoration-style: double !important }
 ._u_wavy   { @extend ._u; text-decoration-style: wavy   !important }
-._no_u, ._no_deco { text-decoration: none !important }
+._no_u, ._no_deco { text-decoration-line: none !important }
 a[href]._hover_u,._hover_u {
   @extend ._no_u; &:hover { text-decoration-line: underline !important }
 }

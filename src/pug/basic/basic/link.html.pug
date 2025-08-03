@@ -19,13 +19,13 @@ block article
 
     section: nav._container
       |Mix: 
-      +_ax._hover_link: +isvg(svgi.bars)
-      +_ax._hover_link._hover_u Link
-      +_ax._hover_link._hover_u| #[+isvg(svgi.compare)]Link
-      +_ax._a2._hover_link| #[+isvg(svgi.bars,'_cicon')]
-      +ax._a2._hover_link| #[+isvg(svgi.compare,'_licon')]Link
-      +ax._a3._hover_link| #[+isvg(svgi.compare,'_licon')]Link
-      +ax._a31._hover_link| #[+isvg(svgi.compare,'_licon')]Link
+      +_ax._hover_color: +isvg(svgi.bars)
+      +_ax._hover_color._hover_u Link
+      +_ax._hover_color._hover_u| #[+isvg(svgi.compare)]Link
+      +_ax._a2._hover_color| #[+isvg(svgi.bars,'_cicon')]
+      +ax._a2._hover_color| #[+isvg(svgi.compare,'_licon')]Link
+      +ax._a3._hover_color| #[+isvg(svgi.compare,'_licon')]Link
+      +ax._a31._hover_color| #[+isvg(svgi.compare,'_licon')]Link
 
     hr
 
@@ -72,15 +72,15 @@ block article
     //- section.flex
 
     section._container
-      +_ax._hover_link._hover_u| #[+isvg(svgi.compare)]Link
-      +_ax._hover_link._hover_u| #[+itext|☀]Link
+      +_ax._hover_color._hover_u| #[+isvg(svgi.compare)]Link
+      +_ax._hover_color._hover_u| #[+itext|☀]Link
       br
       +_ax#hyperlink_i: +isvg(svgi.compare)
       +_ax._link: +isvg(svgi.compare)
       +_ax._visited: +isvg(svgi.compare)
       +_ax._hover: +isvg(svgi.compare)
       +_ax._active: +isvg(svgi.compare)
-      +_ax._hover_link: +isvg(svgi.compare)
+      +_ax._hover_color: +isvg(svgi.compare)
       +_ax._no_color: +isvg(svgi.compare)
       br
       +_ax#hyperlink Hyperlink
@@ -89,23 +89,21 @@ block article
       +_ax._hover Hover
       +_ax._active Active
       br
-      +_ax._hover_link Hover-Link
       +_ax._no_color No-Color
-      br
-      +_ax._hover_link Underline
-      +_ax._hover_link._u_dotted Dotted
-      +_ax._hover_link._u_dashed Dashed
-      +_ax._hover_link._u_double Double
-      +_ax._hover_link._u_wavy Wavy
-      br
-      +_ax._hover_link._hover_u Underline
-      +_ax._hover_link._hover_u._u_dotted Dotted
-      +_ax._hover_link._hover_u._u_dashed Dashed
-      +_ax._hover_link._hover_u._u_double Double
-      +_ax._hover_link._hover_u._u_wavy Wavy
-      br
+      +_ax._hover_color Hover-Color
       +_ax._no_color._hover_u Hover-Underline
-      +_ax._no_u._hover_link Hover-Color
+      br
+      +_ax._hover_color Underline
+      +_ax._hover_color._u_dotted Dotted
+      +_ax._hover_color._u_dashed Dashed
+      +_ax._hover_color._u_double Double
+      +_ax._hover_color._u_wavy Wavy
+      br
+      +_ax._no_color._hover_u Underline
+      +_ax._no_color._hover_u._u_dotted Dotted
+      +_ax._no_color._hover_u._u_dashed Dashed
+      +_ax._no_color._hover_u._u_double Double
+      +_ax._no_color._hover_u._u_wavy Wavy
       br
       script.
         (()=>{

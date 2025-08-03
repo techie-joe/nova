@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="_hidden _errorpage" lang="en">
+<html class="_errorpage" lang="en">
   
   <!-- Nova Builder v0.1.0 |  -->
   <!-- layout:main/_error -->
@@ -17,61 +17,64 @@
     <link rel="icon" type="image/x-icon" sizes="any" href="/nova/site/icons/favicon.ico?v=0.1.0"/>
     <!--[if lt IE 9]><script src="//unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
     <meta name="description" content="There is nothing to show."/>
-    <link rel="stylesheet" media="all" href="/nova/site/css/nova.css?v=0.1.0" id="_style"/>
-    <link rel="stylesheet" media="all" href="/nova/site/css/basic.css?v=0.1.0" id="_custom_style"/>
-    <link rel="stylesheet" media="all" href="/nova/site/css/errorpage.css?v=0.1.0"/>
-    <style>
-      #logo {
-        font-weight: 600;
-        margin-left: -.25rem;
-        margin-right: .5rem;
-        padding: .25rem .5rem;
-        display: inline-block;
-        cursor: default;
-        border-radius: .3rem;
-        letter-spacing: -0.05em;
-      }
-      #logo .s1 { color:#000 }
-      #logo .s2 { color:#1b36b0 }
-      ._dark #logo .s1 { color:#fff }
-      ._dark #logo .s2 { color:#7a8eea }
-      a #logo { cursor:pointer }
-      a #logo:hover { background-color:#fff }
-      ._dark a #logo:hover { background-color:#fff3 }
-      a #logo:active { opacity:.3 }
-      #maindesc {
-        font-size: 0.9em;
-        line-height: 1.25;
-        vertical-align: text-top;
-      }
+    <style id="_coreStyle">
+      ._invisible { visibility: hidden !important }
+      ._hide, ._hidden, [hidden] { display: none !important }
+      ._flex { display:flex }
+      ._scrollable { overflow: auto }
+      html,body { font-family:system-ui,sans-serif }
+      hr { border:0;border-top:1px solid #888 }
+      .isvg svg { max-width:1em;max-height:1em }
     </style>
+    <style id="_needjs" onload="this.remove()">
+      ._needjs { display: none !important; }
+      
+    </style>
+    <script>
+      ((d=document,b=d.documentElement||d.body,c='_invisible')=>{
+        b.classList.add(c);d.addEventListener('DOMContentLoaded',e=>{b.classList.remove(c)});
+      })();
+      
+    </script>
+    <script>window._host = 'bG9jYWxob3N0LHRlY2hpZS1qb2UuZ2l0aHViLmlvLHRoZW1lanMucGFnZXMuZGV2';</script>
+    <script type="text/javascript" src="/nova/site/js/theme_v2.0.js?v=0.1.0" defer="defer"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?&amp;family=Roboto:ital,wght@0,100..900;1,100..900&amp;family=Source+Code+Pro:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet" id="_fonts"/>
+    <link rel="stylesheet" media="all" href="/nova/site/css/nova.css?v=0.1.0" id="_style"/>
+    <link rel="stylesheet" media="all" href="/nova/site/css/basic.css?v=0.1.0" id="_basicStyle"/>
+    <link rel="stylesheet" media="all" href="/nova/site/css/errorpage.css?v=0.1.0"/>
+    <style>/* your style goes here */</style>
     <style>body::before { content:'main/_error' }</style>
   </head>
   <body>
-    <header id="_header"></header>
-    <main class="_fullview" id="_main">
-      <article class="_article _container">
-        <h1 id="_h1">Not found</h1>
-        <p id="_p">Sorry, there is nothing to show.</p>
-        <nav id="_nav"><a class="_needjs _link _a31" href="#" onclick="event.preventDefault();(function(w){var h=w.history;w.opener?w.close():h.length>1?h.back():w.location.href='/';})(window)" title="Back to previous page">Back</a>
-        </nav>
-      </article>
-    </main>
-    <aside class="_side_bar"></aside>
-    <footer class="_color" id="_footer">
-      <hr class="_m0">
-      <div class="_relative">
-        <div class="_absolute" style="top:.1rem;left:auto;right:0">
-          <div class="_container">
-            <div class="_small"><a class="_a2 _hover_link" href="/nova/site/">Home</a>
+    <div id="_views">
+      <div class="_view" id="_main_view">
+        <noscript class="_pa _tc_red _b _mono">// Please enable javascript</noscript>
+        <header id="_header"></header>
+        <main class="_fullview" id="_main">
+          <article class="_article _container">
+            <h1 id="_h1">Not found</h1>
+            <p id="_p">Sorry, there is nothing to show.</p>
+            <nav id="_nav"><a class="_needjs _link _a31" href="#" onclick="event.preventDefault();(function(w){var h=w.history;w.opener?w.close():h.length>1?h.back():w.location.href='/';})(window)" title="Back to previous page">Back</a>
+            </nav>
+          </article>
+        </main>
+        <aside class="_side_bar"></aside>
+        <footer class="_color" id="_footer">
+          <div class="_relative">
+            <div class="_absolute_right">
+              <div class="_container">
+                <div class="_small"><a class="_a2 _hover_link" href="/nova/site/">Home</a>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+          <div class="_container"><small>&copy; 2025 Techie Joe</small></div>
+        </footer>
       </div>
-      <div class="_container"><small>&copy; 2025 Techie Joe</small></div>
-    </footer>
+    </div>
     <aside id="_widgets"></aside>
-    <script type="text/javascript" src="/nova/site/js/theme_v2.0.js?v=0.1.0"></script>
     <script>// your script goes here</script>
     
     <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
