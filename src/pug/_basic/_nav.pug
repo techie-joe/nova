@@ -15,7 +15,7 @@ mixin menu_m1(links)
 mixin menu_a11(links)
   nav
     each v in links
-      - classes = ['_a11'];
+      - classes = ['_a1m'];
       - if(pageid === v[0]) classes.push('_active')
       +menu_a(v,classes)
 
@@ -40,4 +40,4 @@ mixin main_menu
 mixin main_nav
   #_main_nav._color_2._flex
     ._f: +main_menu
-    ._fit: +changeThemeLink._a11: +itext('_cicon')|☀
+    ._fit: +changeThemeLink._a1m: +itext('_cicon')|☀

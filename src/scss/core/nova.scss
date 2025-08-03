@@ -347,20 +347,21 @@ a,._a {
   }
 }
 
-._a31,
+._a3m,
 ._a3,
+._a2m,
 ._a2,
-._a11,
+._a1m,
 ._a1 {
   & {
     @extend ._inblock;
     @extend ._no_select;
     cursor: pointer;
     text-align: center;
-    padding: 0 .5em;
     white-space: nowrap;
     box-sizing: border-box;
     text-decoration: none;
+    padding: 0 .55em;
   }
   &:active { opacity: .3 }
   &.__disabled {
@@ -372,10 +373,11 @@ a,._a {
 }
 
 button {
-  &._a31,
+  &._a3m,
   &._a3,
+  &._a2m,
   &._a2,
-  &._a11,
+  &._a1m,
   &._a1 {
     font-family: $sans;
     line-height: inherit;
@@ -385,10 +387,11 @@ button {
   }
 }
 
-a._a31,._a31,
+a._a3m,._a3m,
 a._a3,._a3,
+a._a2m,._a2m,
 a._a2,._a2,
-a._a11,._a11,
+a._a1m,._a1m,
 a._a1,._a1 {
   & {
     & { color: inherit }
@@ -402,22 +405,21 @@ a._a1,._a1 {
   }
 }
 
-._a11 { padding: .25em .75em; min-width: 2em }
+._a1m { padding: .25em .75em; min-width: 2em }
 
-._a2 { border-radius: .25em; margin: .1em; min-width: 1.5em }
+._a3m,
+._a3,
+._a2m,
+._a2 { border-radius: .25em; margin: .1em; }
 
-._a31,
-._a3 {
-  border: 1px solid #888;
-  border-radius: .25em;
-  margin: .1em;
-  min-width: 1.6em;
-}
+._a3m,
+._a3,
+._a2  { min-width: 1.5em }
+._a2m { padding: .25em .75em; min-width: 2em }
 
-._a31  {
-  padding: .25em .75em;
-  min-width: 2.1em;
-}
+._a3m,
+._a3  { border: 1px solid $border_color; }
+._a3m { padding: .2em .7em; min-width: 2em }
 
 // ---------------------------------------------------------------
 // helpers

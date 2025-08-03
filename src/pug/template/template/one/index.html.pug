@@ -34,14 +34,14 @@ mixin block_4(title)
     h3._h6 !{title}
     p._text_justify: block
 
-mixin page_a11(links)
+mixin page_a11(links, active)
   each v in links
-    - classes = ['_a11'];
-    - if(pageid === v[0]) classes.push('_active')
+    - classes = ['_a1m'];
+    - if(v[0] == active) classes.push('_active')
     if typeof v === 'string'
       span._inblock._mh_25|!{v}
     else
-      a(href=homeUri+v[1] onclick=onclick() class=classes.join(' ') title=v[3]) !{v[2]}
+      a(href=homeUri+'template/one/'+v[1] onclick=onclick() class=classes.join(' ') title=v[3]) !{v[2]}
       //- a(href=homeUri+v[1] class=classes.join(' ') title=v[3]) !{v[2]}
 
 block header
@@ -50,22 +50,21 @@ block header
       a(href='./')#logo._no_select: +_logo
       span#maindesc!=description
     nav#_main_nav._color_2: ._flex._960
-      ._fit: +backLink._a11|#[+isvg(svgi.angle,'_cicon')._rotate_180]
-      ._f
-        +a('./')._a11|Home
-        +page_a11([
-          ['about','about','About'],
-          ['template/one','products','Products'],
-          ['services','services','Services'],
-          ['gallery','gallery','Gallery'],
-          ['blog','blog','Blog'],
-          ['contact','contact','Contact'],
-        ])
-      ._fit: +changeThemeLink._a11: +itext('_cicon')|☀
+      //- ._fit: +backLink._a1m|#[+isvg(svgi.angle,'_cicon')._rotate_180]
+      ._f: +page_a11([
+        ['home','','Home'],
+        ['about','about','About'],
+        ['products','products','Products'],
+        ['services','services','Services'],
+        ['gallery','gallery','Gallery'],
+        ['blog','blog','Blog'],
+        ['contact','contact','Contact'],
+      ],'about')
+      ._fit: +changeThemeLink._a1m: +itext('_cicon')|☀
 
 block article
 
-  article._article._ma: ._960(style="margin:.5rem auto 3.5rem")
+  article._article._960(style="margin-bottom: 4rem")
 
     section: +basic_helloWorld
     hr
@@ -134,9 +133,9 @@ block article
       ._fit(style="flex-basis:300px;")
         h3._h6 Buttons
         .buttons._p
-          +a(onclick=onclick())._a31.__primary Primary
-          +a(onclick=onclick())._a31.__secondary Secondary
-          +a(onclick=onclick())._a31 Ordinary
+          +a(onclick=onclick())._a3m.__primary Primary
+          +a(onclick=onclick())._a3m.__secondary Secondary
+          +a(onclick=onclick())._a3m Ordinary
 
       ._f(style="flex-basis:230px;")
         h3._h6 Intuitive Hyperlinks

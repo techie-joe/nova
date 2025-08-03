@@ -25,7 +25,7 @@ block article
       +_ax._a2._hover_color| #[+isvg(svgi.bars,'_cicon')]
       +ax._a2._hover_color| #[+isvg(svgi.compare,'_licon')]Link
       +ax._a3._hover_color| #[+isvg(svgi.compare,'_licon')]Link
-      +ax._a31._hover_color| #[+isvg(svgi.compare,'_licon')]Link
+      +ax._a3m._hover_color| #[+isvg(svgi.compare,'_licon')]Link
 
     hr
 
@@ -40,13 +40,15 @@ block article
           +ax(class=cls)._hover| #[+isvg(svgi.compare,'_cicon')]
           +ax(class=cls)._hover| #[+itext('_licon')|☀]Link
           +ax(class=cls)._hover| #[+isvg(svgi.compare,'_licon')]Link
-        nav._container: +ilinks('_a31')
+        nav._container: +ilinks('_a3m')
         hr._m0
         nav._container: +ilinks('_a3')
         hr._m0
+        nav._container: +ilinks('_a2m')
+        hr._m0
         nav._container: +ilinks('_a2')
         hr._m0
-        nav: +ilinks('_a11')
+        nav: +ilinks('_a1m')
         hr._m0
         nav: +ilinks('_a1')
         hr._m0
@@ -59,13 +61,15 @@ block article
           +ax(class=cls)._active Active
           script.
             document.getElementById('#{id}').href+='?t='+(new Date().getTime());
-        nav._container: +nlinks('_a31','hyperlink31')
+        nav._container: +nlinks('_a3m','hyperlink3m')
         hr._m0
         nav._container: +nlinks('_a3','hyperlink3')
         hr._m0
+        nav._container: +nlinks('_a2m','hyperlink2m')
+        hr._m0
         nav._container: +nlinks('_a2','hyperlink2')
         hr._m0
-        nav: +nlinks('_a11','hyperlink11')
+        nav: +nlinks('_a1m','hyperlink1m')
         hr._m0
         nav: +nlinks('_a1','hyperlink1')
         hr._m0

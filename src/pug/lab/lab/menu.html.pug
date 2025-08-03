@@ -89,7 +89,7 @@ block append script
 
 mixin axm(label)
   span._hover_show.__absolute&attributes(attributes)
-    +a(href='#' onclick=onclick())._a11|!{label} #[+fas.fa-caret-down._small]
+    +a(href='#' onclick=onclick())._a1m|!{label} #[+fas.fa-caret-down._small]
     ._item: ._content: ._color_1._pa_5(style="width:300px;"): block
 
 block header
@@ -103,10 +103,10 @@ block article
       h3._h7| !{description}
 
       nav._color_1.flatmenu
-        +ax._a11(onclick=onclick('toggleMainMenu();') title="Open main menu")| #[+isvg(svgi.bars,'_cicon')]
-        +ax._a11(title="Go to homepage")| #[+isvg(svgi.home,'_licon')]Home
+        +ax._a1m(onclick=onclick('toggleMainMenu();') title="Open main menu")| #[+isvg(svgi.bars,'_cicon')]
+        +ax._a1m(title="Go to homepage")| #[+isvg(svgi.home,'_licon')]Home
         +axm('Menu')#m2: p._small| // more menues ...
-        +ax._a11(title="More ..")| #[+isvg(svgi.ellipsis,'_cicon')]
+        +ax._a1m(title="More ..")| #[+isvg(svgi.ellipsis,'_cicon')]
       #mainmenu: +mainmenu
 
       nav._color_1.flatmenu
