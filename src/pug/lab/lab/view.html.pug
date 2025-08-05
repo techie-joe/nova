@@ -92,16 +92,12 @@ block append script
         set();
       };
       v.fullview = ()=>{
-        dc = d.html.className;
-        bc = d.body.className;
         fullview=!fullview;
         fullscreen = false;
         d.html.className = (fullview?dc+' fullview':dc);
         set();
       },
       v.fullscreen = ()=>{
-        dc = d.html.className;
-        bc = d.body.className;
         fullview = false;
         fullscreen=!fullscreen;
         d.html.className = (fullscreen?dc+' fullscreen':dc);

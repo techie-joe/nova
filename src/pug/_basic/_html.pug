@@ -27,7 +27,7 @@ block stylesheet
   +cssv(homeUri+'css/basic.css')#_basicStyle
 
 mixin logo_bar
-  ._color_1: ._pa_5
+  ._color_1._pa_5
     +logo
     span#maindesc!=description
 
@@ -50,7 +50,7 @@ mixin basic_helloWorld
 
 block article
   article._article
-    section._container._scrollable: +basic_helloWorld
+    section._container._mt0._scrollable: +basic_helloWorld
     hr
     section._container._scrollable: pre.pre: +pageData()
 

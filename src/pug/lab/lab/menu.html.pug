@@ -7,14 +7,32 @@ block append vars
     title       = `Menu`
     description = 'Menu developments'
 
-mixin ax(href,title,cls)
-  a(href=href||'#' title=title onclick=onclick())._no_wrap&attributes(attributes): block
+block append style
+  +css('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css')
+  style.
+    ._hover_show { display:inline-block }
+    ._hover_show ._content {
+      overflow:hidden !important;
+      transition:max-height .2s ease .4s,max-width .2s ease .4s;
+      max-height:0px;max-width:0px;
+    }
+    ._hover_show.__open ._content,
+    ._hover_show:hover ._content { max-width:300px;max-height:100px }
 
-mixin _ax(href,title,cls)
-  +l
-  a(href=href||'#' title=title onclick=onclick())._no_wrap&attributes(attributes): block
+    ._a a._hover_show:visited,
+    ._a a._hover_show:hover,
+    ._a a._hover_show { color:inherit;text-decoration:none }
 
-mixin menu_sample
+    #mainmenu {
+      overflow:hidden !important;
+      transition:max-width .2s ease, max-height .2s ease;
+      max-width:0px;max-height:0px;
+    }
+    #mainmenu.open { max-width:100%;max-height:100px; }
+
+  //- style.
+
+mixin menu_sample(cls)
   -
     temp = [
       ['','About'],
@@ -23,54 +41,50 @@ mixin menu_sample
       ['','Contact'],
     ];
   each v in temp
-    +a._btnlink._l.btn(href=v[0] onclick=onclick()) #{v[1]}
+    +a(class=cls href=v[0] onclick=onclick()) #{v[1]}
 
-mixin mainmenu
-  ._color_2._pa_5(style="min-height:400px")
-    p._small| // your menu goes here
+mixin ax(href,title)
+  a(href=href||'#' title=title onclick=onclick())._no_wrap&attributes(attributes): block
 
-block append style
-  +css('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css')
-  style.
-    ._hover_show { display:block;margin:1px }
-    ._hover_show.__active ._trigger,
-    ._hover_show ._trigger {
-      cursor:pointer;
-      transition: background-color .2s;
-    }
-    ._hover_show ._item { position:relative }
-    ._hover_show.__absolute ._content { position:absolute }
-    ._hover_show ._content {
-      overflow:hidden;
-      transition:max-height .2s ease .4s;
-      max-height:0px;
-    }
-    ._hover_show.__active ._trigger,
-    ._hover_show:hover ._trigger { background-color:#8883 }
-    ._hover_show.__active ._content,
-    ._hover_show:hover ._content { max-height:100px }
+mixin _ax(href,title)
+  +l
+  a(href=href||'#' title=title onclick=onclick())._no_wrap&attributes(attributes): block
 
-    ._a a._hover_show:visited,
-    ._a a._hover_show:hover,
-    ._a a._hover_show { color:inherit;text-decoration:none }
-  //- style.
-    .flatmenu .btn { border-radius:0;margin:0;vertical-align:top;line-height:2 }
-    .flatmenu .btn.__icon { padding:0 .5em; font-size:1.25em }
-    .flatmenu ._btnlink ._fa { margin-right:0 }
-  style.
+mixin axm(label)
+  span._hover_show.__absolute&attributes(attributes)
+    +ax._a1m|!{label} #[+fas.fa-caret-down._small]
+    ._relative: ._absolute._content: block
 
-    .btn { border:0 }
-    .flatmenu ._nav_layout { margin:.5rem 0 }
-    .flatmenu ._hover_show__on_focus,
-    .flatmenu ._hover_show { display:inline-block; margin:0 }
+block header
+  +simplestHeader
+  +lab_nav
 
-    #mainmenu {
-      overflow:hidden;width:0;max-height:0px;
-      transition:width .2s ease, max-height .2s ease;
-    }
-    #mainmenu.open { width:100%;max-height:100px; }
+block article
+  article._article._container
 
-  //- style.
+    section._p1
+
+      style.
+        #menu_1 ._a1m { padding: 0.344em 0.894em }
+      nav._mv#menu_1
+        ._color_1.flatmenu
+          +ax._a1m(onclick=onclick('toggleMenu("mainmenu");') title="Open main menu")| #[+isvg(svgi.bars,'_cicon')]
+          +ax._a1m(title="Go to homepage")| #[+isvg(svgi.home,'_licon')]Home
+          +axm('Menu')#m2: ._color_1._pa_5(style="width:200px")._small| // more menues ...
+          +ax._a1m| Link
+          +ax._a1m(title="More ..")| #[+isvg(svgi.ellipsis,'_cicon')]
+        #mainmenu: ._color_2._pa_5(style="height:400px")
+          ._small| // your menu goes here
+
+      nav._color_1._radius_5._clearfix._pa_5._mv
+        +ax._a2| Link
+        +ax._a2: +isvg(svgi.ellipsis,'_cicon')
+        +ax._a2: +isvg(svgi.bars,'_cicon')
+        +ax._a2: +isvg(svgi.home,'_cicon')
+        =' | '
+        +ax._a3| Link
+        +ax._a3: +itext('_cicon')|&bull;
+        +ax._a3: +isvg(svgi.compare,'_cicon')
 
 block append script
   script.
@@ -79,32 +93,10 @@ block append script
         w = window,
         d = document;
       var mainMenuIs = 'closed';
-      w.toggleMainMenu = ()=>{
+      w.toggleMenu = (id)=>{
         mainMenuIs = mainMenuIs=='closed'?'open':'closed';
-        var e = d.getElementById('mainmenu');
+        var e = d.getElementById(id);
         if(e){ e.className = mainMenuIs }
       }
     })();
   //- script.
-
-mixin axm(label)
-  span._hover_show.__absolute&attributes(attributes)
-    +a(href='#' onclick=onclick())._a1m|!{label} #[+fas.fa-caret-down._small]
-    ._item: ._content: ._color_1._pa_5(style="width:300px;"): block
-
-block header
-  +simpleHeader
-
-block article
-  article._article._container
-
-    section._p1
-
-      h3._h7| !{description}
-
-      nav._color_1.flatmenu
-        +ax._a1m(onclick=onclick('toggleMainMenu();') title="Open main menu")| #[+isvg(svgi.bars,'_cicon')]
-        +ax._a1m(title="Go to homepage")| #[+isvg(svgi.home,'_licon')]Home
-        +axm('Menu')#m2: p._small| // more menues ...
-        +ax._a1m(title="More ..")| #[+isvg(svgi.ellipsis,'_cicon')]
-      #mainmenu: +mainmenu

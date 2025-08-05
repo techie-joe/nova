@@ -72,9 +72,7 @@
       <div class="_view" id="_main_view">
         <noscript class="_pa _tc_red _b _mono">// Please enable javascript</noscript>
         <header id="_header">
-          <div class="_color_1">
-            <div class="_pa_5"><a class="_no_select" href="/nova/site/" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></a><span id="maindesc">Testing view</span>
-            </div>
+          <div class="_color_1 _pa_5"><a class="_no_select" href="/nova/site/" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></a><span id="maindesc">Testing view</span>
           </div>
         </header>
         <div class="_color_2 _flex" id="_main_nav">
@@ -224,16 +222,12 @@
           set();
         };
         v.fullview = ()=>{
-          dc = d.html.className;
-          bc = d.body.className;
           fullview=!fullview;
           fullscreen = false;
           d.html.className = (fullview?dc+' fullview':dc);
           set();
         },
         v.fullscreen = ()=>{
-          dc = d.html.className;
-          bc = d.body.className;
           fullview = false;
           fullscreen=!fullscreen;
           d.html.className = (fullscreen?dc+' fullscreen':dc);
