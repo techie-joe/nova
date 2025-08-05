@@ -32,17 +32,6 @@ block append style
 
   //- style.
 
-mixin menu_sample(cls)
-  -
-    temp = [
-      ['','About'],
-      ['','Services'],
-      ['','Gallery'],
-      ['','Contact'],
-    ];
-  each v in temp
-    +a(class=cls href=v[0] onclick=onclick()) #{v[1]}
-
 mixin ax(href,title)
   a(href=href||'#' title=title onclick=onclick())._no_wrap&attributes(attributes): block
 
@@ -54,6 +43,17 @@ mixin axm(label)
   span._hover_show.__absolute&attributes(attributes)
     +ax._a1m|!{label} #[+fas.fa-caret-down._small]
     ._relative: ._absolute._content: block
+
+mixin menu_sample(cls)
+  -
+    temp = [
+      ['','About'],
+      ['','Services'],
+      ['','Gallery'],
+      ['','Contact'],
+    ];
+  each v in temp
+    +ax(class=cls href=v[0]) #{v[1]}
 
 block header
   +simplestHeader
