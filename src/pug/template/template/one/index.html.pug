@@ -47,7 +47,7 @@ mixin page_a11(links, active)
 block header
   header#_header
     ._color_1._pa_5: ._960
-      a(href='./')#logo._no_select: +_logo
+      a(href='./' onclick=onclick())#logo._no_select: +_logo
       span#maindesc!=description
     nav#_main_nav._color_2: ._flex._960
       //- ._fit: +backLink._a1m|#[+isvg(svgi.angle,'_cicon')._rotate_180]
