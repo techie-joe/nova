@@ -223,7 +223,7 @@ template { @extend ._hidden; }
 // - dont append or include other class.
 
 @mixin selection {
-  background-color: $select_bg !important;
+  background-color: $select_color !important;
   color: $select_tc !important;
   text-shadow: none !important;
 }
@@ -442,10 +442,10 @@ a._a1,._a1 {
 ._border { border: 1px solid $border_color;  }
 
 // set simple boxline
-._boxline { box-shadow: 0 0 0 1px #ffa20088 inset }
+._boxline { box-shadow: 0 0 0 1px rgba($select_color,.6) inset }
 
 // set simple outline
-._outline { outline: 1px solid #ff00b788 }
+._outline { outline: 1px solid rgba($outline_color,.6) }
 
 // text size
 ._h7,._t1   { font-size: 1rem     }
