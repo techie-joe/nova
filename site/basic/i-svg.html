@@ -39,8 +39,9 @@
       
     </style>
     <style>._fouc { visibility: hidden !important }</style>
-    <script>((d=document,b=d.documentElement||d.body,c='_fouc')=>{
-        b.classList.add(c);d.addEventListener('DOMContentLoaded',e=>{b.classList.remove(c)});
+    <script>
+      ((d=document,q=(d.documentElement||d.body).classList,c='_fouc')=>{
+        q.add(c);d.addEventListener('DOMContentLoaded',e=>{q.remove(c)});
       })();
       
     </script>

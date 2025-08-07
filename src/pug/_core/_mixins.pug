@@ -68,11 +68,10 @@ mixin changeThemeLink(title='Change Theme (Alt+T)')
   a(href='#' onclick!=onclick(js.themeChange) title=title)._needjs&attributes(attributes): block
 
 mixin fouc
-  - const _fouc = '_fouc';
-  style| .!{_fouc} { visibility: hidden !important }
+  style|._fouc { visibility: hidden !important }
   script.
-    ((d=document,b=d.documentElement||d.body,c='!{_fouc}')=>{
-      b.classList.add(c);d.addEventListener('DOMContentLoaded',e=>{b.classList.remove(c)});
+    ((d=document,q=(d.documentElement||d.body).classList,c='_fouc')=>{
+      q.add(c);d.addEventListener('DOMContentLoaded',e=>{q.remove(c)});
     })();
 
 mixin ghost
