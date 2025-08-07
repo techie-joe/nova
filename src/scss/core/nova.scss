@@ -333,18 +333,24 @@ details[open] summary ._marker { transform: rotate(90deg) }
 a,._a {
   & { text-decoration: underline }
   & {
-    &:visited,&._visited { color: $linkBc_visited }
-    &,&._link            { color: $linkBc }
-    &:active,&._active   { color: $linkBc_active }
-    &._hover_color       { color: inherit }
-    &:hover,&._hover     { color: $linkBc_hover }
+    &:visited,
+    &._visited       { color: $linkBc_visited }
+    &,
+    &._link          { color: $linkBc }
+    &._hover_color   { color: inherit }
+    &._active        { color: $linkBc_active }
+    &:hover,&._hover { color: $linkBc_hover }
+    &:active         { color: $linkBc_active }
   }
   ._dark & {
-    &:visited,&._visited { color: $dark_linkBc_visited }
-    &,&._link            { color: $dark_linkBc }
-    &:active,&._active   { color: $dark_linkBc_active }
-    &._hover_color       { color: inherit }
-    &:hover,&._hover     { color: $dark_linkBc_hover }
+    &:visited,
+    &._visited       { color: $dark_linkBc_visited }
+    &,
+    &._link          { color: $dark_linkBc }
+    &._hover_color   { color: inherit }
+    &._active        { color: $dark_linkBc_active }
+    &:hover,&._hover { color: $dark_linkBc_hover }
+    &:active         { color: $dark_linkBc_active }
   }
 }
 
@@ -402,14 +408,14 @@ a._a1,._a1 {
     &.__secondary,
     &._active { @include color( $baseAc, $baseAg ); }
     &.__primary { @include color( $dark_baseAc, $dark_baseAg ); }
-    &:hover,&._hover { @include color( $baseHc, $baseHg ); }
+    &._hover,&:hover { @include color( $baseHc, $baseHg ); }
   }
   ._dark & {
     & { color: inherit }
     &.__secondary,
     &._active { @include color( $dark_baseAc, $dark_baseAg ); }
     &.__primary { @include color( $baseAc, $baseAg ); }
-    &:hover,&._hover { @include color( $dark_baseHc, $dark_baseHg ); }
+    &._hover,&:hover { @include color( $dark_baseHc, $dark_baseHg ); }
   }
 }
 
