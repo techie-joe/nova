@@ -258,7 +258,8 @@ html,body {
 
 ._960 { max-width: 60em; margin: auto }
 
-._container { margin: .5rem }
+._container  { margin: .5rem }
+._container1 { margin: 1rem }
 
 dd { display: list-item; margin-inline-start: 2em }
 dd._no_bullet { @extend ._block }
