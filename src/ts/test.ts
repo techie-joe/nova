@@ -1,14 +1,14 @@
 "use strict";
-interface Window { _host: string | null | undefined, test: {} }
+interface Window { ghost: string | null | undefined, test: {} }
 (() => {
 
-  // console.log(`_host: ${window._host}`);
+  // console.log(`ghost: ${window.ghost}`);
 
   const
     _ = '',
     w = window,
     { log, error } = console,
-    ALLOWED = atob(w._host || _).split(',');
+    ALLOWED = atob(w.ghost || _).split(',');
   if (ALLOWED.indexOf(w.location.host) < 0) { return }
 
   // console.log(`ALLOWED: ${ALLOWED}`);

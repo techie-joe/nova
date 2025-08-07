@@ -1,6 +1,6 @@
 "use strict";
 (() => {
-    const { log, error } = console, _ = '', w = window, d = document, ALLOWED = atob(w._host || _).split(',');
+    const { log, error } = console, _ = '', w = window, d = document, ALLOWED = atob(w.ghost || _).split(',');
     if (ALLOWED.indexOf(w.location.host) < 0) {
         return;
     }

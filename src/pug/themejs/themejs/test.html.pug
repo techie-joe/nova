@@ -7,19 +7,19 @@ block append vars
     title       = `ThemeJS Test`
     description = 'Testing ThemeJS'
 
-mixin _host
+mixin ghost
   -
-    _host = btoa([
+    ghost = btoa([
       "localhost",
       "techie-joe.github.io",
       "themejs.pages.dev",
     ]);
-  script| window._host = '!{_host}';
+  script| window.ghost = '!{ghost}';
 
 block coreScript
   if INCLUDE_THEMEJS
     +fouc
-    +_host
+    +ghost
     +jsv('/nova/src/ts-js/theme_v2.0.js')(defer)
     //- +jsv(homeUri+'js/theme_v2.0.js')(defer)
 

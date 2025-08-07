@@ -76,7 +76,7 @@ body {
 hr {
   @extend ._block;
   @extend ._reset_padding;
-  box-sizing: content-box; height:0; /* 1 */
+  box-sizing: border-box; height:0; /* 1 */
   overflow: visible; /* 2 */
   border:0;border-top:1px solid rgba($border_color,.4);
 }

@@ -26,25 +26,25 @@
     <meta property="og:image"/>
     <meta property="og:image:alt"/>
     <style id="_coreStyle">
-      ._invisible { visibility: hidden !important }
-      ._hide, ._hidden, [hidden] { display: none !important }
+      ._invisible { visibility:hidden !important }
+      ._hide, ._hidden, [hidden] { display:none !important }
       ._flex { display:flex }
-      ._scrollable { overflow: auto }
+      ._scrollable { overflow:auto }
       html,body { font-family:system-ui,sans-serif }
       hr { border:0;border-top:1px solid #888 }
       .isvg svg { max-width:1em;max-height:1em }
     </style>
     <style id="_needjs" onload="this.remove()">
-      ._needjs { display: none !important; }
+      ._needjs { display:none !important }
       
     </style>
-    <script>
-      ((d=document,b=d.documentElement||d.body,c='_invisible')=>{
+    <style>._fouc { visibility: hidden !important }</style>
+    <script>((d=document,b=d.documentElement||d.body,c='_fouc')=>{
         b.classList.add(c);d.addEventListener('DOMContentLoaded',e=>{b.classList.remove(c)});
       })();
       
     </script>
-    <script>window._host = 'bG9jYWxob3N0LHRlY2hpZS1qb2UuZ2l0aHViLmlvLHRoZW1lanMucGFnZXMuZGV2';</script>
+    <script>window.ghost = 'bG9jYWxob3N0LHRlY2hpZS1qb2UuZ2l0aHViLmlvLHRoZW1lanMucGFnZXMuZGV2';</script>
     <script type="text/javascript" src="/nova/site/js/theme_v2.0.js?v=0.1.0" defer="defer"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -61,7 +61,7 @@
         <main id="_main">
           <article class="_article">
             <section class="_container _mt0 _scrollable">
-              <pre class="pre _blockquote">&nbsp;
+              <pre class="pre _blockquote _scrollable">&nbsp;
 This is a placeholder content.
 Edit this document to get started.
 &nbsp;</pre>

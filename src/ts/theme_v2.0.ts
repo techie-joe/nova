@@ -21,7 +21,7 @@
 // - Promises: new Promise().
 // ============================================================ */
 "use strict";
-interface Window { _host: string | null | undefined, theme: {} }
+interface Window { ghost: string | null | undefined, theme: {} }
 (() => {
 
   const
@@ -29,9 +29,9 @@ interface Window { _host: string | null | undefined, theme: {} }
     _ = '',
     w = window,
     d = document,
-    ALLOWED = atob(w._host || _).split(',');
+    ALLOWED = atob(w.ghost || _).split(',');
 
-  // log(`_host: ${window._host}`);
+  // log(`ghost: ${window.ghost}`);
   // log(`ALLOWED: ${ALLOWED}`);
   if (ALLOWED.indexOf(w.location.host) < 0) { return }
 

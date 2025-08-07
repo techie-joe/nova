@@ -15,23 +15,8 @@ block updatePageData
     og_description = description
     og_url  = pageUrl? pageUrl + '?utm_source=homescreen' : undefined;
 
-mixin fouc
-  script.
-    ((d=document,b=d.documentElement||d.body,c='_invisible')=>{
-      b.classList.add(c);d.addEventListener('DOMContentLoaded',e=>{b.classList.remove(c)});
-    })();
-
-mixin _host
-  -
-    _host = btoa([
-      "localhost",
-      "techie-joe.github.io",
-      "themejs.pages.dev",
-    ]);
-  script| window._host = '!{_host}';
-
 mixin helloWorld
-  pre.
+  pre._scrollable.
     &nbsp;
     This is a placeholder content.
     Edit this document to get started.
@@ -54,21 +39,21 @@ html(lang=lang class=htmlClass.join(' '))
 
       block coreStyle
         style#_coreStyle.
-          ._invisible { visibility: hidden !important }
-          ._hide, ._hidden, [hidden] { display: none !important }
+          ._invisible { visibility:hidden !important }
+          ._hide, ._hidden, [hidden] { display:none !important }
           ._flex { display:flex }
-          ._scrollable { overflow: auto }
+          ._scrollable { overflow:auto }
           html,body { font-family:system-ui,sans-serif }
           hr { border:0;border-top:1px solid #888 }
           .isvg svg { max-width:1em;max-height:1em }
         //- use ._needjs on elements that need js enabled
         style#_needjs(onload="this.remove()").
-          ._needjs { display: none !important; }
+          ._needjs { display:none !important }
       
       block coreScript
         if INCLUDE_THEMEJS
           +fouc
-          +_host
+          +ghost
           +jsv(homeUri+'js/theme_v2.0.js')(defer)
 
       block stylesheet

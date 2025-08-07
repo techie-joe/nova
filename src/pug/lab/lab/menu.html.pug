@@ -30,8 +30,10 @@ block append style
     }
     #mainmenu.open { max-width:100%;max-height:100px; }
 
-    ._a1m.__v { display:block;text-align:left }
-    ._a2.__v { display:block;text-align:left;margin:.1em 0; }
+    ._hover_show.__full { display:block }
+    ._hover_show.__full ._a1m,
+    ._a1m.__full { display:block;text-align:left }
+    ._a2.__full { display:block;text-align:left;margin:.1em 0; }
 
   //- style.
 
@@ -67,18 +69,6 @@ block article
 
     section._p1
 
-      style.
-        #menu_1 ._a1m { padding: 0.344em 0.894em }
-      nav._mv#menu_1
-        ._color_1.flatmenu
-          +ax._a1m(onclick=onclick('toggleMenu("mainmenu");') title="Open main menu")| #[+isvg(svgi.bars,'_cicon')]
-          +ax._a1m(title="Go to homepage")| #[+isvg(svgi.home,'_licon')]Home
-          +axm('Menu')#m2: ._color_1._pa_5(style="width:200px")._small| // more menues ...
-          +ax._a1m| Link
-          +ax._a1m(title="More ..")| #[+isvg(svgi.ellipsis,'_cicon')]
-        #mainmenu: ._color_2._pa_5(style="height:400px")
-          ._small| // your menu goes here
-
       nav._color_1._radius_5._clearfix._pa_5._mv
         +ax._a2| Link
         +ax._a2: +isvg(svgi.ellipsis,'_cicon')
@@ -89,36 +79,61 @@ block article
         +ax._a3: +itext('_cicon')|&bull;
         +ax._a3: +isvg(svgi.compare,'_cicon')
 
+    section._p1
+
+      style.
+        #menu_1 ._a1m { padding: 0.344em 0.894em }
+      nav._mv#menu_1
+        ._color_1.flatmenu
+          +ax._a1m(onclick=onclick('toggleMenu("mainmenu");') title="Open main menu")| #[+isvg(svgi.bars,'_cicon')]
+          +ax._a1m(title="Go to homepage")| #[+isvg(svgi.home,'_licon')]Home
+          +axm('Menu')#ma1: ._color_1(style="width:200px")
+            ._pa_5._small| // more menues ...
+            //- ul._m0._plain._color_1
+              li: +ax._a1m.__full Link
+              li: +ax._a1m.__full|#[+isvg(svgi.home,'_licon')]Home
+              li: hr._m0
+              li
+                +ax._a1m: +isvg(svgi.bars,'_cicon')
+                +ax._a1m: +isvg(svgi.ellipsis,'_cicon')
+                +ax._a1m: +isvg(svgi.compare,'_cicon')
+              li: hr._m0
+              li: +axm('Menu')#ma2.__full: ._color_1._pa_5(style="width:200px")._small| // more menues ...
+          +ax._a1m| Link
+          +ax._a1m(title="More ..")| #[+isvg(svgi.ellipsis,'_cicon')]
+        #mainmenu: ._color_2(style="height:400px"): ._pa_5._small| // your menu goes here
+
     section._p1._flex._gap
 
       ._f(style="max-width:200px"): ul._m0._plain._color_1
-        li: +ax._a1m.__v Link
-        li: +ax._a1m.__v|#[+isvg(svgi.home,'_licon')]Home
+        li: +ax._a1m.__full Link
+        li: +ax._a1m.__full|#[+isvg(svgi.home,'_licon')]Home
         li: hr._m0
         li
           +ax._a1m: +isvg(svgi.bars,'_cicon')
           +ax._a1m: +isvg(svgi.ellipsis,'_cicon')
           +ax._a1m: +isvg(svgi.compare,'_cicon')
+        li: hr._m0
+        li: +axm('Menu')#m2.__full: ._color_1(style="width:200px"): ._pa_5._small| // more menues ...
       ._f(style="max-width:200px"): ._color_1._pa_5._radius_5: ul._m0._plain
-        li: +ax._a2.__v Link
-        li: +ax._a2.__v|#[+isvg(svgi.home,'_licon')]Home
+        li: +ax._a2.__full Link
+        li: +ax._a2.__full|#[+isvg(svgi.home,'_licon')]Home
         li: hr._mv_25
         li
           +ax._a2: +isvg(svgi.bars,'_cicon')
           +ax._a2: +isvg(svgi.ellipsis,'_cicon')
           +ax._a2: +isvg(svgi.compare,'_cicon')
+        li: hr._mv_25
+        li: +axm('Menu')#m2.__full: ._color_1(style="width:200px"): ._pa_5._small| // more menues ...
       ._f
 
 block append script
   script.
     (()=>{
-      const
-        w = window,
-        d = document;
       var mainMenuIs = 'closed';
-      w.toggleMenu = (id)=>{
+      window.toggleMenu = (id)=>{
         mainMenuIs = mainMenuIs=='closed'?'open':'closed';
-        var e = d.getElementById(id);
+        var e = document.getElementById(id);
         if(e){ e.className = mainMenuIs }
       }
     })();

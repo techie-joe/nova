@@ -67,6 +67,23 @@ mixin backLink(title='Back to previous page')
 mixin changeThemeLink(title='Change Theme (Alt+T)')
   a(href='#' onclick!=onclick(js.themeChange) title=title)._needjs&attributes(attributes): block
 
+mixin fouc
+  - const _fouc = '_fouc';
+  style| .!{_fouc} { visibility: hidden !important }
+  script.
+    ((d=document,b=d.documentElement||d.body,c='!{_fouc}')=>{
+      b.classList.add(c);d.addEventListener('DOMContentLoaded',e=>{b.classList.remove(c)});
+    })();
+
+mixin ghost
+  -
+    const ghost = btoa([
+      "localhost",
+      "techie-joe.github.io",
+      "themejs.pages.dev",
+    ]);
+  script| window.ghost = '!{ghost}';
+
 //- ==============================================================
 //- navigations
 //- ==============================================================
