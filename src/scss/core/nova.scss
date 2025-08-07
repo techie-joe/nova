@@ -339,7 +339,8 @@ a,._a {
     &._link          { color: $linkBc }
     &._hover_color   { color: inherit }
     &._active        { color: $linkBc_active }
-    &:hover,&._hover { color: $linkBc_hover }
+    &:hover,
+    &._hover         { color: $linkBc_hover }
     &:active         { color: $linkBc_active }
   }
   ._dark & {
@@ -349,7 +350,8 @@ a,._a {
     &._link          { color: $dark_linkBc }
     &._hover_color   { color: inherit }
     &._active        { color: $dark_linkBc_active }
-    &:hover,&._hover { color: $dark_linkBc_hover }
+    &:hover,
+    &._hover         { color: $dark_linkBc_hover }
     &:active         { color: $dark_linkBc_active }
   }
 }
