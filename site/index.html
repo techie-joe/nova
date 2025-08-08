@@ -41,7 +41,9 @@
     <style>._fouc { visibility: hidden !important }</style>
     <script>
       ((d=document,q=(d.documentElement||d.body).classList,c='_fouc')=>{
-        q.add(c);d.addEventListener('DOMContentLoaded',e=>{q.remove(c)});
+        q.add(c);d.addEventListener('DOMContentLoaded',e=>{
+          setTimeout(e=>{q.remove(c);q.add('_tx')},400);
+        });
       })();
       
     </script>
@@ -110,7 +112,7 @@ Author       : Techie Joe
 Year         : 2025
 LICENSE      : MIT
 
-Last updated : Fri, 08 Aug 2025 02:24:11 GMT</pre>
+Last updated : Fri, 08 Aug 2025 09:13:02 GMT</pre>
             </section>
           </article>
           <aside class="_side_article"></aside>

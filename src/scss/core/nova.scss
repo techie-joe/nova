@@ -690,9 +690,11 @@ $paddings: (
 // transitions
 // ---------------------------------------------------------------
 
-a,._a {
-  & { transition: color 0.5s, background-color 0.5s }
-  &:hover { transition: none }
+._tx {
+  a,._a {
+    & { transition: color 0.5s, background-color 0.5s }
+    &:hover { transition: none }
+  }
 }
 
 // ---------------------------------------------------------------
