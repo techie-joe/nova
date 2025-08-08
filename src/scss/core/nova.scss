@@ -691,7 +691,13 @@ $paddings: (
 // ---------------------------------------------------------------
 
 ._tx {
-  a,._a {
+  summary,
+  ._a3m,
+  ._a2m,
+  ._a1m,
+  ._a3,
+  ._a2,
+  ._a1 {
     & { transition: color 0.5s, background-color 0.5s }
     &:hover { transition: none }
   }
