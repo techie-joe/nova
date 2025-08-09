@@ -31,11 +31,11 @@ block append style
   //- style.
 
 mixin ax(href,title)
-  a(href=href||'#' title=title onclick=onclick())._no_wrap&attributes(attributes): block
+  a(href=href||'#' title=title)._no_wrap&attributes(attributes): block
 
 mixin _ax(href,title)
   +l
-  a(href=href||'#' title=title onclick=onclick())._no_wrap&attributes(attributes): block
+  a(href=href||'#' title=title)._no_wrap&attributes(attributes): block
 
 mixin axm(label)
   span._hover_show.__absolute&attributes(attributes)
@@ -51,7 +51,7 @@ mixin menu_sample(cls)
       ['','Contact'],
     ];
   each v in temp
-    +ax(class=cls href=v[0]) #{v[1]}
+    +a(class=cls href=v[0]||'#') #{v[1]}
 
 block header
   +simplestHeader

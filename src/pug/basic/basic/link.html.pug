@@ -8,11 +8,11 @@ block append vars
     description = 'Intuitive hyperlink styles'
 
 mixin ax(href,title,cls)
-  a(href=href||'#' title=title onclick=onclick())._no_wrap&attributes(attributes): block
+  a(href=href||'#' title=title)._no_wrap&attributes(attributes): block
 
 mixin _ax(href,title,cls)
   +l
-  a(href=href||'#' title=title onclick=onclick())._no_wrap&attributes(attributes): block
+  a(href=href||'#' title=title)._no_wrap&attributes(attributes): block
 
 block article
   article._article

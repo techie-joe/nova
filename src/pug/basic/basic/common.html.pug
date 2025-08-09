@@ -7,10 +7,6 @@ block append vars
     title       = `Common`
     description = 'Common elements'
 
-block append style
-  style.
-    #indiv > * { padding:.25em .5em }
-
 block article
   article._article
 
@@ -63,18 +59,15 @@ block article
         | #[span._tc_orange orange]
         | #[span._tc_red red]
         | #[span._tc_green green]
-      div
-        | #[span._border border]
-        | #[span._boxline boxline]
-        | #[span._outline outline]
-        | #[span._select select]
     hr
 
+    style.
+      #indiv > * { padding:.25em .5em }
     section#indiv._indiv._container: +repeat(2)
-      ._inblock._border border
-      ._inblock._outline outline
-      ._inblock._boxline boxline
-      ._inblock._select select
+      span._inblock._border border
+      span._inblock._outline outline
+      span._inblock._boxline boxline
+      span._inblock._select select
       br
     hr
 

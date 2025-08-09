@@ -118,7 +118,7 @@ sub, sup {
   position: relative;
 }
 sub { bottom:-.25em }
-sup { top:-.55em }
+sup { top:-.575em }
 
 // enforce correct font weight.
 // fix font weight in Chrome, Edge, and Safari.
@@ -269,7 +269,7 @@ ol,ul { padding-left: 2em; padding-inline-start: 2em }
 blockquote,
 ._blockquote {
   & {
-    padding: .5em 1em;
+    padding: .5em .75em;
     border-left: .5em solid transparent;
   }
 }
@@ -481,9 +481,9 @@ a._a1,._a1 {
 ._no_color { color: inherit !important }
 
 // fonts & texts
-._system { font-family: $system }
-._sans { font-family: $sans }
-._serif { font-family: $serif }
+._system  { font-family: $system  }
+._sans    { font-family: $sans    }
+._serif   { font-family: $serif   }
 ._cursive { font-family: $cursive }
 ._fantasy { font-family: $fantasy }
 ._mono {
@@ -698,8 +698,8 @@ $paddings: (
   ._a3,
   ._a2,
   ._a1 {
-    & { transition: color 0.5s, background-color 0.5s }
-    &:hover { transition: none }
+    & { transition:color .5s,background-color .5s }
+    &:hover { transition:none }
   }
 }
 
