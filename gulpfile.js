@@ -6,7 +6,7 @@
 // To list available tasks, run: > gulp --tasks
 // ===============================================================
 
-const { buildList, watchList, copyList, destination: _d } = require('./gulplist');
+const { buildList, watchList, copyList, destinations: _d } = require('./gulplist');
 if (!buildList || !watchList || !copyList || !_d) {
   throw new Error('Error reading gulplist.js');
 }
@@ -92,8 +92,9 @@ const
     else log(`Error watching:\nsrc: ${src},\ndest: ${dest}`);
   },
   // builders
-  files = parallel(
+  files = series(
     file(copyList.files, _d.pages),
+    file([_d.pages+'/404.html'],'./'), // duplicate to root
   ),
   pages = parallel(
     html(buildList.html, _d.pages),
@@ -119,7 +120,8 @@ const
   test = async () => {
     log('Build List:', buildList);
     log('Watch List:', watchList);
-    log('Destination:', _d);
+    log('Copy List:', copyList);
+    log('Destinations:', _d);
   };
 Object.assign(exports, {
   test,
