@@ -25,7 +25,7 @@ $fantasy: "Impact",fantasy,sans-serif;
 // the double monospace is to Fix font size inheritance and scaling in all browsers.
 $monospace: "Source Code Pro","Courier Prime","Courier New",monospace,monospace;
 
-$itext: "Roboto","Verdana",sans-serif;
+$itext: $monospace;
 $baseFont: $sans;
 
 // fine adjustments
