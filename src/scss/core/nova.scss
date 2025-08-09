@@ -78,7 +78,7 @@ hr {
   @extend ._reset_padding;
   box-sizing: content-box; height:0; /* 1 */
   overflow: visible; /* 2 */
-  border:0;border-top:1px solid rgba($border_color,.4);
+  border:0;border-top:1px solid rgba($border_color,.5);
 }
 
 // fix the odd em font sizing and scaling.
@@ -399,6 +399,21 @@ button {
   }
 }
 
+._a3,._a3m,
+._a2,._a2m {
+  border-radius: .25em;
+  margin: .1em;
+}
+
+._a3,._a3m {
+  border: 1px solid $border_color;
+}
+
+._a3,._a2  { min-width: 1.5em }
+
+._a3m,._a2m,._a1m { padding: .25em .75em; min-width: 2em }
+._a3m { padding: .2em .7em }
+
 a._a3m,._a3m,
 a._a2m,._a2m,
 a._a1m,._a1m,
@@ -420,16 +435,6 @@ a._a1,._a1 {
     &._hover,&:hover { @include color( $dark_baseHc, $dark_baseHg ); }
   }
 }
-
-._a3,._a3m,
-._a2,._a2m { border-radius: .25em; margin: .1em }
-
-._a3,._a3m { border: 1px solid $border_color }
-
-._a3,._a2  { min-width: 1.5em }
-
-._a3m,._a2m,._a1m { padding: .25em .75em; min-width: 2em }
-._a3m { padding: .2em .7em }
 
 // ---------------------------------------------------------------
 // helpers
@@ -698,7 +703,7 @@ $paddings: (
   ._a3,
   ._a2,
   ._a1 {
-    & { transition:color .5s,background-color .5s }
+    & { transition:color .5s,background-color .5s,border-color .5s }
     &:hover { transition:none }
   }
 }
