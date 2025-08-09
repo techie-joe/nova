@@ -1,10 +1,20 @@
 const
+  copyList = ((list=[
+      'index'
+    ]) => {
+    return {
+      files: list.map(item => `src/files/${item}/**/*`)
+    }
+  })(),
+  buildList = {},
+  watchList = {},
   destination = {
     pages: 'site',
     css: 'site/css',
     scripts: 'site/js',
     css_dev: 'src/scss/dev_css',
-  },
+  };
+const
   build = {
     _pug: 'src/pug',
     pug: [
@@ -23,18 +33,7 @@ const
     scss_dev: [
       'dev'
     ],
-  },
-  copy = {
-    _files: 'src/files',
-    files: [
-      'index'
-    ]
   };
-
-const
-  copyList = {},
-  buildList = {},
-  watchList = {};
 
 // map source lists
 [buildList, watchList].forEach(list => {
@@ -44,8 +43,8 @@ const
   list.scss = build.scss.map(item => `${build._scss}/${item}/**/*.scss`);
   list.scss_dev = build.scss_dev.map(item => `${build._scss}/${item}/**/*.scss`);
 });
-[copyList].forEach(list => {
-  list.files = copy.files.map(item => `${copy._files}/${item}/**/*`);
-});
+// [copyList].forEach(list => {
+//   list.files = copy.files.map(item => `${copy._files}/${item}/**/*`);
+// });
 
-module.exports = { buildList, watchList, copyList, destination };
+module.exports = { copyList, buildList, watchList, destination };
