@@ -287,13 +287,8 @@ blockquote,
 details { @extend ._borderbox; }
 summary {
   & { padding:.25em .5em }
-  &:hover {
-    @include color( $baseHc, $baseHg );
-    ._dark & { @include color( $dark_baseHc, $dark_baseHg ); }
-  }
-  &:active { opacity: .3 }
-  &._no_marker { list-style: none }
   &._no_marker::-webkit-details-marker { display: none }
+  &._no_marker { list-style: none }
   ._marker {
     @extend ._inblock;
     margin-right: .25em;
@@ -305,6 +300,13 @@ summary {
     border-left: 10px solid $baseBc;
     ._dark & { border-left-color: $dark_baseBc; }
   }
+  &:hover {
+    & { @include color( $baseHc, $baseHg ); }
+    ._dark & { @include color( $dark_baseHc, $dark_baseHg ); }
+    ._marker { border-left-color: $baseHc }
+    ._dark & ._marker { border-left-color: $dark_baseHc }
+  }
+  &:active { opacity: .3 }
 }
 details[open] summary ._marker { transform: rotate(90deg) }
 
