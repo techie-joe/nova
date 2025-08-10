@@ -1,33 +1,9 @@
 
-// colors
-$select_color: #fa1;
-$select_tc   : #000;
-$border_color: #666;
-$outline_color: #f0b;
-
-// bg
-$baseBg: #DDD;
-$baseBc: #444;
-
-// active
-$baseAg: #a3a3a3;
-$baseAc: #000;
-
-// hover
-$baseHg: #b7b7b7;
-$baseHc: #000;
-
-// dark colors
-$dark_baseBg: #222;
-$dark_baseBc: #BBB;
-
-// active
-$dark_baseAg: #3a3a3a;
-$dark_baseAc: #FFF;
-
-// hover
-$dark_baseHg: #555;
-$dark_baseHc: #FFF;
+// base colors
+$select_color  : #fa1;
+$select_tc     : #000;
+$border_color  : #666;
+$outline_color : #f0b;
 
 // color names
 $blue   : #13b;
@@ -45,14 +21,45 @@ $dark_red    : #f55;
 $dark_green  : #0a0;
 $dark_contra : #fff;
 
-// link colors
-$linkBc          : $blue;
-$linkBc_hover    : $orange;
-$linkBc_visited  : $purple;
-$linkBc_active   : $red;
+// --------------------------------------------------------- light
 
-// dark link colors
-$dark_linkBc          : $dark_blue;
-$dark_linkBc_hover    : $dark_orange;
-$dark_linkBc_visited  : $dark_purple;
-$dark_linkBc_active   : $dark_red;
+// bg
+$baseBg_1 : #CCC;
+$baseBg   : #DDD;
+$baseBg_2 : #EEE;
+$baseBc   : #444;
+
+// active
+$baseAg   : #aaa;
+$baseAc   : #000;
+
+// hover
+$baseHg   : #bbb;
+$baseHc   : #000;
+
+// ---------------------------------------------------------- dark
+
+// bg
+$dark_baseBg_1 : #111;
+$dark_baseBg   : #222;
+$dark_baseBg_2 : #333;
+$dark_baseBc   : #BBB;
+
+// active
+$dark_baseAg   : #444;
+$dark_baseAc   : #FFF;
+
+// hover
+$dark_baseHg   : #555;
+$dark_baseHc   : #FFF;
+
+// ---------------------------------------------------------- link
+$linkBc         : $blue;
+$linkBc_hover   : $orange;
+$linkBc_visited : $purple;
+$linkBc_active  : $red;
+
+$dark_linkBc         : $dark_blue;
+$dark_linkBc_hover   : $dark_orange;
+$dark_linkBc_visited : $dark_purple;
+$dark_linkBc_active  : $dark_red;

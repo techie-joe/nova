@@ -31,7 +31,15 @@ block header
     ._color_1._pad: ._m_center._table(style="max-width:17em;")
       h1: +logo
       h2#maindesc|!{description}
-    +main_nav
+    nav#_main_nav._color_1._flex
+      ._f._pa_5: ._960
+        +menues(['_a3m'],[
+          ['starter','starter','Starter'],
+          ['basic','basic','Basic'],
+          ['lab','lab','Lab'],
+        ])
+      ._fit._pa_5: +changeThemeLink._a2m: +itext('_cicon')|☀
+    hr._mt0
 
 block article
   article._article

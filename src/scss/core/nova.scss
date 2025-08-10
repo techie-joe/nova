@@ -81,13 +81,14 @@ hr {
   border:0;border-top:1px solid rgba($border_color,.5);
 }
 
-// fix the odd em font sizing and scaling.
-// improve readability and correct scrollbar behavior
-pre,._pre {
-  @extend ._reset_fontsize;
-  font-family: $monospace;
-  line-height: 1.25;
-}
+// standardize font size for headings.
+h1,._h1,h2,._h2,h3,._h3,h4,._h4,h5,._h5,h6,._h6,
+._h7,._hx1,._hx2,._hx3 { @extend ._b; @extend ._tc_contra; }
+
+// standardize line height for paragraphs.
+p,._p,._p1 { @extend ._reset_lineheight; }
+h1,._h1,h2,._h2,h3,._h3,h4,._h4,h5,._h5,h6,._h6,
+._h7,._hx1,._hx2,._hx3 { line-height: 1.25 }
 
 // standardize paragraphs spacing.
 h1,._h1,h2,._h2,h3,._h3,h4,._h4,h5,._h5,h6,._h6,
@@ -99,26 +100,13 @@ hr,
 p,._p { margin: .5rem 0 }
 ._p1  { margin: 1rem 0 }
 
-// standardize line height for paragraphs.
-p,._p,._p1 { @extend ._reset_lineheight; }
-h1,._h1,h2,._h2,h3,._h3,h4,._h4,h5,._h5,h6,._h6,
-._h7,._hx1,._hx2,._hx3 { line-height: 1.25 }
-
-// standardize font size for headings.
-h1,._h1,h2,._h2,h3,._h3,h4,._h4,h5,._h5,h6,._h6,
-._h7,._hx1,._hx2,._hx3 { @extend ._b; @extend ._tc_contra; }
-
-// fix display in all browsers.
-summary { @extend ._cursor_pointer; display: list-item; /* 2 */ }
-
-// sub, sup
-sub, sup {
-  @extend ._reset_baseline;
-  @extend ._smaller;
-  position: relative;
+// fix the odd em font sizing and scaling.
+// improve readability and correct scrollbar behavior
+pre,._pre {
+  @extend ._reset_fontsize;
+  font-family: $monospace;
+  line-height: 1.25;
 }
-sub { bottom:-.25em }
-sup { top:-.575em }
 
 // enforce correct font weight.
 // fix font weight in Chrome, Edge, and Safari.
@@ -145,14 +133,23 @@ abbr[title] {
   @extend ._cursor_help; /* 3 */
 }
 
-// buttons
-button { @extend ._cursor_pointer; }
-
 // fix fonts
 code, kbd, samp { @extend ._mono; @extend ._tc_purple; }
 
 // fix font size.
 small { @extend ._small; }
+
+// sub, sup
+sub, sup {
+  @extend ._reset_baseline;
+  @extend ._smaller;
+  position: relative;
+}
+sub { bottom:-.25em }
+sup { top:-.575em }
+
+// fix display in all browsers.
+summary { @extend ._cursor_pointer; display: list-item; /* 2 */ }
 
 // icons
 ._icon {
@@ -204,6 +201,9 @@ fieldset,._fieldset {
   @extend ._reset_padding;
 }
 ._fieldset { border: 1px solid rgba($border_color,.5); }
+
+// buttons
+button { @extend ._cursor_pointer; }
 
 // Allow only vertical resizing of textareas.
 textarea { resize: vertical }
@@ -314,21 +314,22 @@ details[open] summary ._marker { transform: rotate(90deg) }
 }
 
 ._color_1 {
-  & { @include color( $baseBc, #ccc ); }
-  &._dark,._dark & { @include color( $dark_baseBc, #111 ); }
+  & { @include color( $baseBc, $baseBg_1 ); }
+  &._dark,._dark & { @include color( $dark_baseBc, $dark_baseBg_1 ); }
 }
 
 ._color_2 {
-  & { @include color( $baseBc, #eee ); }
-  &._dark,._dark & { @include color( $dark_baseBc, #333 ); }
+  & { @include color( $baseBc, $baseBg_2 ); }
+  &._dark,._dark & { @include color( $dark_baseBc, $dark_baseBg_2 ); }
 }
 
 // ---------------------------------------------------------------
 // links
 // ---------------------------------------------------------------
 
-._cicon { margin:0 -.3em }
-._licon { margin:0 .25em 0 -.1em }
+._cicon { margin:0 -.5em }
+._licon { margin:0 .1em 0 -.1em }
+._ricon { margin:0 -.1em 0 .1em }
 
 a,._a {
   & { text-decoration: underline }
@@ -400,16 +401,11 @@ button {
 }
 
 ._a3,._a3m,
-._a2,._a2m {
-  border-radius: .25em;
-  margin: .1em;
-}
+._a2,._a2m { border-radius: .25em; margin: .1em }
 
-._a3,._a3m {
-  border: 1px solid rgba($border_color,.8);
-}
+._a3,._a3m { border: 1px solid rgba($border_color,.8); }
 
-._a3,._a2  { min-width: 1.5em }
+._a3,._a2,._a1 { min-width: 1.5em }
 
 ._a3m,._a2m,._a1m { padding: .25em .75em; min-width: 2em }
 ._a3m { padding: .2em .7em }
@@ -422,17 +418,19 @@ a._a2,._a2,
 a._a1,._a1 {
   & {
     & { color: inherit }
-    &.__secondary,
-    &._active { @include color( $baseAc, $baseAg ); }
-    &.__primary { @include color( $dark_baseAc, $dark_baseAg ); }
-    &._hover,&:hover { @include color( $baseHc, $baseHg ); }
+    &._active,
+    &.__secondary { @include color( $baseAc, $baseAg ); }
+    &.__primary   { @include color( $dark_baseAc, $dark_baseAg ); }
+    &._hover,
+    &:hover       { @include color( $baseHc, $baseHg ); }
   }
   ._dark & {
     & { color: inherit }
-    &.__secondary,
-    &._active { @include color( $dark_baseAc, $dark_baseAg ); }
-    &.__primary { @include color( $baseAc, $baseAg ); }
-    &._hover,&:hover { @include color( $dark_baseHc, $dark_baseHg ); }
+    &._active,
+    &.__secondary { @include color( $dark_baseAc, $dark_baseAg ); }
+    &.__primary   { @include color( $baseAc, $baseAg ); }
+    &._hover,
+    &:hover       { @include color( $dark_baseHc, $dark_baseHg ); }
   }
 }
 
@@ -447,26 +445,34 @@ a._a1,._a1 {
 ._border { border: 1px solid rgba($border_color,.8);  }
 
 // set simple boxline
-._boxline { box-shadow: 0 0 0 1px rgba($select_color,.6) inset }
+._boxline { box-shadow: 0 0 0 1px rgba($select_color,.7) inset }
 
 // set simple outline
-._outline { outline: 1px solid rgba($outline_color,.6) }
+._outline { outline: 1px solid rgba($outline_color,.7) }
 
-// text size
-._h7,._t1   { font-size: 1rem     }
-._h6,._t2   { font-size: 1.083rem }
-._h5,._t3   { font-size: 1.182rem }
-._h4,._t4   { font-size: 1.300rem }
-._h3,._t5   { font-size: 1.445rem }
-._h2,._t6   { font-size: 1.625rem }
-._h1,._t7   { font-size: 1.857rem }
-._hx1,._t8  { font-size: 2rem     }
-._hx2,._t9  { font-size: 2.25rem  }
-._hx3,._t10 { font-size: 2.5rem   }
-._small     { font-size: 86% }
-._smaller   { font-size: 73% }
-._smallest  { font-size: 60% }
-._indiv     { font-size:0; > * { @extend ._reset_fontsize; } }
+// borders
+._no_border { border: 0 !important }
+
+// backgrounds
+._no_bg { background-color: transparent !important }
+
+// cursors
+._cursor_reset { cursor: initial }
+._cursor_default { cursor: default }
+._cursor_help { cursor: help }
+._cursor_pointer { cursor: pointer }
+
+// fonts & texts
+._system  { font-family: $system  }
+._sans    { font-family: $sans    }
+._serif   { font-family: $serif   }
+._cursive { font-family: $cursive }
+._fantasy { font-family: $fantasy }
+._mono {
+  // Fix the odd em font sizing and scaling.
+  @extend ._reset_fontsize;
+  font-family: $monospace;
+}
 
 // text colors
 ._tc_blue   { color: $blue   }
@@ -485,22 +491,38 @@ a._a1,._a1 {
 }
 ._no_color { color: inherit !important }
 
-// fonts & texts
-._system  { font-family: $system  }
-._sans    { font-family: $sans    }
-._serif   { font-family: $serif   }
-._cursive { font-family: $cursive }
-._fantasy { font-family: $fantasy }
-._mono {
-  // Fix the odd em font sizing and scaling.
-  @extend ._reset_fontsize;
-  font-family: $monospace;
-}
+// text size
+._h7,._t1   { font-size: 1rem     }
+._h6,._t2   { font-size: 1.083rem }
+._h5,._t3   { font-size: 1.182rem }
+._h4,._t4   { font-size: 1.300rem }
+._h3,._t5   { font-size: 1.445rem }
+._h2,._t6   { font-size: 1.625rem }
+._h1,._t7   { font-size: 1.857rem }
+._hx1,._t8  { font-size: 2rem     }
+._hx2,._t9  { font-size: 2.25rem  }
+._hx3,._t10 { font-size: 2.5rem   }
+._small     { font-size: 86% }
+._smaller   { font-size: 73% }
+._smallest  { font-size: 60% }
+._indiv     { font-size:0; > * { @extend ._reset_fontsize; } }
+
+// transforms
+._uppercase { text-transform: uppercase }
+._lowercase { text-transform: lowercase }
+._capitalize { text-transform: capitalize }
 
 // font-weight
 ._b { font-weight: bold !important }
 @for $i from 1 through 9 { ._b#{$i} { font-weight: $i * 100 !important; } }
 ._no_b { font-weight: normal !important }
+
+// italic
+._i { font-style: italic !important }
+._no_i { font-style: normal !important }
+
+// strike
+._s { text-decoration: line-through !important }
 
 // underlines
 ._u {
@@ -511,23 +533,49 @@ a._a1,._a1 {
 ._u_dashed { @extend ._u; text-decoration-style: dashed !important }
 ._u_double { @extend ._u; text-decoration-style: double !important }
 ._u_wavy   { @extend ._u; text-decoration-style: wavy   !important }
-._no_u, ._no_deco { text-decoration-line: none !important }
 a[href]._hover_u,._hover_u {
-  @extend ._no_u; &:hover { text-decoration-line: underline !important }
+  @extend ._no_u;
+  &:hover { text-decoration-line: underline !important }
 }
+._no_u, ._no_deco { text-decoration-line: none !important }
 
-// italic
-._i { font-style: italic !important }
-._no_i { font-style: normal !important }
+// containers
+._block   { display:block }
+._table   { display:table }
+._inline  { display:inline }
+._inblock { display:inline-block }
+._cell    { display:table-cell }
 
-// strike
-._s { text-decoration: line-through !important }
+// positions
+._relative { position:relative }
+._fixed    { position:fixed; @include position(0,0) }
+._sticky   { position:sticky; @include position(0,0) }
+._absolute { position:absolute; @include position(0,0) }
+._fullview { position:absolute; @include position(0,0,0,0) }
+._absolute_right { position:absolute;@include position(0,auto,0) }
 
-// borders
-._no_border { border: 0 !important }
+// alignments
+._float     { float:left;float:inline-start }
+._float_end { float:right;float:inline-end }
 
-// backgrounds
-._no_bg { background-color: transparent !important }
+._indent { text-indent: 2em }
+
+._text_left    { text-align: left    }
+._text_right   { text-align: right   }
+._text_center  { text-align: center  }
+._text_justify { text-align: justify }
+
+._v_top    { vertical-align: top }
+._v_middle { vertical-align: middle }
+._v_bottom { vertical-align: bottom }
+
+._m_center { margin-left: auto; margin-right: auto }
+
+// for blockquote and q
+._no_quote {
+  quotes: none;
+  &::before,&::after { content: ''; content: none }
+}
 
 // for ul and ol
 ul,ol {
@@ -537,43 +585,25 @@ ul,ol {
   &._no_pad { padding-left: 1em !important; padding-inline-start: 1em !important }
 }
 
-// transforms
-._uppercase { text-transform: uppercase }
-._lowercase { text-transform: lowercase }
-._capitalize { text-transform: capitalize }
-
-// cursors
-._cursor_reset { cursor: initial }
-._cursor_default { cursor: default }
-._cursor_help { cursor: help }
-._cursor_pointer { cursor: pointer }
-
-// containers
-._block { display:block }
-._table { display:table }
-._inline { display:inline }
-._inblock { display:inline-block }
-._cell { display:table-cell }
-
 // flex
-._flex { display:flex; flex-wrap:wrap; }
-._flex_row { @extend ._flex; flex-direction:row }
-._flex_column { @extend ._flex; flex-direction:column }
-
+._flex { display: flex; flex-wrap: wrap }
+._flex_row { @extend ._flex; flex-direction: row }
+._flex_column { @extend ._flex; flex-direction: column }
 .__f { box-sizing: border-box }
-
 ._f,._fill  { @extend .__f; flex:100 1 0 } // fill
 ._f0,._fit  { @extend .__f; flex:1 1 0 } // fit
 ._f1,._full { @extend .__f; flex:1 0 100% } // full
-@for $i from 2 through 6 { ._f#{$i} { @extend .__f; flex: calc(96 / $i) 0 calc(96% / $i); } }
-@for $i from 3 through 6 {
-  @for $j from 2 through $i - 1 {
-    ._f#{$i}-#{$j} { @extend .__f; flex: calc(96 / $i * $j) 0 calc(96% / $i * $j); }
-  }
+@for $i from 2 through 6 {
+  ._f#{$i} { @extend .__f; flex: calc(96 / $i) 0 calc(96% / $i); }
 }
-// @for $i from 4 through 6 { ._f#{$i * 2} { @extend .__f; flex: 1 0 calc(96% / ($i * 2)); } }
+@for $i from 3 through 6 { @for $j from 2 through $i - 1 {
+  ._f#{$i}-#{$j} { @extend .__f; flex: calc(96 / $i * $j) 0 calc(96% / $i * $j); }
+}}
+// @for $i from 4 through 6 {
+//   ._f#{$i * 2} { @extend .__f; flex: 1 0 calc(96% / ($i * 2)); }
+// }
 
-// ._radius
+// ._gaps
 $gaps: (
   "_25" : .25em,
   "_5"  : .5em,
@@ -582,18 +612,6 @@ $gaps: (
   "2"   : 2em
 );
 @each $x, $value in $gaps { ._gap#{$x}  { gap: $value; } }
-
-// ._radius
-$radiuses: (
-  "_25" : .25em,
-  "_5"  : .5em,
-  ""    : 1em
-);
-@each $x, $value in $radiuses { ._radius#{$x}  { border-radius: $value; } }
-  
-// ._rotate
-$angles : 45, 90, 135, 180, 225, 270, 315;
-@each $angle in $angles { ._rotate_#{$angle} { transform: rotate(#{$angle}deg); } }
 
 // margins
 $margins: (
@@ -612,8 +630,6 @@ $margins: (
   ._mb#{$x} { margin-bottom: $value }
   ._mv#{$x} { @extend ._mt#{$x}; @extend ._mb#{$x}; }
 }
-
-// for margin
 ._m0  { margin:0 !important }
 ._ml0 { margin-left: 0 !important }
 ._mr0 { margin-right: 0 !important }
@@ -641,36 +657,17 @@ $paddings: (
 }
 ._pad { @extend ._no_overflow; padding:.1px }
 
-// positions
-._relative { position:relative }
-._fixed    { position:fixed; @include position(0,0) }
-._sticky   { position:sticky; @include position(0,0) }
-._absolute { position:absolute; @include position(0,0) }
-._absolute_right { position:absolute;@include position(0,auto,0) }
-._fullview { position:absolute; @include position(0,0,0,0) }
-
-// alignments
-._float_start { float:left;float:inline-start }
-._float_end   { float:right;float:inline-end  }
-
-._text_left    { text-align: left    }
-._text_right   { text-align: right   }
-._text_center  { text-align: center  }
-._text_justify { text-align: justify }
-
-._indent { text-indent: 2em }
-
-._m_center { margin-left: auto; margin-right: auto; }
-
-._v_top    { vertical-align: top }
-._v_middle { vertical-align: middle }
-._v_bottom { vertical-align: bottom }
-
-// for blockquote and q
-._no_quote {
-  quotes: none;
-  &:before, &:after { content: ''; content: none; }
-}
+// ._radius
+$radiuses: (
+  "_25" : .25em,
+  "_5"  : .5em,
+  ""    : 1em
+);
+@each $x, $value in $radiuses { ._radius#{$x}  { border-radius: $value; } }
+  
+// ._rotate
+$angles : 45, 90, 135, 180, 225, 270, 315;
+@each $angle in $angles { ._rotate_#{$angle} { transform: rotate(#{$angle}deg); } }
 
 // behaviors
 ._scroll,._scroll_x { overflow-x: scroll; scroll-behavior: smooth }

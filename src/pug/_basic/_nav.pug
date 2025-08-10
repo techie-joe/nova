@@ -1,3 +1,5 @@
+//- old ==========================================================
+
 mixin menu_a(v,classes)
   if typeof v === 'string'
     span._inblock._mh_25|!{v}
@@ -26,12 +28,20 @@ mixin menu_a2(links)
       - if(pageid === v[0]) classes.push('_active')
       +menu_a(v,classes)
 
+//- new ==========================================================
+
+mixin menues(cls,links)
+  each v in links
+    - c = [];Object.assign(c,cls);
+    - if(pageid === v[0]) c.push('_active');
+    +menu_a(v,c)
+
 //- --------------------------------------------------------------
 
 //- pageid, uri, title
 
 mixin main_menu
-  +menu_a11([
+  nav: +menues(['_a1m'],[
     ['starter','starter','Starter'],
     ['basic','basic','Basic'],
     ['lab','lab','Lab'],
