@@ -47,11 +47,19 @@ a#logo:hover  { background-color:#fff }
 
 ._pink {
   &,& body,& ._color {
-    background-color: ghostwhite;
-    border-color: hotpink;
+    color: #53537b;
+    background-color: #f1ecf4;
   }
+  hr { border-color: #ffa1cf }
+  summary,
+  ._a3m,
+  ._a2m,
+  ._a1m,
+  ._a3,
+  ._a2,
+  ._a1,
+  button { border-color: #4e4e8d }
   & {
-    hr { border-color: #ffa1cf }
     h6,
     h5,
     h4,
@@ -66,7 +74,7 @@ a#logo:hover  { background-color:#fff }
   ._color_1 {
     background-color: hotpink;
     color: white;
-    border-color: #8d2e5d;
+    border-color: ghostwhite;
     h6,
     h5,
     h4,
@@ -77,7 +85,7 @@ a#logo:hover  { background-color:#fff }
   ._color_2 {     
     background-color: #ffd3e9;
     color: #8d2e5d;
-    border-color: #8d2e5d;
+    border-color: #4e4e8d;
   }
 }
 
