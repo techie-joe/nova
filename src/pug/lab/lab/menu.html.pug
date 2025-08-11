@@ -10,14 +10,25 @@ block append vars
 block append style
   +css('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css')
   style.
-    ._hover_show { display:inline-block }
+    ._hover_show { display:inline-block;position:relative }
     ._hover_show ._content {
+      position:absolute;
+      z-index:1;top:100%;left:0;
       overflow:hidden !important;
       transition:max-height .2s ease .4s,max-width .2s ease .4s;
       max-height:0px;max-width:0px;
     }
-    ._hover_show.__open ._content,
-    ._hover_show:hover ._content { max-width:300px;max-height:100px }
+    ._hover_show._hover ._content,
+    ._hover_show:hover ._content { max-width:300px;max-height:300px }
+
+    ._click_show ._content {
+      overflow:hidden !important;
+      transition:max-width .2s ease, max-height .2s ease;
+      max-width:0px;max-height:0px;
+    }
+    ._click_show.open ._content { max-width:100%;max-height:300px }
+
+  //- style.
 
     ._a a._hover_show:visited,
     ._a a._hover_show:hover,
@@ -37,44 +48,32 @@ mixin _ax(href,title)
   +l
   a(href=href||'#' title=title onclick=onclick())._no_wrap&attributes(attributes): block
 
-mixin axm(label)
-  span._hover_show.__absolute&attributes(attributes)
-    +ax._a1m|!{label} #[+fas.fa-caret-down._small]
-    ._relative: ._absolute._content: block
-
-mixin menu_sample(cls)
-  -
-    temp = [
-      ['','About'],
-      ['','Services'],
-      ['','Gallery'],
-      ['','Contact'],
-    ];
-  each v in temp
-    +a(class=cls href=v[0]||'#') #{v[1]}
-
-block header
-  +simplestHeader
-  +lab_nav
-
 block article
   article._article._container
 
     section._mv
 
-      style.
-        #menu_1 ._a1m { padding: 0.344em 0.894em }
-        #mainmenu {
-          overflow:hidden !important;
-          transition:max-width .2s ease, max-height .2s ease;
-          max-width:0px;max-height:0px;
-        }
-        #mainmenu.open { max-width:100%;max-height:100px; }
-      nav#menu_1
-        ._color_1.flatmenu
-          +ax._a1m(onclick=onclick('toggleMenu("mainmenu");') title="Open main menu")| #[+isvg(svgi.bars,'_cicon')]
-          +ax._a1m(title="Go to homepage")| #[+isvg(svgi.home,'_licon')]Home
-          +axm('Menu')#ma1: ._color_1(style="width:200px")
+      nav#menu_1._color_1._flex
+        ._fit
+          +a._a1m(onclick=onclick('toggleMenu("mainmenu");') title="Open main menu")| #[+isvg(svgi.bars,'_cicon')]
+        ._f._indiv
+          +ax._a1m| #[+isvg(svgi.home,'_licon')]Home
+
+          style.
+            #menu_a .content { width:200px;height:200px }
+            #menu_a .boxline { height:150% }
+          span#menu_a._hover_show._hoverx
+            +ax._a1m| Menu A #[+isvg(svgi.caret,'_ricon')._rotate90]
+            ._content: .content._color_1._border._scrollable
+              .boxline._pa_5._small| // Menu A ...
+
+          //- span._hover_show
+            +ax._a1m| Menu B #[+isvg(svgi.caret,'_ricon')._rotate90]
+            ._relative: ._absolute._content._color_1(style="width:200px")
+              ._pa_5._small| // more menues ...
+
+          //- +amx('Menu')#ma1.__absolutex: ._color_1(style="width:200px")
+          //- 
             ._pa_5._small| // more menues ...
             //- ul._m0._plain._color_1
               li: +ax._a1m.__full Link
@@ -87,66 +86,110 @@ block article
               li: hr._m0
               li: +axm('Menu')#ma2.__full: ._color_1._pa_5(style="width:200px")._small| // more menues ...
           +ax._a1m| Link
+        ._fit
           +ax._a1m(title="More ..")| #[+isvg(svgi.ellipsis,'_cicon')]
-        #mainmenu: ._color_2(style="height:400px"): ._pa_5
-          ._small| // your menu goes here
-
-    section._mv
-
-      nav._color_1._radius_5._pa_5
-        +ax._a2(onclick=onclick('toggleMenu("sidemenu");') title="Open side menu"): +isvg(svgi.bars,'_cicon')
-        +ax._a2: +isvg(svgi.home,'_cicon')
-        +ax._a2| Link
-        +ax._a2: +isvg(svgi.ellipsis,'_cicon')
-        =' | '
-        +ax._a3| Link
-        +ax._a3: +itext('_cicon')|&bull;
-        +ax._a3: +isvg(svgi.compare,'_cicon')
-
-    section._flex._mv
 
       style.
-        #sidemenu {
-          overflow:hidden !important;
-          transition:max-width .2s ease, max-height .2s ease;
-          max-width:0px;max-height:0px;
-        }
-        #sidemenu.open { max-width:100%;max-height:100% }
-        #sidemenu ._content{ width:200px;height:100%;margin-right:1rem }
-      #sidemenu: ._content._scrollable._no_scroll_x._color_1._radius_5: ._pa_5
-        //- ._small| // your menu goes here
-        ul._m0._plain
-          li: +ax._a2.__full Link
-          li: +ax._a2.__full|#[+isvg(svgi.home,'_licon')]Home
-          li: hr._mv_25
-          li
-            +ax._a2: +isvg(svgi.bars,'_cicon')
-            +ax._a2: +isvg(svgi.ellipsis,'_cicon')
-            +ax._a2: +isvg(svgi.compare,'_cicon')
+        #mainmenu .content { height:150px }
+        #mainmenu .boxline { height:150% }
+      #mainmenu._click_show: ._content
+        hr._m0
+        .content._color_1._scrollable: .boxline._pa_5._small| // main menu goes here
 
-      ._f._flex._gap
 
-        ._f(style="max-width:200px"): ul._m0._plain._color_1
-          li: +ax._a1m.__full Link
-          li: +ax._a1m.__full|#[+isvg(svgi.home,'_licon')]Home
-          li: hr._m0
-          li
-            +ax._a1m: +isvg(svgi.bars,'_cicon')
-            +ax._a1m: +isvg(svgi.ellipsis,'_cicon')
-            +ax._a1m: +isvg(svgi.compare,'_cicon')
-          li: hr._m0
-          li: +axm('Menu')#m2.__full: ._color_1(style="width:220px"): ._pa_5._small| // more menues ...
-        ._f(style="max-width:200px"): ._color_1._pa_5._radius_5: ul._m0._plain
-          li: +ax._a2.__full Link
-          li: +ax._a2.__full|#[+isvg(svgi.home,'_licon')]Home
-          li: hr._mv_25
-          li
-            +ax._a2: +isvg(svgi.bars,'_cicon')
-            +ax._a2: +isvg(svgi.ellipsis,'_cicon')
-            +ax._a2: +isvg(svgi.compare,'_cicon')
-          li: hr._mv_25
-          li: +axm('Menu')#m2.__full: ._color_1(style="width:220px"): ._pa_5._small| // more menues ...
-        ._f
+//- 
+  block article
+    article._article._container
+
+      section._mv
+
+        style.
+          #menu_1 ._a1m { padding: 0.344em 0.894em }
+          #mainmenu {
+            overflow:hidden !important;
+            transition:max-width .2s ease, max-height .2s ease;
+            max-width:0px;max-height:0px;
+          }
+          #mainmenu.open { max-width:100%;max-height:100px; }
+        nav#menu_1
+          ._color_1.flatmenu
+            +ax._a1m(onclick=onclick('toggleMenu("mainmenu");') title="Open main menu")| #[+isvg(svgi.bars,'_cicon')]
+            +ax._a1m(title="Go to homepage")| #[+isvg(svgi.home,'_licon')]Home
+            +axm('Menu')#ma1.__absolute: ._color_1(style="width:200px")
+              ._pa_5._small| // more menues ...
+              //- ul._m0._plain._color_1
+                li: +ax._a1m.__full Link
+                li: +ax._a1m.__full|#[+isvg(svgi.home,'_licon')]Home
+                li: hr._m0
+                li
+                  +ax._a1m: +isvg(svgi.bars,'_cicon')
+                  +ax._a1m: +isvg(svgi.ellipsis,'_cicon')
+                  +ax._a1m: +isvg(svgi.compare,'_cicon')
+                li: hr._m0
+                li: +axm('Menu')#ma2.__full: ._color_1._pa_5(style="width:200px")._small| // more menues ...
+            +ax._a1m| Link
+            +ax._a1m(title="More ..")| #[+isvg(svgi.ellipsis,'_cicon')]
+          #mainmenu: ._color_2(style="height:400px"): ._pa_5
+            ._small| // your menu goes here
+
+      section._mv
+
+        nav._color_1._radius_5._pa_5
+          +ax._a2(onclick=onclick('toggleMenu("sidemenu");') title="Open side menu"): +isvg(svgi.bars,'_cicon')
+          +ax._a2: +isvg(svgi.home,'_cicon')
+          +ax._a2| Link
+          +ax._a2: +isvg(svgi.ellipsis,'_cicon')
+          =' | '
+          +ax._a3| Link
+          +ax._a3: +itext('_cicon')|&bull;
+          +ax._a3: +isvg(svgi.compare,'_cicon')
+
+      section._flex._mv
+
+        style.
+          #sidemenu {
+            overflow:hidden !important;
+            transition:max-width .2s ease, max-height .2s ease;
+            max-width:0px;max-height:0px;
+          }
+          #sidemenu.open { max-width:100%;max-height:100% }
+          #sidemenu ._content{ width:200px;height:100%;margin-right:1rem }
+        #sidemenu: ._content._scrollable._no_scroll_x._color_1._radius_5: ._pa_5
+          //- ._small| // your menu goes here
+          ul._m0._plain
+            li: +ax._a2.__full Link
+            li: +ax._a2.__full|#[+isvg(svgi.home,'_licon')]Home
+            li: hr._mv_25
+            li
+              +ax._a2: +isvg(svgi.bars,'_cicon')
+              +ax._a2: +isvg(svgi.ellipsis,'_cicon')
+              +ax._a2: +isvg(svgi.compare,'_cicon')
+
+        ._f._flex._gap
+
+          ._f(style="max-width:200px"): ul._m0._plain._color_1
+            li: +ax._a1m.__full Link
+            li: +ax._a1m.__full|#[+isvg(svgi.home,'_licon')]Home
+            li: hr._m0
+            li
+              +ax._a1m: +isvg(svgi.bars,'_cicon')
+              +ax._a1m: +isvg(svgi.ellipsis,'_cicon')
+              +ax._a1m: +isvg(svgi.compare,'_cicon')
+            li: hr._m0
+            li: +axm('Menu')#m21.__absolute.__full: ._color_1(style="width:220px"): ._pa_5._small| // more menues ...
+            li: +axm('Menu')#m22.__full: ._color_1(style="width:220px"): ._pa_5._small| // more menues ...
+          ._f(style="max-width:200px"): ._color_1._pa_5._radius_5: ul._m0._plain
+            li: +ax._a2.__full Link
+            li: +ax._a2.__full|#[+isvg(svgi.home,'_licon')]Home
+            li: hr._mv_25
+            li
+              +ax._a2: +isvg(svgi.bars,'_cicon')
+              +ax._a2: +isvg(svgi.ellipsis,'_cicon')
+              +ax._a2: +isvg(svgi.compare,'_cicon')
+            li: hr._mv_25
+            li: +axm('Menu')#m31.__absolute.__full: ._color_1(style="width:220px"): ._pa_5._small| // more menues ...
+            li: +axm('Menu')#m32.__full: ._color_1(style="width:220px"): ._pa_5._small| // more menues ...
+          ._f
 
 block append script
   script.
@@ -157,8 +200,9 @@ block append script
         menuIs = {};
       w.toggleMenu = (id)=>{
         var e = d.getElementById(id);if(e){
-          menuIs[id] = menuIs[id]=='open'?'closed':'open';
-          e.className = menuIs[id];
+          if(menuIs[id]!='open') e.classList.add('open');
+          else e.classList.remove('open');
+          menuIs[id] = menuIs[id]!='open'?'open':'closed';
         }
       }
     })();

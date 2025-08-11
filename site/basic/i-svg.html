@@ -28,7 +28,6 @@
     <style id="_coreStyle">
       ._invisible { visibility:hidden !important }
       ._hide, ._hidden, [hidden] { display:none !important }
-      ._flex { display:flex }
       ._scrollable { overflow:auto }
       html,body { font-family:system-ui,sans-serif }
       hr { border:0;border-top:1px solid #888 }
@@ -83,14 +82,17 @@
       <div class="_view" id="_main_view">
         <noscript class="_pa _tc_red _b _mono">// Please enable javascript</noscript>
         <header id="_header">
-          <div class="_color_1 _pa_5"><a class="_no_select" href="/nova/site/" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></a><span id="maindesc">Implementing SVG icons</span>
+          <div class="_color_1"><a class="_no_select" href="/nova/site/" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></a><span id="maindesc">Implementing SVG icons</span>
           </div>
           <div class="_color_2 _flex" id="_main_nav">
             <div class="_f">
               <nav><a class="_a1m" href="/nova/site/starter">Starter</a><a class="_a1m" href="/nova/site/basic">Basic</a><a class="_a1m" href="/nova/site/lab">Lab</a>
               </nav>
             </div>
-            <div class="_fit"><a class="_needjs _a1m" href="#" onclick="event.preventDefault();theme.change();" title="Change Theme (Alt+T)"><i class="_icon _cicon"><i class="itext">☀</i></i></a>
+            <div class="_fit"><a class="_needjs _a1m" href="#" onclick="event.preventDefault();theme.change();" title="Change Theme (Alt+T)"><i class="_icon _cicon"><i class="isvg">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M19,3H14V5H19V18L14,12V21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M10,18H5L10,12M10,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H10V23H12V1H10V3Z" fill="currentColor" fill-opacity="1"></path>
+                    </svg></i></i></a>
             </div>
           </div>
         </header>
@@ -109,16 +111,13 @@
               </style>
               <section class="_p icons"><i class="_icon"><i class="isvg">
                     <svg viewBox="0 0 24 24">
-                      <path d="M10,17L15,12L10,7V17Z" fill="currentColor" fill-opacity="1"></path>
+                      <path d="M5,6H19V8H5V6M5,11H19V13H5V11M5,16H19V18H5V16Z" fill="currentColor" fill-opacity="1"></path>
                     </svg></i></i><i class="_icon"><i class="isvg">
                     <svg viewBox="0 0 24 24">
                       <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" fill="currentColor" fill-opacity="1"></path>
                     </svg></i></i><i class="_icon"><i class="isvg">
                     <svg viewBox="0 0 24 24">
-                      <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z" fill="currentColor" fill-opacity="1"></path>
-                    </svg></i></i><i class="_icon"><i class="isvg">
-                    <svg viewBox="0 0 24 24">
-                      <path d="M5,6H19V8H5V6M5,11H19V13H5V11M5,16H19V18H5V16Z" fill="currentColor" fill-opacity="1"></path>
+                      <path d="M10,17L15,12L10,7V17Z" fill="currentColor" fill-opacity="1"></path>
                     </svg></i></i><i class="_icon"><i class="isvg">
                     <svg viewBox="0 0 24 24">
                       <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
@@ -128,6 +127,9 @@
                     </svg></i></i><i class="_icon"><i class="isvg">
                     <svg viewBox="0 0 24 24">
                       <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" fill="currentColor" fill-opacity="1"></path>
+                    </svg></i></i><i class="_icon"><i class="isvg">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z" fill="currentColor" fill-opacity="1"></path>
                     </svg></i></i><i class="_icon"><i class="isvg">
                     <svg viewBox="0 0 24 24">
                       <path d="M19,3H14V5H19V18L14,12V21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M10,18H5L10,12M10,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H10V23H12V1H10V3Z" fill="currentColor" fill-opacity="1"></path>
@@ -140,31 +142,31 @@
                     </svg></i></i><i class="_icon"><i class="isvg">
                     <svg viewBox="0 0 24 24">
                       <path d="M21,3H3C2,3 1,4 1,5V19A2,2 0 0,0 3,21H21C22,21 23,20 23,19V5C23,4 22,3 21,3M5,17L8.5,12.5L11,15.5L14.5,11L19,17H5Z" fill="currentColor" fill-opacity="1"></path>
-                    </svg></i></i><br/><i class="_icon"><i class="isvg _rotate_0">
+                    </svg></i></i><br/><i class="_icon"><i class="isvg _rotate0">
                     <svg viewBox="0 0 24 24">
                       <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
-                    </svg></i></i><i class="_icon"><i class="isvg _rotate_45">
+                    </svg></i></i><i class="_icon"><i class="isvg _rotate45">
                     <svg viewBox="0 0 24 24">
                       <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
-                    </svg></i></i><i class="_icon"><i class="isvg _rotate_90">
+                    </svg></i></i><i class="_icon"><i class="isvg _rotate90">
                     <svg viewBox="0 0 24 24">
                       <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
-                    </svg></i></i><i class="_icon"><i class="isvg _rotate_135">
+                    </svg></i></i><i class="_icon"><i class="isvg _rotate135">
                     <svg viewBox="0 0 24 24">
                       <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
-                    </svg></i></i><i class="_icon"><i class="isvg _rotate_180">
+                    </svg></i></i><i class="_icon"><i class="isvg _rotate180">
                     <svg viewBox="0 0 24 24">
                       <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
-                    </svg></i></i><i class="_icon"><i class="isvg _rotate_225">
+                    </svg></i></i><i class="_icon"><i class="isvg _rotate225">
                     <svg viewBox="0 0 24 24">
                       <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
-                    </svg></i></i><i class="_icon"><i class="isvg _rotate_270">
+                    </svg></i></i><i class="_icon"><i class="isvg _rotate270">
                     <svg viewBox="0 0 24 24">
                       <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
-                    </svg></i></i><i class="_icon"><i class="isvg _rotate_315">
+                    </svg></i></i><i class="_icon"><i class="isvg _rotate315">
                     <svg viewBox="0 0 24 24">
                       <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
-                    </svg></i></i><i class="_icon"><i class="isvg _rotate_360">
+                    </svg></i></i><i class="_icon"><i class="isvg _rotate360">
                     <svg viewBox="0 0 24 24">
                       <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
                     </svg></i></i><br/><i class="_icon"><i class="isvg __spin _tc_red">

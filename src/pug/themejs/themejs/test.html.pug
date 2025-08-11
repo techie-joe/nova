@@ -34,12 +34,12 @@ block append script
 
 mixin lab_nav
   #_main_nav._color_2._flex
-    ._fit: +a(homeUri+'lab')._a1m|#[+isvg(svgi.angle,'_licon')._rotate_180]Back
+    ._fit: +a(homeUri+'lab')._a1m|#[+isvg(svgi.angle,'_licon')._rotate180]Back
     ._f
       span(style="padding:0 .5em;line-height:1.8em;"): span#jss._b._small._mono='[JS:--]' 
       +menu_a11([
       ])
-    ._fit: +changeThemeLink._a1m: +itext('_cicon')|☀
+    ._fit: +changeThemeLink._a1m: +isvg(svgi.compare,'_cicon')
 
 mixin _ax(href,title,cls)
   +l

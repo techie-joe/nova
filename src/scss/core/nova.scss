@@ -330,8 +330,8 @@ details[open] summary ._marker { transform: rotate(90deg) }
 // ---------------------------------------------------------------
 
 ._cicon { margin:0 -.5em }
-._licon { margin:0 .1em 0 -.1em }
-._ricon { margin:0 -.1em 0 .1em }
+._licon { margin:0 .2em 0 -.2em }
+._ricon { margin:0 -.2em 0 .2em }
 
 a,._a {
   & { text-decoration: underline }
@@ -409,7 +409,8 @@ button {
 
 ._a3,._a2,._a1 { min-width: 1.5em }
 
-._a3m,._a2m,._a1m { padding: .25em .75em; min-width: 2em }
+._a1m { padding: .35em .75em; min-width: 2.2em }
+._a3m,._a2m { padding: .25em .75em; min-width: 2em }
 ._a3m { padding: .2em .7em }
 
 a._a3m,._a3m,
@@ -669,7 +670,7 @@ $radiuses: (
   
 // ._rotate
 $angles : 45, 90, 135, 180, 225, 270, 315;
-@each $angle in $angles { ._rotate_#{$angle} { transform: rotate(#{$angle}deg); } }
+@each $angle in $angles { ._rotate#{$angle} { transform: rotate(#{$angle}deg); } }
 
 // behaviors
 ._scroll,._scroll_x { overflow-x: scroll; scroll-behavior: smooth }

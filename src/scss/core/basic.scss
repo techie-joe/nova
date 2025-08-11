@@ -12,13 +12,12 @@
   font-size:1.2em;
   font-weight: 700;
   padding: .5rem .75rem;
-  margin: -.5rem;
-  margin-right: .5rem;
   display: inline-block;
   cursor: default;
   letter-spacing: -0.05em;
   white-space: nowrap;
   text-decoration: none;
+  vertical-align: top;
 }
 #logo .s1 { color:#1133bb }
 #logo .s2 { color:#000; font-weight:400 }
@@ -31,10 +30,31 @@ a#logo:hover  { background-color:#fff }
 #maindesc {
   font-size: 0.9em;
   line-height: 1.25;
-  vertical-align: text-top;
+  padding: 0.84rem;
+  display: inline-block;
+  vertical-align: top;
+}
+.mainPage {
+  .table{ max-width:17em }  
+  #logo {
+    display: block;
+    text-align: center;
+    font-size: 3rem;
+    margin-top: 4rem;
+  }
+  #maindesc {
+    font-size:1rem;
+    text-align: center;
+    position: relative;
+    top: -1.6rem;
+    font-weight: 400;
+    color: inherit;
+  }
 }
 
-    ._view { padding-bottom:40px }
+// ---------------------------------------------------------------
+
+._view { padding-bottom:40px }
 
 .pre { font-size:.9em }
 

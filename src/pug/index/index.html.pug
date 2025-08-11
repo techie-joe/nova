@@ -5,40 +5,21 @@ block append vars
     pageid      = 'index'
     pageUrl     = siteUrl + '/index.html'
     title       = name
-    description = 'Simple framework for websites and web applications.'
-
-block append style
-  style.
-    #logo {
-      display: block;
-      text-align: center;
-      font-size: 3rem;
-      margin: 1em auto;
-    }
-    #maindesc {
-      font-size:1rem;
-      text-align: center;
-      position: relative;
-      top: -3em;
-      margin:1em auto;
-      font-weight: 400;
-      color: inherit;
-    }
-  //- style.
+    description = 'Simple framework for websites and web applications.'  
 
 block header
-  header#_header
-    ._color_1._pad: ._m_center._table(style="max-width:17em;")
+  header#_header.mainPage
+    ._color_1._pad: ._m_center._table.table
       h1: +logo
       h2#maindesc|!{description}
     nav#_main_nav._color_1._flex
-      ._f._pa_5: ._960
+      ._f._pa_5
         +menues(['_a3m'],[
           ['starter','starter','Starter'],
           ['basic','basic','Basic'],
           ['lab','lab','Lab'],
         ])
-      ._fit._pa_5: +changeThemeLink._a2m: +itext('_cicon')|☀
+      ._fit._pa_5: +changeThemeLink._a2m: +isvg(svgi.compare,'_cicon')
     hr._mt0
 
 block article
