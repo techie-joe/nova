@@ -1,15 +1,8 @@
 extends ../../_basic/_html
 
-mixin lab_nav
-  #_main_nav._color_2._flex
-    ._fit: +a('./')._a1m|#[+isvg(svgi.angle,'_licon')._rotate180]Back
-    ._f: +menu_a11([
-    ])
-    ._fit: +changeThemeLink._a1m: +isvg(svgi.compare,'_cicon')
-
 block header
   +simplestHeader
-  +lab_nav
+  +backNav
 
 mixin btns
   style.

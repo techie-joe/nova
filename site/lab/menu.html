@@ -56,23 +56,29 @@
     <style>/* your style goes here */</style>
     <link rel="stylesheet" media="all" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
     <style>
+      a.__full { display:block;text-align:left }
+      
       ._hover_show { display:inline-block;position:relative }
       ._hover_show ._content {
         position:absolute;
         z-index:1;top:100%;left:0;
         overflow:hidden !important;
-        transition:max-height .2s ease .4s,max-width .2s ease .4s;
-        max-height:0px;max-width:0px;
+        transition:max-width .2s ease .2s, max-height .2s ease .2s;
+        max-width:0px;max-height:0px;
       }
       ._hover_show._hover ._content,
       ._hover_show:hover ._content { max-width:300px;max-height:300px }
       
+      ._click_show { display:block;position:relative }
       ._click_show ._content {
         overflow:hidden !important;
         transition:max-width .2s ease, max-height .2s ease;
         max-width:0px;max-height:0px;
       }
-      ._click_show.open ._content { max-width:100%;max-height:300px }
+      ._click_show.open,
+      ._click_show.open ._content { width:100%;height:100%;max-width:100%;max-height:100% }
+      
+      ._foac,._foac * { white-space:nowrap !important;overflow:hidden !important }
       
     </style>
   </head>
@@ -84,17 +90,15 @@
           <div class="_color_1"><a class="_no_select" href="/nova/site/" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></a><span id="maindesc">Menu developments</span>
           </div>
         </header>
-        <div class="_color_2 _flex" id="_main_nav">
-          <div class="_fit"><a class="_a1m" href="./"><i class="_icon _licon"><i class="isvg _rotate180">
+        <div class="_flex _color_2">
+          <div><a class="_a1m" href="./"><i class="_icon _licon"><i class="isvg _rotate180">
                   <svg viewBox="0 0 24 24">
                     <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
                   </svg></i></i>Back</a>
           </div>
           <div class="_f">
-            <nav>
-            </nav>
           </div>
-          <div class="_fit"><a class="_needjs _a1m" href="#" onclick="event.preventDefault();theme.change();" title="Change Theme (Alt+T)"><i class="_icon _cicon"><i class="isvg">
+          <div><a class="_needjs _a1m" href="#" onclick="event.preventDefault();theme.change();" title="Change Theme (Alt+T)"><i class="_icon _cicon"><i class="isvg">
                   <svg viewBox="0 0 24 24">
                     <path d="M19,3H14V5H19V18L14,12V21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M10,18H5L10,12M10,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H10V23H12V1H10V3Z" fill="currentColor" fill-opacity="1"></path>
                   </svg></i></i></a>
@@ -102,9 +106,53 @@
         </div>
         <main id="_main">
           <article class="_article _container">
+            <section class="_mv _flex" style="height:100px">
+              <div class="_fit" style="width:200px">
+                <div class="_color_1"><a class="_a1m __full" href="#" onclick="event.preventDefault();toggleMenu(&quot;regular&quot;);"><i class="_icon _licon"><i class="isvg">
+                        <svg viewBox="0 0 24 24">
+                          <path d="M5,6H19V8H5V6M5,11H19V13H5V11M5,16H19V18H5V16Z" fill="currentColor" fill-opacity="1"></path>
+                        </svg></i></i> Regular</a><a class="_a1m __full" href="#" onclick="event.preventDefault();toggleMenu(&quot;absolute&quot;);"><i class="_icon _licon"><i class="isvg">
+                        <svg viewBox="0 0 24 24">
+                          <path d="M5,6H19V8H5V6M5,11H19V13H5V11M5,16H19V18H5V16Z" fill="currentColor" fill-opacity="1"></path>
+                        </svg></i></i> Absolute</a>
+                </div>
+              </div>
+              <div>
+                <style>
+                  #regular .content  { width:200px;height:100% }
+                  #regular .boxline  { height:150% }
+                </style>
+                <div class="_click_show" id="regular">
+                  <div class="_content">
+                    <div class="content _scrollable _color_1">
+                      <div class="boxline _pa_5 _small">// regular menu</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <style>
+                  #absolute { position:absolute;z-index:2;height:200px }
+                  #absolute .content { width:200px;height:100% }
+                  #absolute .boxline { height:150% }
+                </style>
+                <div class="_click_show" id="absolute">
+                  <div class="_content">
+                    <div class="content _scrollable _color_1">
+                      <div class="boxline _pa_5 _small">// absolute menu</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="_f _scrollable _fullcase">
+                <div class="_container">
+                  <div class="_small _mono">content</div>
+                </div>
+              </div>
+            </section>
             <section class="_mv">
               <nav class="_color_1 _flex" id="menu_1">
-                <div class="_fit"><a class="_a1m" href="#" title="Open main menu" onclick="event.preventDefault();toggleMenu(&quot;mainmenu&quot;);"><i class="_icon _cicon"><i class="isvg">
+                <div><a class="_a1m" href="#" title="Open main menu" onclick="event.preventDefault();toggleMenu(&quot;mainmenu&quot;);"><i class="_icon _cicon"><i class="isvg">
                         <svg viewBox="0 0 24 24">
                           <path d="M5,6H19V8H5V6M5,11H19V13H5V11M5,16H19V18H5V16Z" fill="currentColor" fill-opacity="1"></path>
                         </svg></i></i></a>
@@ -116,42 +164,113 @@
                   <style>
                     #menu_a .content { width:200px;height:200px }
                     #menu_a .boxline { height:150% }
-                  </style><span class="_hover_show _hoverx" id="menu_a"><a class="_no_wrap _a1m" href="#" onclick="event.preventDefault();">Menu A <i class="_icon _ricon"><i class="isvg _rotate90">
+                  </style><span class="_hover_show _hoverx" id="menu_a"><a class="_no_wrap _a1m" href="#" onclick="event.preventDefault();">Menu<i class="_icon _ricon"><i class="isvg _rotate90">
                           <svg viewBox="0 0 24 24">
                             <path d="M10,17L15,12L10,7V17Z" fill="currentColor" fill-opacity="1"></path>
                           </svg></i></i></a>
                     <div class="_content">
                       <div class="content _color_1 _border _scrollable">
-                        <div class="boxline _pa_5 _small">// Menu A ...</div>
+                        <div class="boxline _pa_5 _small">// menu</div>
                       </div>
                     </div></span><a class="_no_wrap _a1m" href="#" onclick="event.preventDefault();">Link</a>
                 </div>
-                <div class="_fit"><a class="_no_wrap _a1m" href="#" title="More .." onclick="event.preventDefault();"><i class="_icon _cicon"><i class="isvg">
+                <div><a class="_no_wrap _a1m" href="#" title="More .." onclick="event.preventDefault();"><i class="_icon _cicon"><i class="isvg">
                         <svg viewBox="0 0 24 24">
                           <path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z" fill="currentColor" fill-opacity="1"></path>
                         </svg></i></i></a>
                 </div>
               </nav>
               <style>
-                #mainmenu .content { height:150px }
+                #mainmenu .content { width:100%;height:150px }
                 #mainmenu .boxline { height:150% }
               </style>
-              <div class="_click_show" id="mainmenu">
+              <aside class="_click_show" id="mainmenu">
                 <div class="_content">
-                  <hr class="_m0">
                   <div class="content _scrollable _color_1">
-                    <div class="boxline _pa_5 _small">// main menu goes here</div>
+                    <hr class="_m0">
+                    <div class="boxline _pa_5 _small">// main menu</div>
                   </div>
                 </div>
-              </div>
+              </aside>
             </section>
+            <hr>
+            <section class="_mv _flex _gap_5">
+              <nav class="_f _color_1 _radius_5 _pa_5"><a class="_no_wrap _a2" href="#" onclick="event.preventDefault();"><i class="_icon _cicon"><i class="isvg">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M5,6H19V8H5V6M5,11H19V13H5V11M5,16H19V18H5V16Z" fill="currentColor" fill-opacity="1"></path>
+                      </svg></i></i></a><a class="_no_wrap _a2" href="#" onclick="event.preventDefault();">Link</a><a class="_no_wrap _a2" href="#" onclick="event.preventDefault();"><i class="_icon _cicon"><i class="isvg">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z" fill="currentColor" fill-opacity="1"></path>
+                      </svg></i></i></a>
+              </nav>
+              <nav class="_f _color_1 _radius_5 _pa_5"><a class="_no_wrap _a3" href="#" onclick="event.preventDefault();"><i class="_icon _cicon"><i class="isvg">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M5,6H19V8H5V6M5,11H19V13H5V11M5,16H19V18H5V16Z" fill="currentColor" fill-opacity="1"></path>
+                      </svg></i></i></a><a class="_no_wrap _a3" href="#" onclick="event.preventDefault();">Link</a><a class="_no_wrap _a3" href="#" onclick="event.preventDefault();"><i class="_icon _cicon">&middot;&middot;</i></a>
+              </nav>
+            </section>
+            <hr>
+            <section class="_mv _flex _gap">
+              <div style="width:150px">
+                <ul class="_m0 _plain _color_1">
+                  <li><a class="_no_wrap _a1m __full" href="#" onclick="event.preventDefault();">Link</a>
+                  </li>
+                  <li><a class="_no_wrap _a1m __full" href="#" onclick="event.preventDefault();"><i class="_icon _licon"><i class="isvg">
+                          <svg viewBox="0 0 24 24">
+                            <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" fill="currentColor" fill-opacity="1"></path>
+                          </svg></i></i>Home</a>
+                  </li>
+                  <li>
+                    <hr class="_m0">
+                  </li>
+                  <li class="_flex"><a class="_no_wrap _a1m" href="#" onclick="event.preventDefault();"><i class="_icon _cicon"><i class="isvg">
+                          <svg viewBox="0 0 24 24">
+                            <path d="M5,6H19V8H5V6M5,11H19V13H5V11M5,16H19V18H5V16Z" fill="currentColor" fill-opacity="1"></path>
+                          </svg></i></i></a>
+                    <div class="_f"><a class="_no_wrap _a1m" href="#" onclick="event.preventDefault();">Link</a>
+                    </div><a class="_no_wrap _a1m" href="#" onclick="event.preventDefault();"><i class="_icon _cicon"><i class="isvg">
+                          <svg viewBox="0 0 24 24">
+                            <path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z" fill="currentColor" fill-opacity="1"></path>
+                          </svg></i></i></a>
+                  </li>
+                </ul>
+              </div>
+              <div style="width:150px">
+                <div class="_color_1 _pa_5 _radius_5">
+                  <ul class="_m0 _plain">
+                    <li><a class="_no_wrap _a2 __full" href="#" onclick="event.preventDefault();">Link</a>
+                    </li>
+                    <li><a class="_no_wrap _a2 __full" href="#" onclick="event.preventDefault();"><i class="_icon _licon"><i class="isvg">
+                            <svg viewBox="0 0 24 24">
+                              <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" fill="currentColor" fill-opacity="1"></path>
+                            </svg></i></i>Home</a>
+                    </li>
+                    <li>
+                      <hr class="_mv_25">
+                    </li>
+                    <li class="_flex"><a class="_no_wrap _a2" href="#" onclick="event.preventDefault();"><i class="_icon _cicon"><i class="isvg">
+                            <svg viewBox="0 0 24 24">
+                              <path d="M5,6H19V8H5V6M5,11H19V13H5V11M5,16H19V18H5V16Z" fill="currentColor" fill-opacity="1"></path>
+                            </svg></i></i></a>
+                      <div class="_f"><a class="_no_wrap _a2" href="#" onclick="event.preventDefault();">Link</a>
+                      </div><a class="_no_wrap _a2" href="#" onclick="event.preventDefault();"><i class="_icon _cicon"><i class="isvg">
+                            <svg viewBox="0 0 24 24">
+                              <path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z" fill="currentColor" fill-opacity="1"></path>
+                            </svg></i></i></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="_f"></div>
+            </section>
+            <hr>
           </article>
           <aside class="_side_article"></aside>
         </main>
         <aside class="_side_bar"></aside>
         <footer class="_color" id="_footer">
           <div class="_relative">
-            <div class="_absolute_right">
+            <div class="_absolute _right">
               <div class="_container">
                 <div class="_small"><a class="_a2 _hover_color" href="/nova/site/">Home</a>
                 </div>
@@ -172,8 +291,16 @@
           menuIs = {};
         w.toggleMenu = (id)=>{
           var e = d.getElementById(id);if(e){
-            if(menuIs[id]!='open') e.classList.add('open');
-            else e.classList.remove('open');
+            if(menuIs[id]!='open'){
+              e.classList.add('open');
+              e.classList.add('_foac');
+              setTimeout(x=>{e.classList.remove('_foac')},200);
+            }
+            else {
+              e.classList.remove('open');
+              e.classList.add('_foac');
+              setTimeout(x=>{e.classList.remove('_foac')},200);
+            }
             menuIs[id] = menuIs[id]!='open'?'open':'closed';
           }
         }

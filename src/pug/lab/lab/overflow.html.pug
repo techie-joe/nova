@@ -13,7 +13,18 @@ block article
     section._container: pre.pre.
       // Handling overflow ..
     //- pre.
-    hr
+
+    hr._mb0
+
+    style.
+      #scrollbox { width:200px;height:200px }
+      #scrollbox .boxline { width:150%;height:150% }
+    section._container
+      #scrollbox._scroll._m_center: .boxline._boxline._pa_5
+        ._mono._small| content that is #[+repeat(30)| way too long ]
+
+    hr._mt0
+
     style.
 
       .oo {
@@ -34,7 +45,6 @@ block article
         position:absolute;
         top:0;left:0;
       }
-      .t {  }
       .p { padding:.4em 0;line-height:1em; }
       .q { padding:.4em;line-height:1em; }
       .s { }
@@ -49,24 +59,17 @@ block article
         text-decoration:none !important;
         text-align:center;
         padding:.2em .4em;
-      }
-      ._clip {
-        white-space: nowrap;
-        overflow: hidden;
-      }
+      }      
       ._ellipsis {
-        white-space: nowrap;
-        overflow: hidden;
+        overflow:hidden !important;
         text-overflow: ellipsis;
       }
       ._mask {
-        white-space: nowrap;
-        overflow: hidden;
+        overflow:hidden !important;
         mask: linear-gradient(to left, transparent 0%, black 20%);
       }
       ._mask_both {
-        white-space: nowrap;
-        overflow: hidden;
+        overflow:hidden !important;
         mask: linear-gradient(to left, transparent 0%, black 20%, black 80%, transparent 100%);
       }
       ._snap { scroll-snap-type: x mandatory }
@@ -96,34 +99,36 @@ block article
       ._a a._hover_show:hover,
       ._a a._hover_show { color:inherit;text-decoration:none }
 
-    section._container: ._960._scroll
+    section._container
 
       .o._outline._relative._scrollable
         #t1.top
         .t| Use #[code ._scrollable] when #[a(href="#i1") the item] is out of view.
         .a#i1(style="position:absolute;bottom:-50%;right:-50%;"): a(href='#t1').b._radius_25 Click Me
 
-      .o._outline(style="overflow:visible")
+      .o._outline._scroll
         .t| Use #[code ._hover_show] reveal more on hover.
-        ._hover_show
-          ._trigger.p| The default type,
-          ._item: ._content._color_1: .q: +repeat(6)| way too long .. 
-        .s| would shove other content.
         ._hover_show.__absolute
-          ._trigger.p| The absolute type,
-          ._item: ._content._color_1: .q: +repeat(6)| way too long .. 
+          ._trigger.p| The #[code absolute] type,
+          ._item: ._content._color_1: .q| #[+repeat(4)| way too long ] 
         .s| would overlay above others.
+        ._hover_show
+          ._trigger.p| The #[code default] type,
+          ._item: ._content._color_1: .q| #[+repeat(4)| way too long ]
+        .s| would shove other content.
 
-      .o._outline
+      style.
+        #o3 ._p { white-space: nowrap }
+      #o3.o._outline
 
-        ._p.t._clip| Use #[code ._clip] to cut the rest of the text.
+        ._p._no_overflow| Use #[code ._no_overflow] to cut the rest of the text.
 
-        ._p.t._ellipsis| Use #[code ._ellipsis] to add dots at the end of the line.
+        ._p._ellipsis| Use #[code ._ellipsis] to add dots at the end of the line.
 
-        ._p.t._mask| Use #[code ._mask] to add gradient at the end of the line.
+        ._p._mask| Use #[code ._mask] to add gradient at the end of the line.
 
-        ._p.t._mask_both| Use #[code ._mask_both] to add gradients to both ends of the line.
+        ._p._mask_both| Use #[code ._mask_both] to add gradients to both ends of the line.
 
-        ._p.t._tc_red| Only works on a single line.
+        ._p._tc_red| Only works on a single line.
 
     //- section

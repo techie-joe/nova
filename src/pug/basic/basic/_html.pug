@@ -20,13 +20,15 @@ mixin basic_nav_
     ['basic/button','basic/button.html','Button'],
     ['basic/details','basic/details.html','Details'],
     ['basic/table','basic/table.html','Table'],
-    ['basic/flex','basic/flex.html','Flex'],
-    ['basic/container','basic/container.html','Container'],
     ['basic/alignment','basic/alignment.html','Alignment'],
   ])
 
 mixin basic_nav
   ._color_1._pad: +basic_nav_
+
+block header
+  +simpleHeader
+  +basic_nav
 
 mixin icons_nav_
   +menu_a2([
@@ -38,12 +40,15 @@ mixin icons_nav_
 mixin icons_nav
   ._color_1._pad: +icons_nav_
 
-block header
-  +simpleHeader
-  +basic_nav
-
 mixin boxa
   ._color_1._radius_5&attributes(attributes): block
+
+mixin boxx(menu)
+  ._color_1._radius_5._pad&attributes(attributes)
+    if(menu)
+      +menu_a2(menu)
+    else
+      block
 
 mixin boxap(menu)
   +boxa._p._pad&attributes(attributes)
