@@ -10,8 +10,8 @@ block append vars
 block append style
   +css('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css')
   style.
-    ._hover_show.__full,
-    ._hover_show.__full a.__full,
+    ._hover_show,
+    ._hover_show a.__full,
     a.__full { display:block;text-align:left }
 
     ._hover_show { display:inline-block;position:relative }
@@ -62,14 +62,14 @@ block article
           #sidemenu .boxline { height:150% }
         aside#sidemenu._click_show.open: ._content
           .content._scrollable._color_1
-            ul._m0._plain._color_1
-              li: +ax._a1m.__full|#[+isvg(svgi.home,'_licon')]Home
+            ul._h_menu._m0._plain._color_1
+              li: +ax.__full._a1m|#[+isvg(svgi.home,'_licon')]Home
               //- li
                 style.
                   #menu_b .content { width:200px;height:150px }
                   #menu_b .boxline { height:150% }
-                span#menu_b.__full._hover_show._hoverx
-                  +ax._a1m.__full| Menu#[+isvg(svgi.caret,'_ricon')._rotate90]
+                span#menu_b._hover_show._hoverx
+                  +ax.__full._a1m| Menu#[+isvg(svgi.caret,'_ricon')._rotate90]
                   ._content: .content._color_1._border._scrollable
                     .boxline._pa_5._small| // menu
 
@@ -79,40 +79,40 @@ block article
                 ._f: +ax._a1m| Link
                 +ax._a1m: +isvg(svgi.ellipsis,'_cicon')
               li: hr._m0
-              +repeat(4): li: +ax._a1m.__full Link
+              +repeat(4): li: +ax.__full._a1m Link
 
-      div(style="width:150px"): ul._m0._plain._color_1
-        li: +ax._a1m.__full|#[+isvg(svgi.home,'_licon')]Home
+      div(style="width:150px"): ul._h_menu._m0._plain._color_1
+        li: +ax.__full._a1m|#[+isvg(svgi.home,'_licon')]Home
         li: hr._m0
         li._flex
           +ax._a1m: +isvg(svgi.bars,'_cicon')
           ._f: +ax._a1m| Link
           +ax._a1m: +isvg(svgi.ellipsis,'_cicon')
         li: hr._m0
-        li: +ax._a1m.__full Link
+        li: +ax.__full._a1m Link
         //- li: hr._m0
-        //- li: +axm('Menu')#m21.__absolute.__full: ._color_1(style="width:220px"): ._pa_5._small| // more menues
-        //- li: +axm('Menu')#m22.__full: ._color_1(style="width:220px"): ._pa_5._small| // more menues
-      div(style="width:150px"): ._color_1._pa_5._radius_5: ul._m0._plain
-        li: +ax._a2.__full|#[+isvg(svgi.home,'_licon')]Home
+        //- li: +axm('Menu')#m21.__absolute: ._color_1(style="width:220px"): ._pa_5._small| // more menues
+        //- li: +axm('Menu')#m22: ._color_1(style="width:220px"): ._pa_5._small| // more menues
+      div(style="width:150px"): ._color_1._pa_5._radius_5: ul._h_menu._m0._plain
+        li: +ax.__full._a2|#[+isvg(svgi.home,'_licon')]Home
         li: hr._mv_25
         li._flex
           +ax._a2: +isvg(svgi.bars,'_cicon')
           ._f: +ax._a2| Link
           +ax._a2: +isvg(svgi.ellipsis,'_cicon')
-        li: hr._m0
-        li: +ax._a2.__full Link
+        li: hr._mv_25
+        li: +ax.__full._a2 Link
         //- li: hr._mv_25
-        //- li: +axm('Menu')#m31.__absolute.__full: ._color_1(style="width:220px"): ._pa_5._small| // more menues
-        //- li: +axm('Menu')#m32.__full: ._color_1(style="width:220px"): ._pa_5._small| // more menues
+        //- li: +axm('Menu')#m31.__absolute: ._color_1(style="width:220px"): ._pa_5._small| // more menues
+        //- li: +axm('Menu')#m32: ._color_1(style="width:220px"): ._pa_5._small| // more menues
       ._f
     
     hr
 
     section._mv._flex(style="height:100px")
-      ._fit(style="width:200px"): ._color_1
-        +a._a1m.__full(onclick=onclick('toggleMenu("regular");'))| #[+isvg(svgi.bars,'_licon')] Regular
-        +a._a1m.__full(onclick=onclick('toggleMenu("absolute");'))| #[+isvg(svgi.bars,'_licon')] Absolute
+      ._fit(style="width:200px"): ._h_menu._color_1
+        +a.__full._a1m(onclick=onclick('toggleMenu("regular");'))| #[+isvg(svgi.bars,'_licon')] Regular
+        +a.__full._a1m(onclick=onclick('toggleMenu("absolute");'))| #[+isvg(svgi.bars,'_licon')] Absolute
 
       div
         style.
@@ -147,29 +147,29 @@ block article
             +ax._a1m| Menu#[+isvg(svgi.caret,'_ricon')._rotate90]
             ._content: .content._color_1._border._scrollable
               //- .boxline._pa_5._small| // menu
-              ul._m0._plain._color_1
-                li: +ax._a1m.__full|#[+isvg(svgi.home,'_licon')]Home
+              ul._h_menu._m0._plain._color_1
+                li: +ax.__full._a1m|#[+isvg(svgi.home,'_licon')]Home
                 li: hr._m0
                 li._flex
                   +ax._a1m: +isvg(svgi.bars,'_cicon')
                   ._f: +ax._a1m| Link
                   +ax._a1m: +isvg(svgi.ellipsis,'_cicon')
                 li: hr._m0
-                +repeat(4): li: +ax._a1m.__full Link
+                +repeat(4): li: +ax.__full._a1m Link
 
           //- +amx('Menu')#ma1.__absolutex: ._color_1(style="width:200px")
           //- 
             ._pa_5._small| // more menues
-            //- ul._m0._plain._color_1
-              li: +ax._a1m.__full Link
-              li: +ax._a1m.__full|#[+isvg(svgi.home,'_licon')]Home
+            //- ul._h_menu._m0._plain._color_1
+              li: +ax.__full._a1m Link
+              li: +ax.__full._a1m|#[+isvg(svgi.home,'_licon')]Home
               li: hr._m0
               li
                 +ax._a1m: +isvg(svgi.bars,'_cicon')
                 +ax._a1m: +isvg(svgi.ellipsis,'_cicon')
                 +ax._a1m: +isvg(svgi.compare,'_cicon')
               li: hr._m0
-              li: +axm('Menu')#ma2.__full: ._color_1._pa_5(style="width:200px")._small| // more menues
+              li: +axm('Menu')#ma2: ._color_1._pa_5(style="width:200px")._small| // more menues
 
           +ax._a1m| Link
 

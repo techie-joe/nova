@@ -125,16 +125,12 @@ const
   };
 Object.assign(exports, {
   test,
-  html,
-  php,
-  txt,
-  md,
-  scss,
   files,
   pages,
   styles,
   pagesw,
   stylesw,
+  all: parallel(pages, styles, files),
   default: parallel(pages, styles),
   watch: parallel(pagesw, stylesw),
 });

@@ -78,17 +78,12 @@ a#logo:hover  { background-color:#fff }
   ._a3,
   ._a2,
   ._a1 { border-color: #4e4e8d }
-  & {
-    h6,
-    h5,
-    h4,
-    h3,
-    h2,
-    h1 { color: #d7408b; }
-    ._blockquote {
-      background-color: #ff9fcf44;
-      border-color: #d7408b;
-    }
+  ._h7,._hx1,._hx2,._hx3,
+  h6,h5,h4,h3,h2,h1 { color: #d7408b; }
+  ._tc_contra { color:#29294b }
+  ._blockquote {
+    background-color: #ff9fcf44;
+    border-color: #d7408b;
   }
   ._color_1 {
     background-color: hotpink;
