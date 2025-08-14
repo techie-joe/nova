@@ -1,11 +1,11 @@
 extends ../_core/_html
 
 block append vars
+  - layout = 'main/_html'
   include _functions
   include _vars
   include _logo
   include _nav
-  - layout = 'main/_html'
   - INCLUDE_THEMEJS = true
 
 block stylesheet
