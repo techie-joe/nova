@@ -39,9 +39,9 @@
     </style>
     <style>._fouc { visibility: hidden !important }</style>
     <script>
-      ((d=document,q=(d.documentElement||d.body).classList,c='_fouc')=>{
-        q.add(c);d.addEventListener('DOMContentLoaded',e=>{
-          setTimeout(e=>{q.remove(c);q.add('_tx')},300);
+      ((d=document,q=(d.documentElement||d.body).classList,c='_fouc',x='_tx')=>{
+        q.add(c,x);d.addEventListener('DOMContentLoaded',e=>{
+          setTimeout(e=>{q.remove(c);q.remove(x)},300);
         });
       })();
       
@@ -72,6 +72,7 @@ name             = [project_name]
 version          = [version]
 
 author           = Techie Joe
+publisher        = [unknown]
 license          = [unknown]
 year             = 2025
 

@@ -71,9 +71,9 @@ mixin fouc
   style.
     ._fouc { visibility: hidden !important }
   script.
-    ((d=document,q=(d.documentElement||d.body).classList,c='_fouc')=>{
-      q.add(c);d.addEventListener('DOMContentLoaded',e=>{
-        setTimeout(e=>{q.remove(c);q.add('_tx')},300);
+    ((d=document,q=(d.documentElement||d.body).classList,c='_fouc',x='_tx')=>{
+      q.add(c,x);d.addEventListener('DOMContentLoaded',e=>{
+        setTimeout(e=>{q.remove(c);q.remove(x)},300);
       });
     })();
 

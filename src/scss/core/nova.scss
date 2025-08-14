@@ -702,18 +702,18 @@ $angles : 45, 90, 135, 180, 225, 270, 315;
 // transitions
 // ---------------------------------------------------------------
 
-._tx {
-  summary,
-  ._a3m,
-  ._a2m,
-  ._a1m,
-  ._a3,
-  ._a2,
-  ._a1 {
-    & { transition:color .5s,background-color .5s,border-color .5s }
-    &:hover { transition:none }
-  }
+summary,
+._a3m,
+._a2m,
+._a1m,
+._a3,
+._a2,
+._a1 {
+  & { transition:color .5s,background-color .5s,border-color .5s }
+  &:hover { transition:none }
 }
+
+._tx * { transition:none !important }
 
 // ---------------------------------------------------------------
 // animation

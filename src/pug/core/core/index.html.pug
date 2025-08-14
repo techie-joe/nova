@@ -1,4 +1,4 @@
-extends _html
+extends ../../_core/_html
 
 block append vars
   -
@@ -8,7 +8,6 @@ block append vars
     description = 'The Core'
     author      = 'Techie Joe'
 
-block article
-  article._article
+block header
+  header#_header
     h2._h1 !{title}
-    section: +helloWorld

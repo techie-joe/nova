@@ -39,9 +39,9 @@
     </style>
     <style>._fouc { visibility: hidden !important }</style>
     <script>
-      ((d=document,q=(d.documentElement||d.body).classList,c='_fouc')=>{
-        q.add(c);d.addEventListener('DOMContentLoaded',e=>{
-          setTimeout(e=>{q.remove(c);q.add('_tx')},300);
+      ((d=document,q=(d.documentElement||d.body).classList,c='_fouc',x='_tx')=>{
+        q.add(c,x);d.addEventListener('DOMContentLoaded',e=>{
+          setTimeout(e=>{q.remove(c);q.remove(x)},300);
         });
       })();
       
@@ -54,10 +54,11 @@
     <div id="_views">
       <div class="_view" id="_main_view">
         <noscript class="_pa _tc_red _b _mono">// Please enable javascript</noscript>
-        <header id="_header"></header>
+        <header id="_header">
+          <h2 class="_h1">Core</h2>
+        </header>
         <main id="_main">
           <article class="_article">
-            <h2 class="_h1">Core</h2>
             <section>
               <pre class="_scrollable">&nbsp;
 This is a placeholder content.
@@ -65,6 +66,38 @@ Edit this document to get started.
 &nbsp;</pre>
               <button class="_needjs" onclick="event.preventDefault();(function(w){var h=w.history;w.opener?w.close():h.length>1?h.back():w.location.href='/';})(window)" title="Back to previous page">Back
               </button>
+            </section>
+            <hr>
+            <section>
+              <pre>
+name             = [project_name]
+version          = [version]
+
+author           = Techie Joe
+publisher        = [unknown]
+license          = [unknown]
+year             = 2025
+
+layout           = _core/_html
+homeUri          = /nova/site/
+
+pageid           = core
+pageUrl          = [site_url]/core/index.html
+title            = Core
+description      = The Core
+
+og_url           = [site_url]/core/index.html?utm_source=homescreen
+og_title         = Core
+og_description   = The Core
+og_type          = website
+og_image         = undefined
+og_imageAlt      = undefined
+
+siteUrl          = [site_url]
+authorUrl        = [author_url]
+sourceUrl        = [source_url]
+localUrl         = [local_url]
+</pre>
             </section>
           </article>
           <aside class="_side_article"></aside>
