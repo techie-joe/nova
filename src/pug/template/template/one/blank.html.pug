@@ -1,0 +1,18 @@
+extends ../../../_basic/_html
+
+block append vars
+  -
+    pageid      = 'template/one/blank'
+    pageUrl     = siteUrl + '/template/one/blank.html'
+    title       = `Template One`
+    description = 'This is a placeholder content.'
+    author      = 'Techie Joe'
+
+//- block header
+  header#_header._container: h1._h1 !{title}
+
+//- block article
+  article._article
+    section._container._mt0._scrollable: +basic_helloWorld
+    hr
+    section._container._scrollable: pre.pre: +pageData()

@@ -46,11 +46,11 @@ mixin page_a11(links, active)
 
 block header
   header#_header
-    ._color_1: ._960: ._pa_5
+    ._color_1: ._960
       a(href='./' onclick=onclick())#logo._no_select: +_logo
       span#maindesc!=description
     nav#_main_nav._color_2: ._flex._960
-      //- ._fit: +backLink._a1m|#[+isvg(svgi.angle,'_cicon')._rotate180]
+      div: +backLink._a1m|#[+isvg(svgi.angle,'_cicon')._rotate180]
       ._f: +page_a11([
         ['home','','Home'],
         ['about','about','About'],
@@ -60,7 +60,7 @@ block header
         ['blog','blog','Blog'],
         ['contact','contact','Contact'],
       ],'about')
-      ._fit: +changeThemeLink._a1m: +isvg(svgi.compare,'_cicon')
+      div: +changeThemeLink._a1m: +isvg(svgi.compare,'_cicon')
 
 block article
 

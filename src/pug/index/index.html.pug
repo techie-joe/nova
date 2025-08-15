@@ -5,10 +5,12 @@ block append vars
     pageid      = 'index'
     pageUrl     = siteUrl + '/index.html'
     title       = name
-    description = 'Simple framework for websites and web applications.'  
+    description = 'Simple framework for websites and web applications.'
+
+  - htmlClass.push('mainPage')
 
 block header
-  header#_header.mainPage
+  header#_header
     ._color_1._pad: ._m_center._table.table
       h1: +logo
       h2#maindesc|!{description}

@@ -22,6 +22,13 @@ mixin btns
 mixin boxa
   ._color_1._radius_5&attributes(attributes): block
 
+mixin boxx(menu)
+  ._color_1._radius_5._pad&attributes(attributes)
+    if(menu)
+      +menu_a2(menu)
+    else
+      block
+
 mixin boxap(menu)
   +boxa._p._pad&attributes(attributes)
     if(menu)

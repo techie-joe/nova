@@ -1,6 +1,9 @@
 include _functions
 include _mixins
 include _vars
+include _vars_
+include _logo
+include _nav
 
 block vars
   - layout = '_core/_html'
@@ -10,10 +13,7 @@ block vars
     mainClass = []
 
 block updatePageData
-  -
-    og_title = title
-    og_description = description
-    og_url  = pageUrl? pageUrl + '?utm_source=homescreen' : undefined;
+  +updatePageData
 
 mixin helloWorld
   pre._scrollable.
@@ -75,16 +75,16 @@ html(lang=lang class=htmlClass.join(' '))
                 noscript._pa._tc_red._b._mono| // Please enable javascript
 
               block header
-                header#_header
+                header#_header: h1 !{title}
 
               block main
                 main#_main(class=mainClass.join(' '))
 
                   block article
                     article._article
-                      section: +helloWorld
+                      section._scrollable: +helloWorld
                       hr
-                      section: pre: +pageData()
+                      section._scrollable: pre: +pageData()
 
                   block side_article
                     aside._side_article

@@ -5,9 +5,26 @@ block append vars
     pageid      = 'core'
     pageUrl     = siteUrl + '/core/index.html'
     title       = `Core`
-    description = 'The Core'
+    description = 'The Core Preview'
     author      = 'Techie Joe'
 
 block header
-  header#_header
-    h2._h1 !{title}
+  header#_header: h1 !{title}
+  hr
+
+block append style
+  style.
+    ._a1m { margin-right:.25em }
+    ._a1m._active { color:inherit }
+    ._article a[href] { text-decoration:none }
+    ._article a[href]:hover { text-decoration:underline }
+
+block article
+  article._article
+    section(style="margin-bottom:10rem")
+      nav
+        +backLink| Back
+        +_a(homeUri)| Home
+      +main_menu
+      nav
+        +_a('blank.html')| Blank

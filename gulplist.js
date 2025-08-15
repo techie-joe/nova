@@ -15,11 +15,11 @@ const
     ].map(_scss);
     ['html', 'php', 'txt', 'md'].forEach(type => {
       o[type] = [
+        'basic',
         'core',
         'index',
-        'starter',
-        'basic',
         'lab',
+        'starter',
         'template',
         'themejs',
       ].map(item => `src/pug/${item}/**/*.${type}.pug`);

@@ -3,36 +3,36 @@
   name        = '[project_name]'
   version     = '[version]'
 
+  //- metadata
+  now         = new Date()
+  today       = now.toGMTString()
+  year        = now.getFullYear()
+
   //- credit
   author      = '[unknown]'
   publisher   = '[unknown]'
   license     = '[unknown]'
 
-  //- metadata
-  now         = new Date()
-  today       = now.toGMTString()
-  year        = now.getFullYear()
+  //- layout
+  layout      = '[layout]'
+
+  //- uris
+  homeUri     = '/'
 
   //- urls
   authorUrl   = '[author_url]'
   sourceUrl   = '[source_url]'
   localUrl    = '[local_url]'
   siteUrl     = '[site_url]'
-
-  //- layout
-  layout      = '[layout]'
   
-  //- uris
-  homeUri     = '/nova/site/'
-
   //- page
+  pageid      = '[page_id]'
   pageUrl     = '[page_url]'
   title       = '[untitled]'
   description = '[undescribed]'
-  pageid      = '[page_id]'
 
   //- open graph metadata for social media sharing
-  og_url         = pageUrl? pageUrl + '?utm_source=homescreen' : undefined;
+  og_url         = pageUrl + '?utm_source=homescreen'
   og_title       = title
   og_description = description
   og_type        = 'website'
@@ -55,30 +55,19 @@
   INCLUDE_MANIFEST        = false
   INCLUDE_SERVICE_WORKERS = false
 
-  //- project status
-  const DEVELOPMENT    = 'DEVELOPMENT'
-  const PRODUCTION     = 'PRODUCTION'
-  const PROJECT_STATUS = DEVELOPMENT
-
-  // host names (case sensitive)
-  const LOCALHOST      = 'localhost'
-  const HOST           = LOCALHOST
-
 mixin pageData
   +l
   +join([
     `name             = ${name}`,
     `version          = ${version}`,
     ``,
-    `author           = ${author}`,
-    `publisher        = ${publisher}`,
-    `license          = ${license}`,
-    `year             = ${year}`,
-    ``,
     `layout           = ${layout}`,
     `homeUri          = ${homeUri}`,
-    ``,
     `pageid           = ${pageid}`,
+    ``,
+    `localUrl         = ${localUrl}`,
+    `siteUrl          = ${siteUrl}`,
+    ``,
     `pageUrl          = ${pageUrl}`,
     `title            = ${title}`,
     `description      = ${description}`,
@@ -90,9 +79,18 @@ mixin pageData
     `og_image         = ${og_image}`,
     `og_imageAlt      = ${og_imageAlt}`,
     ``,
-    `siteUrl          = ${siteUrl}`,
+    `author           = ${author}`,
+    `publisher        = ${publisher}`,
+    `license          = ${license}`,
+    `year             = ${year}`,
+    ``,
     `authorUrl        = ${authorUrl}`,
     `sourceUrl        = ${sourceUrl}`,
-    `localUrl         = ${localUrl}`,
   ])
   +l
+
+mixin updatePageData
+  -
+    og_title = title
+    og_description = description
+    og_url = pageUrl + '?utm_source=homescreen'

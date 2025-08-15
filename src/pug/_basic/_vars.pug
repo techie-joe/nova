@@ -1,50 +1,6 @@
 -
-  //- project
-  name        = 'Nova Builder'
-  version     = '0.1.0'
-
-  //- credit
-  author      = 'Techie Joe'
-  publisher   = 'Techie Joe'
-  license     = 'MIT'
-
-  //- urls
-  localUrl       = 'http://localhost/nova/site'
-  siteUrl        = 'https://techiejoe.github.io/nova/site'
-  authorUrl      = 'https://techiejoe.github.io'
-  sourceUrl      = 'https://github.com/techie-joe/nova'
-
-  //- layout
-  //- layout      = '[layout]'
-
-  //- uris
-  //- homeUri     = '/nova/site/'
-
-  //- page
-  //- pageUrl     = '[page_url]'
-  //- title       = '[untitled]'
-  //- description = '[undescribed]'
-  //- pageid      = '[page_id]'
-
-  //- open graph metadata for social media sharing
-  og_url         = pageUrl? pageUrl + '?utm_source=homescreen' : undefined;
-  og_type        = 'website'
-  og_title       = title
-  og_description = description
-  og_image       = undefined
-  og_imageAlt    = undefined
-
-  //- styling
-  colorScheme = 'light dark'
-  themeColor  = '#222222'
-
-  //- en or en-US following the BCP 47 language tag standard
-  lang        = 'en'
-  charset     = 'utf-8'
-
-  //- theme
-  INCLUDE_THEMEJS = true
-
-  //- progressive web app metadata
-  INCLUDE_MANIFEST        = false
-  INCLUDE_SERVICE_WORKERS = false
+  Object.assign(svgi,{
+    compare:'M19,3H14V5H19V18L14,12V21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M10,18H5L10,12M10,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H10V23H12V1H10V3Z', // for theme switch
+    ellipsis:'M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z',
+    spin:'M17.65,6.35C16.2,4.9 14.21,4 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20C15.73,20 18.84,17.45 19.73,14H17.65C16.83,16.33 14.61,18 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6C13.66,6 15.14,6.69 16.22,7.78L13,11H20V4L17.65,6.35Z',
+  });

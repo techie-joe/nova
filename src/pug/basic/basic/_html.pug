@@ -30,10 +30,6 @@ mixin basic_nav_
 mixin basic_nav
   ._color_1._pad: +basic_nav_
 
-block header
-  +simpleHeader
-  +basic_nav
-
 mixin icons_nav_
   +menu_a2([
     ['basic/i-text','basic/i-text.html','Text Icons'],
@@ -67,3 +63,7 @@ mixin boxaf(menu)
       +menu_a2(menu)
     else
       block
+
+block header
+  +simpleHeader
+  +basic_nav

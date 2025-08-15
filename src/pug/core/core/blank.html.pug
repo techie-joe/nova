@@ -1,0 +1,19 @@
+extends ../../_core/_html
+
+block append vars
+  -
+    pageid      = 'core/blank'
+    pageUrl     = siteUrl + '/core/blank.html'
+    title       = `Blank Core`
+    description = 'This is a placeholder content.'
+    author      = 'Techie Joe'
+
+//- block header
+  header#_header: h1 !{title}
+
+//- block article
+  article._article
+    section._scrollable: +helloWorld
+    hr
+    section._scrollable: pre: +pageData()
+
