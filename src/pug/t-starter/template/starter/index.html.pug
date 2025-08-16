@@ -7,6 +7,11 @@ block append vars
     title       = `Starter`
     description = 'Starter templates'
 
+block header
+  +simplestHeader
+  +backNav(homeUri+'lab')
+  +starter_nav
+
 block article
   article._article
     section._container._scrollable: pre.pre.
