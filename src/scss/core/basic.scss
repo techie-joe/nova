@@ -18,23 +18,35 @@
   white-space: nowrap;
   text-decoration: none;
   vertical-align: top;
+  .s1 { color:$blue }
+  .s2 { color:#000;font-weight:400 }
+  ._dark & {
+    .s1 { color:$dark_blue }
+    .s2 { color:#fff }
+  }
+  ._pink  & {
+    .s1 { color:#8d2e5d }
+    .s2 { color:#fff }
+  }
+  ._cream & {
+    .s1 { color:#422c17 }
+    .s2 { color:#fff }
+  }
+  @at-root a#{&} {
+    & { cursor:pointer;text-decoration:none }
+    &:hover  { background-color: rgba(#888,.3) }
+    &:active { opacity:.3 }
+  }
+  @at-root ._cream a#{&} {
+    &:hover { background-color:rgba(#fff,.3) }
+  }
+  @at-root ._pink a#{&} {
+    &:hover { background-color:rgba(#fff,.3) }
+  }
+  @at-root ._dark a#{&} {
+    &:hover { background-color:rgba(#fff,.2) }
+  }
 }
-
-#logo .s1 { color:$blue }
-#logo .s2 { font-weight:400 }
-._dark #logo .s1 { color:$dark_blue }
-
-a#logo { cursor:pointer;text-decoration:none }
-
-a#logo:hover  { background-color: rgba(#888,.3) }
-._cream a#logo:hover,
-._pink a#logo:hover { background-color:rgba(#fff,.3) }
-._dark a#logo:hover { background-color:rgba(#fff,.2) }
-
-._pink  #logo .s1 { color:#fff }
-._cream #logo .s1 { color:#fff }
-
-a#logo:active { opacity:.3 }
 
 #maindesc {
   font-size: 0.9em;
@@ -76,17 +88,13 @@ a#logo:active { opacity:.3 }
 
 ._pink {
   &,& body,& ._color {
-    color: #53537b;
+    color: #53539e;
     background-color: #f1ecf4;
+    border-color: #4e4e8d;
   }
-  hr { border-color: #ffa1cf }
   ._border,
-  ._a3m,
-  ._a2m,
-  ._a1m,
-  ._a3,
-  ._a2,
-  ._a1 { border-color: #4e4e8d }
+  button, a { border-color:inherit }
+  hr { border-color: #ffa1cf }
   ._h7,._hx1,._hx2,._hx3,
   h6,h5,h4,h3,h2,h1 { color: #d7408b; }
   ._tc_contra { color:#29294b }
@@ -96,8 +104,9 @@ a#logo:active { opacity:.3 }
   }
   ._color_1 {
     background-color: hotpink;
-    color: white;
-    border-color: ghostwhite;
+    color: #ffd3e9;
+    border-color: #ffd3e9;
+    button, a { border-color:inherit }
     h6,
     h5,
     h4,
@@ -126,11 +135,11 @@ a#logo:active { opacity:.3 }
     h4,
     h3,
     h2,
-    h1 { color: #422c17ff; }
+    h1 { color: #422c17; }
   }
   ._color_1 {
     background-color: #b2977d;
-    color: white;
+    color: snow;
     border-color: #907a5b;
   }
   ._color_2 {     

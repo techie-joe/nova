@@ -10,10 +10,8 @@ mixin starter_nav
   ])
 
 block header
-  header#_header
-    +logo_bar
-    +main_nav
-    +starter_nav
+  +simplestHeader
+  +starter_nav
 
 mixin boxa
   ._color_1._radius_5&attributes(attributes): block
