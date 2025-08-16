@@ -19,14 +19,23 @@
   text-decoration: none;
   vertical-align: top;
 }
-#logo .s1 { color:#1133bb }
-#logo .s2 { color:#000; font-weight:400 }
-._dark #logo .s1 { color:#7799ee }
-._dark #logo .s2 { color:#fff }
+
+#logo .s1 { color:$blue }
+#logo .s2 { font-weight:400 }
+._dark #logo .s1 { color:$dark_blue }
+
 a#logo { cursor:pointer;text-decoration:none }
+
+a#logo:hover  { background-color: rgba(#888,.3) }
+._cream a#logo:hover,
+._pink a#logo:hover { background-color:rgba(#fff,.3) }
+._dark a#logo:hover { background-color:rgba(#fff,.2) }
+
+._pink  #logo .s1 { color:#fff }
+._cream #logo .s1 { color:#fff }
+
 a#logo:active { opacity:.3 }
-a#logo:hover  { background-color:#fff }
-._dark a#logo:hover { background-color:#fff3 }
+
 #maindesc {
   font-size: 0.9em;
   line-height: 1.25;

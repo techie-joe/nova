@@ -3,6 +3,6 @@ mixin _logo(s1,s2)
 
 mixin logo(s1,s2)
   if pageid==='index'
-    #logo._no_select&attributes(attributes): +_logo(s1,s2)
+    #logo._no_select._no_color&attributes(attributes): +_logo(s1,s2)
   else
-    a(href=homeUri)#logo._no_select&attributes(attributes): +_logo(s1,s2)
+    a(href=homeUri)#logo._no_select._no_color&attributes(attributes): +_logo(s1,s2)
