@@ -5,13 +5,13 @@ const
     ].map(item => `src/files/${item}/**/*`)
   },
   buildList = (() => {
-    const o = {}
+    const o = {};
     const _scss = item => `src/scss/${item}/**/*.scss`;
     o.scss = [
-      'core'
+      'core',
     ].map(_scss);
     o.scss_dev = [
-      'dev'
+      'dev',
     ].map(_scss);
     ['html', 'php', 'txt', 'md'].forEach(type => {
       o[type] = [
@@ -19,9 +19,9 @@ const
         'core',
         'index',
         'lab',
-        'starter',
-        'template',
         'themejs',
+        't-starter',
+        't-one',
       ].map(item => `src/pug/${item}/**/*.${type}.pug`);
     });
     return o;
