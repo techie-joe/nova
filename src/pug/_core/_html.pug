@@ -21,8 +21,7 @@ mixin helloWorld
     This is a placeholder content.
     Edit this document to get started.
     &nbsp;
-  +backButton|Back
-  //-
+  +backButton| Back
 
 doctype html
 html(lang=lang class=htmlClass.join(' '))
@@ -75,7 +74,7 @@ html(lang=lang class=htmlClass.join(' '))
                 noscript._pa._tc_red._b._mono| // Please enable javascript
 
               block header
-                header#_header: h1 !{title}
+                header#_header: h1(style="margin-bottom:0") !{title}
 
               block main
                 main#_main(class=mainClass.join(' '))
