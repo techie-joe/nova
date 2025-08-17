@@ -1,0 +1,238 @@
+extends _color
+
+block append vars
+  -
+    pageid      = 'lab/color'
+    pageUrl     = siteUrl + '/lab/color.html'
+    title       = `Color`
+    description = 'Color reference'
+
+  -
+    Object.assign(cssi, {
+      gridlines:'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1" height="12"><rect width="1" height="1" fill="%23A9790688" /></svg>',
+      gridbox:{
+        light:'data:image/svg+xml;utf8,<svg width="10" height="10" xmlns="http://www.w3.org/2000/svg"><rect width="9" height="9" fill="none" stroke="none" /><line x1="10" y1="0" x2="10" y2="10" stroke="%23ddd" stroke-width="1" /><line x1="0" y1="10" x2="10" y2="10" stroke="%23ddd" stroke-width="1" /></svg>',
+        dark:'data:image/svg+xml;utf8,<svg width="10" height="10" xmlns="http://www.w3.org/2000/svg"><rect width="9" height="9" fill="none" stroke="none" /><line x1="10" y1="0" x2="10" y2="10" stroke="%23222" stroke-width="1" /><line x1="0" y1="10" x2="10" y2="10" stroke="%23222" stroke-width="1" /></svg>'
+      }
+    });
+
+block append style
+  style.
+    .line { border-top:1px solid #808080 }
+    .gridlines {
+      height:100%;
+      background-image: url('!{cssi.gridbox.light}');
+      background-repeat: repeat;
+      background-position: .1px .1px;
+    }
+    ._dark .gridlines {
+      background-image: url('!{cssi.gridbox.dark}');
+    }
+    #_main ._container { width:60rem;margin:.5rem auto }
+
+block header
+  +simplestHeader
+  +backNav
+
+block article
+  article._article._scrollable
+
+    section._container.grayscale
+      style.
+        .bg0 {
+          height:10px;
+          background:
+          linear-gradient(to right
+            , #000
+            , #fff
+          );
+        }
+      div: +img(homeUri+"images/grayscale.svg","grayscale.svg","Gray Scale")(style="width:100%" width="960" height="30")
+      .bg0: .gridlines
+
+    section.grainbow._container._relative
+      -
+        var grainbow =
+          [ '#ff0000'
+          , '#ff8000'
+          , '#ffff00'
+          , '#80ff00'
+          , '#00ff00'
+          , '#00ff80'
+          , '#00ffff'
+          , '#0080ff'
+          , '#0000ff'
+          , '#8000ff'
+          , '#ff00ff'
+          , '#ff0080'
+          , '#ff0000'
+          ];
+        var darkline  = 49;
+        var lightline = 100-darkline+.1;
+        var darkness  = intToHex(64);
+        var lightness = intToHex(64);
+      style.
+        .cg {
+          display:block;
+          height: 960px;
+          background:
+          linear-gradient(to right
+            , #000000ff
+            , #000000#{darkness} #{darkline}%
+            , #00000000 #{darkline}%
+            , #ffffff00 #{lightline}%
+            , #ffffff#{lightness} #{lightline}%
+            , #ffffffff
+          ),
+          linear-gradient(to bottom,#{grainbow.join(',')});
+        }
+      .cg: .gridlines
+      ._absolute(style="top:0;left:50%;margin-left:-15px;")
+        +img(homeUri+"images/colorscale-v.svg","colorscale-v.svg","Color Scale")(width="30" height="960")
+
+    section.tables._container
+      -
+        /* ======== REFERENCE ==========================================
+                      |   |
+                    0123-4567
+                    fedc-ba98
+                      | - |
+        ============================================================= */
+
+        var rainbows =
+          [ 'DD0000'
+          , 'DD7700'
+          , 'eecc00'
+          , '88AA00'
+          , '008800'
+          , '0088AA'
+          , '0066CC'
+          , '2244DD'
+          , '8822ee'
+          , '992299'
+          , 'CC0066'
+          ];
+        
+        var colors = [
+          [
+            ['000000','111111','222222','808080','dddddd','eeeeee','ffffff'],
+            ['444444','888888','cccccc','ffffff','333333','666666','999999']
+          ],
+          getColors('808080',-10),
+        ];
+
+        rainbows.forEach(function(v, i, a) {
+          colors.push( getColors(v) );
+        });
+
+      mixin tables
+        ._text_center._uppercase
+          - var r = 0;
+          while r < colors.length
+            +table(r)
+            +gradientColor(r)
+            - r++
+      style.
+        #table .grid { display:grid; }
+        #table .i { padding: .4rem .5rem; font-size: .8em; }
+      #table._m_center(style="width:60rem"): +tables
+
+    //- section.rainbow-code
+      -
+        var primary_color   = 8; // blue 0066CC
+        var secondary_color = 3; // orange DD8811
+        var red_color       = 2; // red DD1111
+
+        var bg = colors[primary_color][0];
+        var tc = colors[primary_color][1];
+        var cbg = bg[ Math.ceil(bg.length/2)-1 ];
+        var ctc = tc[ Math.ceil(tc.length/2)-1 ];
+
+      style.
+        #_html .colorcode       { background:#ccc; }
+        #_html._dark .colorcode { background:#111; }
+        .codecolor { padding:0 1em }
+      ._flex._gap
+        ._f_content: +colorCodes(primary_color)
+        ._f_content: +colorCodes(secondary_color)
+        ._f_content: +colorCodes(red_color)
+        ._f_content: +colorCodes(1)
+        ._f_content: +colorCodes(0)
+      //- flex
+
+    section._container
+      style.
+        .atheme ._f { text-align: center; padding:2px }
+      mixin theme(_b,_c,_f)
+        .atheme._flex
+          -
+            mix = (c,s,f)=>[
+              f(s[0],c[0]),
+              f(s[1],c[1]),
+              f(s[2],c[2]),
+            ];
+          - n = 0;
+          while n <= 255
+            - s = [n,n,n];
+            - b = rgbColor(_b);
+            - c = rgbColor(_c);
+            - bg = hexColor(mix(b,s,_f[0]));
+            - fg = hexColor(mix(c,s,_f[1]));
+            ._f(style="background-color:#"+bg+";color:#"+fg+";")
+              //- .i|☯
+              ._smaller._uppercase._mono|#{bg}
+              ._smaller._uppercase._b._mono|#{fg}
+            - n+=17;
+      -
+        /* ======== REFERENCE ======================================
+                      |   |
+                    0123-4567
+                    fedc-ba98
+                      | - |
+        ========================================================= */
+
+        rainbow = [
+          'EE7733',
+          'EEAA33',
+          '99AA33',
+          '339933',
+          '3399AA',
+          '4477EE',
+          'AA44FF',
+          'DD44DD',
+          'DD44AA',
+          'EE3333',
+        ];
+
+      - o_w = (s,c)=>(s);
+      - w_o = (s,c)=>(255-s);
+      - o_c = (s,c)=>(c/255)*(s);
+      - c_o = (s,c)=>(c/255)*(255-s);
+      - c_w = (s,c)=>(c/255)*(255-s)+(s);
+      - w_c = (s,c)=>(255-s)+(c);
+
+      +theme('FFFFFF','FFFFFF',[o_w,w_o])
+
+      each c in rainbow
+        +theme('FFFFFF',c,[o_c,o_c])
+
+      each c in rainbow
+        +theme('FFFFFF',c,[o_w,c_w])
+
+      //- o_c
+
+      each c in rainbow
+        +theme(c,c,[o_c,c_w])
+
+      //- each c in rainbow
+        +theme(c,c,[o_c,c_o])
+
+      //- c_w
+
+      each c in rainbow
+        +theme(c,c,[c_w,o_c])
+
+      //- each c in rainbow
+        +theme(c,c,[c_w,w_c])
+
+    //- section
