@@ -54,6 +54,10 @@
     <link rel="stylesheet" media="all" href="/nova/site/css/nova.css?v=0.1.0" id="_style"/>
     <link rel="stylesheet" media="all" href="/nova/site/css/basic.css?v=0.1.0" id="_basicStyle"/>
     <style>/* your style goes here */</style>
+    <style>
+      #btns button { font-size:.8rem }
+      
+    </style>
   </head>
   <body>
     <div id="_views">
@@ -79,16 +83,6 @@
         </div>
         <main id="_main">
           <article class="_article">
-            <style>
-              #btns button {
-                margin: .1em;
-                font-size: 0.8rem;
-                min-height: 1.5rem;
-                vertical-align: top;
-                line-height: inherit;
-              }
-              #btns .monobtn button { font-family:monospace,monospace; }
-            </style>
             <section class="_container _flex" id="btns">
               <div class="_fit _no_wrap _indiv">
                 <button class="_a3" onclick="test.storeSet();" title="Set Store Item">Set</button>

@@ -10,17 +10,20 @@ block append vars
 block append style
   style.
 
-    #_views      { box-shadow: 0 0 0 3px #3355CC inset; }
+    #_views { box-shadow: 0 0 0 3px #3355CC inset;padding:3px; }
+    .fullview #_views { padding-right:0 }
+
     ._article    { box-shadow: 0 0 0 3px #2a8e39 inset;padding:3px;box-sizing:border-box; }
     #topRightNav { box-shadow: 0 0 0 3px #cc33cc inset; }
     #overflow    { color: #2a8e39 }
 
     .fullview #topRightNav { right:0;margin-right:15px; }
     .fullview #_views {
-      overflow:auto scroll; position: absolute; top: 0; right: 0; bottom: 40px; left: 0; height:auto; min-height:0;
-      margin:0;padding:0
+      overflow:auto scroll;
+      position: absolute; top: 0; right: 0; bottom: 40px; left: 0; height:auto; min-height:0;
     }
     .fullview ._view { padding:0 }
+    #_footer._color { background:none }
     
   //- style.
     
@@ -32,12 +35,12 @@ block article
   article._article: ._pad
 
     +btns
-      button(onclick="view.reset();" title="Reset") R
+      button._a3m(onclick="view.reset();" title="Reset") Reset
       +I
-      button(onclick="view.fullview();" title="Fullview") FV
+      button._a3m(onclick="view.fullview();" title="Fullview") Fullview
       //- button(onclick="view.fullscreen();" title="Fullscreen") FS
       +I
-      button(onclick="view.overflow();" title="Overflow Content") O
+      button._a3m(onclick="view.overflow();" title="Overflow Content") Overflow
     hr
     section._container._scrollable: pre.pre.
       // #{description}

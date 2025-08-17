@@ -8,16 +8,12 @@ block header
   +simplestHeader
   +backNav
 
-mixin btns
+block append style
   style.
-    #btns button {
-      margin: .1em;
-      font-size: 0.8rem;
-      min-height: 1.5rem;
-      vertical-align: top;
-      line-height: inherit;
-    }
-  section._container._indiv#btns: block
+    #btns button { font-size:.8rem }
+
+mixin btns
+  section._container#btns._indiv: block
 
 mixin boxa
   ._color_1._radius_5&attributes(attributes): block
