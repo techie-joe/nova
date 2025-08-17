@@ -6,7 +6,7 @@
   
   <head>
     <meta charset="utf-8"/>
-    <title>ThemeJS Test | Nova Builder</title>
+    <title>ThemeJs | Nova Builder</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
     <meta id="_color_scheme" name="color-scheme" content="light dark"/>
@@ -16,13 +16,13 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/nova/site/icons/favicon-16x16.png?v=0.1.0"/>
     <link rel="icon" type="image/x-icon" sizes="any" href="/nova/site/icons/favicon.ico?v=0.1.0"/>
     <!--[if lt IE 9]><script src="//unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
-    <meta name="description" content="Testing ThemeJS"/>
+    <meta name="description" content="ThemeJs plugin."/>
     <meta name="author" content="Techie Joe"/>
     <meta name="publisher" content="Techie Joe"/>
-    <meta property="og:title" content="ThemeJS Test"/>
-    <meta property="og:description" content="Testing ThemeJS"/>
+    <meta property="og:title" content="ThemeJs"/>
+    <meta property="og:description" content="ThemeJs plugin."/>
     <meta property="og:type" content="website"/>
-    <meta property="og:url" content="https://techiejoe.github.io/nova/site/themejs/test.html?utm_source=homescreen"/>
+    <meta property="og:url" content="https://techiejoe.github.io/nova/site/themejs/index.html?utm_source=homescreen"/>
     <meta property="og:image"/>
     <meta property="og:image:alt"/>
     <style id="_coreStyle">
@@ -47,7 +47,7 @@
       
     </script>
     <script>window.ghost = 'bG9jYWxob3N0LHRlY2hpZS1qb2UuZ2l0aHViLmlvLHRoZW1lanMucGFnZXMuZGV2';</script>
-    <script type="text/javascript" src="/nova/src/ts-js/theme_v2.0.js?v=0.1.0" defer="defer"></script>
+    <script type="text/javascript" src="/nova/site/js/theme_v2.0.js?v=0.1.0" defer="defer"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link href="https://fonts.googleapis.com/css2?&amp;family=Roboto:ital,wght@0,100..900;1,100..900&amp;family=Source+Code+Pro:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet" id="_fonts"/>
@@ -56,152 +56,56 @@
     <style>/* your style goes here */</style>
   </head>
   <body>
-    <div class="_hidden" id="test_element"></div>
     <div id="_views">
       <div class="_view" id="_main_view">
         <noscript class="_pa _tc_red _b _mono">// Please enable javascript</noscript>
         <header id="_header">
-          <div class="_color_1"><a class="_no_select _no_color" href="/nova/site/" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></a><span id="maindesc">Testing ThemeJS</span>
+          <div class="_color_1"><a class="_no_select _no_color" href="/nova/site/" id="logo"><span class="s1">Nova</span><span class="s2">Builder</span></a><span id="maindesc">ThemeJs plugin.</span>
+          </div>
+          <div class="_color_2 _flex" id="_main_nav">
+            <nav class="_f"><a class="_a1m" href="/nova/site/pure">Pure</a><a class="_a1m" href="/nova/site/basic">Basic</a><a class="_a1m" href="/nova/site/lab">Lab</a>
+            </nav>
+            <div><a class="_needjs _a1m" href="#" onclick="event.preventDefault();theme.change();" title="Change Theme (Alt+T)"><i class="_icon _cicon"><i class="isvg">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M19,3H14V5H19V18L14,12V21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M10,18H5L10,12M10,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H10V23H12V1H10V3Z" fill="currentColor" fill-opacity="1"></path>
+                    </svg></i></i></a>
+            </div>
           </div>
         </header>
-        <div class="_flex _color_2">
-          <div><a class="_a1m" href="/nova/site/lab"><i class="_icon _licon"><i class="isvg _rotate180">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
-                  </svg></i></i>Back</a>
-          </div>
-          <div class="_f"><span style="padding:0 .5em;line-height:1.8em;"><span class="_b _small _mono" id="jss">[JS:--]</span></span>
-          </div>
-          <div><a class="_needjs _a1m" href="#" onclick="event.preventDefault();theme.change();" title="Change Theme (Alt+T)"><i class="_icon _cicon"><i class="isvg">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M19,3H14V5H19V18L14,12V21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M10,18H5L10,12M10,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H10V23H12V1H10V3Z" fill="currentColor" fill-opacity="1"></path>
-                  </svg></i></i></a>
-          </div>
-        </div>
         <main id="_main">
-          <article class="_article _needjs">
-            <style>
-              .btns button {
-                margin: .1em;
-                font-size: 0.8rem;
-                min-height: 1.5rem;
-                vertical-align: top;
-                line-height: inherit;
-              }
-              .btns .monobtn button { font-family:monospace,monospace; }
-            </style>
-            <section class="_container btns _flex _mb0">
-              <div class="_fit _no_wrap _indiv">
-                <button class="_a3" onclick="test.storeSet();" title="Set Store Item">Set</button>
-                <button class="_a3" onclick="test.storeGet();" title="Get Store Item">Get</button>
-                <button class="_a3" onclick="test.storeRemove();" title="Remove Store Item">Remove</button>
-                <button class="_a3" onclick="test.storeClear();" title="Clear Store">Clear</button>
-              </div>
-              <div class="_fit _text_center">|</div>
-              <div class="_fit _no_wrap _indiv">
-                <button class="_a3" onclick="test.run()" title="Run Test">Test</button>
-                <button class="_a3" onclick="test.test_1()" title="Run Test">T1</button>
-                <button class="_a3" onclick="test.test_2()" title="Run Test">T2</button>
-                <button class="_a3" onclick="test.reset()" title="Reset Test">Clear</button>
-              </div>
-              <div class="_fit _text_center">|</div>
-              <div class="_fit _no_wrap _indiv">
-                <button class="_a3" onclick="test.themeChange();" title="Change Theme">Theme</button>
-                <button class="_a3" onclick="test.themeCurrent();" title="Current Theme">Current</button>
-                <button class="_a3" onclick="test.themeReset();" title="Reset Theme">Reset</button>
-              </div>
-              <div class="_fit _text_center">|</div>
-              <div class="_fit _no_wrap _indiv monobtn">
-                <button class="_a3" onclick="test.themeSet();" title="theme.set()">()</button>
-                <button class="_a3" onclick="test.themeSet(&quot;&quot;);" title="theme.set(&quot;&quot;)">none</button>
-                <button class="_a3" onclick="test.themeSet(&quot;_dark&quot;);" title="theme.set(&quot;_dark&quot;)">dark</button>
-                <button class="_a3" onclick="test.themeSet(&quot;_pink&quot;);" title="theme.set(&quot;_pink&quot;)">pink</button>
-                <button class="_a3" onclick="test.themeSet(&quot;_cream&quot;);" title="theme.set(&quot;_cream&quot;)">cream</button>
-              </div>
-              <div class="_fit _text_center">|</div>
-              <div class="_fit _no_wrap _indiv">
-                <button class="_a3" onclick="test.themeSet([]);" title="theme.set([])">[]</button>
-                <button class="_a3" onclick="test.themeSet([&quot;&quot;]);" title="theme.set([&quot;&quot;])">S0</button>
-                <button class="_a3" onclick="test.themeSet([&quot;_cream&quot;]);" title="theme.set([&quot;_cream&quot;])">S1</button>
-                <button class="_a3" onclick="test.themeSet([&quot;_pink&quot;,&quot;&quot;]);" title="theme.set([&quot;_pink&quot;,&quot;&quot;])">S2</button>
-                <button class="_a3" onclick="test.themeSet([&quot;_pink&quot;,&quot;_cream&quot;]);" title="theme.set([&quot;_pink&quot;,&quot;_cream&quot;])">S3</button>
-                <button class="_a3" onclick="test.themeSet([&quot;_cream&quot;,&quot;&quot;,&quot;_pink&quot;,&quot;_dark&quot;]);" title="theme.set([&quot;_cream&quot;,&quot;&quot;,&quot;_pink&quot;,&quot;_dark&quot;])">S4</button>
-              </div>
-              <div class="_f"></div>
+          <article class="_article">
+            <section class="_container">
+              <nav><a class="_a3" href="#" title="theme.set(&quot;&quot;)" onclick="theme.set(&quot;&quot;);">Default</a><a class="_a3" href="#" title="theme.set(&quot;_dark&quot;)" onclick="theme.set(&quot;_dark&quot;);">Dark</a><a class="_a3" href="#" title="theme.set(&quot;_pink&quot;)" onclick="theme.set(&quot;_pink&quot;);">Pink</a><a class="_a3" href="#" title="theme.set(&quot;_cream&quot;)" onclick="theme.set(&quot;_cream&quot;);">Cream</a><a class="_a3" href="#" title="theme.set([&quot;_dark&quot;,&quot;&quot;])" onclick="theme.set([&quot;_dark&quot;,&quot;&quot;]);">Common</a><a class="_a3 _active" href="#" title="theme.set([&quot;_dark&quot;,&quot;_cream&quot;,&quot;&quot;,&quot;_pink&quot;])" onclick="theme.set([&quot;_dark&quot;,&quot;_cream&quot;,&quot;&quot;,&quot;_pink&quot;]);">All</a>|<a class="_a3" href="test.html">Test</a>
+              </nav>
             </section>
-            <hr class="_mb0">
-            <style>
-              #test .pre { font-size:.8rem }
-              #test .sec { max-height:450px }
-            </style>
-            <div class="_flex" id="test">
-              <div class="_fit" style="flex-basis:300px">
-                <section class="_scrollable sec" id="sec_storage">
-                  <pre class="pre _container" id="storage"></pre>
-                </section>
-              </div>
-              <div class="_f">
-                <section class="_scrollable sec" id="sec">
-                  <pre class="pre _container" id="pre">// Testing ThemeJS ..</pre>
-                </section>
-              </div>
-            </div>
             <hr>
-            <div class="_flex" id="theme">
-              <div class="_fit" style="flex-basis:350px">
-                <section class="_container">
-                  <h2 class="_h4">Heading</h2>
-                  <p>Paragraph text ..</p>
-                  <blockquote class="_blockquote">blockquote._blockquote</blockquote>
-                  <details class="_border">
-                    <summary class="_no_select">Summary</summary>
-                    <div class="_pa_5">Details</div>
-                  </details>
-                  <section class="_container"><a class="_a3">Link</a>
-                    <button class="_a3">Button</button>
-                    <details class="_inblock">
-                      <summary class="_a3">Summary</summary>
-                      <div class="_relative">
-                        <div class="_absolute _color_1 _border _pa_5">Details</div>
-                      </div>
-                    </details>
-                  </section>
-                  <hr>
-                  <div>
-<a href="#" onclick="event.preventDefault();" id="hyperlink">Hyperlink</a>
-<a class="_link" href="#" onclick="event.preventDefault();">Link</a>
-<a class="_visited" href="#" onclick="event.preventDefault();">Visited</a>
-<a class="_hover" href="#" onclick="event.preventDefault();">Hover</a>
-<a class="_active" href="#" onclick="event.preventDefault();">Active</a><br>
-<a class="_hover_color" href="#" onclick="event.preventDefault();">Hover-Link</a>
-<a class="_no_color" href="#" onclick="event.preventDefault();">No-Color</a>
+            <section class="_container">
+              <div class="_960 _flex _gap2 _mt2">
+                <div class="_f1">
+                  <h3>Open new possibilities with ThemeJs</h3>
+                  <p class="_text_justify"><b>ThemeJs</b> is a lightweight, easy to use, and highly configurable theme switcher for your website and web application. Built with user experience in mind, it is designed to be simple, easy to use, with no external dependencies. It is a perfect solution for those who want to give their users the ability to switch between different themes on their website. ThemeJs is fully customizable, compatible with all major browsers and devices, and can be easily integrated into any website and web application.</p>
+                </div>
+                <div class="_f2">
+                  <h3>Available in light, dark and more ..</h3>
+                  <p class="_text_justify">ThemeJs makes it easy to switch between different themes on your website. You can easily switch between pre-configured themes by clicking a button or by using the keyboard shortcut <kbd>Alt + T</kbd>. With a simple use of <code>theme.set()</code> and <code>theme.change()</code>, you can create a unique experience for your websites and web applications.</p>
+                </div>
+                <div class="_f3">
+                  <h3>OS aware</h3>
+                  <p class="_text_justify">ThemeJs automatically adapts to user's operating system preferences. This feature can be seen here in this demo, try changing your operating system theme preference.</p>
+                </div>
+                <div class="_f4">
+                  <div class="_p _color_1 _radius_5 _mono _smaller _ph">
+                    <div class="_pa_5">
+                      <p>ThemeJs by Techie Joe</p>
+                      <p>Version 2.0.0 - b337.02</p>
+                    </div>
                   </div>
-                  <div>
-                    normal
-                    <code>code</code>
-                    <samp>samp</samp>
-                    <kbd>kbd</kbd>
-                  </div>
-                  <div><span>normal</span>
-                    <span class="_tc_contra">contra</span>
-                    <span class="_tc_blue">blue</span>
-                    <span class="_tc_purple">purple</span>
-                    <span class="_tc_orange">orange</span>
-                    <span class="_tc_red">red</span>
-                    <span class="_tc_green">green</span>
-                  </div>
-                </section>
-                <hr>
-                <style>.c > * { padding:.25em .5em }</style>
-                <section class="c _container">
-                  <div class="_inblock _color">color</div>
-                  <div class="_inblock _color_1">color_1</div>
-                  <div class="_inblock _color_2">color_2</div>
-                </section>
-                <hr class="_mt0">
+                </div>
+                <div class="_f3">
+                  <blockquote class="_blockquote _small" style="max-width:50em">This plugin is coded and compiled to <b>ECMAScript 6 (ES6) 2015 Standard</b>, without any dependency to other scripts. The plugin are kept neatly within scope and easily accessible using an interface.</blockquote>
+                </div>
               </div>
-              <div class="_f"></div>
-            </div>
+            </section>
           </article>
           <aside class="_side_article"></aside>
         </main>
@@ -221,6 +125,5 @@
     </div>
     <aside id="_widgets"></aside>
     <script>// your script goes here</script>
-    <script type="text/javascript" src="/nova/src/test_js/test_theme_v2.0.js?v=0.1.0"></script>
   </body>
 </html>

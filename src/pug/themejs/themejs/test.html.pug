@@ -2,7 +2,7 @@ extends ../../_basic/_html
 
 block append vars
   -
-    pageid      = 'themejs'
+    pageid      = 'themejs/test'
     pageUrl     = siteUrl + '/themejs/test.html'
     title       = `ThemeJS Test`
     description = 'Testing ThemeJS'
@@ -38,8 +38,8 @@ mixin _ax(href,title,cls)
 
 block header
   +simplestHeader
-  +backNav(homeUri+'lab')
-    span(style="padding:0 .5em;line-height:1.8em;"): span#jss._b._small._mono='[JS:--]' 
+  +backNav
+    div(style="padding:0 .5em;line-height:2em;"): span#jss._b._small._mono='[JS:--]' 
 
 block article
   article._article._needjs

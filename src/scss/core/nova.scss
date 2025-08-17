@@ -105,7 +105,7 @@ p,._p { margin: .5rem 0 }
 pre,._pre {
   @extend ._reset_fontsize;
   font-family: $monospace;
-  line-height: 1.25;
+  line-height: 1.28;
 }
 
 // enforce correct font weight.
@@ -223,21 +223,23 @@ template { @extend ._hidden; }
 // - dont append or include other class.
 
 @mixin selection {
-  background-color: $select_color !important;
+  background-color: rgba($select_bg,.8) !important;
   color: $select_tc !important;
   text-shadow: none !important;
 }
 
-::-moz-selection { @include selection; }
-::selection      { @include selection; }
-._select         { @include selection; }
-._no_select {
+@mixin noselect {
   -webkit-user-select:none;
   -khtml-user-select:none;
   -moz-user-select:none;
   -ms-user-select:none;
   user-select:none;
 }
+
+::-moz-selection { @include selection; }
+::selection      { @include selection; }
+._select         { @include selection; }
+._no_select      { @include noselect;  }
 
 html,body {
   @extend ._scrollable;
@@ -374,12 +376,8 @@ a,._a {
 ._a2,
 ._a1 {
   & {
+    @include noselect;
     display: inline-block;
-    -webkit-user-select:none;
-    -khtml-user-select:none;
-    -moz-user-select:none;
-    -ms-user-select:none;
-    user-select:none;
     cursor: pointer;
     text-align: center;
     white-space: nowrap;
@@ -456,7 +454,7 @@ a._a1,._a1 {
 ._border { border: 1px solid rgba($border_color,.8);  }
 
 // set simple boxline
-._boxline { box-shadow: 0 0 0 1px rgba($select_color,.7) inset }
+._boxline { box-shadow: 0 0 0 1px rgba($select_bg,.7) inset }
 
 // set simple outline
 ._outline { outline: 1px solid rgba($outline_color,.7) }
@@ -581,6 +579,7 @@ a[href]._hover_u,._hover_u {
 ._v_top    { vertical-align: top }
 ._v_middle { vertical-align: middle }
 ._v_bottom { vertical-align: bottom }
+._v_baseline { vertical-align: baseline }
 
 ._m_center { margin-left: auto; margin-right: auto }
 
