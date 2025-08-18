@@ -36,81 +36,87 @@ block article
       mixin flex(n)
         - for (let i = 0; i < n ; i++)
           .f._outline(class="_f"+n) Flex #{n}
-      mixin fit_
-        .f._fit._outline2&attributes(attributes): block
-      mixin flex_
-        .f._f._outline| Flex
+      mixin fix
+        .f._f._outline2&attributes(attributes): block
+      mixin fit
+        .f._fit._outline&attributes(attributes): block
       //- --------------------------------------------------------      
       ._flex._gap_5
         ._f1._flex._gap_5
-          +fit_| Fit
-          +fit_(style="flex-basis:100px")| 100px
-          .f._f6._outline| Flex 6
-          +flex_
+          .f._full._outline| Full
+          +fix| Fix
+          +fit| Fit
+          .f._fill._outline| Fill
         ._f1._flex._gap_5
-          +fit_(style="flex-basis:50px")| 50px
-          +flex_
-          +fit_(style="flex-basis:100px")| 100px
-          +flex_
-          +fit_(style="flex-basis:200px")| 200px
+          +fix| Fix
+          +fix(style="flex-basis:100px")| 100px
+          +fit| Fit
+          .f._fill._outline| Fill
         ._f1._flex._gap_5
-          +fit_(style="flex-basis:300px")| 300px
-          +repeat(3): +flex_
+          +fix(style="flex-basis:50px")| 50px
+          +fit| Fit
+          +fix(style="flex-basis:100px")| 100px
+          +fit| Fit
+          +fix(style="flex-basis:200px")| 200px
         ._f1._flex._gap_5
-          +fit_(style="flex-basis:300px")| 300px
-          +fit_(style="flex-basis:200px")| 200px
-          +fit_(style="flex-basis:100px")| 100px
-          +fit_(style="flex-basis:50px")| 50px
-          +flex_
+          +fix(style="flex-basis:300px")| 300px
+          +fix(style="flex-basis:200px")| 200px
+          +fix(style="flex-basis:100px")| 100px
+          +fix(style="flex-basis:50px")| 50px
+          +fit| Fit
+        ._f1._flex._gap_5
+          +fix(style="flex-basis:300px")| 300px
+          +repeat(3): +fit| Fit
+
       hr
       ._flex._gap_5
         - for (let f = 1; f <= 6 ; f++)
-          ._f1._flex._gap_5: +repeat(f): +flex_
+          ._f1._flex._gap_5: +repeat(f): +fit| Fit
       hr
       //- --------------------------------------------------------
         ._flex._gap_5
           ._f1._flex._gap_5: +flex(6)
           ._f1._flex._gap_5
-            .f._outline2._f6-5 Flex 6-5
+            .f._outline2._f6_5 Flex 6_5
             .f._outline2._f6 Flex 6
-            .f._outline2._f6-4 Flex 6-4
-            .f._outline2._f6-2 Flex 6-2
-            .f._outline2._f6-3 Flex 6-3
-            .f._outline2._f6-3 Flex 6-3
-            .f._outline2._f6-2 Flex 6-2
-            .f._outline2._f6-4 Flex 6-4
+            .f._outline2._f6_4 Flex 6_4
+            .f._outline2._f6_2 Flex 6_2
+            .f._outline2._f6_3 Flex 6_3
+            .f._outline2._f6_3 Flex 6_3
+            .f._outline2._f6_2 Flex 6_2
+            .f._outline2._f6_4 Flex 6_4
             .f._outline2._f6 Flex 6
-            .f._outline2._f6-5 Flex 6-5
+            .f._outline2._f6_5 Flex 6_5
         hr
         ._flex._gap_5
           ._f1._flex._gap_5: +flex(5)
           ._f1._flex._gap_5
-            .f._outline2._f5-4 Flex 5-4
+            .f._outline2._f5_4 Flex 5_4
             .f._outline2._f5 Flex 5
-            .f._outline2._f5-3 Flex 5-3
-            .f._outline2._f5-2 Flex 5-2
-            .f._outline2._f5-2 Flex 5-2
-            .f._outline2._f5-3 Flex 5-3
+            .f._outline2._f5_3 Flex 5_3
+            .f._outline2._f5_2 Flex 5_2
+            .f._outline2._f5_2 Flex 5_2
+            .f._outline2._f5_3 Flex 5_3
             .f._outline2._f5 Flex 5
-            .f._outline2._f5-4 Flex 5-4
+            .f._outline2._f5_4 Flex 5_4
         hr
         ._flex._gap_5
           ._f1._flex._gap_5: +flex(4)
           ._f1._flex._gap_5
-            .f._outline2._f4-3 Flex 4-3
+            .f._outline2._f4_3 Flex 4_3
             .f._outline2._f4 Flex 4
-            .f._outline2._f4-2 Flex 4-2
-            .f._outline2._f4-2 Flex 4-2
+            .f._outline2._f4_2 Flex 4_2
+            .f._outline2._f4_2 Flex 4_2
             .f._outline2._f4 Flex 4
-            .f._outline2._f4-3 Flex 4-3
+            .f._outline2._f4_3 Flex 4_3
         hr
         ._flex._gap_5
           ._f1._flex._gap_5: +flex(3)
           ._f1._flex._gap_5
-            .f._outline2._f3-2 Flex 3-2
+            .f._outline2._f3_2 Flex 3_2
             .f._outline2._f3 Flex 3
             .f._outline2._f3 Flex 3
-            .f._outline2._f3-2 Flex 3-2
+            .f._outline2._f3_2 Flex 3_2
         hr
         ._flex._gap_5
           .f._outline._f2 Flex 2

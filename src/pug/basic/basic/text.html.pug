@@ -37,22 +37,22 @@ block article
     style.
       #info ._f3 { flex-basis:30% }
     section._container1: ._960: ._flex._gap2#info
-      ._fit(style="flex-basis: 38em;")
+      ._f(style="flex-basis: 38em;")
         h2._system._h4 System Font
         p._system._text_justify.
           System font is the default set of fonts used by an operating system for displaying text across the user interface. The primary goal is to provide a seamless experience for users as they interact with different applications and system elements. Common examples includes "Segoe UI" on Windows, "San Francisco" on macOS, and "Roboto" on Android. They are an integral part of the overall design language and contribute to the visual identity of the operating system.
 
-      ._f(style="flex-basis: 220px;")
+      ._fit(style="flex-basis: 10em;")
         h2._sans._h4 Sans
         p._sans._text_justify.
           Sans fonts, such as Roboto, Arial and Verdana, are known for their clean and modern look, lacking the small decorative strokes at the ends of letters. They are widely used for digital media due to their readability on screens.
 
-      ._f(style="flex-basis: 220px;")
+      ._fit(style="flex-basis: 10em;")
         h2._serif._h4 Serif
         p._serif._text_justify.
           Serif fonts, like Times New Roman and Georgia, feature small lines or strokes attached to the ends of letters, giving a more traditional and formal appearance. These fonts are often used in print media for their elegant look.
 
-      ._f(style="flex-basis: 20em;")
+      ._fit(style="flex-basis: 10em;")
         h2._mono._h4 Monospace
         p._mono._text_justify.
           Monospace fonts, such as Courier New and Consolas have characters that occupy the same horizontal space. This uniform spacing makes them ideal for displaying scripts and source codes.
@@ -101,12 +101,11 @@ block article
     h2._h7._mono // Uniform size for maximum adaptability
 
     ._flex(style="column-gap:1em").gridlines24
-      ._fit Normal
+      ._f Normal
       ._f._no_wrap
         | #[code code]
         | #[samp samp]
         | #[kbd kbd]
-      ._f
     //- flex
 
     hr

@@ -51,14 +51,14 @@ block article
     mixin flex(n)
       - for (let i = 0; i < n ; i++)
         .f._outline(class="_f"+n) Flex #{n}
-    mixin fit_
-      .f._fit._outline2&attributes(attributes): block
-    mixin flex_
-      .f._f._outline| Flex
+    mixin fix
+      .f._f._outline2&attributes(attributes): block
+    mixin fit
+      .f._fit._outline&attributes(attributes): block
     section._p: div(style="max-width:960px;margin:auto")
       ._flex
         - for (let f = 1; f <= 12 ; f++)
-          ._f1._flex: +repeat(f): +flex_
+          ._f1._flex: +repeat(f): +fit| Fit
       hr
       ._flex
         - for (let f = 1; f <= 6 ; f++)

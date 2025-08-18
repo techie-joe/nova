@@ -25,9 +25,9 @@ block stylesheet
 
 mixin backNav(backLink)
   ._flex._color_2
-    div: +a(backLink||'./')._a1m|#[+isvg(svgi.angle,'_licon')._rotate180]Back
-    ._f: block
-    div: +changeThemeLink._a1m: +isvg(svgi.compare,'_cicon')
+    ._f: +a(backLink||'./')._a1m|#[+isvg(svgi.angle,'_licon')._rotate180]Back
+    ._fill: block
+    ._f: +changeThemeLink._a1m: +isvg(svgi.compare,'_cicon')
 
 mixin logo_bar
   ._color_1

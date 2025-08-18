@@ -60,29 +60,30 @@
     </style>
     <link rel="stylesheet" media="all" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
     <style>
-      ._hover_show,
-      ._hover_show a.__full,
-      a.__full { display:block;text-align:left }
+      a.__full,
+      ._hover_show.__full,
+      ._hover_show a.__full { display:block;text-align:left }
       
       ._hover_show { display:inline-block;position:relative }
-      ._hover_show ._content {
+      ._hover_show > ._content {
         position:absolute;
         z-index:1;top:100%;left:0;
-        overflow:hidden !important;
-        transition:max-width .2s ease .2s, max-height .2s ease .2s;
+        overflow:hidden;
+        transition:max-width .4s ease .2s, max-height .4s ease .2s;
         max-width:0px;max-height:0px;
       }
-      ._hover_show._hover ._content,
-      ._hover_show:hover ._content { max-width:300px;max-height:300px }
+      ._hover_show._hover > ._content,
+      ._hover_show:hover > ._content { overflow:visible !important;max-width:300px;max-height:300px }
+      ._hover_show ._hover_show > ._content { left: 1rem }
       
       ._click_show { display:block;position:relative }
       ._click_show ._content {
-        overflow:hidden !important;
-        transition:max-width .2s ease, max-height .2s ease;
+        overflow:hidden;
+        transition:max-width .4s ease, max-height .4s ease;
         max-width:0px;max-height:0px;
       }
       ._click_show.open,
-      ._click_show.open ._content { height:100%;max-width:100%;max-height:100% }
+      ._click_show.open ._content { overflow:visible !important;height:100%;max-width:100%;max-height:100% }
       
       ._foac,._foac * { white-space:nowrap !important;overflow:hidden !important }
       
@@ -97,14 +98,14 @@
           </div>
         </header>
         <div class="_flex _color_2">
-          <div><a class="_a1m" href="./"><i class="_icon _licon"><i class="isvg _rotate180">
+          <div class="_f"><a class="_a1m" href="./"><i class="_icon _licon"><i class="isvg _rotate180">
                   <svg viewBox="0 0 24 24">
                     <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
                   </svg></i></i>Back</a>
           </div>
-          <div class="_f">
+          <div class="_fill">
           </div>
-          <div><a class="_needjs _a1m" href="#" onclick="event.preventDefault();theme.change();" title="Change Theme (Alt+T)"><i class="_icon _cicon"><i class="isvg">
+          <div class="_f"><a class="_needjs _a1m" href="#" onclick="event.preventDefault();theme.change();" title="Change Theme (Alt+T)"><i class="_icon _cicon"><i class="isvg">
                   <svg viewBox="0 0 24 24">
                     <path d="M19,3H14V5H19V18L14,12V21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M10,18H5L10,12M10,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H10V23H12V1H10V3Z" fill="currentColor" fill-opacity="1"></path>
                   </svg></i></i></a>
@@ -121,103 +122,147 @@
                 <aside class="_click_show open" id="sidemenu">
                   <div class="_content">
                     <div class="content _scrollable _color_1">
-                      <ul class="_h_menu _m0 _plain _color_1">
-                        <li><a class="_no_wrap __full _a1m" href="#" onclick="event.preventDefault();"><i class="_icon _licon"><i class="isvg">
-                                <svg viewBox="0 0 24 24">
-                                  <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" fill="currentColor" fill-opacity="1"></path>
-                                </svg></i></i>Home</a>
-                        </li>
-                        <li>
-                          <hr class="_m0">
-                        </li>
-                        <li class="_flex"><a class="_no_wrap _a1m" href="#" onclick="event.preventDefault();"><i class="_icon _cicon"><i class="isvg">
-                                <svg viewBox="0 0 24 24">
-                                  <path d="M5,6H19V8H5V6M5,11H19V13H5V11M5,16H19V18H5V16Z" fill="currentColor" fill-opacity="1"></path>
-                                </svg></i></i></a>
-                          <div class="_f"><a class="_no_wrap _a1m" href="#" onclick="event.preventDefault();">Link</a>
-                          </div><a class="_no_wrap _a1m" href="#" onclick="event.preventDefault();"><i class="_icon _cicon"><i class="isvg">
-                                <svg viewBox="0 0 24 24">
-                                  <path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z" fill="currentColor" fill-opacity="1"></path>
-                                </svg></i></i></a>
-                        </li>
-                        <li>
-                          <hr class="_m0">
-                        </li>
-                        <li><a class="_no_wrap __full _a1m" href="#" onclick="event.preventDefault();">Link</a>
-                        </li>
-                        <li><a class="_no_wrap __full _a1m" href="#" onclick="event.preventDefault();">Link</a>
-                        </li>
-                        <li><a class="_no_wrap __full _a1m" href="#" onclick="event.preventDefault();">Link</a>
-                        </li>
-                        <li><a class="_no_wrap __full _a1m" href="#" onclick="event.preventDefault();">Link</a>
-                        </li>
-                      </ul>
+                      <div class="_color_1"><a class="_no_wrap __full _a1m" href="#" onclick="event.preventDefault();"><i class="_icon _licon"><i class="isvg">
+                              <svg viewBox="0 0 24 24">
+                                <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" fill="currentColor" fill-opacity="1"></path>
+                              </svg></i></i>Home</a>
+                        <hr class="_m0">
+                        <div class="_flex">
+                          <div><a class="_no_wrap _a1m" href="#" onclick="event.preventDefault();"><i class="_icon _cicon"><i class="isvg">
+                                  <svg viewBox="0 0 24 24">
+                                    <path d="M5,6H19V8H5V6M5,11H19V13H5V11M5,16H19V18H5V16Z" fill="currentColor" fill-opacity="1"></path>
+                                  </svg></i></i></a>
+                          </div>
+                          <div class="_fill"><a class="_no_wrap _a1m" href="#" onclick="event.preventDefault();">Link</a>
+                          </div>
+                          <div><a class="_no_wrap _a1m" href="#" onclick="event.preventDefault();"><i class="_icon _cicon"><i class="isvg">
+                                  <svg viewBox="0 0 24 24">
+                                    <path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z" fill="currentColor" fill-opacity="1"></path>
+                                  </svg></i></i></a>
+                          </div>
+                        </div>
+                        <hr class="_m0"><a class="_no_wrap __full _a1m" href="#" onclick="event.preventDefault();">Link</a><a class="_no_wrap __full _a1m" href="#" onclick="event.preventDefault();">Link</a><a class="_no_wrap __full _a1m" href="#" onclick="event.preventDefault();">Link</a><a class="_no_wrap __full _a1m" href="#" onclick="event.preventDefault();">Link</a>
+                      </div>
                     </div>
                   </div>
                 </aside>
               </div>
               <div style="width:150px">
-                <ul class="_h_menu _m0 _plain _color_1">
-                  <li><a class="_no_wrap __full _a1m" href="#" onclick="event.preventDefault();"><i class="_icon _licon"><i class="isvg">
-                          <svg viewBox="0 0 24 24">
-                            <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" fill="currentColor" fill-opacity="1"></path>
-                          </svg></i></i>Home</a>
-                  </li>
-                  <li>
-                    <hr class="_m0">
-                  </li>
-                  <li class="_flex"><a class="_no_wrap _a1m" href="#" onclick="event.preventDefault();"><i class="_icon _cicon"><i class="isvg">
-                          <svg viewBox="0 0 24 24">
-                            <path d="M5,6H19V8H5V6M5,11H19V13H5V11M5,16H19V18H5V16Z" fill="currentColor" fill-opacity="1"></path>
-                          </svg></i></i></a>
-                    <div class="_f"><a class="_no_wrap _a1m" href="#" onclick="event.preventDefault();">Link</a>
-                    </div><a class="_no_wrap _a1m" href="#" onclick="event.preventDefault();"><i class="_icon _cicon"><i class="isvg">
-                          <svg viewBox="0 0 24 24">
-                            <path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z" fill="currentColor" fill-opacity="1"></path>
-                          </svg></i></i></a>
-                  </li>
-                  <li>
-                    <hr class="_m0">
-                  </li>
-                  <li><a class="_no_wrap __full _a1m" href="#" onclick="event.preventDefault();">Link</a>
-                  </li>
-                </ul>
-              </div>
-              <div style="width:150px">
-                <div class="_color_1 _pa_5 _radius_5">
-                  <ul class="_h_menu _m0 _plain">
-                    <li><a class="_no_wrap __full _a2" href="#" onclick="event.preventDefault();"><i class="_icon _licon"><i class="isvg">
-                            <svg viewBox="0 0 24 24">
-                              <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" fill="currentColor" fill-opacity="1"></path>
-                            </svg></i></i>Home</a>
-                    </li>
-                    <li>
-                      <hr class="_mv_25">
-                    </li>
-                    <li class="_flex"><a class="_no_wrap _a2" href="#" onclick="event.preventDefault();"><i class="_icon _cicon"><i class="isvg">
+                <div class="_color_1"><a class="_no_wrap __full _a1m" href="#" onclick="event.preventDefault();"><i class="_icon _licon"><i class="isvg">
+                        <svg viewBox="0 0 24 24">
+                          <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" fill="currentColor" fill-opacity="1"></path>
+                        </svg></i></i>Home</a>
+                  <hr class="_m0">
+                  <div class="_flex">
+                    <div><a class="_no_wrap _a1m" href="#" onclick="event.preventDefault();"><i class="_icon _cicon"><i class="isvg">
                             <svg viewBox="0 0 24 24">
                               <path d="M5,6H19V8H5V6M5,11H19V13H5V11M5,16H19V18H5V16Z" fill="currentColor" fill-opacity="1"></path>
                             </svg></i></i></a>
-                      <div class="_f"><a class="_no_wrap _a2" href="#" onclick="event.preventDefault();">Link</a>
-                      </div><a class="_no_wrap _a2" href="#" onclick="event.preventDefault();"><i class="_icon _cicon"><i class="isvg">
+                    </div>
+                    <div class="_fill"><a class="_no_wrap _a1m" href="#" onclick="event.preventDefault();">Link</a>
+                    </div>
+                    <div><a class="_no_wrap _a1m" href="#" onclick="event.preventDefault();"><i class="_icon _cicon"><i class="isvg">
                             <svg viewBox="0 0 24 24">
                               <path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z" fill="currentColor" fill-opacity="1"></path>
                             </svg></i></i></a>
-                    </li>
-                    <li>
-                      <hr class="_mv_25">
-                    </li>
-                    <li><a class="_no_wrap __full _a2" href="#" onclick="event.preventDefault();">Link</a>
-                    </li>
-                  </ul>
+                    </div>
+                  </div>
+                  <hr class="_m0"><a class="_no_wrap __full _a1m" href="#" onclick="event.preventDefault();">Link</a>
+                  <hr class="_m0">
+                  <style>
+                    #menu_va .content { width:200px;height:auto }
+                    #menu_va .boxline { height:150% }
+                  </style><span class="_hover_show _hoverx __full" id="menu_va"><a class="_no_wrap _a1m __full" href="#" onclick="event.preventDefault();">Menu<i class="_icon _ricon"><i class="isvg _rotate90">
+                          <svg viewBox="0 0 24 24">
+                            <path d="M10,17L15,12L10,7V17Z" fill="currentColor" fill-opacity="1"></path>
+                          </svg></i></i></a>
+                    <div class="_content">
+                      <div class="content _color_1 _border _scrollablex">
+                        <div class="_color_1"><a class="_no_wrap __full _a1m" href="#" onclick="event.preventDefault();"><i class="_icon _licon"><i class="isvg">
+                                <svg viewBox="0 0 24 24">
+                                  <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" fill="currentColor" fill-opacity="1"></path>
+                                </svg></i></i>Home</a>
+                          <hr class="_m0">
+                          <div class="_flex">
+                            <div><a class="_no_wrap _a1m" href="#" onclick="event.preventDefault();"><i class="_icon _cicon"><i class="isvg">
+                                    <svg viewBox="0 0 24 24">
+                                      <path d="M5,6H19V8H5V6M5,11H19V13H5V11M5,16H19V18H5V16Z" fill="currentColor" fill-opacity="1"></path>
+                                    </svg></i></i></a>
+                            </div>
+                            <div class="_fill"><a class="_no_wrap _a1m" href="#" onclick="event.preventDefault();">Link</a>
+                            </div>
+                            <div><a class="_no_wrap _a1m" href="#" onclick="event.preventDefault();"><i class="_icon _cicon"><i class="isvg">
+                                    <svg viewBox="0 0 24 24">
+                                      <path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z" fill="currentColor" fill-opacity="1"></path>
+                                    </svg></i></i></a>
+                            </div>
+                          </div>
+                          <hr class="_m0">
+                          <style>
+                            #menu_vva .content { width:200px;height:150px }
+                            #menu_vva .boxline { height:150% }
+                          </style><span class="_hover_show _hoverx __full" id="menu_vva"><a class="_no_wrap _a1m __full" href="#" onclick="event.preventDefault();">Menu<i class="_icon _ricon"><i class="isvg _rotate90">
+                                  <svg viewBox="0 0 24 24">
+                                    <path d="M10,17L15,12L10,7V17Z" fill="currentColor" fill-opacity="1"></path>
+                                  </svg></i></i></a>
+                            <div class="_content">
+                              <div class="content _color_1 _border _scrollable">
+                                <div class="_color_1"><a class="_no_wrap __full _a1m" href="#" onclick="event.preventDefault();"><i class="_icon _licon"><i class="isvg">
+                                        <svg viewBox="0 0 24 24">
+                                          <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" fill="currentColor" fill-opacity="1"></path>
+                                        </svg></i></i>Home</a>
+                                  <hr class="_m0">
+                                  <div class="_flex">
+                                    <div><a class="_no_wrap _a1m" href="#" onclick="event.preventDefault();"><i class="_icon _cicon"><i class="isvg">
+                                            <svg viewBox="0 0 24 24">
+                                              <path d="M5,6H19V8H5V6M5,11H19V13H5V11M5,16H19V18H5V16Z" fill="currentColor" fill-opacity="1"></path>
+                                            </svg></i></i></a>
+                                    </div>
+                                    <div class="_fill"><a class="_no_wrap _a1m" href="#" onclick="event.preventDefault();">Link</a>
+                                    </div>
+                                    <div><a class="_no_wrap _a1m" href="#" onclick="event.preventDefault();"><i class="_icon _cicon"><i class="isvg">
+                                            <svg viewBox="0 0 24 24">
+                                              <path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z" fill="currentColor" fill-opacity="1"></path>
+                                            </svg></i></i></a>
+                                    </div>
+                                  </div>
+                                  <hr class="_m0"><a class="_no_wrap __full _a1m" href="#" onclick="event.preventDefault();">Link</a><a class="_no_wrap __full _a1m" href="#" onclick="event.preventDefault();">Link</a><a class="_no_wrap __full _a1m" href="#" onclick="event.preventDefault();">Link</a><a class="_no_wrap __full _a1m" href="#" onclick="event.preventDefault();">Link</a>
+                                </div>
+                              </div>
+                            </div></span><a class="_no_wrap __full _a1m" href="#" onclick="event.preventDefault();">Link</a>
+                        </div>
+                      </div>
+                    </div></span>
                 </div>
               </div>
-              <div class="_f"></div>
+              <div style="width:150px">
+                <div class="_color_1 _pa_5 _radius_5"><a class="_no_wrap __full _a2" href="#" onclick="event.preventDefault();"><i class="_icon _licon"><i class="isvg">
+                        <svg viewBox="0 0 24 24">
+                          <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" fill="currentColor" fill-opacity="1"></path>
+                        </svg></i></i>Home</a>
+                  <hr class="_mv_25">
+                  <div class="_flex">
+                    <div><a class="_no_wrap _a2" href="#" onclick="event.preventDefault();"><i class="_icon _cicon"><i class="isvg">
+                            <svg viewBox="0 0 24 24">
+                              <path d="M5,6H19V8H5V6M5,11H19V13H5V11M5,16H19V18H5V16Z" fill="currentColor" fill-opacity="1"></path>
+                            </svg></i></i></a>
+                    </div>
+                    <div class="_fill"><a class="_no_wrap _a2" href="#" onclick="event.preventDefault();">Link</a>
+                    </div>
+                    <div><a class="_no_wrap _a2" href="#" onclick="event.preventDefault();"><i class="_icon _cicon"><i class="isvg">
+                            <svg viewBox="0 0 24 24">
+                              <path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z" fill="currentColor" fill-opacity="1"></path>
+                            </svg></i></i></a>
+                    </div>
+                  </div>
+                  <hr class="_mv_25"><a class="_no_wrap __full _a2" href="#" onclick="event.preventDefault();">Link</a>
+                </div>
+              </div>
             </section>
             <hr>
             <section class="_mv _flex" style="height:100px">
-              <div class="_fit" style="width:200px">
-                <div class="_h_menu _color_1"><a class="__full _a1m" href="#" onclick="event.preventDefault();toggleMenu(&quot;regular&quot;);"><i class="_icon _licon"><i class="isvg">
+              <div>
+                <div class="_color_1"><a class="__full _a1m" href="#" onclick="event.preventDefault();toggleMenu(&quot;regular&quot;);"><i class="_icon _licon"><i class="isvg">
                         <svg viewBox="0 0 24 24">
                           <path d="M5,6H19V8H5V6M5,11H19V13H5V11M5,16H19V18H5V16Z" fill="currentColor" fill-opacity="1"></path>
                         </svg></i></i> Regular</a><a class="__full _a1m" href="#" onclick="event.preventDefault();toggleMenu(&quot;absolute&quot;);"><i class="_icon _licon"><i class="isvg">
@@ -253,7 +298,7 @@
                   </div>
                 </div>
               </div>
-              <div class="_f _scrollable _fullcase">
+              <div class="_fill _scrollable _fullcase">
                 <div class="_container">
                   <div class="_small _mono">content</div>
                 </div>
@@ -279,37 +324,27 @@
                           </svg></i></i></a>
                     <div class="_content">
                       <div class="content _color_1 _border _scrollable">
-                        <ul class="_h_menu _m0 _plain _color_1">
-                          <li><a class="_no_wrap __full _a1m" href="#" onclick="event.preventDefault();"><i class="_icon _licon"><i class="isvg">
-                                  <svg viewBox="0 0 24 24">
-                                    <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" fill="currentColor" fill-opacity="1"></path>
-                                  </svg></i></i>Home</a>
-                          </li>
-                          <li>
-                            <hr class="_m0">
-                          </li>
-                          <li class="_flex"><a class="_no_wrap _a1m" href="#" onclick="event.preventDefault();"><i class="_icon _cicon"><i class="isvg">
-                                  <svg viewBox="0 0 24 24">
-                                    <path d="M5,6H19V8H5V6M5,11H19V13H5V11M5,16H19V18H5V16Z" fill="currentColor" fill-opacity="1"></path>
-                                  </svg></i></i></a>
-                            <div class="_f"><a class="_no_wrap _a1m" href="#" onclick="event.preventDefault();">Link</a>
-                            </div><a class="_no_wrap _a1m" href="#" onclick="event.preventDefault();"><i class="_icon _cicon"><i class="isvg">
-                                  <svg viewBox="0 0 24 24">
-                                    <path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z" fill="currentColor" fill-opacity="1"></path>
-                                  </svg></i></i></a>
-                          </li>
-                          <li>
-                            <hr class="_m0">
-                          </li>
-                          <li><a class="_no_wrap __full _a1m" href="#" onclick="event.preventDefault();">Link</a>
-                          </li>
-                          <li><a class="_no_wrap __full _a1m" href="#" onclick="event.preventDefault();">Link</a>
-                          </li>
-                          <li><a class="_no_wrap __full _a1m" href="#" onclick="event.preventDefault();">Link</a>
-                          </li>
-                          <li><a class="_no_wrap __full _a1m" href="#" onclick="event.preventDefault();">Link</a>
-                          </li>
-                        </ul>
+                        <div class="_color_1"><a class="_no_wrap __full _a1m" href="#" onclick="event.preventDefault();"><i class="_icon _licon"><i class="isvg">
+                                <svg viewBox="0 0 24 24">
+                                  <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" fill="currentColor" fill-opacity="1"></path>
+                                </svg></i></i>Home</a>
+                          <hr class="_m0">
+                          <div class="_flex">
+                            <div><a class="_no_wrap _a1m" href="#" onclick="event.preventDefault();"><i class="_icon _cicon"><i class="isvg">
+                                    <svg viewBox="0 0 24 24">
+                                      <path d="M5,6H19V8H5V6M5,11H19V13H5V11M5,16H19V18H5V16Z" fill="currentColor" fill-opacity="1"></path>
+                                    </svg></i></i></a>
+                            </div>
+                            <div class="_fill"><a class="_no_wrap _a1m" href="#" onclick="event.preventDefault();">Link</a>
+                            </div>
+                            <div><a class="_no_wrap _a1m" href="#" onclick="event.preventDefault();"><i class="_icon _cicon"><i class="isvg">
+                                    <svg viewBox="0 0 24 24">
+                                      <path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z" fill="currentColor" fill-opacity="1"></path>
+                                    </svg></i></i></a>
+                            </div>
+                          </div>
+                          <hr class="_m0"><a class="_no_wrap __full _a1m" href="#" onclick="event.preventDefault();">Link</a><a class="_no_wrap __full _a1m" href="#" onclick="event.preventDefault();">Link</a><a class="_no_wrap __full _a1m" href="#" onclick="event.preventDefault();">Link</a><a class="_no_wrap __full _a1m" href="#" onclick="event.preventDefault();">Link</a>
+                        </div>
                       </div>
                     </div></span><a class="_no_wrap _a1m" href="#" onclick="event.preventDefault();">Link</a>
                 </div>
@@ -388,12 +423,12 @@
             if(menuIs[id]!='open'){
               e.classList.add('open');
               e.classList.add('_foac');
-              setTimeout(x=>{e.classList.remove('_foac')},200);
+              setTimeout(x=>{e.classList.remove('_foac')},400);
             }
             else {
               e.classList.remove('open');
               e.classList.add('_foac');
-              setTimeout(x=>{e.classList.remove('_foac')},200);
+              setTimeout(x=>{e.classList.remove('_foac')},400);
             }
             menuIs[id] = menuIs[id]!='open'?'open':'closed';
           }

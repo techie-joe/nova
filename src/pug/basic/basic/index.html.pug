@@ -19,14 +19,14 @@ block article
         +boxx([
           ['basic/blank','basic/blank.html','Blank'],
         ])
-        +boxaf([
+        +boxx([
           ['basic/error','basic/error.html','Error','Error page'],
           ['basic/400','basic/e400.html','400','Bad request'],
           ['basic/401','basic/e401.html','401','Unauthorized'],
           ['basic/403','basic/e403.html','403','Forbidden'],
           ['basic/404','basic/e404.html','404','Not found'],
           ['basic/500','basic/e500.html','500','Server Error'],
-        ])
+        ])._fill
 
     section._p1
       h3._h7| Basic Components
@@ -36,7 +36,7 @@ block article
           ['basic/flex','basic/flex.html','Flex'],
           ['basic/container','basic/container.html','Container'],
         ])._no_wrap
-        +boxaf([
+        +boxx([
           ['basic/multiview','basic/multiview.html','Multi View'],
-        ])
+        ])._fill
       +boxap: +icons_nav_

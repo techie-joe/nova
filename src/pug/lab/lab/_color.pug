@@ -79,36 +79,31 @@ mixin colorCodes(r)
     var ctc = tc[ Math.ceil(tc.length/2)-1 ];
   .codecolor._mt_2._small(style=`background-color: #${cbg}; color:#${ctc};`)|// #[span._uppercase ##{cbg}]
   ._flex._gap_a_x5
-    ._
-      pre.colorcode._radius_x5r._pa._mv_x5r
-        each v,i in bg
-          = `$bg_${r+1}_${i+1} : #${v};`
-          +l
-        +nbsp
-    ._
-      pre.colorcode._radius_x5r._pa._mv_x5r
-        each v,i in tc
-          = `$tc_${r+1}_${i+1} : #${v};`
-          +l
-        +nbsp
-    //- ._
-      pre.colorcode._radius_x5r._pa._mv_x5r
-        each v,i in bg
-          = `._bg_${r+1}_${i+1} { background-color: $bg_${r+1}_${i+1} }`
-          +l
-        +nbsp
-    //- ._
-      pre.colorcode._radius_x5r._pa._mv_x5r
-        each v,i in bg
-          = `._bc_${r+1}_${i+1} { border-color: $bg_${r+1}_${i+1} }`
-          +l
-        +nbsp
-    //- ._
-      pre.colorcode._radius_x5r._pa._mv_x5r
-        each v,i in tc
-          = `._tc_${r+1}_${i+1} { color: $tc_${r+1}_${i+1} }`
-          +l
-        +nbsp
+    ._fit: pre.colorcode._radius_x5r._pa._mv_x5r
+      each v,i in bg
+        = `$bg_${r+1}_${i+1} : #${v};`
+        +l
+      +nbsp
+    ._fit: pre.colorcode._radius_x5r._pa._mv_x5r
+      each v,i in tc
+        = `$tc_${r+1}_${i+1} : #${v};`
+        +l
+      +nbsp
+    //- ._fit: pre.colorcode._radius_x5r._pa._mv_x5r
+      each v,i in bg
+        = `._bg_${r+1}_${i+1} { background-color: $bg_${r+1}_${i+1} }`
+        +l
+      +nbsp
+    //- ._fit: pre.colorcode._radius_x5r._pa._mv_x5r
+      each v,i in bg
+        = `._bc_${r+1}_${i+1} { border-color: $bg_${r+1}_${i+1} }`
+        +l
+      +nbsp
+    //- ._fit: pre.colorcode._radius_x5r._pa._mv_x5r
+      each v,i in tc
+        = `._tc_${r+1}_${i+1} { color: $tc_${r+1}_${i+1} }`
+        +l
+      +nbsp
 
 //- ==============================================================
 mixin table(r)

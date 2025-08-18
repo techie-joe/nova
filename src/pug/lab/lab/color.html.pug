@@ -162,7 +162,7 @@ block article
 
     section._container
       style.
-        .atheme ._f { text-align: center; padding:2px }
+        .atheme .f { text-align: center; padding:2px }
       mixin theme(_b,_c,_f)
         .atheme._flex
           -
@@ -178,7 +178,7 @@ block article
             - c = rgbColor(_c);
             - bg = hexColor(mix(b,s,_f[0]));
             - fg = hexColor(mix(c,s,_f[1]));
-            ._f(style="background-color:#"+bg+";color:#"+fg+";")
+            .f._fit(style="background-color:#"+bg+";color:#"+fg+";")
               //- .i|☯
               ._smaller._uppercase._mono|#{bg}
               ._smaller._uppercase._b._mono|#{fg}

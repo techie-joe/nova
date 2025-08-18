@@ -10,19 +10,18 @@ block append vars
 block article
   article._article
     section._container#btns._flex
-      ._fit._no_wrap._indiv
+      ._f._no_wrap._indiv
         button(onclick='test.storeSet();' title="Set Store Item")._a3|Set
         button(onclick='test.storeGet();' title="Get Store Item")._a3|Get
         button(onclick='test.storeRemove();' title="Remove Store Item")._a3|Remove
         button(onclick='test.storeClear();' title="Clear Store")._a3|Clear
-      ._fit._text_center='|'
-      ._fit._no_wrap._indiv
+      ._f._text_center='|'
+      ._f._no_wrap._indiv
         button._a3(onclick="test.run()" title="Run Test") Test
         button._a3(onclick="test.reset()" title="Reset Test") Clear
-      ._fit._text_center='|'
-      ._fit._no_wrap._indiv
+      ._f._text_center='|'
+      ._f._no_wrap._indiv
         button(onclick='theme.change();' title="Change Theme")._a3|Theme
-      ._f
     hr._mb0
     style.
       #test .pre { font-size:.8rem }
@@ -31,7 +30,7 @@ block article
       ._fit(style="flex-basis:300px")
         section._scrollable.sec#sec_storage
           pre.pre#storage._container
-      ._f
+      ._fill
         section._scrollable.sec#sec
           pre.pre#pre._container| // #{description} ..
     hr._mt0
