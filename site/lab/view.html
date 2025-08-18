@@ -66,12 +66,15 @@
       #topRightNav { box-shadow: 0 0 0 3px #cc33cc inset; }
       #overflow    { color: #2a8e39 }
       
-      .fullview #topRightNav { right:0;margin-right:15px; }
+      @media (hover: hover) and (pointer: fine) {
+        .fullview #topRightNav { right:15px }
+      }
       .fullview #_views {
         overflow:auto scroll;
         position: absolute; top: 0; right: 0; bottom: 40px; left: 0; height:auto; min-height:0;
       }
       .fullview ._view { padding:0 }
+      
       #_footer._color { background:none }
       
     </style>
@@ -198,19 +201,18 @@
           overflow = true;
         const
           set = ()=>{
+            eid('overflow').setAttribute('style','margin-top:'+(overflow?'100vh':'0'));
             hid('htmlClass',d.html.className);
             hid('bodyClass',d.body.className);
-            eid('overflow').setAttribute('style','margin-top:'+(overflow?'100vh':'0'));
           },
           v = w.view = {};
         d.addEventListener('DOMContentLoaded',()=>{
-          dc = d.html.className;
-          bc = d.body.className;
+          set();
           setTimeout(()=>{
             dc = d.html.className;
             bc = d.body.className;
+            set();
           },500)
-          set();
         })
         v.overflow = ()=>{
           overflow=!overflow;

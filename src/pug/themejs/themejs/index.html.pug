@@ -17,22 +17,21 @@ block append vars
 
 block header
   +simpleHeader
+  nav._container
+    +a(onclick='theme.set("");' title='theme.set("")')._a3|Default
+    +a(onclick='theme.set("_dark");' title='theme.set("_dark")')._a3|Dark
+    +a(onclick='theme.set("_pink");' title='theme.set("_pink")')._a3|Pink
+    +a(onclick='theme.set("_cream");' title='theme.set("_cream")')._a3|Cream
+    +a(onclick='theme.set(["_dark",""]);' title='theme.set(["_dark",""])')._a3 Common
+    +a(onclick='theme.set(["_dark","_cream","","_pink"]);' title='theme.set(["_dark","_cream","","_pink"])')._a3._active All
+    ='|'
+    +a('test.html')._a3 Test
+  hr
 
 block article
-  article._article
-  
-    section._container: nav
-      +a(onclick='theme.set("");' title='theme.set("")')._a3|Default
-      +a(onclick='theme.set("_dark");' title='theme.set("_dark")')._a3|Dark
-      +a(onclick='theme.set("_pink");' title='theme.set("_pink")')._a3|Pink
-      +a(onclick='theme.set("_cream");' title='theme.set("_cream")')._a3|Cream
-      +a(onclick='theme.set(["_dark",""]);' title='theme.set(["_dark",""])')._a3 Common
-      +a(onclick='theme.set(["_dark","_cream","","_pink"]);' title='theme.set(["_dark","_cream","","_pink"])')._a3._active All
-      ='|'
-      +a('test.html')._a3 Test
-    hr
+  article._article._container1
 
-    section._container: ._960._flex._gap2._mt2
+    section._960._flex._gap2._mt2
       ._f1
         h3| Open new possibilities with ThemeJs
         p._text_justify| #[b ThemeJs] is a lightweight, easy to use, and highly configurable theme switcher for your website and web application. Built with user experience in mind, it is designed to be simple, easy to use, with no external dependencies. It is a perfect solution for those who want to give their users the ability to switch between different themes on their website. ThemeJs is fully customizable, compatible with all major browsers and devices, and can be easily integrated into any website and web application.
