@@ -58,6 +58,29 @@
       #btns button { font-size:.8rem }
       
     </style>
+    <style>
+      ._outline {
+        background-color:rgba(255, 0, 183, .15);
+      }
+      ._outline2 {
+        outline: 1px solid rgba(0, 158, 36, .83);
+        background-color:rgba(0, 158, 36, .15);
+      }
+      ._outline3 {
+        outline: 1px solid rgba(0, 149, 141, 0.83);
+        background-color:rgba(0, 149, 141, 0.15);
+      }
+      .f {
+        padding:.25em .5em;
+        text-align: center;
+        font-size:.8em;
+        user-select:none;
+      }
+      .f:hover {
+        background-color:#8884;
+      }
+      
+    </style>
   </head>
   <body>
     <div id="_views">
@@ -84,137 +107,59 @@
         <main id="_main">
           <article class="_article">
             <section class="_container">
-              <pre class="pre">// Testing fill and fit ..</pre>
-              <hr>
-              <style>
-                ._outline {
-                  background-color:rgba(255, 0, 183, .15);
-                }
-                ._outline2 {
-                  outline: 1px solid rgba(0, 158, 36, .83);
-                  background-color:rgba(0, 158, 36, .15);
-                }
-                .f {
-                  padding:.25em .5em;
-                  text-align: center;
-                  font-size:.8em;
-                  user-select:none;
-                }
-                .f:hover {
-                  background-color:#8884;
-                }
-              </style>
-              <div class="_flex _gap_5">
-                <div class="_f1 _flex _gap_5">
-                  <div class="f _full _outline">Full</div>
-                                <div class="f _f _outline2">Fix
-                                </div>
-                                <div class="f _fit _outline">Fit
-                                </div>
-                  <div class="f _fill _outline">Fill</div>
+              <div class="_960 _flex _gap_5">
+                <div class="_full _flex _gap_5">
+                  <div class="f _outline _full">Full</div>
+                  <div class="f _outline2 _f">Fix</div>
+                  <div class="f _outline _fit">Fit</div>
+                  <div class="f _outline _fill">Fill</div>
                 </div>
-                <div class="_f1 _flex _gap_5">
-                                <div class="f _f _outline2">Fix
-                                </div>
-                                <div class="f _f _outline2" style="flex-basis:100px;">100px
-                                </div>
-                                <div class="f _fit _outline">Fit
-                                </div>
-                  <div class="f _fill _outline">Fill</div>
+                <div class="_full _flex _gap_5">
+                  <div class="f _outline2 _f" style="width:300px;">300px
+                  </div>
+                  <div class="f _outline _fit">Fit
+                  </div>
+                  <div class="f _outline _fit">Fit
+                  </div>
+                  <div class="f _outline _fit">Fit
+                  </div>
                 </div>
-                <div class="_f1 _flex _gap_5">
-                                <div class="f _f _outline2" style="flex-basis:50px;">50px
-                                </div>
-                                <div class="f _fit _outline">Fit
-                                </div>
-                                <div class="f _f _outline2" style="flex-basis:100px;">100px
-                                </div>
-                                <div class="f _fit _outline">Fit
-                                </div>
-                                <div class="f _f _outline2" style="flex-basis:200px;">200px
-                                </div>
+                <div class="_full _flex _gap_5">
+                  <div class="f _outline2 _f" style="width:300px;">300px
+                  </div>
+                  <div class="f _outline2 _f" style="width:200px;">200px
+                  </div>
+                  <div class="f _outline2 _f" style="width:100px;">100px
+                  </div>
+                  <div class="f _outline2 _f" style="width:50px;">50px
+                  </div>
+                  <div class="f _outline _fit" style="flex-basis:180px;">Fit
+                  </div>
                 </div>
-                <div class="_f1 _flex _gap_5">
-                                <div class="f _f _outline2" style="flex-basis:300px;">300px
-                                </div>
-                                <div class="f _f _outline2" style="flex-basis:200px;">200px
-                                </div>
-                                <div class="f _f _outline2" style="flex-basis:100px;">100px
-                                </div>
-                                <div class="f _f _outline2" style="flex-basis:50px;">50px
-                                </div>
-                                <div class="f _fit _outline">Fit
-                                </div>
+                <div class="_full _flex _gap_5">
+                  <div class="f _outline3 _f" style="flex:1 1 300px;">300px
+                  </div>
+                  <div class="f _outline3 _f" style="flex:1 1 200px;">200px
+                  </div>
+                  <div class="f _outline3 _f" style="flex:1 1 100px;">100px
+                  </div>
+                  <div class="f _outline3 _f" style="flex:1 1 50px;">50px
+                  </div>
+                  <div class="f _outline _fill" style="flex-basis:180px">Fill</div>
                 </div>
-                <div class="_f1 _flex _gap_5">
-                                <div class="f _f _outline2" style="flex-basis:300px;">300px
-                                </div>
-                                <div class="f _fit _outline">Fit
-                                </div>
-                                <div class="f _fit _outline">Fit
-                                </div>
-                                <div class="f _fit _outline">Fit
-                                </div>
+                <div class="_full _flex _gap_5">
+                  <div class="f _outline3 _f" style="flex:1 1 300px;">300px
+                  </div>
+                  <div class="f _outline3 _f" style="flex:1 1 200px;">200px
+                  </div>
+                  <div class="f _outline3 _f" style="flex:1 1 100px;">100px
+                  </div>
+                  <div class="f _outline3 _f" style="flex:1 1 50px;">50px
+                  </div>
+                  <div class="f _outline _fit" style="flex-basis:180px;">Fit
+                  </div>
                 </div>
               </div>
-              <hr>
-              <div class="_flex _gap_5">
-                <div class="_f1 _flex _gap_5">
-                                <div class="f _fit _outline">Fit
-                                </div>
-                </div>
-                <div class="_f1 _flex _gap_5">
-                                <div class="f _fit _outline">Fit
-                                </div>
-                                <div class="f _fit _outline">Fit
-                                </div>
-                </div>
-                <div class="_f1 _flex _gap_5">
-                                <div class="f _fit _outline">Fit
-                                </div>
-                                <div class="f _fit _outline">Fit
-                                </div>
-                                <div class="f _fit _outline">Fit
-                                </div>
-                </div>
-                <div class="_f1 _flex _gap_5">
-                                <div class="f _fit _outline">Fit
-                                </div>
-                                <div class="f _fit _outline">Fit
-                                </div>
-                                <div class="f _fit _outline">Fit
-                                </div>
-                                <div class="f _fit _outline">Fit
-                                </div>
-                </div>
-                <div class="_f1 _flex _gap_5">
-                                <div class="f _fit _outline">Fit
-                                </div>
-                                <div class="f _fit _outline">Fit
-                                </div>
-                                <div class="f _fit _outline">Fit
-                                </div>
-                                <div class="f _fit _outline">Fit
-                                </div>
-                                <div class="f _fit _outline">Fit
-                                </div>
-                </div>
-                <div class="_f1 _flex _gap_5">
-                                <div class="f _fit _outline">Fit
-                                </div>
-                                <div class="f _fit _outline">Fit
-                                </div>
-                                <div class="f _fit _outline">Fit
-                                </div>
-                                <div class="f _fit _outline">Fit
-                                </div>
-                                <div class="f _fit _outline">Fit
-                                </div>
-                                <div class="f _fit _outline">Fit
-                                </div>
-                </div>
-              </div>
-              <hr>
             </section>
           </article>
           <aside class="_side_article"></aside>

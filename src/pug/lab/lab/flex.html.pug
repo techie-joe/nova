@@ -7,120 +7,139 @@ block append vars
     title       = `Flex`
     description = 'Testing flex components.'
 
+block append style
+  style.
+    ._outline {
+      background-color:rgba(255, 0, 183, .15);
+    }
+    ._outline2 {
+      outline: 1px solid rgba(0, 158, 36, .83);
+      background-color:rgba(0, 158, 36, .15);
+    }
+    ._outline3 {
+      outline: 1px solid rgba(0, 149, 141, 0.83);
+      background-color:rgba(0, 149, 141, 0.15);
+    }
+    .f {
+      padding:.25em .5em;
+      text-align: center;
+      font-size:.8em;
+      user-select:none;
+    }
+    .f:hover {
+      background-color:#8884;
+    }
+
+mixin fit
+  .f._outline._fit&attributes(attributes): block
+mixin fix
+  .f._outline2._f&attributes(attributes): block
+mixin flex
+  .f._outline3._f&attributes(attributes): block
+mixin flexx(n)
+  - for (let i = 0; i < n ; i++)
+    .f._outline(class="_f"+n) Flex #{n}
+
 block article
   article._article
 
-    section._container
-      pre.pre.
-        // Testing fill and fit ..
-      //- pre.
-      hr
-      style.
-        ._outline {
-          background-color:rgba(255, 0, 183, .15);
-        }
-        ._outline2 {
-          outline: 1px solid rgba(0, 158, 36, .83);
-          background-color:rgba(0, 158, 36, .15);
-        }
-        .f {
-          padding:.25em .5em;
-          text-align: center;
-          font-size:.8em;
-          user-select:none;
-        }
-        .f:hover {
-          background-color:#8884;
-        }
-      //- style.
-      mixin flex(n)
-        - for (let i = 0; i < n ; i++)
-          .f._outline(class="_f"+n) Flex #{n}
-      mixin fix
-        .f._f._outline2&attributes(attributes): block
-      mixin fit
-        .f._fit._outline&attributes(attributes): block
-      //- --------------------------------------------------------      
-      ._flex._gap_5
-        ._f1._flex._gap_5
-          .f._full._outline| Full
-          +fix| Fix
-          +fit| Fit
-          .f._fill._outline| Fill
-        ._f1._flex._gap_5
-          +fix| Fix
-          +fix(style="flex-basis:100px")| 100px
-          +fit| Fit
-          .f._fill._outline| Fill
-        ._f1._flex._gap_5
-          +fix(style="flex-basis:50px")| 50px
-          +fit| Fit
-          +fix(style="flex-basis:100px")| 100px
-          +fit| Fit
-          +fix(style="flex-basis:200px")| 200px
-        ._f1._flex._gap_5
-          +fix(style="flex-basis:300px")| 300px
-          +fix(style="flex-basis:200px")| 200px
-          +fix(style="flex-basis:100px")| 100px
-          +fix(style="flex-basis:50px")| 50px
-          +fit| Fit
-        ._f1._flex._gap_5
-          +fix(style="flex-basis:300px")| 300px
-          +repeat(3): +fit| Fit
+    section._container: ._960._flex._gap_5
+      ._full._flex._gap_5
+        .f._outline._full| Full
+        .f._outline2._f| Fix
+        .f._outline._fit| Fit
+        .f._outline._fill| Fill
 
-      hr
-      ._flex._gap_5
-        - for (let f = 1; f <= 6 ; f++)
-          ._f1._flex._gap_5: +repeat(f): +fit| Fit
-      hr
-      //- --------------------------------------------------------
-        ._flex._gap_5
-          ._f1._flex._gap_5: +flex(6)
-          ._f1._flex._gap_5
-            .f._outline2._f6_5 Flex 6_5
-            .f._outline2._f6 Flex 6
-            .f._outline2._f6_4 Flex 6_4
-            .f._outline2._f6_2 Flex 6_2
-            .f._outline2._f6_3 Flex 6_3
-            .f._outline2._f6_3 Flex 6_3
-            .f._outline2._f6_2 Flex 6_2
-            .f._outline2._f6_4 Flex 6_4
-            .f._outline2._f6 Flex 6
-            .f._outline2._f6_5 Flex 6_5
-        hr
-        ._flex._gap_5
-          ._f1._flex._gap_5: +flex(5)
-          ._f1._flex._gap_5
-            .f._outline2._f5_4 Flex 5_4
-            .f._outline2._f5 Flex 5
-            .f._outline2._f5_3 Flex 5_3
-            .f._outline2._f5_2 Flex 5_2
-            .f._outline2._f5_2 Flex 5_2
-            .f._outline2._f5_3 Flex 5_3
-            .f._outline2._f5 Flex 5
-            .f._outline2._f5_4 Flex 5_4
-        hr
-        ._flex._gap_5
-          ._f1._flex._gap_5: +flex(4)
-          ._f1._flex._gap_5
-            .f._outline2._f4_3 Flex 4_3
-            .f._outline2._f4 Flex 4
-            .f._outline2._f4_2 Flex 4_2
-            .f._outline2._f4_2 Flex 4_2
-            .f._outline2._f4 Flex 4
-            .f._outline2._f4_3 Flex 4_3
-        hr
-        ._flex._gap_5
-          ._f1._flex._gap_5: +flex(3)
-          ._f1._flex._gap_5
-            .f._outline2._f3_2 Flex 3_2
-            .f._outline2._f3 Flex 3
-            .f._outline2._f3 Flex 3
-            .f._outline2._f3_2 Flex 3_2
-        hr
-        ._flex._gap_5
-          .f._outline._f2 Flex 2
-          .f._outline2._f2 Flex 2
-        hr
-        ._flex._gap_5: +flex(1)      
-        //- hr
+      ._full._flex._gap_5
+        +fix(style="width:300px")| 300px
+        +repeat(3): +fit| Fit
+
+      ._full._flex._gap_5
+        +fix(style="width:300px")| 300px
+        +fix(style="width:200px")| 200px
+        +fix(style="width:100px")| 100px
+        +fix(style="width:50px")| 50px
+        +fit(style="flex-basis:180px")| Fit
+
+      ._full._flex._gap_5
+        +flex(style="flex:1 1 300px")| 300px
+        +flex(style="flex:1 1 200px")| 200px
+        +flex(style="flex:1 1 100px")| 100px
+        +flex(style="flex:1 1 50px")| 50px
+        .f._outline._fill(style="flex-basis:180px")| Fill
+
+      ._full._flex._gap_5
+        +flex(style="flex:1 1 300px")| 300px
+        +flex(style="flex:1 1 200px")| 200px
+        +flex(style="flex:1 1 100px")| 100px
+        +flex(style="flex:1 1 50px")| 50px
+        +fit(style="flex-basis:180px")| Fit
+
+    //- hr
+    //- section._container: ._960._flex._gap_5
+      ._full._flex._gap_5
+        ._f1._flex._gap_5: +flexx(6)
+        ._f1._flex._gap_5
+          .f._outline3._f6_5 Flex 6_5
+          .f._outline3._f6 Flex 6
+          .f._outline3._f6_4 Flex 6_4
+          .f._outline3._f6_2 Flex 6_2
+          .f._outline3._f6_3 Flex 6_3
+          .f._outline3._f6_3 Flex 6_3
+          .f._outline3._f6_2 Flex 6_2
+          .f._outline3._f6_4 Flex 6_4
+          .f._outline3._f6 Flex 6
+          .f._outline3._f6_5 Flex 6_5
+
+    //- hr
+    //- section._container: ._960._flex._gap_5
+      ._full._flex._gap_5
+        ._f1._flex._gap_5: +flexx(5)
+        ._f1._flex._gap_5
+          .f._outline3._f5_4 Flex 5_4
+          .f._outline3._f5 Flex 5
+          .f._outline3._f5_3 Flex 5_3
+          .f._outline3._f5_2 Flex 5_2
+          .f._outline3._f5_2 Flex 5_2
+          .f._outline3._f5_3 Flex 5_3
+          .f._outline3._f5 Flex 5
+          .f._outline3._f5_4 Flex 5_4
+
+    //- hr
+    //- section._container: ._960._flex._gap_5
+      ._full._flex._gap_5
+        ._f1._flex._gap_5: +flexx(4)
+        ._f1._flex._gap_5
+          .f._outline3._f4_3 Flex 4_3
+          .f._outline3._f4 Flex 4
+          .f._outline3._f4_2 Flex 4_2
+          .f._outline3._f4_2 Flex 4_2
+          .f._outline3._f4 Flex 4
+          .f._outline3._f4_3 Flex 4_3
+
+    //- hr
+    //- section._container: ._960._flex._gap_5
+      ._full._flex._gap_5
+        ._f1._flex._gap_5: +flexx(3)
+        ._f1._flex._gap_5
+          .f._outline3._f3_2 Flex 3_2
+          .f._outline3._f3 Flex 3
+          .f._outline3._f3 Flex 3
+          .f._outline3._f3_2 Flex 3_2
+
+    //- hr
+    //- section._container: ._960._flex._gap_5
+      ._full._flex._gap_5
+        .f._outline3._f2 Flex 2
+        .f._outline._f2 Flex 2
+      ._full._flex._gap_5: +flexx(1)
+
+    //- section._container: ._960._flex._gap_5
+      ._full._flex._gap_5: +repeat(6): +fit| Fit
+    //- section._container: ._960._flex._gap_5
+      - for (let f = 6; f > 0 ; f--)
+        ._full._flex._gap_5: +repeat(f): +fit| Fit
+
+    //- section._container._flex._gap_5
+      - for (let f = 6; f > 0 ; f--)
+        ._full._flex._gap_5: +repeat(f): +fit| Fit

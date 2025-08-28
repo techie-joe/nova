@@ -604,17 +604,17 @@ ul,ol {
 ._flex_column { @extend ._flex; flex-direction: column }
 // flex: grow shrink basis
 ._f { box-sizing: border-box } // fix
-._fit  { @extend ._f; flex: 1 1 0 } // fit
-._fill { @extend ._f; flex:96 1 0 } // fill
-._full { @extend ._f; flex:96 0 100% } // full
+._fit  { @extend ._f; flex:1 960 0 } // fit
+._fill { @extend ._f; flex:960 1 0 } // fill
+._full { @extend ._f; flex:960 0 100% } // full
 ._f1   { @extend ._full; }
 @for $i from 2 through 6 {
-  ._f#{$i} { @extend ._f; flex: calc(96 / $i) 1 calc(96% / $i); }
-  ._f#{$i}x { @extend ._f; flex: calc(96 / $i) 1 calc(960px / $i); }
+  ._f#{$i} { @extend ._f; flex: calc(960 / $i) 1 calc(96% / $i); }
+  ._f#{$i}x { @extend ._f; flex: calc(960 / $i) 1 calc(960px / $i); }
 }
 @for $i from 3 through 6 { @for $j from 2 through $i - 1 {
-  ._f#{$i}_#{$j} { @extend ._f; flex: calc(96 / $i * $j) 1 calc(96% / $i * $j); }
-  ._f#{$i}_#{$j}x { @extend ._f; flex: calc(96 / $i * $j) 1 calc(960px / $i * $j); }
+  ._f#{$i}_#{$j} { @extend ._f; flex: calc(960 / $i * $j) 1 calc(96% / $i * $j); }
+  ._f#{$i}_#{$j}x { @extend ._f; flex: calc(960 / $i * $j) 1 calc(960px / $i * $j); }
 }}
 // @for $i from 4 through 6 {
 //   ._f#{$i * 2} { @extend ._f; flex: 1 0 calc(96% / ($i * 2)); }
