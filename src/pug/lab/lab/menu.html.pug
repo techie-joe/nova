@@ -17,6 +17,27 @@ block append style
     }
     #_main { padding-bottom:400px }
 
+    ._outline {
+      background-color:rgba(255, 0, 183, .15);
+    }
+    ._outline2 {
+      outline: 1px solid rgba(0, 158, 36, .83);
+      background-color:rgba(0, 158, 36, .15);
+    }
+    ._outline3 {
+      outline: 1px solid rgba(0, 149, 141, 0.83);
+      background-color:rgba(0, 149, 141, 0.15);
+    }
+    .f {
+      padding:.25em .5em;
+      text-align: center;
+      font-size:.8em;
+      user-select:none;
+    }
+    .f:hover {
+      background-color:#8884;
+    }
+
     a.__full,
     ._hover_show.__full,
     ._hover_show a.__full { display:block;text-align:left }
@@ -41,7 +62,7 @@ block append style
     }
     ._box .__card { height:100% }
 
-    ._foac,._foac * { white-space:nowrap !important;overflow:hidden !important }
+    ._foac ._scrollable { white-space:nowrap !important;overflow:hidden !important }
 
   //- style.
 
@@ -50,6 +71,16 @@ block append style
     ._a a._hover_show { color:inherit;text-decoration:none }
 
   //- style.
+
+mixin fit
+  .f._outline._fit&attributes(attributes): block
+mixin fix
+  .f._outline2._f&attributes(attributes): block
+mixin flex
+  .f._outline3._f&attributes(attributes): block
+mixin flexx(n)
+  - for (let i = 0; i < n ; i++)
+    .f._outline(class="_f"+n) Flex #{n}
 
 mixin ax(href,title)
   a(href=href||'#' title=title onclick=onclick())._no_wrap&attributes(attributes): block
@@ -170,58 +201,91 @@ block article
         //- +axm('Menu')#m31.__absolute: ._color_1(style="width:220px"): ._pa_5._small| // more menues
         //- +axm('Menu')#m32: ._color_1(style="width:220px"): ._pa_5._small| // more menues
     
-    hr
-    section._mv._flex(style="height:100px")
-      div: ._color_1
-        +a.__full._a1m(onclick=onclick('toggleMenu("regular");'))| #[+isvg(svgi.bars,'_licon')] Regular
-        +a.__full._a1m(onclick=onclick('toggleMenu("absolute");'))| #[+isvg(svgi.bars,'_licon')] Absolute
-
-      div
-        style.
-          #regular { position:relative;z-index:2 }
-          #regular.open ._content { width:200px;height:150px }
-          #regular .content  { height:100% }
-          #regular .boxline  { height:150% }
-        #regular._click_show: ._content
-          .content._scrollable._color_1: .boxline._pa_5._small| // regular menu
-
-      div
-        style.
-          #absolute { position:absolute;z-index:2 }
-          #absolute.open ._content { width:200px;height:150px }
-          #absolute .content { height:100% }
-          #absolute .boxline { height:150% }
-        #absolute._click_show: ._content
-          .content._scrollable._color_1: .boxline._pa_5._small| // absolute menu
-
-      ._fill._scrollable._fullcase: ._container: ._small._mono
-        | content
-        //- |#[+repeat(100)| way too long ]
-
     section._mv
-
-      nav#menu_1._color_1._flex
-        +a._a1m(onclick=onclick('toggleMenu("menu_one");') title="Open menu_one")| #[+isvg(svgi.bars,'_licon')]One
-        +a._a1m(onclick=onclick('toggleMenu("menu_two");') title="Open menu_two")| #[+isvg(svgi.bars,'_licon')]Two
+      nav._color_1._flex
         ._f._indiv
           +_menu_a| Menu#[+isvg(svgi.caret,'_ricon')._rotate90]
-          +ax._a1m| Link
-
         ._fill
-        +ax._a1m(onclick=onclick('toggleMenu("menu_three");') title="More ..")| #[+isvg(svgi.ellipsis,'_cicon')]
+
+    hr
+    section._mv._flex(style="min-height:100px")
+      ._color_1
+        +a.__full._a1m(onclick=onclick('toggleMenu("sideFour");'))| #[+isvg(svgi.arrow,'_licon')] Four
+        +a.__full._a1m(onclick=onclick('toggleMenu("sideThree");'))| #[+isvg(svgi.arrow,'_licon')] Three
+        +a.__full._a1m(onclick=onclick('toggleMenu("sideTwo");'))| #[+isvg(svgi.arrow,'_licon')] Two
+        +a.__full._a1m(onclick=onclick('toggleMenu("sideOne");'))| #[+isvg(svgi.arrow,'_licon')] One
+
+      div
+        style.
+          #sideFour { z-index:2 }
+          #sideFour.open .__case { width:250px;height:200px }
+          #sideFour .__content { height:150% }
+        nav#sideFour._box.openx: .__case._absolute
+          .__card._fullcase._borderbox._pa_5: ._fullcase._scrollable._color_1._border
+            .__content.boxline._pa_5._small| // sideFour
+
+      div
+        style.
+          #sideThree.open .__case { width:200px;height:100% }
+          #sideThree .__content  { height:150% }
+        nav#sideThree._box._fullheight.openx: .__case
+          .__card._borderbox._pa_5: ._fullcase._scrollable._color_1._border
+            .__content.boxline._pa_5._small| // sideThree
+      div
+        style.
+          #sideTwo { z-index:2 }
+          #sideTwo.open .__case { width:250px;height:200px }
+          #sideTwo .__content { height:150% }
+        nav#sideTwo._box.openx: .__case._absolute
+          .__card._scrollable._color_1
+            .__content.boxline._pa_5._small| // sideTwo
+
+      div
+        style.
+          #sideOne.open .__case { width:200px;height:100% }
+          #sideOne .__content  { height:150% }
+        nav#sideOne._box._fullheight.openx: .__case
+          .__card._scrollable._color_1
+            .__content.boxline._pa_5._small| // sideOne
+
+      ._fill._scrollable._scroll_y._fullcase: ._container: ._flex._gap_5
+        ._full._flex._gap_5
+          .f._outline._full| Full
+          .f._outline2._f| Fix
+          .f._outline._fit| Fit
+          .f._outline._fill| Fill
+        ._full._flex._gap_5
+          +flex(style="flex:1 1 300px")| 300px
+          +flex(style="flex:1 1 200px")| 200px
+          +flex(style="flex:1 1 100px")| 100px
+          +flex(style="flex:1 1 50px")| 50px
+          +fit(style="flex-basis:180px")| Fit
+
+    hr
+    section._mv
+
+      nav._color_1._flex
+        +a._a1m(onclick=onclick('toggleMenu("menu_one");') title="Open menu_one")| #[+isvg(svgi.bars,'_cicon')]
+        ._f._indiv
+          +a._a1m(onclick=onclick('toggleMenu("menu_two");') title="Open menu_two")| #[+isvg(svgi.home,'_licon')]Two
+          +a._a1m(onclick=onclick('toggleMenu("menu_three");') title="Open menu_three")| Three
+          +a._a1m(onclick=onclick('toggleMenu("menu_four");') title="Open menu_four")| Four
+        ._fill
+        +ax._a1m(onclick=onclick('toggleMenu("menu_right");') title="More ..")| #[+isvg(svgi.ellipsis,'_cicon')]
 
       style.
-        #menu_three.open .__case { width:100%;height:150px;margin-left:auto }
-        #menu_three .__content   { height:150% }
-      aside#menu_three._box.openx: .__case
+        #menu_right .__case { margin-left:auto }
+        #menu_right.open .__case { width:100%;height:150px }
+        #menu_right .__content   { height:150% }
+      nav#menu_right._box.openx: .__case
         hr._m0
         .__card._scrollable._color_1
-          .__content.boxline._pa_5._small| // menu_three
+          .__content.boxline._pa_5._small| // menu_right
 
       style.
         #menu_one.open .__case { width:100%;height:150px }
         #menu_one .__content   { height:150% }
-      aside#menu_one._box.openx: .__case
+      nav#menu_one._box.openx: .__case
         hr._m0
         .__card._scrollable._color_1
           .__content.boxline._pa_5._small| // menu_one
@@ -229,9 +293,24 @@ block article
       style.
         #menu_two.open .__case { width:100%;height:150px }
         #menu_two .__content   { height:150% }
-      aside#menu_two._box.openx: .__case
-        .__card._borderbox._pa: ._fullcase._scrollable._color_1._border
+      nav#menu_two._box.openx: .__case._absolute
+        hr._m0
+        .__card._scrollable._color_1
           .__content.boxline._pa_5._small| // menu_two
+
+      style.
+        #menu_three.open .__case { width:100%;height:150px }
+        #menu_three .__content   { height:150% }
+      nav#menu_three._box.openx: .__case
+        .__card._borderbox._pa_5: ._fullcase._scrollable._color_1._border
+          .__content.boxline._pa_5._small| // menu_three
+
+      style.
+        #menu_four.open .__case { width:100%;height:150px }
+        #menu_four .__content   { height:150% }
+      nav#menu_four._box.openx: .__case._absolute
+        .__card._fullcase._borderbox._pa_5: ._fullcase._scrollable._color_1._border
+          .__content.boxline._pa_5._small| // menu_four
 
     hr
 
@@ -240,6 +319,7 @@ block article
       nav._f: ._color_1._radius_5._ph_5
         +ax._a1m: +isvg(svgi.bars,'_cicon')
         +ax._a1m| Link
+        +ax._a2t| Link
         +ax._a1m: +isvg(svgi.ellipsis,'_cicon')
 
       nav._f: ._color_1._radius_5._pa_5
