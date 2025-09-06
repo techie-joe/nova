@@ -201,14 +201,22 @@ block article
     section._mv
 
       nav#menu_1._color_1._flex
-        +a._a1m(onclick=onclick('toggleMenu("menu_one");') title="Open main menu")| #[+isvg(svgi.bars,'_licon')]One
-        +a._a1m(onclick=onclick('toggleMenu("menu_two");') title="Open home menu")| #[+isvg(svgi.bars,'_licon')]Two
+        +a._a1m(onclick=onclick('toggleMenu("menu_one");') title="Open menu_one")| #[+isvg(svgi.bars,'_licon')]One
+        +a._a1m(onclick=onclick('toggleMenu("menu_two");') title="Open menu_two")| #[+isvg(svgi.bars,'_licon')]Two
         ._f._indiv
           +_menu_a| Menu#[+isvg(svgi.caret,'_ricon')._rotate90]
           +ax._a1m| Link
 
         ._fill
-        +ax._a1m(title="More ..")| #[+isvg(svgi.ellipsis,'_cicon')]
+        +ax._a1m(onclick=onclick('toggleMenu("menu_three");') title="More ..")| #[+isvg(svgi.ellipsis,'_cicon')]
+
+      style.
+        #menu_three.open .__case { width:100%;height:150px;margin-left:auto }
+        #menu_three .__content   { height:150% }
+      aside#menu_three._box.openx: .__case
+        hr._m0
+        .__card._scrollable._color_1
+          .__content.boxline._pa_5._small| // menu_three
 
       style.
         #menu_one.open .__case { width:100%;height:150px }
@@ -221,7 +229,7 @@ block article
       style.
         #menu_two.open .__case { width:100%;height:150px }
         #menu_two .__content   { height:150% }
-      aside#menu_two._box.open: .__case
+      aside#menu_two._box.openx: .__case
         .__card._borderbox._pa: ._fullcase._scrollable._color_1._border
           .__content.boxline._pa_5._small| // menu_two
 
