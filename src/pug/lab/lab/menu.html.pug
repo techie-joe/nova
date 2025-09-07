@@ -114,6 +114,11 @@ mixin box(id,c1,c2)
     .__card._fullcase._borderbox(class=c1): .__cardi._fullcase._borderbox._scrollable(class=c2)
       .__content._borderbox&attributes(attributes): block
 
+mixin hox(id,c1,c2)
+  nav(id=id)._hox._borderbox: .__case._borderbox
+    .__card._fullcase._borderbox(class=c1): .__cardi._fullcase._borderbox._scrollable(class=c2)
+      .__content._borderbox&attributes(attributes): block
+
 block article
   article._article._container
 
@@ -266,14 +271,69 @@ block article
     hr
     section._mv
 
+      style.
+        ._hop { display:inline-block;position:relative }
+        ._hox { display:block;position:relative }
+        ._hox > .__case {
+          position:absolute;
+          overflow:hidden;
+          transition:width .2s ease .3s, height .2s ease .3s;
+          width:0px;height:0px;
+        }
+        ._hox .__card { height:100% }
+      //-
+        ._box { display:block;position:relative }
+        ._box > .__case {
+          overflow:hidden;
+          transition:width .2s ease, height .2s ease;
+          width:0px;height:0px;
+        }
+        ._box .__card { height:100% }
+        
+        a.__full,
+        ._hover_show.__full,
+        ._hover_show a.__full { display:block;text-align:left }
+
+        ._hover_show > ._content {
+          position:absolute;
+          z-index:1;top:100%;left:0;
+          overflow:hidden;
+          transition:width .2s ease .2s, height .2s ease .2s;
+          width:0px;height:0px;
+        }
+        ._hover_show._hover > ._content,
+        ._hover_show:hover > ._content { width:300px;height:300px }
+        ._hover_show ._hover_show > ._content { left: 1rem }
+
       nav._color_1._flex
-        +a._a1m(onclick=onclick('toggleMenu("menu_one");') title="Open menu_one")| #[+isvg(svgi.bars,'_cicon')]
+        style.
+          #hoxOne.open ._hox > .__case,
+          #hoxOne:focus-within ._hox > .__case,
+          #hoxOne:hover ._hox > .__case { width:250px;height:150px }
+          #hoxOne .__content { height:150% }
+        span#hoxOne._hop
+          +a._a1m| #[+isvg(svgi.angle,'_cicon')._rotate90]
+          +hox('_hoxOne',null,'_color_1 _border_top')._pa_5._small| // hoxOne
         ._f._indiv
-          +a._a1m(onclick=onclick('toggleMenu("menu_two");') title="Open menu_two")| #[+isvg(svgi.home,'_licon')]Two
-          +a._a1m(onclick=onclick('toggleMenu("menu_three");') title="Open menu_three")| Three
-          +a._a1m(onclick=onclick('toggleMenu("menu_four");') title="Open menu_four")| Four
+          style.
+            #hoxTwo.open ._hox > .__case,
+            #hoxTwo:focus-within ._hox > .__case,
+            #hoxTwo:hover ._hox > .__case { width:250px;height:150px }
+            #hoxTwo .__content { height:150% }
+          span#hoxTwo._hop
+            +a._a1m| #[+isvg(svgi.angle,'_licon')._rotate90]Two
+            +hox('_hoxTwo',null,'_color_1 _border')._pa_5._small| // hoxTwo
+          style.
+            #hoxThree.open ._hox > .__case,
+            #hoxThree:focus-within ._hox > .__case,
+            #hoxThree:hover ._hox > .__case { width:250px;height:150px }
+            #hoxThree .__content { height:150% }
+          span#hoxThree._hop
+            +a._a1m| Three#[+isvg(svgi.angle,'_ricon')._rotate90]
+            +hox('_hoxThree','_pa_5','_color_1 _border')._pa_5._small| // hoxThree
+          //- +a._a1m| Four
         ._fill
-        +ax._a1m(onclick=onclick('toggleMenu("menu_right");') title="More ..")| #[+isvg(svgi.ellipsis,'_cicon')]
+        +ax._a1m(title="More ..")| #[+isvg(svgi.ellipsis,'_cicon')]
 
     hr
     section._mv
@@ -281,7 +341,7 @@ block article
       nav._color_1._flex
         +a._a1m(onclick=onclick('toggleMenu("menu_one");') title="Open menu_one")| #[+isvg(svgi.bars,'_cicon')]
         ._f._indiv
-          +a._a1m(onclick=onclick('toggleMenu("menu_two");') title="Open menu_two")| #[+isvg(svgi.home,'_licon')]Two
+          +a._a1m(onclick=onclick('toggleMenu("menu_two");') title="Open menu_two")| Two
           +a._a1m(onclick=onclick('toggleMenu("menu_three");') title="Open menu_three")| Three
           +a._a1m(onclick=onclick('toggleMenu("menu_four");') title="Open menu_four")| Four
         ._fill
@@ -321,7 +381,7 @@ block article
 
       nav._f: ._color_1._radius_5._ph_5
         +ax._a1m: +isvg(svgi.bars,'_cicon')
-        +ax._a1m| Link
+        +ax._a1m| #[+isvg(svgi.home,'_licon')]Link
         +ax._a2t| Link
         +ax._a1m: +isvg(svgi.ellipsis,'_cicon')
 
