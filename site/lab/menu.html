@@ -200,14 +200,16 @@
               <div>
                 <style>
                   #sideFour { z-index:2 }
+                  #sideFour .__case { position:absolute }
                   #sideFour.open .__case { width:250px;height:200px }
-                  #sideFour .__content { height:150% }
+                  #sideFour .__content   { height:150% }
                 </style>
-                <nav class="_box openx" id="sideFour">
-                  <div class="__case _absolute">
+                <nav class="_box _borderbox" id="sideFour">
+                  <div class="__case _borderbox">
                     <div class="__card _fullcase _borderbox _pa_5">
-                      <div class="_fullcase _scrollable _color_1 _border">
-                        <div class="__content boxline _pa_5 _small">// sideFour</div>
+                      <div class="__cardi _fullcase _borderbox _scrollable _color_1 _border">
+                        <div class="__content _borderbox _pa_5 _small">// sideFour
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -215,14 +217,16 @@
               </div>
               <div>
                 <style>
+                  #sideThree { height:100% }
                   #sideThree.open .__case { width:200px;height:100% }
-                  #sideThree .__content  { height:150% }
+                  #sideThree .__content   { height:150% }
                 </style>
-                <nav class="_box _fullheight openx" id="sideThree">
-                  <div class="__case">
-                    <div class="__card _borderbox _pa_5">
-                      <div class="_fullcase _scrollable _color_1 _border">
-                        <div class="__content boxline _pa_5 _small">// sideThree</div>
+                <nav class="_box _borderbox" id="sideThree">
+                  <div class="__case _borderbox">
+                    <div class="__card _fullcase _borderbox _pa_5">
+                      <div class="__cardi _fullcase _borderbox _scrollable _color_1 _border">
+                        <div class="__content _borderbox _pa_5 _small">// sideThree
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -231,26 +235,34 @@
               <div>
                 <style>
                   #sideTwo { z-index:2 }
+                  #sideTwo .__case { position:absolute }
                   #sideTwo.open .__case { width:250px;height:200px }
-                  #sideTwo .__content { height:150% }
+                  #sideTwo .__content   { height:150% }
                 </style>
-                <nav class="_box openx" id="sideTwo">
-                  <div class="__case _absolute">
-                    <div class="__card _scrollable _color_1">
-                      <div class="__content boxline _pa_5 _small">// sideTwo</div>
+                <nav class="_box _borderbox" id="sideTwo">
+                  <div class="__case _borderbox">
+                    <div class="__card _fullcase _borderbox">
+                      <div class="__cardi _fullcase _borderbox _scrollable _color_1 _border_left">
+                        <div class="__content _borderbox _pa_5 _small">// sideTwo
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </nav>
               </div>
               <div>
                 <style>
+                  #sideOne { height:100% }
                   #sideOne.open .__case { width:200px;height:100% }
-                  #sideOne .__content  { height:150% }
+                  #sideOne .__content   { height:150% }
                 </style>
-                <nav class="_box _fullheight openx" id="sideOne">
-                  <div class="__case">
-                    <div class="__card _scrollable _color_1">
-                      <div class="__content boxline _pa_5 _small">// sideOne</div>
+                <nav class="_box _borderbox" id="sideOne">
+                  <div class="__case _borderbox">
+                    <div class="__card _fullcase _borderbox">
+                      <div class="__cardi _fullcase _borderbox _scrollable _color_1 _border_left">
+                        <div class="__content _borderbox _pa_5 _small">// sideOne
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </nav>
@@ -296,16 +308,35 @@
                         <path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z" fill="currentColor" fill-opacity="1"></path>
                       </svg></i></i></a>
               </nav>
+            </section>
+            <hr>
+            <section class="_mv">
+              <nav class="_color_1 _flex"><a class="_a1m" href="#" title="Open menu_one" onclick="event.preventDefault();toggleMenu(&quot;menu_one&quot;);"><i class="_icon _cicon"><i class="isvg">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M5,6H19V8H5V6M5,11H19V13H5V11M5,16H19V18H5V16Z" fill="currentColor" fill-opacity="1"></path>
+                      </svg></i></i></a>
+                <div class="_f _indiv"><a class="_a1m" href="#" title="Open menu_two" onclick="event.preventDefault();toggleMenu(&quot;menu_two&quot;);"><i class="_icon _licon"><i class="isvg">
+                        <svg viewBox="0 0 24 24">
+                          <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" fill="currentColor" fill-opacity="1"></path>
+                        </svg></i></i>Two</a><a class="_a1m" href="#" title="Open menu_three" onclick="event.preventDefault();toggleMenu(&quot;menu_three&quot;);">Three</a><a class="_a1m" href="#" title="Open menu_four" onclick="event.preventDefault();toggleMenu(&quot;menu_four&quot;);">Four</a>
+                </div>
+                <div class="_fill"></div><a class="_no_wrap _a1m" href="#" title="More .." onclick="event.preventDefault();toggleMenu(&quot;menu_right&quot;);"><i class="_icon _cicon"><i class="isvg">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z" fill="currentColor" fill-opacity="1"></path>
+                      </svg></i></i></a>
+              </nav>
               <style>
                 #menu_right .__case { margin-left:auto }
                 #menu_right.open .__case { width:100%;height:150px }
                 #menu_right .__content   { height:150% }
               </style>
-              <nav class="_box openx" id="menu_right">
-                <div class="__case">
-                  <hr class="_m0">
-                  <div class="__card _scrollable _color_1">
-                    <div class="__content boxline _pa_5 _small">// menu_right</div>
+              <nav class="_box _borderbox" id="menu_right">
+                <div class="__case _borderbox">
+                  <div class="__card _fullcase _borderbox">
+                    <div class="__cardi _fullcase _borderbox _scrollable _color_1 _border_top">
+                      <div class="__content _borderbox _pa_5 _small">// menu_right
+                      </div>
+                    </div>
                   </div>
                 </div>
               </nav>
@@ -313,23 +344,28 @@
                 #menu_one.open .__case { width:100%;height:150px }
                 #menu_one .__content   { height:150% }
               </style>
-              <nav class="_box openx" id="menu_one">
-                <div class="__case">
-                  <hr class="_m0">
-                  <div class="__card _scrollable _color_1">
-                    <div class="__content boxline _pa_5 _small">// menu_one</div>
+              <nav class="_box _borderbox" id="menu_one">
+                <div class="__case _borderbox">
+                  <div class="__card _fullcase _borderbox">
+                    <div class="__cardi _fullcase _borderbox _scrollable _color_1 _border_top">
+                      <div class="__content _borderbox _pa_5 _small">// menu_one
+                      </div>
+                    </div>
                   </div>
                 </div>
               </nav>
               <style>
+                #menu_two .__case { position:absolute }
                 #menu_two.open .__case { width:100%;height:150px }
                 #menu_two .__content   { height:150% }
               </style>
-              <nav class="_box openx" id="menu_two">
-                <div class="__case _absolute">
-                  <hr class="_m0">
-                  <div class="__card _scrollable _color_1">
-                    <div class="__content boxline _pa_5 _small">// menu_two</div>
+              <nav class="_box _borderbox" id="menu_two">
+                <div class="__case _borderbox">
+                  <div class="__card _fullcase _borderbox">
+                    <div class="__cardi _fullcase _borderbox _scrollable _color_1 _border_top">
+                      <div class="__content _borderbox _pa_5 _small">// menu_two
+                      </div>
+                    </div>
                   </div>
                 </div>
               </nav>
@@ -337,24 +373,27 @@
                 #menu_three.open .__case { width:100%;height:150px }
                 #menu_three .__content   { height:150% }
               </style>
-              <nav class="_box openx" id="menu_three">
-                <div class="__case">
-                  <div class="__card _borderbox _pa_5">
-                    <div class="_fullcase _scrollable _color_1 _border">
-                      <div class="__content boxline _pa_5 _small">// menu_three</div>
+              <nav class="_box _borderbox" id="menu_three">
+                <div class="__case _borderbox">
+                  <div class="__card _fullcase _borderbox _pa_5">
+                    <div class="__cardi _fullcase _borderbox _scrollable _color_1 _border">
+                      <div class="__content _borderbox _pa_5 _small">// menu_three
+                      </div>
                     </div>
                   </div>
                 </div>
               </nav>
               <style>
+                #menu_four .__case { position:absolute }
                 #menu_four.open .__case { width:100%;height:150px }
                 #menu_four .__content   { height:150% }
               </style>
-              <nav class="_box openx" id="menu_four">
-                <div class="__case _absolute">
+              <nav class="_box _borderbox" id="menu_four">
+                <div class="__case _borderbox">
                   <div class="__card _fullcase _borderbox _pa_5">
-                    <div class="_fullcase _scrollable _color_1 _border">
-                      <div class="__content boxline _pa_5 _small">// menu_four</div>
+                    <div class="__cardi _fullcase _borderbox _scrollable _color_1 _border">
+                      <div class="__content _borderbox _pa_5 _small">// menu_four
+                      </div>
                     </div>
                   </div>
                 </div>

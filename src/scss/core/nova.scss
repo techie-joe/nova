@@ -450,14 +450,18 @@ a._a1,._a1 {
 // use box-sizing model
 ._borderbox { &, &::before, &::after { box-sizing: border-box }}
 
-// set simple initial border
-._border { border: 1px solid rgba($border_color,.8);  }
-
 // set simple boxline
 ._boxline { box-shadow: 0 0 0 1px rgba($select_bg,.7) inset }
 
 // set simple outline
 ._outline { outline: 1px solid rgba($outline_color,.7) }
+
+// set simple initial border
+._border { border: 1px solid rgba($border_color,.8) }
+._border_top    { @extend ._border; border-width: 1px 0 0 0 }
+._border_right  { @extend ._border; border-width: 0 1px 0 0 }
+._border_bottom { @extend ._border; border-width: 0 0 1px 0 }
+._border_left   { @extend ._border; border-width: 0 0 0 1px }
 
 // borders
 ._no_border { border: 0 !important }
