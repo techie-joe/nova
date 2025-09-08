@@ -218,57 +218,6 @@ block article
         ._fill
 
     hr
-    section._mv._flex(style="min-height:100px")
-      ._color_1
-        +a.__full._a1m(onclick=onclick('toggleMenu("sideFour");'))| #[+isvg(svgi.arrow,'_licon')] Four
-        +a.__full._a1m(onclick=onclick('toggleMenu("sideThree");'))| #[+isvg(svgi.arrow,'_licon')] Three
-        +a.__full._a1m(onclick=onclick('toggleMenu("sideTwo");'))| #[+isvg(svgi.arrow,'_licon')] Two
-        +a.__full._a1m(onclick=onclick('toggleMenu("sideOne");'))| #[+isvg(svgi.arrow,'_licon')] One
-
-      div
-        style.
-          #sideFour { z-index:2 }
-          #sideFour .__case { position:absolute }
-          #sideFour.open .__case { width:250px;height:200px }
-          #sideFour .__content   { height:150% }
-        +box('sideFour','_pa_5','_color_1 _border')._pa_5._small| // sideFour
-
-      div
-        style.
-          #sideThree { height:100% }
-          #sideThree.open .__case { width:200px;height:100% }
-          #sideThree .__content   { height:150% }
-        +box('sideThree','_pa_5','_color_1 _border')._pa_5._small| // sideThree
-
-      div
-        style.
-          #sideTwo { z-index:2 }
-          #sideTwo .__case { position:absolute }
-          #sideTwo.open .__case { width:250px;height:200px }
-          #sideTwo .__content   { height:150% }
-        +box('sideTwo',null,'_color_1 _border_left')._pa_5._small| // sideTwo
-
-      div
-        style.
-          #sideOne { height:100% }
-          #sideOne.open .__case { width:200px;height:100% }
-          #sideOne .__content   { height:150% }
-        +box('sideOne',null,'_color_1 _border_left')._pa_5._small| // sideOne
-
-      ._fill._scrollable._scroll_y._fullcase: ._container: ._flex._gap_5
-        ._full._flex._gap_5
-          .f._outline._full| Full
-          .f._outline2._f| Fix
-          .f._outline._fit| Fit
-          .f._outline._fill| Fill
-        ._full._flex._gap_5
-          +flex(style="flex:1 1 300px")| 300px
-          +flex(style="flex:1 1 200px")| 200px
-          +flex(style="flex:1 1 100px")| 100px
-          +flex(style="flex:1 1 50px")| 50px
-          +fit(style="flex-basis:180px")| Fit
-
-    hr
     section._mv
 
       style.
@@ -345,7 +294,14 @@ block article
           +a._a1m(onclick=onclick('toggleMenu("menu_three");') title="Open menu_three")| Three
           +a._a1m(onclick=onclick('toggleMenu("menu_four");') title="Open menu_four")| Four
         ._fill
+        +ax._a1m(onclick=onclick('toggleMenu("menu_right2");') title="More ..")| #[+isvg(svgi.ellipsis,'_cicon')]
         +ax._a1m(onclick=onclick('toggleMenu("menu_right");') title="More ..")| #[+isvg(svgi.ellipsis,'_cicon')]
+
+      style.
+        #menu_right2 .__case { position:absolute;right:0 }
+        #menu_right2.open .__case { width:100%;height:150px }
+        #menu_right2 .__content   { height:150% }
+      +box('menu_right2','_pa_5','_color_1 _border')._pa_5._small| // menu_right2
 
       style.
         #menu_right .__case { margin-left:auto }
@@ -376,7 +332,57 @@ block article
       +box('menu_four','_pa_5','_color_1 _border')._pa_5._small| // menu_four
 
     hr
+    section._mv._flex(style="min-height:100px")
+      ._color_1
+        +a.__full._a1m(onclick=onclick('toggleMenu("sideFour");'))| #[+isvg(svgi.arrow,'_licon')] Four
+        +a.__full._a1m(onclick=onclick('toggleMenu("sideThree");'))| #[+isvg(svgi.arrow,'_licon')] Three
+        +a.__full._a1m(onclick=onclick('toggleMenu("sideTwo");'))| #[+isvg(svgi.arrow,'_licon')] Two
+        +a.__full._a1m(onclick=onclick('toggleMenu("sideOne");'))| #[+isvg(svgi.arrow,'_licon')] One
 
+      div
+        style.
+          #sideFour { z-index:2 }
+          #sideFour .__case { position:absolute }
+          #sideFour.open .__case { width:250px;height:200px }
+          #sideFour .__content   { height:150% }
+        +box('sideFour','_pa_5','_color_1 _border')._pa_5._small| // sideFour
+
+      div
+        style.
+          #sideThree { height:100% }
+          #sideThree.open .__case { width:200px;height:100% }
+          #sideThree .__content   { height:150% }
+        +box('sideThree','_pa_5','_color_1 _border')._pa_5._small| // sideThree
+
+      div
+        style.
+          #sideTwo { z-index:2 }
+          #sideTwo .__case { position:absolute }
+          #sideTwo.open .__case { width:250px;height:200px }
+          #sideTwo .__content   { height:150% }
+        +box('sideTwo',null,'_color_1 _border_left')._pa_5._small| // sideTwo
+
+      div
+        style.
+          #sideOne { height:100% }
+          #sideOne.open .__case { width:200px;height:100% }
+          #sideOne .__content   { height:150% }
+        +box('sideOne',null,'_color_1 _border_left')._pa_5._small| // sideOne
+
+      ._fill._scrollable._scroll_y._fullcase: ._container: ._flex._gap_5
+        ._full._flex._gap_5
+          .f._outline._full| Full
+          .f._outline2._f| Fix
+          .f._outline._fit| Fit
+          .f._outline._fill| Fill
+        ._full._flex._gap_5
+          +flex(style="flex:1 1 300px")| 300px
+          +flex(style="flex:1 1 200px")| 200px
+          +flex(style="flex:1 1 100px")| 100px
+          +flex(style="flex:1 1 50px")| 50px
+          +fit(style="flex-basis:180px")| Fit
+
+    hr
     section._mv._flex._gap_5
 
       nav._f: ._color_1._radius_5._ph_5
