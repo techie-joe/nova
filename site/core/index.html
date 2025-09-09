@@ -52,8 +52,8 @@
     <style>
       ._a1m { margin-right:.25em }
       ._a1m._active { color:inherit }
-      ._article a[href] { text-decoration:none }
-      ._article a[href]:hover { text-decoration:underline }
+      .nav a[href] { text-decoration:none }
+      .nav a[href]:hover { text-decoration:underline }
       
     </style>
   </head>
@@ -63,14 +63,14 @@
         <noscript class="_pa _tc_red _b _mono">// Please enable javascript</noscript>
         <header id="_header">
           <h1>Core</h1>
+          <nav class="nav"><a class="_needjs" href="#" onclick="event.preventDefault();(function(w){var h=w.history;w.opener?w.close():h.length>1?h.back():w.location.href='/';})(window)" title="Back to previous page">Back</a>
+          </nav>
+          <hr>
         </header>
-        <hr>
         <main id="_main">
           <article class="_article">
-            <section style="margin-bottom:10rem">
-              <nav><a class="_needjs" href="#" onclick="event.preventDefault();(function(w){var h=w.history;w.opener?w.close():h.length>1?h.back():w.location.href='/';})(window)" title="Back to previous page">Back</a>
+            <section class="nav" style="margin-bottom:10rem">
 <a href="blank.html">Blank</a>
-              </nav>
             </section>
           </article>
           <aside class="_side_article"></aside>

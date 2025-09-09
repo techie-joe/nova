@@ -8,20 +8,21 @@ block append vars
     description = 'The Core Preview'
     author      = 'Techie Joe'
 
-block header
-  header#_header: h1 !{title}
-  hr
-
 block append style
   style.
     ._a1m { margin-right:.25em }
     ._a1m._active { color:inherit }
-    ._article a[href] { text-decoration:none }
-    ._article a[href]:hover { text-decoration:underline }
+    .nav a[href] { text-decoration:none }
+    .nav a[href]:hover { text-decoration:underline }
+
+block header
+  header#_header
+    h1 !{title}
+    nav.nav
+      +backLink| Back
+    hr
 
 block article
   article._article
-    section(style="margin-bottom:10rem")
-      nav
-        +backLink| Back
-        +_a('blank.html')| Blank
+    section(style="margin-bottom:10rem").nav
+      +_a('blank.html')| Blank

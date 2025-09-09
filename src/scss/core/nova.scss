@@ -708,6 +708,9 @@ $angles : 45, 90, 135, 180, 225, 270, 315;
 // wrap control
 ._no_wrap { white-space: nowrap !important }
 
+// foac
+._foac ._scrollable { @extend ._no_wrap; @extend ._no_scroll; }
+
 // hide from screen readers, but maintain visual layout
 ._invisible { visibility: hidden !important }
 

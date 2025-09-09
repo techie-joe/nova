@@ -16,17 +16,17 @@ block append vars
     };
 
 block header
-  +simpleHeader
-  nav._container
-    +a(onclick='theme.set("");' title='theme.set("")')._a3|Default
-    +a(onclick='theme.set("_dark");' title='theme.set("_dark")')._a3|Dark
-    +a(onclick='theme.set("_pink");' title='theme.set("_pink")')._a3|Pink
-    +a(onclick='theme.set("_cream");' title='theme.set("_cream")')._a3|Cream
-    +a(onclick='theme.set(["_dark",""]);' title='theme.set(["_dark",""])')._a3 Common
-    +a(onclick='theme.set(["_dark","_cream","","_pink"]);' title='theme.set(["_dark","_cream","","_pink"])')._a3._active All
-    ='|'
-    +a('test.html')._a3 Test
-  hr
+  +simplestHeader
+  +backNav(homeUri+'lab')
+    nav._pa_25
+      +a(onclick='theme.set("");' title='theme.set("")')._a3|Default
+      +a(onclick='theme.set("_dark");' title='theme.set("_dark")')._a3|Dark
+      +a(onclick='theme.set("_pink");' title='theme.set("_pink")')._a3|Pink
+      +a(onclick='theme.set("_cream");' title='theme.set("_cream")')._a3|Cream
+      +a(onclick='theme.set(["_dark",""]);' title='theme.set(["_dark",""])')._a3 Common
+      +a(onclick='theme.set(["_dark","_cream","","_pink"]);' title='theme.set(["_dark","_cream","","_pink"])')._a3._active All
+      ='|'
+      +a('test.html')._a3 Test
 
 block article
   article._article._container1
