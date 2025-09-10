@@ -382,7 +382,7 @@ a,._a {
     text-align: center;
     white-space: nowrap;
     text-decoration: none;
-    padding: 0 .55em;
+    padding: 0 .5em;
     box-sizing: border-box;
   }
   &:active { opacity: .3 }
@@ -413,7 +413,8 @@ button {
 
 ._a3,._a3m { border: 1px solid rgba($border_color,.8); }
 
-._a3,._a2,._a1 { min-width: 1.5em }
+._a2,._a1 { min-width: 1.5em }
+._a3 { min-width: 1.6em }
 
 ._a1m { padding: .35em .75em; min-width: 2.2em }
 ._a3m,._a2m { padding: .25em .75em; min-width: 2em }

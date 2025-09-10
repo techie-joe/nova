@@ -1,6 +1,5 @@
 -
   const nova_menu = [
-    ['pure','pure','Pure'],
     ['basic','basic','Basic'],
     ['lab','lab','Lab'],
   ];
@@ -48,6 +47,6 @@ mixin menues(cls,links)
 //- pageid, uri, title
 
 mixin main_nav
-  #_main_nav._color_2._flex
-    nav._fill: +menues(['_a1m'],nova_menu)
-    ._f: +changeThemeLink._a1m: +isvg(svgi.compare,'_cicon')
+  #_main_nav._color_1._flex
+    nav._fill._ph_5._pv_25: +menues(['_a3'],nova_menu)
+    ._fit._text_right._ph_5._pa_25: +changeThemeLink._a2: +isvg(svgi.compare,'_cicon')
