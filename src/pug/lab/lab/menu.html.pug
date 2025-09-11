@@ -243,8 +243,8 @@ block article
           #sideFour .__case { position:absolute }
           #sideFour.open .__case { width:250px;height:200px }
           #sideFour .__content   { height:150% }
-        +box('_ph','_color_1 _border _scrollable')#sideFour
-          .__content: ._pa_5._small| // sideFour
+        +box('_ph','_color_1 _border _radius_5 _pad')#sideFour
+          ._scrollable._fullcase: .__content: ._pa_5._small| // sideFour
 
       div
         style.
@@ -314,17 +314,8 @@ block article
             #hoxThree .__content { height:150% }
           span#hoxThree._inblock
             +a._a1m| Three
-            +hox('_color_1 _border _scrollable')
-              .__content: ._pa_5._small| // hoxThree
-          style.
-            #hoxFour.open ._hox > .__case,
-            #hoxFour:focus-within ._hox > .__case,
-            #hoxFour:hover ._hox > .__case { width:250px;height:150px }
-            #hoxFour .__content { height:150% }
-          span#hoxFour._inblock
-            +a._a1m| Four
-            +hox('_pa_5','_color_1 _border _scrollable')
-              .__content: ._pa_5._small| // hoxFour
+            +hox('_pa_5','_color_1 _border _pad _radius_5')
+              ._scrollable._fullcase: .__content: ._pa_5._small| // hoxThree
         ._fill
         ._fit._text_right._no_wrap
           style.
@@ -418,7 +409,7 @@ block article
     hr
     section._mv._flex._gap_5
 
-      nav._f: ._color_1._radius_5._ph_5
+      nav._f: ._color_1
         +a._a1: +isvg(svgi.bars,'_cicon')
         +a._a1| Link
         +a._a1: +isvg(svgi.ellipsis,'_cicon')._rotate90
