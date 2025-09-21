@@ -677,7 +677,7 @@ $paddings: (
   ._pb#{$x} { padding-bottom: $value }
   ._pv#{$x} { @extend ._pt#{$x}; @extend ._pb#{$x}; }
 }
-._pad { @extend ._no_overflow; padding:.1px }
+._pad { padding:.1px }
 
 // ._radius
 $radiuses: (

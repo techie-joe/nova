@@ -53,7 +53,7 @@ block append style
     ._hover_show:hover > ._content { width:300px;height:300px }
     ._hover_show ._hover_show > ._content { left: 1rem }
 
-    ._box { display:block;position:relative }
+    ._box { display:block;position:relative;z-index:1 }
     ._box,
     ._box .__card,
     ._box .__case,
@@ -64,19 +64,21 @@ block append style
       transition:width .2s ease, height .2s ease;
       width:0px;height:0px;
     }
+    ._box ._pad { box-sizing:content-box }
 
-    ._hox { display:block;position:relative }
+    ._hox { display:block;position:relative;z-index:1 }
     ._hox,
     ._hox .__card,
     ._hox .__case,
     ._hox .__content { box-sizing:border-box }
     ._hox .__card { width:100%;height:100% }
     ._hox .__case {
+      position:absolute;
       overflow:hidden;
       transition:width .2s ease .3s, height .2s ease .3s;
       width:0px;height:0px;
     }
-    ._hox > .__case { position:absolute;z-index:1 }
+    ._hox ._pad { box-sizing:content-box }
 
   //- style.
 
@@ -122,20 +124,10 @@ block article
               +repeat(4): +a.__full._a1m Link
 
       div(style="width:150px"): ._color_1
-        +a.__full._a1m|#[+isvg(svgi.home,'_licon')]Home
-        hr._m0
-        ._flex
-          div: +a._a1m: +isvg(svgi.bars,'_cicon')
-          ._fill: +a._a1m| Link
-          div: +a._a1m: +isvg(svgi.ellipsis,'_cicon')
-        hr._m0
-        +a.__full._a1m Link
-        hr._m0
-
         style.
           #menu_va .content { width:200px;height:auto }
           #menu_va .boxline { height:150% }
-        span#menu_va._hover_show._hoverx.__full
+        span#menu_va._hover_show._hover.__full
           +a._a1m.__full| Menu#[+isvg(svgi.caret,'_ricon')._rotate90]
           ._content: .content._color_1._border._scrollablex
             //- .boxline._pa_5._small| // menu
@@ -167,35 +159,13 @@ block article
 
               +repeat(1): +a.__full._a1m Link
 
-    section._mv
-      nav._color_1._flex
-        ._f._indiv
-          style.
-            #menu_a._hover > ._content,
-            #menu_a:focus > ._content,
-            #menu_a:hover > ._content { width:150px;height:150px }
-            #menu_a .content { height:100% }
-            #menu_a ._scrollable { height:100% }
-          span(id=id)._hover_show._hoverx
-            +a._a1m| Menu#[+isvg(svgi.caret,'_ricon')._rotate90]
-            ._content: .content._color_1._border: ._scrollable
-              //- .boxline._pa_5._small| // menu
-              ._flex
-                div: +a._a1m: +isvg(svgi.bars,'_cicon')
-                ._fill: +a._a1m| Link
-                div: +a._a1m: +isvg(svgi.ellipsis,'_cicon')
-              hr._m0
-              +a.__full._a1m|#[+isvg(svgi.home,'_licon')]Home
-              hr._m0
-              +repeat(4): +a.__full._a1m Link
-
-    hr
-    section._mv._flex._gap
-
+    //- hr
+    //- section._mv._flex._gap
+    //- 
       style.
         #m_one .__case { width:150px;height:150px }
         #m_one .__content   { min-height:150% }
-      +box('_color_1 _border _pad _radius_5','_scrollable')#m_one: .__content
+      +box('_color_1 _border _pad _radius_5 _no_overflow','_scrollable')#m_one: .__content
         +a.__full._a1m|#[+isvg(svgi.home,'_licon')]Home
         hr._m0
         ._flex
@@ -219,7 +189,7 @@ block article
 
       style.
         #m_three .__case { width:150px;height:150px }
-      +box('_color_1 _pa_5 _radius_5')#m_three
+      +box('_color_1 _pa_5 _radius_5 _no_overflow')#m_three
         +a.__full._a2|#[+isvg(svgi.home,'_licon')]Home
         hr._mv_25
         ._flex
@@ -228,6 +198,79 @@ block article
           div: +a._a2: +isvg(svgi.ellipsis,'_cicon')
         hr._mv_25
         +a.__full._a2 Link
+
+    hr
+    section._mv._flex._gap
+
+      ._f(style="height:200px"): ._color_1
+        style.
+          #coxOne.open ._hox > .__case,
+          #coxOne:focus-within ._hox > .__case,
+          #coxOne:hover ._hox > .__case { width:250px;height:150px }
+          #coxOne .__content { height:150% }
+        span#coxOne._inblock.open
+          +a._a1m| One#[+isvg(svgi.angle,'_ricon')._rotate90]
+          +hox('_pa_5','_color_1 _border _pad _radius_5 _no_overflow')
+            ._scrollablex._fullcase: .__content
+              //- ._pa_5._small| // coxOne
+              //- +repeat(5): +a.__full._a1m Link
+              style.
+                #coxOne1 ._hox { z-index:2 }
+                #coxOne1.open ._hox > .__case,
+                #coxOne1:focus-within ._hox > .__case,
+                #coxOne1:hover ._hox > .__case { width:200px;height:150px }
+                #coxOne1 .__content { height:150% }
+              span#coxOne1._block.openx
+                +a._a1m.__full| Sub One#[+isvg(svgi.angle,'_ricon')._rotate90]
+                +hox('_pa_5','_color_1 _border _pad _radius_5 _no_overflow')
+                  ._scrollable._fullcase: .__content
+                    //- ._pa_5._small| // coxOne1
+                    +repeat(5): +a.__full._a1m Link
+
+    hr
+    section._mv
+
+      nav._color_1._flex
+        style.
+          #hoxOne.open ._hox > .__case,
+          #hoxOne:focus-within ._hox > .__case,
+          #hoxOne:hover ._hox > .__case { width:250px;height:150px }
+          #hoxOne .__content { height:150% }
+        span#hoxOne._inblock
+          +a._a1m| #[+isvg(svgi.angle,'_cicon')._rotate90]
+          +hox('_color_1 _border_top _scrollable')
+            .__content: ._pa_5._small| // hoxOne
+        ._f._indiv
+          style.
+            #hoxTwo.open ._hox > .__case,
+            #hoxTwo:focus-within ._hox > .__case,
+            #hoxTwo:hover ._hox > .__case { width:250px;height:150px }
+            #hoxTwo .__content { height:150% }
+          span#hoxTwo._inblock
+            +a._a1m| Two
+            +hox('_color_1 _border _scrollable')
+              .__content: ._pa_5._small| // hoxTwo
+          style.
+            #hoxThree.open ._hox > .__case,
+            #hoxThree:focus-within ._hox > .__case,
+            #hoxThree:hover ._hox > .__case { width:250px;height:150px }
+            #hoxThree .__content { height:150% }
+          span#hoxThree._inblock
+            +a._a1m| Three
+            +hox('_pa_5','_color_1 _border _pad _radius_5 _no_overflow')
+              ._scrollable._fullcase: .__content: ._pa_5._small| // hoxThree
+        ._fill
+        ._fit._text_right._no_wrap
+          style.
+            #hoxRight ._hox > .__case { z-index:2;right:0 }
+            #hoxRight.open ._hox > .__case,
+            #hoxRight:focus-within ._hox > .__case,
+            #hoxRight:hover ._hox > .__case { width:250px;height:150px }
+            #hoxRight .__content { height:150% }
+          span#hoxRight._inblock._text_left
+            +a._a1m(title="More ..")| #[+isvg(svgi.angle,'_cicon')._rotate90]
+            +hox('_pa_5','_color_1 _border _scrollable')
+              .__content: ._pa_5._small| // hoxRight
 
     hr
     section._mv._flex(style="min-height:100px")
@@ -243,7 +286,7 @@ block article
           #sideFour .__case { position:absolute }
           #sideFour.open .__case { width:250px;height:200px }
           #sideFour .__content   { height:150% }
-        +box('_ph','_color_1 _border _radius_5 _pad')#sideFour
+        +box('_ph','_color_1 _border _radius_5 _no_overflow _pad')#sideFour
           ._scrollable._fullcase: .__content: ._pa_5._small| // sideFour
 
       div
@@ -288,51 +331,6 @@ block article
     section._mv
 
       nav._color_1._flex
-        style.
-          #hoxOne.open ._hox > .__case,
-          #hoxOne:focus-within ._hox > .__case,
-          #hoxOne:hover ._hox > .__case { width:250px;height:150px }
-          #hoxOne .__content { height:150% }
-        span#hoxOne._inblock
-          +a._a1m| #[+isvg(svgi.angle,'_cicon')._rotate90]
-          +hox('_color_1 _border_top _scrollable')
-            .__content: ._pa_5._small| // hoxOne
-        ._f._indiv
-          style.
-            #hoxTwo.open ._hox > .__case,
-            #hoxTwo:focus-within ._hox > .__case,
-            #hoxTwo:hover ._hox > .__case { width:250px;height:150px }
-            #hoxTwo .__content { height:150% }
-          span#hoxTwo._inblock
-            +a._a1m| Two
-            +hox('_color_1 _border _scrollable')
-              .__content: ._pa_5._small| // hoxTwo
-          style.
-            #hoxThree.open ._hox > .__case,
-            #hoxThree:focus-within ._hox > .__case,
-            #hoxThree:hover ._hox > .__case { width:250px;height:150px }
-            #hoxThree .__content { height:150% }
-          span#hoxThree._inblock
-            +a._a1m| Three
-            +hox('_pa_5','_color_1 _border _pad _radius_5')
-              ._scrollable._fullcase: .__content: ._pa_5._small| // hoxThree
-        ._fill
-        ._fit._text_right._no_wrap
-          style.
-            #hoxRight ._hox > .__case { z-index:3;right:0 }
-            #hoxRight.open ._hox > .__case,
-            #hoxRight:focus-within ._hox > .__case,
-            #hoxRight:hover ._hox > .__case { width:250px;height:150px }
-            #hoxRight .__content { height:150% }
-          span#hoxRight._inblock._text_left
-            +a._a1m(title="More ..")| #[+isvg(svgi.angle,'_cicon')._rotate90]
-            +hox('_pa_5','_color_1 _border _scrollable')
-              .__content: ._pa_5._small| // hoxRight
-
-    hr
-    section._mv
-
-      nav._color_1._flex
         +a._a1m(onclick=onclick('toggleMenu("menu_one");') title="Open menu_one")| #[+isvg(svgi.bars,'_cicon')]
         ._f._indiv
           +a._a1m(onclick=onclick('toggleMenu("menu_two");') title="Open menu_two")| Two
@@ -345,7 +343,8 @@ block article
           +a._a1m(onclick=onclick('toggleMenu("menu_right");') title="More ..")| #[+isvg(svgi.ellipsis,'_cicon')._rotate90]
 
       style.
-        #menu_right2 .__case { position:absolute;right:0;z-index:3 }
+        #menu_right2 { z-index:2 }
+        #menu_right2 .__case { position:absolute;right:0 }
         #menu_right2.open .__case { width:300px;max-width:100%;height:150px }
         #menu_right2 .__content   { height:150% }
       +box('_pa_5','_color_1 _border _scrollable')#menu_right2
@@ -388,7 +387,7 @@ block article
         #menu_five .__case { position:absolute;z-index:2 }
         #menu_five.open .__case { width:300px;max-width:100%;height:150px }
         #menu_five .___content  { height:150% }
-      +box('_pa_5','_color_1 _border _radius_5 _pad')#menu_five
+      +box('_pa_5','_color_1 _border _radius_5 _no_overflow _pad')#menu_five
         ._scrollable._fullcase
           .___content: ._pa_5._small| // menu_five
 
