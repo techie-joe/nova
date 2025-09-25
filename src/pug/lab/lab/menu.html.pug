@@ -39,20 +39,6 @@ block append style
 
     a.__full { display:block;text-align:left }
 
-    ._hover_show.__full { display:block;text-align:left }
-
-    ._hover_show { display:inline-block;position:relative }
-    ._hover_show > ._content {
-      position:absolute;
-      z-index:1;top:100%;left:0;
-      overflow:hidden;
-      transition:width .2s ease .2s, height .2s ease .2s;
-      width:0px;height:0px;
-    }
-    ._hover_show._hover > ._content,
-    ._hover_show:hover > ._content { width:300px;height:300px }
-    ._hover_show ._hover_show > ._content { left: 1rem }
-
     ._box { display:block;position:relative;z-index:1 }
     ._box,
     ._box .__card,
@@ -105,60 +91,6 @@ mixin flexx(n)
 block article
   article._article._container(style="margin-bottom:200px")
 
-    section._mv._flex._gap
-
-      div
-        style.
-          #sidemenu .content { width:200px;min-height:150px;max-height:150px }
-          #sidemenu .boxline { height:150% }
-        aside#sidemenu._click_show.open: ._content
-          .content._scrollable._color_1
-            ._color_1
-              +a.__full._a1m|#[+isvg(svgi.home,'_licon')]Home
-              hr._m0
-              ._flex
-                div: +a._a1m: +isvg(svgi.bars,'_cicon')
-                ._fill: +a._a1m| Link
-                div: +a._a1m: +isvg(svgi.ellipsis,'_cicon')
-              hr._m0
-              +repeat(4): +a.__full._a1m Link
-
-      div(style="width:150px"): ._color_1
-        style.
-          #menu_va .content { width:200px;height:auto }
-          #menu_va .boxline { height:150% }
-        span#menu_va._hover_show._hover.__full
-          +a._a1m.__full| Menu#[+isvg(svgi.caret,'_ricon')._rotate90]
-          ._content: .content._color_1._border._scrollablex
-            //- .boxline._pa_5._small| // menu
-            ._color_1
-              +a.__full._a1m|#[+isvg(svgi.home,'_licon')]Home
-              hr._m0
-              ._flex
-                div: +a._a1m: +isvg(svgi.bars,'_cicon')
-                ._fill: +a._a1m| Link
-                div: +a._a1m: +isvg(svgi.ellipsis,'_cicon')
-              hr._m0
-
-              style.
-                #menu_vva .content { width:200px;height:150px }
-                #menu_vva .boxline { height:150% }
-              span#menu_vva._hover_show._hoverx.__full
-                +a._a1m.__full| Menu#[+isvg(svgi.caret,'_ricon')._rotate90]
-                ._content: .content._color_1._border._scrollable
-                  //- .boxline._pa_5._small| // menu
-                  ._color_1
-                    +a.__full._a1m|#[+isvg(svgi.home,'_licon')]Home
-                    hr._m0
-                    ._flex
-                      div: +a._a1m: +isvg(svgi.bars,'_cicon')
-                      ._fill: +a._a1m| Link
-                      div: +a._a1m: +isvg(svgi.ellipsis,'_cicon')
-                    hr._m0
-                    +repeat(4): +a.__full._a1m Link
-
-              +repeat(1): +a.__full._a1m Link
-
     //- hr
     //- section._mv._flex._gap
     //- 
@@ -202,39 +134,94 @@ block article
     hr
     section._mv._flex._gap
 
-      ._f(style="height:200px"): ._color_1
+      ._f(style="min-height:100px"): ._color_1
         style.
-          #coxOne.open ._hox > .__case,
-          #coxOne:focus-within ._hox > .__case,
-          #coxOne:hover ._hox > .__case { width:250px;height:150px }
-          #coxOne .__content { height:150% }
-        span#coxOne._inblock.open
-          +a._a1m| One#[+isvg(svgi.angle,'_ricon')._rotate90]
-          +hox('_pa_5','_color_1 _border _pad _radius_5 _no_overflow')
-            ._scrollablex._fullcase: .__content
-              //- ._pa_5._small| // coxOne
-              //- +repeat(5): +a.__full._a1m Link
+          #coxThree > ._hox { z-index:3 }
+          #coxThree.open > ._hox > .__case,
+          #coxThree:focus-within > ._hox > .__case,
+          #coxThree:hover > ._hox > .__case { width:270px;height:200px }
+          #coxThree .__content { height:100% }
+          #coxThree .card { width:200px;height:150px }
+        span#coxThree._block.openx
+          +a._a1m.__full| Three#[+isvg(svgi.angle,'_ricon')._rotate90]
+          +hox('_pa_5 _outline','_color_1 _border _radius_5 _no_overflowx card')
+            //- ._scrollable._scroll_y._fullcase: .__content
+            .__content
               style.
-                #coxOne1 ._hox { z-index:2 }
-                #coxOne1.open ._hox > .__case,
-                #coxOne1:focus-within ._hox > .__case,
-                #coxOne1:hover ._hox > .__case { width:200px;height:150px }
-                #coxOne1 .__content { height:150% }
+                #coxThree1 > ._hox { z-index:2 }
+                #coxThree1 > ._hox > .__case { position:relative }
+                #coxThree1.open > ._hox > .__case,
+                #coxThree1:focus-within > ._hox > .__case,
+                #coxThree1:hover > ._hox > .__case { width:250px;height:150px }
+                #coxThree1 .__content { height:100% }
+              span#coxThree1._block.openx
+                +a._a1m.__full| Sub Three#[+isvg(svgi.angle,'_ricon')._rotate90]
+                +hox('_pa_5 _outline3','_color_1 _border _radius_5 _no_overflow')
+                  ._scrollable._fullcase: .__content
+                    - n = 1;
+                    +repeat(5): +a.__full._a1m Link #{n++}
+              +repeat(1): +a.__full._a1m Other Subs
+
+        style.
+          #coxTwo > ._hox > .__case { position:relative }
+          #coxTwo.open > ._hox > .__case,
+          #coxTwo:focus-within > ._hox > .__case,
+          #coxTwo:hover > ._hox > .__case { width:200px;height:187px }
+          #coxTwo .__content { height:100% }
+        span#coxTwo._block.openx
+          +a._a1m.__full| Two#[+isvg(svgi.angle,'_ricon')._rotate90]
+          +hox('_color_1 _border _no_overflow')
+            ._scrollable._scroll_y._fullcase: .__content
+              style.
+                #coxTwo1 > ._hox { z-index:2 }
+                #coxTwo1 > ._hox > .__case { position:relative }
+                #coxTwo1.open > ._hox > .__case,
+                #coxTwo1:focus-within > ._hox > .__case,
+                #coxTwo1:hover > ._hox > .__case { width:100%;height:150px }
+                #coxTwo1 .__content { height:100% }
+              span#coxTwo1._block.openx
+                +a._a1m.__full| Sub Two#[+isvg(svgi.angle,'_ricon')._rotate90]
+                +hox('_pa_5','_color_1 _border _radius_5 _no_overflow')
+                  ._scrollable._fullcase: .__content
+                    - n = 1;
+                    +repeat(5): +a.__full._a1m Link #{n++}
+              +repeat(2): +a.__full._a1m Other Subs
+
+        style.
+          #coxOne > ._hox { z-index:2 }
+          #coxOne.open > ._hox > .__case,
+          #coxOne:focus-within > ._hox > .__case,
+          #coxOne:hover > ._hox > .__case { width:200px;height:187px }
+          #coxOne .__content { height:100% }
+        span#coxOne._block.openx
+          +a._a1m.__full| One#[+isvg(svgi.angle,'_ricon')._rotate90]
+          +hox('_pa_5','_color_1 _border _radius_5 _no_overflow')
+            ._scrollable._scroll_y._fullcase: .__content
+              style.
+                #coxOne1 > ._hox { z-index:2 }
+                #coxOne1 > ._hox > .__case { position:relative }
+                #coxOne1.open > ._hox > .__case,
+                #coxOne1:focus-within > ._hox > .__case,
+                #coxOne1:hover > ._hox > .__case { width:100%;height:200px }
+                #coxOne1 .__content { height:100% }
               span#coxOne1._block.openx
                 +a._a1m.__full| Sub One#[+isvg(svgi.angle,'_ricon')._rotate90]
-                +hox('_pa_5','_color_1 _border _pad _radius_5 _no_overflow')
+                +hox('_pa_5','_color_1 _border _radius_5 _no_overflow')
                   ._scrollable._fullcase: .__content
-                    //- ._pa_5._small| // coxOne1
-                    +repeat(5): +a.__full._a1m Link
+                    - n = 1;
+                    +repeat(5): +a.__full._a1m Link #{n++}
+              +repeat(1): +a.__full._a1m Other Subs
+
+        +repeat(1): +a.__full._a1m Other
 
     hr
     section._mv
 
       nav._color_1._flex
         style.
-          #hoxOne.open ._hox > .__case,
-          #hoxOne:focus-within ._hox > .__case,
-          #hoxOne:hover ._hox > .__case { width:250px;height:150px }
+          #hoxOne.open > ._hox > .__case,
+          #hoxOne:focus-within > ._hox > .__case,
+          #hoxOne:hover > ._hox > .__case { width:250px;height:150px }
           #hoxOne .__content { height:150% }
         span#hoxOne._inblock
           +a._a1m| #[+isvg(svgi.angle,'_cicon')._rotate90]
@@ -242,18 +229,18 @@ block article
             .__content: ._pa_5._small| // hoxOne
         ._f._indiv
           style.
-            #hoxTwo.open ._hox > .__case,
-            #hoxTwo:focus-within ._hox > .__case,
-            #hoxTwo:hover ._hox > .__case { width:250px;height:150px }
+            #hoxTwo.open > ._hox > .__case,
+            #hoxTwo:focus-within > ._hox > .__case,
+            #hoxTwo:hover > ._hox > .__case { width:250px;height:150px }
             #hoxTwo .__content { height:150% }
           span#hoxTwo._inblock
             +a._a1m| Two
             +hox('_color_1 _border _scrollable')
               .__content: ._pa_5._small| // hoxTwo
           style.
-            #hoxThree.open ._hox > .__case,
-            #hoxThree:focus-within ._hox > .__case,
-            #hoxThree:hover ._hox > .__case { width:250px;height:150px }
+            #hoxThree.open > ._hox > .__case,
+            #hoxThree:focus-within > ._hox > .__case,
+            #hoxThree:hover > ._hox > .__case { width:250px;height:150px }
             #hoxThree .__content { height:150% }
           span#hoxThree._inblock
             +a._a1m| Three
@@ -262,10 +249,10 @@ block article
         ._fill
         ._fit._text_right._no_wrap
           style.
-            #hoxRight ._hox > .__case { z-index:2;right:0 }
-            #hoxRight.open ._hox > .__case,
-            #hoxRight:focus-within ._hox > .__case,
-            #hoxRight:hover ._hox > .__case { width:250px;height:150px }
+            #hoxRight > ._hox > .__case { z-index:2;right:0 }
+            #hoxRight.open > ._hox > .__case,
+            #hoxRight:focus-within > ._hox > .__case,
+            #hoxRight:hover > ._hox > .__case { width:250px;height:150px }
             #hoxRight .__content { height:150% }
           span#hoxRight._inblock._text_left
             +a._a1m(title="More ..")| #[+isvg(svgi.angle,'_cicon')._rotate90]

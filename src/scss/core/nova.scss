@@ -53,10 +53,10 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
-// to clear pass floating elements.
-// to contain marginal elements.
 body {
   @extend ._reset_margin;
+  // to clear pass floating elements.
+  // to contain marginal elements.
   @extend ._clearfix;
 }
 
