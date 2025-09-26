@@ -39,7 +39,7 @@ block append style
 
     a.__full { display:block;text-align:left }
 
-    ._box { display:block;position:relative;z-index:1 }
+    ._box { display:block;position:relative }
     ._box,
     ._box .__card,
     ._box .__case,
@@ -52,19 +52,11 @@ block append style
     }
     ._box ._pad { box-sizing:content-box }
 
-    ._hox { display:block;position:relative;z-index:1 }
-    ._hox,
-    ._hox .__card,
-    ._hox .__case,
-    ._hox .__content { box-sizing:border-box }
-    ._hox .__card { width:100%;height:100% }
+    ._hox { z-index:1 }
     ._hox .__case {
       position:absolute;
-      overflow:hidden;
       transition:width .2s ease .3s, height .2s ease .3s;
-      width:0px;height:0px;
     }
-    ._hox ._pad { box-sizing:content-box }
 
   //- style.
 
@@ -74,7 +66,7 @@ mixin box(c1,c2)
       .__card(class=c2): block
 
 mixin hox(c1,c2)
-  nav._hox&attributes(attributes): .__case
+  nav._box._hox&attributes(attributes): .__case
     .__card(class=c1)
       .__card(class=c2): block
 
@@ -132,6 +124,51 @@ block article
         +a.__full._a2 Link
 
     hr
+    section._mv
+
+      nav._color_1._flex
+        style.
+          #hoxOne.open > ._hox > .__case,
+          #hoxOne:focus-within > ._hox > .__case,
+          #hoxOne:hover > ._hox > .__case { width:250px;height:150px }
+          #hoxOne .__content { height:150% }
+        span#hoxOne._inblock
+          +a._a1m| #[+isvg(svgi.angle,'_cicon')._rotate90]
+          +hox('_color_1 _border_top _scrollable')
+            .__content: ._pa_5._small| // hoxOne
+        ._f._indiv
+          style.
+            #hoxTwo.open > ._hox > .__case,
+            #hoxTwo:focus-within > ._hox > .__case,
+            #hoxTwo:hover > ._hox > .__case { width:250px;height:150px }
+            #hoxTwo .__content { height:150% }
+          span#hoxTwo._inblock
+            +a._a1m| Two
+            +hox('_color_1 _border _scrollable')
+              .__content: ._pa_5._small| // hoxTwo
+          style.
+            #hoxThree.open > ._hox > .__case,
+            #hoxThree:focus-within > ._hox > .__case,
+            #hoxThree:hover > ._hox > .__case { width:250px;height:150px }
+            #hoxThree .__content { height:150% }
+          span#hoxThree._inblock
+            +a._a1m| Three
+            +hox('_pa_5','_color_1 _border _pad _radius_5 _no_overflow')
+              ._scrollable._fullcase: .__content: ._pa_5._small| // hoxThree
+        ._fill
+        ._fit._text_right._no_wrap
+          style.
+            #hoxRight > ._hox > .__case { z-index:2;right:0 }
+            #hoxRight.open > ._hox > .__case,
+            #hoxRight:focus-within > ._hox > .__case,
+            #hoxRight:hover > ._hox > .__case { width:250px;height:150px }
+            #hoxRight .__content { height:150% }
+          span#hoxRight._inblock._text_left
+            +a._a1m(title="More ..")| #[+isvg(svgi.angle,'_cicon')._rotate90]
+            +hox('_pa_5','_color_1 _border _scrollable')
+              .__content: ._pa_5._small| // hoxRight
+
+    //- hr
     section._mv._flex._gap
 
       ._f(style="min-height:100px"): ._color_1
@@ -144,7 +181,7 @@ block article
           #coxThree .card { width:200px;height:150px }
         span#coxThree._block.openx
           +a._a1m.__full| Three#[+isvg(svgi.angle,'_ricon')._rotate90]
-          +hox('_pa_5 _outline','_color_1 _border _radius_5 _no_overflowx card')
+          +hox('_pa_5 _outlinex','_color_1 _border _radius_5 _no_overflowx card')
             //- ._scrollable._scroll_y._fullcase: .__content
             .__content
               style.
@@ -156,7 +193,7 @@ block article
                 #coxThree1 .__content { height:100% }
               span#coxThree1._block.openx
                 +a._a1m.__full| Sub Three#[+isvg(svgi.angle,'_ricon')._rotate90]
-                +hox('_pa_5 _outline3','_color_1 _border _radius_5 _no_overflow')
+                +hox('_pa_5 _outline3x','_color_1 _border _radius_5 _no_overflow')
                   ._scrollable._fullcase: .__content
                     - n = 1;
                     +repeat(5): +a.__full._a1m Link #{n++}
@@ -202,14 +239,15 @@ block article
                 #coxOne1 > ._hox > .__case { position:relative }
                 #coxOne1.open > ._hox > .__case,
                 #coxOne1:focus-within > ._hox > .__case,
-                #coxOne1:hover > ._hox > .__case { width:100%;height:200px }
+                #coxOne1:hover > ._hox > .__case { width:100%;height:123px }
                 #coxOne1 .__content { height:100% }
               span#coxOne1._block.openx
                 +a._a1m.__full| Sub One#[+isvg(svgi.angle,'_ricon')._rotate90]
                 +hox('_pa_5','_color_1 _border _radius_5 _no_overflow')
-                  ._scrollable._fullcase: .__content
+                  //- ._scrollable._fullcase: .__content
+                  .__content
                     - n = 1;
-                    +repeat(5): +a.__full._a1m Link #{n++}
+                    +repeat(3): +a.__full._a1m Link #{n++}
               +repeat(1): +a.__full._a1m Other Subs
 
         +repeat(1): +a.__full._a1m Other
@@ -218,88 +256,103 @@ block article
     section._mv
 
       nav._color_1._flex
-        style.
-          #hoxOne.open > ._hox > .__case,
-          #hoxOne:focus-within > ._hox > .__case,
-          #hoxOne:hover > ._hox > .__case { width:250px;height:150px }
-          #hoxOne .__content { height:150% }
-        span#hoxOne._inblock
-          +a._a1m| #[+isvg(svgi.angle,'_cicon')._rotate90]
-          +hox('_color_1 _border_top _scrollable')
-            .__content: ._pa_5._small| // hoxOne
+        +a._a1m(onclick=onclick('toggleMenu("menu_t1");') title="Open menu_t1")| #[+isvg(svgi.bars,'_cicon')]
         ._f._indiv
-          style.
-            #hoxTwo.open > ._hox > .__case,
-            #hoxTwo:focus-within > ._hox > .__case,
-            #hoxTwo:hover > ._hox > .__case { width:250px;height:150px }
-            #hoxTwo .__content { height:150% }
-          span#hoxTwo._inblock
-            +a._a1m| Two
-            +hox('_color_1 _border _scrollable')
-              .__content: ._pa_5._small| // hoxTwo
-          style.
-            #hoxThree.open > ._hox > .__case,
-            #hoxThree:focus-within > ._hox > .__case,
-            #hoxThree:hover > ._hox > .__case { width:250px;height:150px }
-            #hoxThree .__content { height:150% }
-          span#hoxThree._inblock
-            +a._a1m| Three
-            +hox('_pa_5','_color_1 _border _pad _radius_5 _no_overflow')
-              ._scrollable._fullcase: .__content: ._pa_5._small| // hoxThree
+          +a._a1m(onclick=onclick('toggleMenu("menu_t2");') title="Open menu_t2")| T2
+          +a._a1m(onclick=onclick('toggleMenu("menu_t3");') title="Open menu_t3")| T3A
+          +a._a1m(onclick=onclick('toggleMenu("menu_t4");') title="Open menu_t4")| T4A
+          +a._a1m(onclick=onclick('toggleMenu("menu_t5");') title="Open menu_t5")| T5A
         ._fill
         ._fit._text_right._no_wrap
-          style.
-            #hoxRight > ._hox > .__case { z-index:2;right:0 }
-            #hoxRight.open > ._hox > .__case,
-            #hoxRight:focus-within > ._hox > .__case,
-            #hoxRight:hover > ._hox > .__case { width:250px;height:150px }
-            #hoxRight .__content { height:150% }
-          span#hoxRight._inblock._text_left
-            +a._a1m(title="More ..")| #[+isvg(svgi.angle,'_cicon')._rotate90]
-            +hox('_pa_5','_color_1 _border _scrollable')
-              .__content: ._pa_5._small| // hoxRight
+          +a._a1m(onclick=onclick('toggleMenu("menu_r2");') title="Open menu_r2")| R2A
+          +a._a1m(onclick=onclick('toggleMenu("menu_r1");') title="Open menu_r1")| R1
 
-    hr
+      style.
+        #menu_t3 { z-index:1 }
+        #menu_t3 .__case { position:absolute }
+        #menu_t3.open .__case { width:300px;max-width:100%;height:150px }
+        #menu_t3 .__content   { height:150% }
+      +box('_color_1 _border_top _scrollable')#menu_t3
+        .__content: ._pa_5._small| // T3A
+
+      style.
+        #menu_t4 .__case { position:absolute;z-index:2 }
+        #menu_t4.open .__case { width:300px;max-width:100%;height:150px }
+        #menu_t4 .__content   { height:150% }
+      +box('_pa_5','_color_1 _border _scrollable')#menu_t4
+        .__content: ._pa_5._small| // T4A
+
+      style.
+        #menu_t5 .__case { position:absolute;z-index:2 }
+        #menu_t5.open .__case { width:300px;max-width:100%;height:150px }
+        #menu_t5 .___content  { height:150% }
+      +box('_pa_5','_color_1 _border _radius_5 _no_overflow')#menu_t5
+        ._scrollable._fullcase
+          .___content: ._pa_5._small| // T5A
+
+      style.
+        #menu_r2 { z-index:2 }
+        #menu_r2 .__case { position:absolute;right:0 }
+        #menu_r2.open .__case { width:300px;max-width:100%;height:150px }
+        #menu_r2 .__content   { height:150% }
+      +box('_pa_5','_color_1 _border _scrollable')#menu_r2
+        .__content: ._pa_5._small| // R2A
+
+      style.
+        #menu_t1.open .__case { width:100%;height:150px }
+        #menu_t1 .__content   { height:150% }
+      +box('_color_1 _border_top _scrollable')#menu_t1
+        .__content: ._pa_5._small| // T1
+
+      style.
+        #menu_t2.open .__case { width:100%;height:150px }
+        #menu_t2 .__content   { height:150% }
+      +box('_pa_5','_color_1 _border _scrollable')#menu_t2
+        .__content: ._pa_5._small| // T2
+
+      style.
+        #menu_r1 .__case { margin-left:auto }
+        #menu_r1.open .__case { width:100%;height:150px }
+        #menu_r1 .__content   { height:150% }
+      +box('_color_1 _border_top _scrollable')#menu_r1
+        .__content: ._pa_5._small| // R1
+
+    //- hr
     section._mv._flex(style="min-height:100px")
       ._color_1
-        +a.__full._a1m(onclick=onclick('toggleMenu("sideFour");'))| #[+isvg(svgi.arrow,'_licon')] Four
-        +a.__full._a1m(onclick=onclick('toggleMenu("sideThree");'))| #[+isvg(svgi.arrow,'_licon')] Three
-        +a.__full._a1m(onclick=onclick('toggleMenu("sideTwo");'))| #[+isvg(svgi.arrow,'_licon')] Two
-        +a.__full._a1m(onclick=onclick('toggleMenu("sideOne");'))| #[+isvg(svgi.arrow,'_licon')] One
+        +a.__full._a1m(onclick=onclick('toggleMenu("side_t1");'))| #[+isvg(svgi.arrow,'_licon')] T1
+        +a.__full._a1m(onclick=onclick('toggleMenu("side_t2");'))| #[+isvg(svgi.arrow,'_licon')] T2
+        +a.__full._a1m(onclick=onclick('toggleMenu("side_t3");'))| #[+isvg(svgi.arrow,'_licon')] T3A
+        +a.__full._a1m(onclick=onclick('toggleMenu("side_t5");'))| #[+isvg(svgi.arrow,'_licon')] T5A
 
-      div
-        style.
-          #sideFour { z-index:2 }
-          #sideFour .__case { position:absolute }
-          #sideFour.open .__case { width:250px;height:200px }
-          #sideFour .__content   { height:150% }
-        +box('_ph','_color_1 _border _radius_5 _no_overflow _pad')#sideFour
-          ._scrollable._fullcase: .__content: ._pa_5._small| // sideFour
+      style.
+        #side_t5 { z-index:2 }
+        #side_t5 .__case { position:absolute }
+        #side_t5.open .__case { width:250px;height:200px }
+        #side_t5 .__content   { height:150% }
+      div: +box('_ph','_color_1 _border _radius_5 _no_overflow')#side_t5
+        ._scrollable._fullcase: .__content: ._pa_5._small| // T5A
 
-      div
-        style.
-          #sideThree { height:100% }
-          #sideThree.open .__case { width:200px;height:100% }
-          #sideThree .__content   { height:150% }
-        +box('_ph_5','_color_1 _border _scrollable')#sideThree
-          .__content: ._pa_5._small| // sideThree
+      style.
+        #side_t3 .__case { position:absolute }
+        #side_t3.open .__case { width:250px;height:200px }
+        #side_t3 .__content   { height:150% }
+      div: +box('_color_1 _border_left _scrollable')#side_t3
+        .__content: ._pa_5._small| // T3A
 
-      div
-        style.
-          #sideTwo { z-index:2 }
-          #sideTwo .__case { position:absolute }
-          #sideTwo.open .__case { width:250px;height:200px }
-          #sideTwo .__content   { height:150% }
-        +box('_color_1 _border _scrollable')#sideTwo
-          .__content: ._pa_5._small| // sideTwo
+      style.
+        #side_t1 { height:100% }
+        #side_t1.open .__case { width:200px;height:100% }
+        #side_t1 .__content   { height:150% }
+      div: +box('_color_1 _border_left _scrollable')#side_t1
+        .__content: ._pa_5._small| // T1
 
-      div
-        style.
-          #sideOne { height:100% }
-          #sideOne.open .__case { width:200px;height:100% }
-          #sideOne .__content   { height:150% }
-        +box('_color_1 _border_left _scrollable')#sideOne
-          .__content: ._pa_5._small| // sideOne
+      style.
+        #side_t2 { height:100% }
+        #side_t2.open .__case { width:200px;height:100% }
+        #side_t2 .__content   { height:150% }
+      div: +box('_ph_5','_color_1 _border _scrollable')#side_t2
+        .__content: ._pa_5._small| // T2
 
       ._fill._scrollable._scroll_y._fullcase: ._container: ._flex._gap_5
         ._full._flex._gap_5
@@ -316,89 +369,28 @@ block article
 
     hr
     section._mv
-
-      nav._color_1._flex
-        +a._a1m(onclick=onclick('toggleMenu("menu_one");') title="Open menu_one")| #[+isvg(svgi.bars,'_cicon')]
-        ._f._indiv
-          +a._a1m(onclick=onclick('toggleMenu("menu_two");') title="Open menu_two")| Two
-          +a._a1m(onclick=onclick('toggleMenu("menu_three");') title="Open menu_three")| Three
-          +a._a1m(onclick=onclick('toggleMenu("menu_four");') title="Open menu_four")| Four
-          +a._a1m(onclick=onclick('toggleMenu("menu_five");') title="Open menu_five")| Five
-        ._fill
-        ._fit._text_right._no_wrap
-          +a._a1m(onclick=onclick('toggleMenu("menu_right2");') title="More ..")| &middot;&middot;
-          +a._a1m(onclick=onclick('toggleMenu("menu_right");') title="More ..")| #[+isvg(svgi.ellipsis,'_cicon')._rotate90]
-
-      style.
-        #menu_right2 { z-index:2 }
-        #menu_right2 .__case { position:absolute;right:0 }
-        #menu_right2.open .__case { width:300px;max-width:100%;height:150px }
-        #menu_right2 .__content   { height:150% }
-      +box('_pa_5','_color_1 _border _scrollable')#menu_right2
-        .__content: ._pa_5._small| // menu_right2
-
-      style.
-        #menu_right .__case { margin-left:auto }
-        #menu_right.open .__case { width:100%;height:150px }
-        #menu_right .__content   { height:150% }
-      +box('_color_1 _border_top _scrollable')#menu_right
-        .__content: ._pa_5._small| // menu_right
-
-      style.
-        #menu_one.open .__case { width:100%;height:150px }
-        #menu_one .__content   { height:150% }
-      +box('_color_1 _border_top _scrollable')#menu_one
-        .__content: ._pa_5._small| // menu_one
-
-      style.
-        #menu_two .__case { position:absolute;z-index:2 }
-        #menu_two.open .__case { width:300px;max-width:100%;height:150px }
-        #menu_two .__content   { height:150% }
-      +box('_color_1 _border_top _scrollable')#menu_two
-        .__content: ._pa_5._small| // menu_two
-
-      style.
-        #menu_three.open .__case { width:100%;height:150px }
-        #menu_three .__content   { height:150% }
-      +box('_pa_5','_color_1 _border _scrollable')#menu_three
-        .__content: ._pa_5._small| // menu_three
-
-      style.
-        #menu_four .__case { position:absolute;z-index:2 }
-        #menu_four.open .__case { width:300px;max-width:100%;height:150px }
-        #menu_four .__content   { height:150% }
-      +box('_pa_5','_color_1 _border _scrollable')#menu_four
-        .__content: ._pa_5._small| // menu_four
-
-      style.
-        #menu_five .__case { position:absolute;z-index:2 }
-        #menu_five.open .__case { width:300px;max-width:100%;height:150px }
-        #menu_five .___content  { height:150% }
-      +box('_pa_5','_color_1 _border _radius_5 _no_overflow _pad')#menu_five
-        ._scrollable._fullcase
-          .___content: ._pa_5._small| // menu_five
-
-    hr
-    section._mv
       nav._color_1._flex
         +a._a1m| #[+isvg(svgi.bars,'_cicon')]
         ._f._indiv
           +a._a1m| #[+isvg(svgi.home,'_licon')]Link
-          +a._a1m| Link
           +a._a1m| Link#[+isvg(svgi.angle,'_ricon')._rotate90]
+          +a._a1m| Link
           +a._a2t| Link
         ._fill
+        ._fit._text_right._no_wrap
+          +a._a1m(title="More .."): i._icon._cicon._b| &middot;&middot;
+          +a._a1m(title="More .."): i._icon._cicon._b._rotate90| &middot;&middot;
         ._fit._text_right._no_wrap
           +a._a1m(title="More ..")| #[+isvg(svgi.ellipsis,'_cicon')]
           +a._a1m(title="More ..")| #[+isvg(svgi.ellipsis,'_cicon')._rotate90]
 
-    hr
+    //- hr
     section._mv._flex._gap_5
 
       nav._f: ._color_1
         +a._a1: +isvg(svgi.bars,'_cicon')
         +a._a1| Link
-        +a._a1: +isvg(svgi.ellipsis,'_cicon')._rotate90
+        +a._a1: +isvg(svgi.ellipsis,'_cicon')
 
       nav._f: ._color_1._radius_5._pa_5
         +a._a2t: +isvg(svgi.bars)
@@ -413,7 +405,7 @@ block article
       nav._f: ._color_1._radius_5._pa_5
         +a._a3: +isvg(svgi.bars,'_cicon')
         +a._a3| Link
-        +a._a3: i._icon._cicon|&middot;&middot;
+        +a._a3: +isvg(svgi.ellipsis,'_cicon')
 
     hr
 

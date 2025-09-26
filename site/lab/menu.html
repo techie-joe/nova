@@ -88,7 +88,7 @@
       
       a.__full { display:block;text-align:left }
       
-      ._box { display:block;position:relative;z-index:1 }
+      ._box { display:block;position:relative }
       ._box,
       ._box .__card,
       ._box .__case,
@@ -101,19 +101,11 @@
       }
       ._box ._pad { box-sizing:content-box }
       
-      ._hox { display:block;position:relative;z-index:1 }
-      ._hox,
-      ._hox .__card,
-      ._hox .__case,
-      ._hox .__content { box-sizing:border-box }
-      ._hox .__card { width:100%;height:100% }
+      ._hox { z-index:1 }
       ._hox .__case {
         position:absolute;
-        overflow:hidden;
         transition:width .2s ease .3s, height .2s ease .3s;
-        width:0px;height:0px;
       }
-      ._hox ._pad { box-sizing:content-box }
       
     </style>
   </head>
@@ -142,6 +134,92 @@
         <main id="_main">
           <article class="_article _container" style="margin-bottom:200px">
             <hr>
+            <section class="_mv">
+              <nav class="_color_1 _flex">
+                <style>
+                  #hoxOne.open > ._hox > .__case,
+                  #hoxOne:focus-within > ._hox > .__case,
+                  #hoxOne:hover > ._hox > .__case { width:250px;height:150px }
+                  #hoxOne .__content { height:150% }
+                </style><span class="_inblock" id="hoxOne"><a class="_a1m" href="#"><i class="_icon _cicon"><i class="isvg _rotate90">
+                        <svg viewBox="0 0 24 24">
+                          <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
+                        </svg></i></i></a>
+                  <nav class="_box _hox">
+                    <div class="__case">
+                      <div class="__card _color_1 _border_top _scrollable">
+                        <div class="__card">
+                          <div class="__content">
+                            <div class="_pa_5 _small">// hoxOne</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </nav></span>
+                <div class="_f _indiv">
+                  <style>
+                    #hoxTwo.open > ._hox > .__case,
+                    #hoxTwo:focus-within > ._hox > .__case,
+                    #hoxTwo:hover > ._hox > .__case { width:250px;height:150px }
+                    #hoxTwo .__content { height:150% }
+                  </style><span class="_inblock" id="hoxTwo"><a class="_a1m" href="#">Two</a>
+                    <nav class="_box _hox">
+                      <div class="__case">
+                        <div class="__card _color_1 _border _scrollable">
+                          <div class="__card">
+                            <div class="__content">
+                              <div class="_pa_5 _small">// hoxTwo</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </nav></span>
+                  <style>
+                    #hoxThree.open > ._hox > .__case,
+                    #hoxThree:focus-within > ._hox > .__case,
+                    #hoxThree:hover > ._hox > .__case { width:250px;height:150px }
+                    #hoxThree .__content { height:150% }
+                  </style><span class="_inblock" id="hoxThree"><a class="_a1m" href="#">Three</a>
+                    <nav class="_box _hox">
+                      <div class="__case">
+                        <div class="__card _pa_5">
+                          <div class="__card _color_1 _border _pad _radius_5 _no_overflow">
+                            <div class="_scrollable _fullcase">
+                              <div class="__content">
+                                <div class="_pa_5 _small">// hoxThree</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </nav></span>
+                </div>
+                <div class="_fill"></div>
+                <div class="_fit _text_right _no_wrap">
+                  <style>
+                    #hoxRight > ._hox > .__case { z-index:2;right:0 }
+                    #hoxRight.open > ._hox > .__case,
+                    #hoxRight:focus-within > ._hox > .__case,
+                    #hoxRight:hover > ._hox > .__case { width:250px;height:150px }
+                    #hoxRight .__content { height:150% }
+                  </style><span class="_inblock _text_left" id="hoxRight"><a class="_a1m" href="#" title="More .."><i class="_icon _cicon"><i class="isvg _rotate90">
+                          <svg viewBox="0 0 24 24">
+                            <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
+                          </svg></i></i></a>
+                    <nav class="_box _hox">
+                      <div class="__case">
+                        <div class="__card _pa_5">
+                          <div class="__card _color_1 _border _scrollable">
+                            <div class="__content">
+                              <div class="_pa_5 _small">// hoxRight</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </nav></span>
+                </div>
+              </nav>
+            </section>
             <section class="_mv _flex _gap">
               <div class="_f" style="min-height:100px">
                 <div class="_color_1">
@@ -156,9 +234,9 @@
                           <svg viewBox="0 0 24 24">
                             <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
                           </svg></i></i></a>
-                    <nav class="_hox">
+                    <nav class="_box _hox">
                       <div class="__case">
-                        <div class="__card _pa_5 _outline">
+                        <div class="__card _pa_5 _outlinex">
                           <div class="__card _color_1 _border _radius_5 _no_overflowx card">
                             <div class="__content">
                               <style>
@@ -172,9 +250,9 @@
                                       <svg viewBox="0 0 24 24">
                                         <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
                                       </svg></i></i></a>
-                                <nav class="_hox">
+                                <nav class="_box _hox">
                                   <div class="__case">
-                                    <div class="__card _pa_5 _outline3">
+                                    <div class="__card _pa_5 _outline3x">
                                       <div class="__card _color_1 _border _radius_5 _no_overflow">
                                         <div class="_scrollable _fullcase">
                                           <div class="__content"><a class="__full _a1m" href="#">Link 1</a><a class="__full _a1m" href="#">Link 2</a><a class="__full _a1m" href="#">Link 3</a><a class="__full _a1m" href="#">Link 4</a><a class="__full _a1m" href="#">Link 5</a>
@@ -199,7 +277,7 @@
                           <svg viewBox="0 0 24 24">
                             <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
                           </svg></i></i></a>
-                    <nav class="_hox">
+                    <nav class="_box _hox">
                       <div class="__case">
                         <div class="__card _color_1 _border _no_overflow">
                           <div class="__card">
@@ -216,7 +294,7 @@
                                         <svg viewBox="0 0 24 24">
                                           <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
                                         </svg></i></i></a>
-                                  <nav class="_hox">
+                                  <nav class="_box _hox">
                                     <div class="__case">
                                       <div class="__card _pa_5">
                                         <div class="__card _color_1 _border _radius_5 _no_overflow">
@@ -244,7 +322,7 @@
                           <svg viewBox="0 0 24 24">
                             <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
                           </svg></i></i></a>
-                    <nav class="_hox">
+                    <nav class="_box _hox">
                       <div class="__case">
                         <div class="__card _pa_5">
                           <div class="__card _color_1 _border _radius_5 _no_overflow">
@@ -255,19 +333,17 @@
                                   #coxOne1 > ._hox > .__case { position:relative }
                                   #coxOne1.open > ._hox > .__case,
                                   #coxOne1:focus-within > ._hox > .__case,
-                                  #coxOne1:hover > ._hox > .__case { width:100%;height:200px }
+                                  #coxOne1:hover > ._hox > .__case { width:100%;height:123px }
                                   #coxOne1 .__content { height:100% }
                                 </style><span class="_block openx" id="coxOne1"><a class="_a1m __full" href="#">Sub One<i class="_icon _ricon"><i class="isvg _rotate90">
                                         <svg viewBox="0 0 24 24">
                                           <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
                                         </svg></i></i></a>
-                                  <nav class="_hox">
+                                  <nav class="_box _hox">
                                     <div class="__case">
                                       <div class="__card _pa_5">
                                         <div class="__card _color_1 _border _radius_5 _no_overflow">
-                                          <div class="_scrollable _fullcase">
-                                            <div class="__content"><a class="__full _a1m" href="#">Link 1</a><a class="__full _a1m" href="#">Link 2</a><a class="__full _a1m" href="#">Link 3</a><a class="__full _a1m" href="#">Link 4</a><a class="__full _a1m" href="#">Link 5</a>
-                                            </div>
+                                          <div class="__content"><a class="__full _a1m" href="#">Link 1</a><a class="__full _a1m" href="#">Link 2</a><a class="__full _a1m" href="#">Link 3</a>
                                           </div>
                                         </div>
                                       </div>
@@ -284,121 +360,160 @@
             </section>
             <hr>
             <section class="_mv">
-              <nav class="_color_1 _flex">
-                <style>
-                  #hoxOne.open > ._hox > .__case,
-                  #hoxOne:focus-within > ._hox > .__case,
-                  #hoxOne:hover > ._hox > .__case { width:250px;height:150px }
-                  #hoxOne .__content { height:150% }
-                </style><span class="_inblock" id="hoxOne"><a class="_a1m" href="#"><i class="_icon _cicon"><i class="isvg _rotate90">
-                        <svg viewBox="0 0 24 24">
-                          <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
-                        </svg></i></i></a>
-                  <nav class="_hox">
-                    <div class="__case">
-                      <div class="__card _color_1 _border_top _scrollable">
-                        <div class="__card">
-                          <div class="__content">
-                            <div class="_pa_5 _small">// hoxOne</div>
-                          </div>
+              <nav class="_color_1 _flex"><a class="_a1m" href="#" title="Open menu_t1" onclick="event.preventDefault();toggleMenu(&quot;menu_t1&quot;);"><i class="_icon _cicon"><i class="isvg">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M5,6H19V8H5V6M5,11H19V13H5V11M5,16H19V18H5V16Z" fill="currentColor" fill-opacity="1"></path>
+                      </svg></i></i></a>
+                <div class="_f _indiv"><a class="_a1m" href="#" title="Open menu_t2" onclick="event.preventDefault();toggleMenu(&quot;menu_t2&quot;);">T2</a><a class="_a1m" href="#" title="Open menu_t3" onclick="event.preventDefault();toggleMenu(&quot;menu_t3&quot;);">T3A</a><a class="_a1m" href="#" title="Open menu_t4" onclick="event.preventDefault();toggleMenu(&quot;menu_t4&quot;);">T4A</a><a class="_a1m" href="#" title="Open menu_t5" onclick="event.preventDefault();toggleMenu(&quot;menu_t5&quot;);">T5A</a>
+                </div>
+                <div class="_fill"></div>
+                <div class="_fit _text_right _no_wrap"><a class="_a1m" href="#" title="Open menu_r2" onclick="event.preventDefault();toggleMenu(&quot;menu_r2&quot;);">R2A</a><a class="_a1m" href="#" title="Open menu_r1" onclick="event.preventDefault();toggleMenu(&quot;menu_r1&quot;);">R1</a>
+                </div>
+              </nav>
+              <style>
+                #menu_t3 { z-index:1 }
+                #menu_t3 .__case { position:absolute }
+                #menu_t3.open .__case { width:300px;max-width:100%;height:150px }
+                #menu_t3 .__content   { height:150% }
+              </style>
+              <nav class="_box" id="menu_t3">
+                <div class="__case">
+                  <div class="__card _color_1 _border_top _scrollable">
+                    <div class="__card">
+                      <div class="__content">
+                        <div class="_pa_5 _small">// T3A</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </nav>
+              <style>
+                #menu_t4 .__case { position:absolute;z-index:2 }
+                #menu_t4.open .__case { width:300px;max-width:100%;height:150px }
+                #menu_t4 .__content   { height:150% }
+              </style>
+              <nav class="_box" id="menu_t4">
+                <div class="__case">
+                  <div class="__card _pa_5">
+                    <div class="__card _color_1 _border _scrollable">
+                      <div class="__content">
+                        <div class="_pa_5 _small">// T4A</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </nav>
+              <style>
+                #menu_t5 .__case { position:absolute;z-index:2 }
+                #menu_t5.open .__case { width:300px;max-width:100%;height:150px }
+                #menu_t5 .___content  { height:150% }
+              </style>
+              <nav class="_box" id="menu_t5">
+                <div class="__case">
+                  <div class="__card _pa_5">
+                    <div class="__card _color_1 _border _radius_5 _no_overflow">
+                      <div class="_scrollable _fullcase">
+                        <div class="___content">
+                          <div class="_pa_5 _small">// T5A</div>
                         </div>
                       </div>
                     </div>
-                  </nav></span>
-                <div class="_f _indiv">
-                  <style>
-                    #hoxTwo.open > ._hox > .__case,
-                    #hoxTwo:focus-within > ._hox > .__case,
-                    #hoxTwo:hover > ._hox > .__case { width:250px;height:150px }
-                    #hoxTwo .__content { height:150% }
-                  </style><span class="_inblock" id="hoxTwo"><a class="_a1m" href="#">Two</a>
-                    <nav class="_hox">
-                      <div class="__case">
-                        <div class="__card _color_1 _border _scrollable">
-                          <div class="__card">
-                            <div class="__content">
-                              <div class="_pa_5 _small">// hoxTwo</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </nav></span>
-                  <style>
-                    #hoxThree.open > ._hox > .__case,
-                    #hoxThree:focus-within > ._hox > .__case,
-                    #hoxThree:hover > ._hox > .__case { width:250px;height:150px }
-                    #hoxThree .__content { height:150% }
-                  </style><span class="_inblock" id="hoxThree"><a class="_a1m" href="#">Three</a>
-                    <nav class="_hox">
-                      <div class="__case">
-                        <div class="__card _pa_5">
-                          <div class="__card _color_1 _border _pad _radius_5 _no_overflow">
-                            <div class="_scrollable _fullcase">
-                              <div class="__content">
-                                <div class="_pa_5 _small">// hoxThree</div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </nav></span>
+                  </div>
                 </div>
-                <div class="_fill"></div>
-                <div class="_fit _text_right _no_wrap">
-                  <style>
-                    #hoxRight > ._hox > .__case { z-index:2;right:0 }
-                    #hoxRight.open > ._hox > .__case,
-                    #hoxRight:focus-within > ._hox > .__case,
-                    #hoxRight:hover > ._hox > .__case { width:250px;height:150px }
-                    #hoxRight .__content { height:150% }
-                  </style><span class="_inblock _text_left" id="hoxRight"><a class="_a1m" href="#" title="More .."><i class="_icon _cicon"><i class="isvg _rotate90">
-                          <svg viewBox="0 0 24 24">
-                            <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
-                          </svg></i></i></a>
-                    <nav class="_hox">
-                      <div class="__case">
-                        <div class="__card _pa_5">
-                          <div class="__card _color_1 _border _scrollable">
-                            <div class="__content">
-                              <div class="_pa_5 _small">// hoxRight</div>
-                            </div>
-                          </div>
-                        </div>
+              </nav>
+              <style>
+                #menu_r2 { z-index:2 }
+                #menu_r2 .__case { position:absolute;right:0 }
+                #menu_r2.open .__case { width:300px;max-width:100%;height:150px }
+                #menu_r2 .__content   { height:150% }
+              </style>
+              <nav class="_box" id="menu_r2">
+                <div class="__case">
+                  <div class="__card _pa_5">
+                    <div class="__card _color_1 _border _scrollable">
+                      <div class="__content">
+                        <div class="_pa_5 _small">// R2A</div>
                       </div>
-                    </nav></span>
+                    </div>
+                  </div>
+                </div>
+              </nav>
+              <style>
+                #menu_t1.open .__case { width:100%;height:150px }
+                #menu_t1 .__content   { height:150% }
+              </style>
+              <nav class="_box" id="menu_t1">
+                <div class="__case">
+                  <div class="__card _color_1 _border_top _scrollable">
+                    <div class="__card">
+                      <div class="__content">
+                        <div class="_pa_5 _small">// T1</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </nav>
+              <style>
+                #menu_t2.open .__case { width:100%;height:150px }
+                #menu_t2 .__content   { height:150% }
+              </style>
+              <nav class="_box" id="menu_t2">
+                <div class="__case">
+                  <div class="__card _pa_5">
+                    <div class="__card _color_1 _border _scrollable">
+                      <div class="__content">
+                        <div class="_pa_5 _small">// T2</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </nav>
+              <style>
+                #menu_r1 .__case { margin-left:auto }
+                #menu_r1.open .__case { width:100%;height:150px }
+                #menu_r1 .__content   { height:150% }
+              </style>
+              <nav class="_box" id="menu_r1">
+                <div class="__case">
+                  <div class="__card _color_1 _border_top _scrollable">
+                    <div class="__card">
+                      <div class="__content">
+                        <div class="_pa_5 _small">// R1</div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </nav>
             </section>
-            <hr>
             <section class="_mv _flex" style="min-height:100px">
-              <div class="_color_1"><a class="__full _a1m" href="#" onclick="event.preventDefault();toggleMenu(&quot;sideFour&quot;);"><i class="_icon _licon"><i class="isvg">
+              <div class="_color_1"><a class="__full _a1m" href="#" onclick="event.preventDefault();toggleMenu(&quot;side_t1&quot;);"><i class="_icon _licon"><i class="isvg">
                       <svg viewBox="0 0 24 24">
                         <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" fill="currentColor" fill-opacity="1"></path>
-                      </svg></i></i> Four</a><a class="__full _a1m" href="#" onclick="event.preventDefault();toggleMenu(&quot;sideThree&quot;);"><i class="_icon _licon"><i class="isvg">
+                      </svg></i></i> T1</a><a class="__full _a1m" href="#" onclick="event.preventDefault();toggleMenu(&quot;side_t2&quot;);"><i class="_icon _licon"><i class="isvg">
                       <svg viewBox="0 0 24 24">
                         <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" fill="currentColor" fill-opacity="1"></path>
-                      </svg></i></i> Three</a><a class="__full _a1m" href="#" onclick="event.preventDefault();toggleMenu(&quot;sideTwo&quot;);"><i class="_icon _licon"><i class="isvg">
+                      </svg></i></i> T2</a><a class="__full _a1m" href="#" onclick="event.preventDefault();toggleMenu(&quot;side_t3&quot;);"><i class="_icon _licon"><i class="isvg">
                       <svg viewBox="0 0 24 24">
                         <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" fill="currentColor" fill-opacity="1"></path>
-                      </svg></i></i> Two</a><a class="__full _a1m" href="#" onclick="event.preventDefault();toggleMenu(&quot;sideOne&quot;);"><i class="_icon _licon"><i class="isvg">
+                      </svg></i></i> T3A</a><a class="__full _a1m" href="#" onclick="event.preventDefault();toggleMenu(&quot;side_t5&quot;);"><i class="_icon _licon"><i class="isvg">
                       <svg viewBox="0 0 24 24">
                         <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" fill="currentColor" fill-opacity="1"></path>
-                      </svg></i></i> One</a>
+                      </svg></i></i> T5A</a>
               </div>
+              <style>
+                #side_t5 { z-index:2 }
+                #side_t5 .__case { position:absolute }
+                #side_t5.open .__case { width:250px;height:200px }
+                #side_t5 .__content   { height:150% }
+              </style>
               <div>
-                <style>
-                  #sideFour { z-index:2 }
-                  #sideFour .__case { position:absolute }
-                  #sideFour.open .__case { width:250px;height:200px }
-                  #sideFour .__content   { height:150% }
-                </style>
-                <nav class="_box" id="sideFour">
+                <nav class="_box" id="side_t5">
                   <div class="__case">
                     <div class="__card _ph">
-                      <div class="__card _color_1 _border _radius_5 _no_overflow _pad">
+                      <div class="__card _color_1 _border _radius_5 _no_overflow">
                         <div class="_scrollable _fullcase">
                           <div class="__content">
-                            <div class="_pa_5 _small">// sideFour</div>
+                            <div class="_pa_5 _small">// T5A</div>
                           </div>
                         </div>
                       </div>
@@ -406,55 +521,54 @@
                   </div>
                 </nav>
               </div>
+              <style>
+                #side_t3 .__case { position:absolute }
+                #side_t3.open .__case { width:250px;height:200px }
+                #side_t3 .__content   { height:150% }
+              </style>
               <div>
-                <style>
-                  #sideThree { height:100% }
-                  #sideThree.open .__case { width:200px;height:100% }
-                  #sideThree .__content   { height:150% }
-                </style>
-                <nav class="_box" id="sideThree">
-                  <div class="__case">
-                    <div class="__card _ph_5">
-                      <div class="__card _color_1 _border _scrollable">
-                        <div class="__content">
-                          <div class="_pa_5 _small">// sideThree</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </nav>
-              </div>
-              <div>
-                <style>
-                  #sideTwo { z-index:2 }
-                  #sideTwo .__case { position:absolute }
-                  #sideTwo.open .__case { width:250px;height:200px }
-                  #sideTwo .__content   { height:150% }
-                </style>
-                <nav class="_box" id="sideTwo">
-                  <div class="__case">
-                    <div class="__card _color_1 _border _scrollable">
-                      <div class="__card">
-                        <div class="__content">
-                          <div class="_pa_5 _small">// sideTwo</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </nav>
-              </div>
-              <div>
-                <style>
-                  #sideOne { height:100% }
-                  #sideOne.open .__case { width:200px;height:100% }
-                  #sideOne .__content   { height:150% }
-                </style>
-                <nav class="_box" id="sideOne">
+                <nav class="_box" id="side_t3">
                   <div class="__case">
                     <div class="__card _color_1 _border_left _scrollable">
                       <div class="__card">
                         <div class="__content">
-                          <div class="_pa_5 _small">// sideOne</div>
+                          <div class="_pa_5 _small">// T3A</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </nav>
+              </div>
+              <style>
+                #side_t1 { height:100% }
+                #side_t1.open .__case { width:200px;height:100% }
+                #side_t1 .__content   { height:150% }
+              </style>
+              <div>
+                <nav class="_box" id="side_t1">
+                  <div class="__case">
+                    <div class="__card _color_1 _border_left _scrollable">
+                      <div class="__card">
+                        <div class="__content">
+                          <div class="_pa_5 _small">// T1</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </nav>
+              </div>
+              <style>
+                #side_t2 { height:100% }
+                #side_t2.open .__case { width:200px;height:100% }
+                #side_t2 .__content   { height:150% }
+              </style>
+              <div>
+                <nav class="_box" id="side_t2">
+                  <div class="__case">
+                    <div class="__card _ph_5">
+                      <div class="__card _color_1 _border _scrollable">
+                        <div class="__content">
+                          <div class="_pa_5 _small">// T2</div>
                         </div>
                       </div>
                     </div>
@@ -488,135 +602,6 @@
             </section>
             <hr>
             <section class="_mv">
-              <nav class="_color_1 _flex"><a class="_a1m" href="#" title="Open menu_one" onclick="event.preventDefault();toggleMenu(&quot;menu_one&quot;);"><i class="_icon _cicon"><i class="isvg">
-                      <svg viewBox="0 0 24 24">
-                        <path d="M5,6H19V8H5V6M5,11H19V13H5V11M5,16H19V18H5V16Z" fill="currentColor" fill-opacity="1"></path>
-                      </svg></i></i></a>
-                <div class="_f _indiv"><a class="_a1m" href="#" title="Open menu_two" onclick="event.preventDefault();toggleMenu(&quot;menu_two&quot;);">Two</a><a class="_a1m" href="#" title="Open menu_three" onclick="event.preventDefault();toggleMenu(&quot;menu_three&quot;);">Three</a><a class="_a1m" href="#" title="Open menu_four" onclick="event.preventDefault();toggleMenu(&quot;menu_four&quot;);">Four</a><a class="_a1m" href="#" title="Open menu_five" onclick="event.preventDefault();toggleMenu(&quot;menu_five&quot;);">Five</a>
-                </div>
-                <div class="_fill"></div>
-                <div class="_fit _text_right _no_wrap"><a class="_a1m" href="#" title="More .." onclick="event.preventDefault();toggleMenu(&quot;menu_right2&quot;);">&middot;&middot;</a><a class="_a1m" href="#" title="More .." onclick="event.preventDefault();toggleMenu(&quot;menu_right&quot;);"><i class="_icon _cicon"><i class="isvg _rotate90">
-                        <svg viewBox="0 0 24 24">
-                          <path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z" fill="currentColor" fill-opacity="1"></path>
-                        </svg></i></i></a>
-                </div>
-              </nav>
-              <style>
-                #menu_right2 { z-index:2 }
-                #menu_right2 .__case { position:absolute;right:0 }
-                #menu_right2.open .__case { width:300px;max-width:100%;height:150px }
-                #menu_right2 .__content   { height:150% }
-              </style>
-              <nav class="_box" id="menu_right2">
-                <div class="__case">
-                  <div class="__card _pa_5">
-                    <div class="__card _color_1 _border _scrollable">
-                      <div class="__content">
-                        <div class="_pa_5 _small">// menu_right2</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </nav>
-              <style>
-                #menu_right .__case { margin-left:auto }
-                #menu_right.open .__case { width:100%;height:150px }
-                #menu_right .__content   { height:150% }
-              </style>
-              <nav class="_box" id="menu_right">
-                <div class="__case">
-                  <div class="__card _color_1 _border_top _scrollable">
-                    <div class="__card">
-                      <div class="__content">
-                        <div class="_pa_5 _small">// menu_right</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </nav>
-              <style>
-                #menu_one.open .__case { width:100%;height:150px }
-                #menu_one .__content   { height:150% }
-              </style>
-              <nav class="_box" id="menu_one">
-                <div class="__case">
-                  <div class="__card _color_1 _border_top _scrollable">
-                    <div class="__card">
-                      <div class="__content">
-                        <div class="_pa_5 _small">// menu_one</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </nav>
-              <style>
-                #menu_two .__case { position:absolute;z-index:2 }
-                #menu_two.open .__case { width:300px;max-width:100%;height:150px }
-                #menu_two .__content   { height:150% }
-              </style>
-              <nav class="_box" id="menu_two">
-                <div class="__case">
-                  <div class="__card _color_1 _border_top _scrollable">
-                    <div class="__card">
-                      <div class="__content">
-                        <div class="_pa_5 _small">// menu_two</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </nav>
-              <style>
-                #menu_three.open .__case { width:100%;height:150px }
-                #menu_three .__content   { height:150% }
-              </style>
-              <nav class="_box" id="menu_three">
-                <div class="__case">
-                  <div class="__card _pa_5">
-                    <div class="__card _color_1 _border _scrollable">
-                      <div class="__content">
-                        <div class="_pa_5 _small">// menu_three</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </nav>
-              <style>
-                #menu_four .__case { position:absolute;z-index:2 }
-                #menu_four.open .__case { width:300px;max-width:100%;height:150px }
-                #menu_four .__content   { height:150% }
-              </style>
-              <nav class="_box" id="menu_four">
-                <div class="__case">
-                  <div class="__card _pa_5">
-                    <div class="__card _color_1 _border _scrollable">
-                      <div class="__content">
-                        <div class="_pa_5 _small">// menu_four</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </nav>
-              <style>
-                #menu_five .__case { position:absolute;z-index:2 }
-                #menu_five.open .__case { width:300px;max-width:100%;height:150px }
-                #menu_five .___content  { height:150% }
-              </style>
-              <nav class="_box" id="menu_five">
-                <div class="__case">
-                  <div class="__card _pa_5">
-                    <div class="__card _color_1 _border _radius_5 _no_overflow _pad">
-                      <div class="_scrollable _fullcase">
-                        <div class="___content">
-                          <div class="_pa_5 _small">// menu_five</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </nav>
-            </section>
-            <hr>
-            <section class="_mv">
               <nav class="_color_1 _flex"><a class="_a1m" href="#"><i class="_icon _cicon"><i class="isvg">
                       <svg viewBox="0 0 24 24">
                         <path d="M5,6H19V8H5V6M5,11H19V13H5V11M5,16H19V18H5V16Z" fill="currentColor" fill-opacity="1"></path>
@@ -624,12 +609,14 @@
                 <div class="_f _indiv"><a class="_a1m" href="#"><i class="_icon _licon"><i class="isvg">
                         <svg viewBox="0 0 24 24">
                           <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" fill="currentColor" fill-opacity="1"></path>
-                        </svg></i></i>Link</a><a class="_a1m" href="#">Link</a><a class="_a1m" href="#">Link<i class="_icon _ricon"><i class="isvg _rotate90">
+                        </svg></i></i>Link</a><a class="_a1m" href="#">Link<i class="_icon _ricon"><i class="isvg _rotate90">
                         <svg viewBox="0 0 24 24">
                           <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor" fill-opacity="1"></path>
-                        </svg></i></i></a><a class="_a2t" href="#">Link</a>
+                        </svg></i></i></a><a class="_a1m" href="#">Link</a><a class="_a2t" href="#">Link</a>
                 </div>
                 <div class="_fill"></div>
+                <div class="_fit _text_right _no_wrap"><a class="_a1m" href="#" title="More .."><i class="_icon _cicon _b">&middot;&middot;</i></a><a class="_a1m" href="#" title="More .."><i class="_icon _cicon _b _rotate90">&middot;&middot;</i></a>
+                </div>
                 <div class="_fit _text_right _no_wrap"><a class="_a1m" href="#" title="More .."><i class="_icon _cicon"><i class="isvg">
                         <svg viewBox="0 0 24 24">
                           <path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z" fill="currentColor" fill-opacity="1"></path>
@@ -640,13 +627,12 @@
                 </div>
               </nav>
             </section>
-            <hr>
             <section class="_mv _flex _gap_5">
               <nav class="_f">
                 <div class="_color_1"><a class="_a1" href="#"><i class="_icon _cicon"><i class="isvg">
                         <svg viewBox="0 0 24 24">
                           <path d="M5,6H19V8H5V6M5,11H19V13H5V11M5,16H19V18H5V16Z" fill="currentColor" fill-opacity="1"></path>
-                        </svg></i></i></a><a class="_a1" href="#">Link</a><a class="_a1" href="#"><i class="_icon _cicon"><i class="isvg _rotate90">
+                        </svg></i></i></a><a class="_a1" href="#">Link</a><a class="_a1" href="#"><i class="_icon _cicon"><i class="isvg">
                         <svg viewBox="0 0 24 24">
                           <path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z" fill="currentColor" fill-opacity="1"></path>
                         </svg></i></i></a>
@@ -676,7 +662,10 @@
                 <div class="_color_1 _radius_5 _pa_5"><a class="_a3" href="#"><i class="_icon _cicon"><i class="isvg">
                         <svg viewBox="0 0 24 24">
                           <path d="M5,6H19V8H5V6M5,11H19V13H5V11M5,16H19V18H5V16Z" fill="currentColor" fill-opacity="1"></path>
-                        </svg></i></i></a><a class="_a3" href="#">Link</a><a class="_a3" href="#"><i class="_icon _cicon">&middot;&middot;</i></a>
+                        </svg></i></i></a><a class="_a3" href="#">Link</a><a class="_a3" href="#"><i class="_icon _cicon"><i class="isvg">
+                        <svg viewBox="0 0 24 24">
+                          <path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z" fill="currentColor" fill-opacity="1"></path>
+                        </svg></i></i></a>
                 </div>
               </nav>
             </section>
