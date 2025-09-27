@@ -133,8 +133,7 @@
         </div>
         <main id="_main">
           <article class="_article _container" style="margin-bottom:200px">
-            <hr>
-            <section class="_mv">
+            <section class="_mv" style="position:relative;z-index:5">
               <nav class="_color_1 _flex">
                 <style>
                   #hoxOne.open > ._hox > .__case,
@@ -209,9 +208,11 @@
                     <nav class="_box _hox">
                       <div class="__case">
                         <div class="__card _pa_5">
-                          <div class="__card _color_1 _border _scrollable">
-                            <div class="__content">
-                              <div class="_pa_5 _small">// hoxRight</div>
+                          <div class="__card _color_1 _border _radius_5 _no_overflow">
+                            <div class="_scrollable _fullcase">
+                              <div class="__content">
+                                <div class="_pa_5 _small">// hoxRight</div>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -220,7 +221,7 @@
                 </div>
               </nav>
             </section>
-            <section class="_mv _flex _gap">
+            <section class="_mv _flex _gap" style="position:relative;z-index:4">
               <div class="_f" style="min-height:100px">
                 <div class="_color_1">
                   <style>
@@ -359,7 +360,7 @@
               </div>
             </section>
             <hr>
-            <section class="_mv">
+            <section class="_mv" style="position:relative;z-index:3">
               <nav class="_color_1 _flex"><a class="_a1m" href="#" title="Open menu_t1" onclick="event.preventDefault();toggleMenu(&quot;menu_t1&quot;);"><i class="_icon _cicon"><i class="isvg">
                       <svg viewBox="0 0 24 24">
                         <path d="M5,6H19V8H5V6M5,11H19V13H5V11M5,16H19V18H5V16Z" fill="currentColor" fill-opacity="1"></path>
@@ -430,9 +431,11 @@
               <nav class="_box" id="menu_r2">
                 <div class="__case">
                   <div class="__card _pa_5">
-                    <div class="__card _color_1 _border _scrollable">
-                      <div class="__content">
-                        <div class="_pa_5 _small">// R2A</div>
+                    <div class="__card _color_1 _border _radius_5 _no_overflow">
+                      <div class="_scrollable _fullcase">
+                        <div class="__content">
+                          <div class="_pa_5 _small">// R2A</div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -489,16 +492,35 @@
               <div class="_color_1"><a class="__full _a1m" href="#" onclick="event.preventDefault();toggleMenu(&quot;side_t1&quot;);"><i class="_icon _licon"><i class="isvg">
                       <svg viewBox="0 0 24 24">
                         <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" fill="currentColor" fill-opacity="1"></path>
-                      </svg></i></i> T1</a><a class="__full _a1m" href="#" onclick="event.preventDefault();toggleMenu(&quot;side_t2&quot;);"><i class="_icon _licon"><i class="isvg">
+                      </svg></i></i> S1</a><a class="__full _a1m" href="#" onclick="event.preventDefault();toggleMenu(&quot;side_t2&quot;);"><i class="_icon _licon"><i class="isvg">
                       <svg viewBox="0 0 24 24">
                         <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" fill="currentColor" fill-opacity="1"></path>
-                      </svg></i></i> T2</a><a class="__full _a1m" href="#" onclick="event.preventDefault();toggleMenu(&quot;side_t3&quot;);"><i class="_icon _licon"><i class="isvg">
+                      </svg></i></i> S2</a><a class="__full _a1m" href="#" onclick="event.preventDefault();toggleMenu(&quot;side_t3&quot;);"><i class="_icon _licon"><i class="isvg">
                       <svg viewBox="0 0 24 24">
                         <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" fill="currentColor" fill-opacity="1"></path>
-                      </svg></i></i> T3A</a><a class="__full _a1m" href="#" onclick="event.preventDefault();toggleMenu(&quot;side_t5&quot;);"><i class="_icon _licon"><i class="isvg">
+                      </svg></i></i> S3A</a><a class="__full _a1m" href="#" onclick="event.preventDefault();toggleMenu(&quot;side_t5&quot;);"><i class="_icon _licon"><i class="isvg">
                       <svg viewBox="0 0 24 24">
                         <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" fill="currentColor" fill-opacity="1"></path>
-                      </svg></i></i> T5A</a>
+                      </svg></i></i> S5A</a>
+              </div>
+              <style>
+                #side_t3 { z-index:2 }
+                #side_t3 .__case { position:absolute }
+                #side_t3.open .__case { width:250px;height:200px }
+                #side_t3 .__content   { height:150% }
+              </style>
+              <div>
+                <nav class="_box" id="side_t3">
+                  <div class="__case">
+                    <div class="__card _color_1 _border_left _scrollable">
+                      <div class="__card">
+                        <div class="__content">
+                          <div class="_pa_5 _small">// S3A</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </nav>
               </div>
               <style>
                 #side_t5 { z-index:2 }
@@ -513,27 +535,8 @@
                       <div class="__card _color_1 _border _radius_5 _no_overflow">
                         <div class="_scrollable _fullcase">
                           <div class="__content">
-                            <div class="_pa_5 _small">// T5A</div>
+                            <div class="_pa_5 _small">// S5A</div>
                           </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </nav>
-              </div>
-              <style>
-                #side_t5 { z-index:2 }
-                #side_t3 .__case { position:absolute }
-                #side_t3.open .__case { width:250px;height:200px }
-                #side_t3 .__content   { height:150% }
-              </style>
-              <div>
-                <nav class="_box" id="side_t3">
-                  <div class="__case">
-                    <div class="__card _color_1 _border_left _scrollable">
-                      <div class="__card">
-                        <div class="__content">
-                          <div class="_pa_5 _small">// T3A</div>
                         </div>
                       </div>
                     </div>
@@ -551,7 +554,7 @@
                     <div class="__card _color_1 _border_left _scrollable">
                       <div class="__card">
                         <div class="__content">
-                          <div class="_pa_5 _small">// T1</div>
+                          <div class="_pa_5 _small">// S1</div>
                         </div>
                       </div>
                     </div>
@@ -569,7 +572,7 @@
                     <div class="__card _ph_5">
                       <div class="__card _color_1 _border _scrollable">
                         <div class="__content">
-                          <div class="_pa_5 _small">// T2</div>
+                          <div class="_pa_5 _small">// S2</div>
                         </div>
                       </div>
                     </div>

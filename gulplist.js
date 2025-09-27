@@ -1,4 +1,21 @@
 const
+  build = {
+    now: [
+      'basic',
+      'lab'
+    ],
+    all: [
+      'basic',
+      'core',
+      'index',
+      'lab',
+      't-starter',
+      't-one',
+      'themejs',
+    ]
+  },
+  buildNow = build.now;
+const
   copyList = {
     files:[
       'index'
@@ -14,23 +31,15 @@ const
       'dev',
     ].map(_scss);
     ['html', 'php', 'txt', 'md'].forEach(type => {
-      o[type] = [
-        'basic',
-        'core',
-        'index',
-        'lab',
-        'themejs',
-        't-starter',
-        't-one',
-      ].map(item => `src/pug/${item}/**/*.${type}.pug`);
+      o[type] = buildNow.map(item => `src/pug/${item}/**/*.${type}.pug`);
     });
     return o;
   })(),
   watchList = buildList,
-  destinations = {
+  publishList = {
     pages:   'site',
-    css:     'site/css',
     scripts: 'site/js',
-    css_dev: 'src/scss/dev_css',
+    css:     'site/css',
+    dev_css: 'src/scss/dev_css',
   };
-module.exports = { copyList, buildList, watchList, destinations };
+module.exports = { copyList, buildList, watchList, publishList };

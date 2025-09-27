@@ -84,47 +84,7 @@ block article
   article._article._container(style="margin-bottom:200px")
 
     //- hr
-    //- section._mv._flex._gap
-    //- 
-      style.
-        #m_one .__case { width:150px;height:150px }
-        #m_one .__content   { min-height:150% }
-      +box('_color_1 _border _pad _radius_5 _no_overflow','_scrollable')#m_one: .__content
-        +a.__full._a1m|#[+isvg(svgi.home,'_licon')]Home
-        hr._m0
-        ._flex
-          div: +a._a1m: +isvg(svgi.bars,'_cicon')
-          ._fill: +a._a1m| Link
-          div: +a._a1m: +isvg(svgi.ellipsis,'_cicon')
-        hr._m0
-        +repeat(3): +a.__full._a1m Link
-
-      style.
-        #m_two .__case { width:150px;height:150px }
-      +box('_color_1')#m_two
-        +a.__full._a1m|#[+isvg(svgi.home,'_licon')]Home
-        hr._m0
-        ._flex
-          div: +a._a1m: +isvg(svgi.bars,'_cicon')
-          ._fill: +a._a1m| Link
-          div: +a._a1m: +isvg(svgi.ellipsis,'_cicon')
-        hr._m0
-        +a.__full._a1m Link
-
-      style.
-        #m_three .__case { width:150px;height:150px }
-      +box('_color_1 _pa_5 _radius_5 _no_overflow')#m_three
-        +a.__full._a2|#[+isvg(svgi.home,'_licon')]Home
-        hr._mv_25
-        ._flex
-          div: +a._a2: +isvg(svgi.bars,'_cicon')
-          ._fill: +a._a2| Link
-          div: +a._a2: +isvg(svgi.ellipsis,'_cicon')
-        hr._mv_25
-        +a.__full._a2 Link
-
-    hr
-    section._mv
+    section._mv(style="position:relative;z-index:5")
 
       nav._color_1._flex
         style.
@@ -165,11 +125,11 @@ block article
             #hoxRight .__content { height:150% }
           span#hoxRight._inblock._text_left
             +a._a1m(title="More ..")| #[+isvg(svgi.angle,'_cicon')._rotate90]
-            +hox('_pa_5','_color_1 _border _scrollable')
-              .__content: ._pa_5._small| // hoxRight
+            +hox('_pa_5','_color_1 _border _radius_5 _no_overflow')
+              ._scrollable._fullcase: .__content: ._pa_5._small| // hoxRight
 
     //- hr
-    section._mv._flex._gap
+    section._mv._flex._gap(style="position:relative;z-index:4")
 
       ._f(style="min-height:100px"): ._color_1
         style.
@@ -253,7 +213,7 @@ block article
         +repeat(1): +a.__full._a1m Other
 
     hr
-    section._mv
+    section._mv(style="position:relative;z-index:3")
 
       nav._color_1._flex
         +a._a1m(onclick=onclick('toggleMenu("menu_t1");') title="Open menu_t1")| #[+isvg(svgi.bars,'_cicon')]
@@ -287,16 +247,15 @@ block article
         #menu_t5.open .__case { width:300px;max-width:100%;height:150px }
         #menu_t5 .___content  { height:150% }
       +box('_pa_5','_color_1 _border _radius_5 _no_overflow')#menu_t5
-        ._scrollable._fullcase
-          .___content: ._pa_5._small| // T5A
+        ._scrollable._fullcase: .___content: ._pa_5._small| // T5A
 
       style.
         #menu_r2 { z-index:2 }
         #menu_r2 .__case { position:absolute;right:0 }
         #menu_r2.open .__case { width:300px;max-width:100%;height:150px }
         #menu_r2 .__content   { height:150% }
-      +box('_pa_5','_color_1 _border _scrollable')#menu_r2
-        .__content: ._pa_5._small| // R2A
+      +box('_pa_5','_color_1 _border _radius_5 _no_overflow')#menu_r2
+        ._scrollable._fullcase: .__content: ._pa_5._small| // R2A
 
       style.
         #menu_t1.open .__case { width:100%;height:150px }
@@ -320,10 +279,18 @@ block article
     //- hr
     section._mv._flex(style="min-height:100px")
       ._color_1
-        +a.__full._a1m(onclick=onclick('toggleMenu("side_t1");'))| #[+isvg(svgi.arrow,'_licon')] T1
-        +a.__full._a1m(onclick=onclick('toggleMenu("side_t2");'))| #[+isvg(svgi.arrow,'_licon')] T2
-        +a.__full._a1m(onclick=onclick('toggleMenu("side_t3");'))| #[+isvg(svgi.arrow,'_licon')] T3A
-        +a.__full._a1m(onclick=onclick('toggleMenu("side_t5");'))| #[+isvg(svgi.arrow,'_licon')] T5A
+        +a.__full._a1m(onclick=onclick('toggleMenu("side_t1");'))| #[+isvg(svgi.arrow,'_licon')] S1
+        +a.__full._a1m(onclick=onclick('toggleMenu("side_t2");'))| #[+isvg(svgi.arrow,'_licon')] S2
+        +a.__full._a1m(onclick=onclick('toggleMenu("side_t3");'))| #[+isvg(svgi.arrow,'_licon')] S3A
+        +a.__full._a1m(onclick=onclick('toggleMenu("side_t5");'))| #[+isvg(svgi.arrow,'_licon')] S5A
+
+      style.
+        #side_t3 { z-index:2 }
+        #side_t3 .__case { position:absolute }
+        #side_t3.open .__case { width:250px;height:200px }
+        #side_t3 .__content   { height:150% }
+      div: +box('_color_1 _border_left _scrollable')#side_t3
+        .__content: ._pa_5._small| // S3A
 
       style.
         #side_t5 { z-index:2 }
@@ -331,29 +298,21 @@ block article
         #side_t5.open .__case { width:250px;height:200px }
         #side_t5 .__content   { height:150% }
       div: +box('_ph','_color_1 _border _radius_5 _no_overflow')#side_t5
-        ._scrollable._fullcase: .__content: ._pa_5._small| // T5A
-
-      style.
-        #side_t5 { z-index:2 }
-        #side_t3 .__case { position:absolute }
-        #side_t3.open .__case { width:250px;height:200px }
-        #side_t3 .__content   { height:150% }
-      div: +box('_color_1 _border_left _scrollable')#side_t3
-        .__content: ._pa_5._small| // T3A
+        ._scrollable._fullcase: .__content: ._pa_5._small| // S5A
 
       style.
         #side_t1 { height:100% }
         #side_t1.open .__case { width:200px;height:100% }
         #side_t1 .__content   { height:150% }
       div: +box('_color_1 _border_left _scrollable')#side_t1
-        .__content: ._pa_5._small| // T1
+        .__content: ._pa_5._small| // S1
 
       style.
         #side_t2 { height:100% }
         #side_t2.open .__case { width:200px;height:100% }
         #side_t2 .__content   { height:150% }
       div: +box('_ph_5','_color_1 _border _scrollable')#side_t2
-        .__content: ._pa_5._small| // T2
+        .__content: ._pa_5._small| // S2
 
       ._fill._scrollable._scroll_y._fullcase: ._container: ._flex._gap_5
         ._full._flex._gap_5
